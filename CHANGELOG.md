@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.4.5 (2026-11-27)
+
+- Full controller bindings and auto-switching Keyboard/Xbox/PlayStation HUD legend
+- Add Undo, Gentle Hint, Par celebration banner, 3 nocturne tracks, Living Conservatory, Photo Mode, and Milestones
+
 ## 0.4.4 (2026-11-27)
 
 - Conservatory garden builder: firefly jar, Garden shop, place/lift/move pieces, four garden sizes
