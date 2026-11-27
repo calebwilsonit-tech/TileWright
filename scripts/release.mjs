@@ -113,10 +113,10 @@ else {
       path.join(dir, 'RELEASE.json'),
     ].filter((f) => fs.existsSync(f));
     const notes = changes.join('\n') || `Tilewright ${next}`;
-    const ghCheck = spawnSync('gh', ['auth', 'status'], { cwd: root, stdio: 'ignore', shell: process.platform === 'win32' });
+    const ghCheck = spawnSync('gh', ['auth', 'status'], { cwd: root, stdio: 'ignore' });
     if (ghCheck.status === 0 && assets.length > 0) {
       say(`publishing GitHub Release v${next} (${assets.length} assets)`);
-      const pub = spawnSync('gh', ['release', 'create', `v${next}`, ...assets, '--title', `Tilewright v${next}`, '--notes', notes], { cwd: root, stdio: 'inherit', shell: process.platform === 'win32' });
+      const pub = spawnSync('gh', ['release', 'create', `v${next}`, ...assets, '--title', `Tilewright v${next}`, '--notes', notes], { cwd: root, stdio: 'inherit' });
       if (pub.status !== 0) say(`warning: gh release create failed (tag v${next} is pushed; you can upload the installer manually)`);
     } else {
       say('gh CLI not logged in: skipped GitHub Release upload (in-app updater checks GitHub Releases)');
