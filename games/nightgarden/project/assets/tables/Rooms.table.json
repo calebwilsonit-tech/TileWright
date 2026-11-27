@@ -251,39 +251,74 @@
       "scene": "scenes/r406.scene.json"
     },
     {
-      "id": "r501",
+      "id": "r407",
       "no": 32,
+      "name": "Warm bridge",
+      "chapter": "The Brazier Court",
+      "scene": "scenes/r407.scene.json"
+    },
+    {
+      "id": "r408",
+      "no": 33,
+      "name": "Hearth and gate",
+      "chapter": "The Brazier Court",
+      "scene": "scenes/r408.scene.json"
+    },
+    {
+      "id": "r501",
+      "no": 34,
       "name": "Moonstone",
       "chapter": "The Moonstone Terrace",
       "scene": "scenes/r501.scene.json"
     },
     {
       "id": "r502",
-      "no": 33,
+      "no": 35,
       "name": "Shadestone",
       "chapter": "The Moonstone Terrace",
       "scene": "scenes/r502.scene.json"
     },
     {
       "id": "r503",
-      "no": 34,
+      "no": 36,
       "name": "Passing it on",
       "chapter": "The Moonstone Terrace",
       "scene": "scenes/r503.scene.json"
     },
     {
       "id": "r504",
-      "no": 35,
+      "no": 37,
       "name": "Keeps its own light",
       "chapter": "The Moonstone Terrace",
       "scene": "scenes/r504.scene.json"
     },
     {
       "id": "r505",
-      "no": 36,
+      "no": 38,
       "name": "Relay",
       "chapter": "The Moonstone Terrace",
       "scene": "scenes/r505.scene.json"
+    },
+    {
+      "id": "r506",
+      "no": 39,
+      "name": "Shadow switch",
+      "chapter": "The Moonstone Terrace",
+      "scene": "scenes/r506.scene.json"
+    },
+    {
+      "id": "r507",
+      "no": 40,
+      "name": "Two watches",
+      "chapter": "The Moonstone Terrace",
+      "scene": "scenes/r507.scene.json"
+    },
+    {
+      "id": "r508",
+      "no": 41,
+      "name": "The night garden",
+      "chapter": "The Moonstone Terrace",
+      "scene": "scenes/r508.scene.json"
     }
   ]
 }

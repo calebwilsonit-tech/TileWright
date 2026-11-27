@@ -435,7 +435,7 @@
         },
         "script_Exit": {
           "room": "r505",
-          "next": ""
+          "next": "scenes/r506.scene.json"
         }
       }
     },
@@ -503,14 +503,14 @@
         "script_Room": {
           "room": "r505",
           "name": "Relay",
-          "no": 36,
+          "no": 38,
           "hint": "One lamp wakes a stone, which lights a lamp, which wakes a stone.",
           "chapter": "The Moonstone Terrace",
           "chapterNo": 5,
           "chapterLine": "Stones set in the path that feel the light. A moonstone wakes when lit, a shadestone when dark, and each is wired to something.",
           "chapters": 5,
-          "total": 36,
-          "flyTotal": 16,
+          "total": 41,
+          "flyTotal": 21,
           "width": 8,
           "ground": "_._._.__......~.___.__~_"
         }
@@ -552,7 +552,7 @@
       "w": 8,
       "h": 3,
       "cameraBounds": false,
-      "music": "",
+      "music": "nightgarden",
       "darkness": 0.55,
       "bossActive": false
     }

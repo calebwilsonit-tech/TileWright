@@ -44,8 +44,11 @@ export default defineScript({
       col.height = full;
     }
     const step = game.dt / Math.max(0.05, Number(me.settings.seconds));
+    const prevOpen = open;
     open = shut ? Math.max(0, open - step) : Math.min(1, open + step);
     me.state.open = open;
+    if (prevOpen === 0 && open > 0) game.do('sound', { name: 'gate_open', volume: 0.65 });
+    else if (prevOpen === 1 && open < 1) game.do('sound', { name: 'gate_shut', volume: 0.65 });
     const sp = me.get<{ height: number; asset?: string }>('sprite');
     if (sp) {
       sp.height = Math.max(0.05, full * (1 - open));

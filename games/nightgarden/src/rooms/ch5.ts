@@ -54,5 +54,40 @@ export const CH5: Chapter = {
         '_  _  _   .*  _   _   ~  _',
       ],
     },
+    {
+      id: 'r506',
+      name: 'Shadow switch',
+      hint: 'A screen can give a shadestone the dark it wants.',
+      rows: [
+        '_  .  .  .  .   _   _  _',
+        '.@ .  .  .h .   _   _  _',
+        '_  .  .f .  .S1 .g1 .  .E',
+        '_  _  .  .  .   .*  _  _',
+      ],
+    },
+    {
+      id: 'r507',
+      name: 'Two watches',
+      hint: 'A lamp can build a bridge and bar a gate at the same time.',
+      rows: [
+        '_  .  .  .   _   .   _   _',
+        '.@ .  .l .s1 .p1 .   .S2 _',
+        '_  .  .  .   w   .h  .g2 .E',
+        '_  _  _  .   ~b  .   .   _',
+        '_  _  _  _   ~   .*  _   _',
+      ],
+    },
+    {
+      id: 'r508',
+      name: 'The night garden',
+      hint: 'Every stone, every lamp and every shadow has its part.',
+      rows: [
+        '_  _  _  _   _   w   _   .   _   _   _',
+        '.@ .z .  .   .o1 w   .p1 .   .S2 _   _',
+        '_  _  _  .   .   w   .   .h  .g2 .   _',
+        '_  _  _  _   .   ~b  .   .   #   .b  .l',
+        '_  _  _  _   _   ~   .*  .   ^E  ^   _',
+      ],
+    },
   ],
 };

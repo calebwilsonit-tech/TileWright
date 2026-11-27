@@ -13,6 +13,8 @@ import { PROJECT_DIR, project, say } from './helpers';
 
 const spritesDir = path.join(PROJECT_DIR, 'assets', 'sprites');
 const spriteNames = (): string[] => fs.readdirSync(spritesDir).filter((f) => f.endsWith('.sprite.json')).map((f) => f.replace('.sprite.json', ''));
+const audioDir = path.join(PROJECT_DIR, 'assets', 'audio');
+const audioNames = (): string[] => (fs.existsSync(audioDir) ? fs.readdirSync(audioDir).filter((f) => /\.(wav|ogg|mp3|flac|m4a)$/.test(f)).map((f) => f.replace(/\.[^.]+$/, '')) : []);
 
 describe('the project', () => {
   it('opens with nothing to complain about: every scene, script, screen and table loads', async () => {
@@ -25,7 +27,7 @@ describe('the project', () => {
   it('passes the editor\'s own whole-project check (what Export insists on)', async () => {
     const p = await project();
     const [languages, skins, worldMap, input, layout] = await Promise.all([loadLanguages(nodeFs, PROJECT_DIR), loadSkins(nodeFs, PROJECT_DIR), loadWorldMap(nodeFs, PROJECT_DIR), loadProjectInput(nodeFs, PROJECT_DIR), loadUiLayout(nodeFs, PROJECT_DIR)]);
-    const problems = await checkProject(nodeFs, PROJECT_DIR, p.project, p.prefabs, { dialogues: p.dialogues, cutscenes: p.cutscenes }, new Set(spriteNames()), new Set(), languages.languages, skins.skins, p.data, undefined, worldMap.map, { input: input.input, layout: layout.layout, tables: p.tables });
+    const problems = await checkProject(nodeFs, PROJECT_DIR, p.project, p.prefabs, { dialogues: p.dialogues, cutscenes: p.cutscenes }, new Set(spriteNames()), new Set(audioNames()), languages.languages, skins.skins, p.data, undefined, worldMap.map, { input: input.input, layout: layout.layout, tables: p.tables });
     for (const m of problems) say(`  ${m.severity}: ${m.scene} ${m.message}`);
     expect(problems.filter((m) => m.severity === 'error').map((m) => `${m.scene}: ${m.message}`)).toEqual([]);
     expect(problems.filter((m) => m.severity === 'warning').map((m) => `${m.scene}: ${m.message}`)).toEqual([]);

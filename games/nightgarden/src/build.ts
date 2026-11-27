@@ -4,12 +4,15 @@ import { fileURLToPath } from 'node:url';
 import { currentFlags, stringifyScene, stringifyUiDoc, type ProjectData } from '@tilewright/runtime';
 import { baseProject } from '@tilewright/behaviors';
 import { projectText } from '../../../packages/editor/src/renderer/project/io';
+import { nightgardenAudio } from './audio';
 import { parseRoom, type Room, type RoomDef } from './model';
 import { roomScene, scenePath } from './scene';
 import { roomsTable, screensDoc, uiLayout } from './ui/screens';
 
 export const HERE = path.dirname(fileURLToPath(import.meta.url));
 export const PROJECT_DIR = path.resolve(HERE, '..', 'project');
+/** Oldest Tilewright version Nightgarden works with (includes the bundled room-camera plugin). */
+export const ENGINE_VERSION = '0.2.0';
 
 export interface Chapter {
   id: string;
@@ -24,12 +27,24 @@ export const PLUGINS = ['lighting', 'room-camera'];
 
 const ART = path.resolve(HERE, '..', 'art', 'out');
 
-/** The ground tiles as the tile studio sent them to the palette (art/out/tiles.json), under the ids the scenes use. */
-function tileset(): ProjectData['tileset'] {
-  const made = JSON.parse(fs.readFileSync(path.join(ART, 'tiles.json'), 'utf8')) as (ProjectData['tileset'][number] & { want: number })[];
-  return made
-    .map(({ want, ...t }) => ({ ...t, id: want, ...(t.name === 'hedge' ? { wall: true } : {}) }))
-    .sort((a, b) => a.id - b.id);
+/** The ground tiles as the tile studio sent them to the palette (art/out/tiles.json), falling back to the committed project when art/out is absent. */
+function readArt(): { tiles: ProjectData['tileset']; sprites: Map<string, string> } {
+  const tilesFile = path.join(ART, 'tiles.json');
+  const spritesDir = path.join(ART, 'sprites');
+  if (fs.existsSync(tilesFile) && fs.existsSync(spritesDir)) {
+    const made = JSON.parse(fs.readFileSync(tilesFile, 'utf8')) as (ProjectData['tileset'][number] & { want: number })[];
+    const tiles = made
+      .map(({ want, ...t }) => ({ ...t, id: want, ...(t.name === 'hedge' ? { wall: true } : {}) }))
+      .sort((a, b) => a.id - b.id);
+    const sprites = new Map<string, string>();
+    for (const f of fs.readdirSync(spritesDir)) if (f.endsWith('.sprite.json')) sprites.set(f, fs.readFileSync(path.join(spritesDir, f), 'utf8'));
+    return { tiles, sprites };
+  }
+  const existing = JSON.parse(fs.readFileSync(path.join(PROJECT_DIR, 'project.json'), 'utf8')) as ProjectData;
+  const existingSprites = path.join(PROJECT_DIR, 'assets', 'sprites');
+  const sprites = new Map<string, string>();
+  for (const f of fs.readdirSync(existingSprites)) if (f.endsWith('.sprite.json')) sprites.set(f, fs.readFileSync(path.join(existingSprites, f), 'utf8'));
+  return { tiles: existing.tileset, sprites };
 }
 
 /** Write the whole game project into `dir` from the room lists. Returns the parsed rooms in play order. */
@@ -41,15 +56,19 @@ export function buildProject(chapters: Chapter[], dir = PROJECT_DIR): { rooms: R
     if (ids.has(room.id)) throw new Error(`Two rooms share the id ${room.id}.`);
     ids.add(room.id);
   }
+  // Read art before clearing `dir` so rebuilding PROJECT_DIR in-place works even without art/out.
+  const art = readArt();
   fs.rmSync(dir, { recursive: true, force: true });
-  const write = (rel: string, text: string): void => {
+  const write = (rel: string, text: string | Buffer): void => {
     const file = path.join(dir, ...rel.split('/'));
     fs.mkdirSync(path.dirname(file), { recursive: true });
-    fs.writeFileSync(file, text, 'utf8');
+    if (typeof text === 'string') fs.writeFileSync(file, text, 'utf8');
+    else fs.writeFileSync(file, text);
   };
   const project: ProjectData = {
     ...baseProject('Nightgarden', PLUGINS),
-    tileset: tileset(),
+    engine: ENGINE_VERSION,
+    tileset: art.tiles,
     scenes: rooms.map(({ room }) => scenePath(room.id)),
     startScene: scenePath(rooms[0]!.room.id),
     title: { enabled: true, subtitle: 'A puzzle garden by lamplight' },
@@ -70,9 +89,11 @@ export function buildProject(chapters: Chapter[], dir = PROJECT_DIR): { rooms: R
   write('assets/tables/Rooms.table.json', json(roomsTable(rooms.map(({ room, chapter }, i) => ({ id: room.id, no: i + 1, name: room.name, chapter: chapter.name, scene: scenePath(room.id) })))));
   write('assets/input.json', json({ schemaVersion: 1, overrides: {}, actions: [{ id: 'restart', label: 'Start the room again', bindings: ['key:KeyR', 'pad:button2'] }] }));
   // the pictures, exactly as the sprite studio and the tile studio saved them
-  for (const f of fs.readdirSync(path.join(ART, 'sprites'))) if (f.endsWith('.sprite.json')) write(`assets/sprites/${f}`, fs.readFileSync(path.join(ART, 'sprites', f), 'utf8'));
+  for (const [f, text] of art.sprites) write(`assets/sprites/${f}`, text);
+  // the soft sound effects and calm looping music
+  for (const { name, wav } of nightgardenAudio()) write(`assets/audio/${name}.wav`, wav);
   const scripts = path.join(HERE, 'scripts');
-  const rule = /\/\* LIGHT-RULE-BEGIN \*\/\n([\s\S]*?)\/\* LIGHT-RULE-END \*\//.exec(fs.readFileSync(path.join(HERE, 'light.ts'), 'utf8'))?.[1];
+  const rule = /\/\* LIGHT-RULE-BEGIN \*\/\r?\n([\s\S]*?)\/\* LIGHT-RULE-END \*\//.exec(fs.readFileSync(path.join(HERE, 'light.ts'), 'utf8'))?.[1];
   if (!rule) throw new Error('src/light.ts has lost its LIGHT-RULE marks.');
   for (const f of fs.readdirSync(scripts)) if (f.endsWith('.script.ts')) write(`assets/scripts/${f}`, fs.readFileSync(path.join(scripts, f), 'utf8').replace('/*__LIGHT_RULE__*/', rule.trim()));
   return { rooms: rooms.map((r) => r.room), dir };

@@ -44,6 +44,8 @@ export default defineScript({
     const step = game.dt / Math.max(0.05, Number(me.settings.seconds));
     const p = Math.min(1, Math.max(0, p0 + (want ? step : -step)));
     me.state.p = p;
+    if (p0 === 0 && p > 0) game.do('sound', { name: 'bloom_up', volume: 0.5 });
+    else if (p0 === 1 && p < 1) game.do('sound', { name: 'bloom_down', volume: 0.45 });
     const height = Math.max(0.2, p * Number(me.settings.height));
     if (col) col.height = height;
     const sp = me.get<{ asset?: string; height: number }>('sprite');

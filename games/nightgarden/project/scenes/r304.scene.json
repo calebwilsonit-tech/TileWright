@@ -369,8 +369,8 @@
           "chapterNo": 3,
           "chapterLine": "Crates, trellis screens, iron gates on stone plates. Everything here can be leaned on, and some of it throws a useful shadow.",
           "chapters": 5,
-          "total": 36,
-          "flyTotal": 16,
+          "total": 41,
+          "flyTotal": 21,
           "width": 6,
           "ground": "....__.....___...."
         }
@@ -412,7 +412,7 @@
       "w": 6,
       "h": 3,
       "cameraBounds": false,
-      "music": "",
+      "music": "nightgarden",
       "darkness": 0.55,
       "bossActive": false
     }

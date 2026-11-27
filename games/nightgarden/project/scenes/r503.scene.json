@@ -376,14 +376,14 @@
         "script_Room": {
           "room": "r503",
           "name": "Passing it on",
-          "no": 34,
+          "no": 36,
           "hint": "A stone can light a lamp you cannot reach.",
           "chapter": "The Moonstone Terrace",
           "chapterNo": 5,
           "chapterLine": "Stones set in the path that feel the light. A moonstone wakes when lit, a shadestone when dark, and each is wired to something.",
           "chapters": 5,
-          "total": 36,
-          "flyTotal": 16,
+          "total": 41,
+          "flyTotal": 21,
           "width": 6,
           "ground": "_._w._...~..___w__"
         }
@@ -425,7 +425,7 @@
       "w": 6,
       "h": 3,
       "cameraBounds": false,
-      "music": "",
+      "music": "nightgarden",
       "darkness": 0.55,
       "bossActive": false
     }

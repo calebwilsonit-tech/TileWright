@@ -367,14 +367,14 @@
         "script_Room": {
           "room": "r504",
           "name": "Keeps its own light",
-          "no": 35,
+          "no": 37,
           "hint": "Once the teal lamp is lit, what lights its stone?",
           "chapter": "The Moonstone Terrace",
           "chapterNo": 5,
           "chapterLine": "Stones set in the path that feel the light. A moonstone wakes when lit, a shadestone when dark, and each is wired to something.",
           "chapters": 5,
-          "total": 36,
-          "flyTotal": 16,
+          "total": 41,
+          "flyTotal": 21,
           "width": 7,
           "ground": ".....____....."
         }
@@ -416,7 +416,7 @@
       "w": 7,
       "h": 2,
       "cameraBounds": false,
-      "music": "",
+      "music": "nightgarden",
       "darkness": 0.55,
       "bossActive": false
     }

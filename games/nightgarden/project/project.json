@@ -95,17 +95,23 @@
     "scenes/r404.scene.json",
     "scenes/r405.scene.json",
     "scenes/r406.scene.json",
+    "scenes/r407.scene.json",
+    "scenes/r408.scene.json",
     "scenes/r501.scene.json",
     "scenes/r502.scene.json",
     "scenes/r503.scene.json",
     "scenes/r504.scene.json",
-    "scenes/r505.scene.json"
+    "scenes/r505.scene.json",
+    "scenes/r506.scene.json",
+    "scenes/r507.scene.json",
+    "scenes/r508.scene.json"
   ],
   "startScene": "scenes/r101.scene.json",
   "plugins": [
     "lighting",
     "room-camera"
   ],
+  "engine": "0.2.0",
   "title": {
     "enabled": true,
     "subtitle": "A puzzle garden by lamplight"

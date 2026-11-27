@@ -66,5 +66,28 @@ export const CH4: Chapter = {
         '_  _  .* _  _  _',
       ],
     },
+    {
+      id: 'r407',
+      name: 'Warm bridge',
+      hint: 'A brazier beside the water can wake a sunken bed.',
+      rows: [
+        '_  .  .  .  .  w  _  _  _',
+        '.@ .z .  .  .  w  .  .l _',
+        '_  .  .  .d .  ~b .  .b ^E',
+        '_  _  _  .  _  ~  _  _  _',
+        '_  _  _  .* _  _  _  _  _',
+      ],
+    },
+    {
+      id: 'r408',
+      name: 'Hearth and gate',
+      hint: 'A brazier has weight as well as light.',
+      rows: [
+        '_  .  .  .  .   w  _   _  _',
+        '.@ .z .  .  .o1 w  .   .l _',
+        '_  .  .  .  .   ~b .g1 .d .E',
+        '_  _  _  _  _   ~  _   .* _',
+      ],
+    },
   ],
 };

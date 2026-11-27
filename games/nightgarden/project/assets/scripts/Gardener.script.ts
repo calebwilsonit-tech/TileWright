@@ -82,6 +82,7 @@ export default defineScript({
           st.stall = 0;
           st.back = true;
           game.emit('bump', {});
+          game.do('sound', { name: 'bump', volume: 0.45 });
         } else if (st.stall > 30) {
           st.tx = undefined; // wedged: give up and rest where it is
         }

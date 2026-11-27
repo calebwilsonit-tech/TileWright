@@ -492,8 +492,8 @@
           "chapterNo": 1,
           "chapterLine": "The lamps are out and the moonblooms have gone to ground. Light makes them rise. Start with one.",
           "chapters": 5,
-          "total": 36,
-          "flyTotal": 16,
+          "total": 41,
+          "flyTotal": 21,
           "width": 8,
           "ground": "__._____^^.^^.^^^^.^^.____....__"
         }
@@ -535,7 +535,7 @@
       "w": 8,
       "h": 4,
       "cameraBounds": false,
-      "music": "",
+      "music": "nightgarden",
       "darkness": 0.55,
       "bossActive": false
     }

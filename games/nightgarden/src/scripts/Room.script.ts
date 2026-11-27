@@ -59,6 +59,18 @@ export default defineScript({
     for (const z of game.findAll('tag:brazier')) lights.push({ x: Math.floor(z.x), y: Math.floor(z.y), range: 1.5 });
     game.vars.ng_lit = litCells({ w, h, ground, tall, lights }).map((v) => (v ? '1' : '0')).join('');
     game.vars.ng_w = w;
+    // soft slide sound whenever a crate, brazier or screen moves into a new cell
+    const crates = game.findAll('tag:crate');
+    const prev = me.state.crates as Record<number, number> | undefined;
+    const now: Record<number, number> = {};
+    let pushed = false;
+    for (const c of crates) {
+      const at = cell(c);
+      now[c.id] = at;
+      if (prev && prev[c.id] !== undefined && prev[c.id] !== at) pushed = true;
+    }
+    me.state.crates = now;
+    if (pushed) game.do('sound', { name: 'push', volume: 0.55 });
     if (game.input.pressed('restart')) game.do('restartArea');
     // a card of the Rooms screen was chosen
     const to = game.vars.ng_goto;

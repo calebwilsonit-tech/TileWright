@@ -35,10 +35,15 @@ Written by the check from the last run. Steps are the shortest way out by the ru
 | r404 | Fire walk | 7 | 0 | 4 | 9 | 3 |
 | r405 | Lily pond | 6 | 0 | 1 | 8 | 2 |
 | r406 | Not too near | 6 | 0 | 3 | 10 | 3 |
+| r407 | Warm bridge | 10 | 1 | 3 | 14 | 4 |
+| r408 | Hearth and gate | 12 | 1 | 3 | 14 | 5 |
 | r501 | Moonstone | 6 | 1 | 0 |  | 2 |
 | r502 | Shadestone | 7 | 2 | 0 | 9 | 2 |
 | r503 | Passing it on | 6 | 1 | 0 |  | 2 |
 | r504 | Keeps its own light | 7 | 0 | 2 |  | 3 |
 | r505 | Relay | 8 | 1 | 0 | 10 | 3 |
+| r506 | Shadow switch | 10 | 0 | 1 | 12 | 3 |
+| r507 | Two watches | 11 | 1 | 1 | 13 | 4 |
+| r508 | The night garden | 16 | 1 | 4 | 18 | 6 |
 
-36 rooms, 360 steps on the shortest ways, 141 seconds for a bot that never stops to think.
+41 rooms, 419 steps on the shortest ways, 163 seconds for a bot that never stops to think.

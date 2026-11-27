@@ -343,8 +343,8 @@
           "chapterNo": 2,
           "chapterLine": "Under the old yews grow duskcaps. They stand tall in the dark and shrink from a lamp. Mind what stands between a lamp and a bed.",
           "chapters": 5,
-          "total": 36,
-          "flyTotal": 16,
+          "total": 41,
+          "flyTotal": 21,
           "width": 6,
           "ground": "__.^__...^^^__.___"
         }
@@ -386,7 +386,7 @@
       "w": 6,
       "h": 3,
       "cameraBounds": false,
-      "music": "",
+      "music": "nightgarden",
       "darkness": 0.55,
       "bossActive": false
     }

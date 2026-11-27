@@ -319,14 +319,14 @@
         "script_Room": {
           "room": "r501",
           "name": "Moonstone",
-          "no": 32,
+          "no": 34,
           "hint": "A moonstone opens its gate while it is lit.",
           "chapter": "The Moonstone Terrace",
           "chapterNo": 5,
           "chapterLine": "Stones set in the path that feel the light. A moonstone wakes when lit, a shadestone when dark, and each is wired to something.",
           "chapters": 5,
-          "total": 36,
-          "flyTotal": 16,
+          "total": 41,
+          "flyTotal": 21,
           "width": 6,
           "ground": "__.___......"
         }
@@ -368,7 +368,7 @@
       "w": 6,
       "h": 2,
       "cameraBounds": false,
-      "music": "",
+      "music": "nightgarden",
       "darkness": 0.55,
       "bossActive": false
     }
