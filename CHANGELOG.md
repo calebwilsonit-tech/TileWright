@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.2.1 (2026-11-27)
+
+- Editor: add built-in in-app updater checking GitHub Releases, with download progress, SHA-256 verification, and one-click install
+
 ## 0.2.0 (2026-11-27)
 
 - Update package-lock.json for @tilewright/plugin-room-camera
