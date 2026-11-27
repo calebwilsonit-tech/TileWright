@@ -1,0 +1,16 @@
+{
+  "id": "botanical-ui",
+  "name": "Botanical UI",
+  "version": "1.0.0",
+  "description": "Custom moonlit botanical game-UI widgets and styling: wrought-iron filigree corners, vine-and-star dividers, drifting firefly backdrops, and embossed keycap hints.",
+  "author": "Tilewright",
+  "license": "MIT",
+  "engine": "^1.0.0",
+  "dependencies": {},
+  "permissions": [],
+  "entry": {
+    "runtime": "src/index.ts"
+  },
+  "builtin": true,
+  "defaultOn": false
+}

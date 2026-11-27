@@ -9,6 +9,7 @@
   "dependencies": {
     "@tilewright/plugin-sdk": "*",
     "@tilewright/plugin-ai": "*",
+    "@tilewright/plugin-botanical-ui": "*",
     "@tilewright/plugin-combat": "*",
     "@tilewright/plugin-controls": "*",
     "@tilewright/plugin-inventory": "*",

@@ -1,0 +1,15 @@
+{
+  "name": "@tilewright/plugin-botanical-ui",
+  "version": "1.0.0",
+  "private": true,
+  "description": "A moonlit botanical game-UI kit: wrought-iron corner filigree, illuminated serif plaques, drifting firefly atmosphere, brass dividers, and embossed keycap badges.",
+  "type": "module",
+  "main": "./src/index.ts",
+  "types": "./src/index.ts",
+  "dependencies": {
+    "@tilewright/plugin-sdk": "*"
+  },
+  "exports": {
+    ".": "./src/index.ts"
+  }
+}

@@ -287,7 +287,7 @@ function hud(): UiScreen {
     style: {},
     children: [
       chip('hud.hint', [words('hud.hint.words', '{ng_hint}', TYPE.body)], { visible: '{ng_hint}', style: { border: 'color-mix(in srgb, var(--tw-highlight) 45%, var(--tw-panel))' } }),
-      hint('hud.keys', 'Arrows walk · E lamp · Shift turn · R restart · Esc pause'),
+      widget('plugin', 'hud.keys', { name: 'Keys', source: 'botanical-keys', text: 'Arrows:walk|E:lamp|Shift:turn|R:restart|Esc:pause', wMode: 'auto', hMode: 'auto', padding: 0, style: {} }),
     ],
   });
   const root = widget('panel', 'hud.root', { name: 'HUD root', anchor: 'fill', layout: 'free', padding: 0, style: {}, children: [where, tally, foot] });

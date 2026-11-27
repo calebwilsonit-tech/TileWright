@@ -11,8 +11,8 @@ import { roomsTable, screensDoc, uiLayout } from './ui/screens';
 
 export const HERE = path.dirname(fileURLToPath(import.meta.url));
 export const PROJECT_DIR = path.resolve(HERE, '..', 'project');
-/** Oldest Tilewright version Nightgarden works with (includes the bundled room-camera plugin). */
-export const ENGINE_VERSION = '0.2.0';
+/** Oldest Tilewright version Nightgarden works with (includes the bundled room-camera and botanical-ui plugins). */
+export const ENGINE_VERSION = '0.4.0';
 
 export interface Chapter {
   id: string;
@@ -22,8 +22,8 @@ export interface Chapter {
   rooms: RoomDef[];
 }
 
-/** The plugins the game needs: lights, darkness and shadows, and a camera that holds still on the room. Everything else is its own scripts. */
-export const PLUGINS = ['lighting', 'room-camera'];
+/** The plugins the game needs: lights, darkness and shadows, a camera that holds still on the room, and the botanical game-UI kit. */
+export const PLUGINS = ['lighting', 'room-camera', 'botanical-ui'];
 
 const ART = path.resolve(HERE, '..', 'art', 'out');
 

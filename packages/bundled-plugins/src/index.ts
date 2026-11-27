@@ -1,5 +1,6 @@
 import { host, setActivePacks, setLegacyPacks, type PluginDefinition } from '@tilewright/plugin-sdk';
 import { aiPlugin } from '@tilewright/plugin-ai';
+import { botanicalUiPlugin } from '@tilewright/plugin-botanical-ui';
 import { combatPlugin } from '@tilewright/plugin-combat';
 import { controlsPlugin } from '@tilewright/plugin-controls';
 import { inventoryPlugin } from '@tilewright/plugin-inventory';
@@ -26,6 +27,7 @@ export const BUNDLED_PLUGINS: readonly PluginDefinition[] = [
   prebuiltScreensPlugin,
   parchmentPlugin,
   roomCameraPlugin,
+  botanicalUiPlugin,
 ];
 
 /** Make the bundled plugins known to the host (they are not on until a project turns them on). */
@@ -40,6 +42,7 @@ setLegacyPacks(['combat', 'inventory', 'story', 'ai', 'lighting', 'storytender']
 setActivePacks(undefined);
 
 export * from '@tilewright/plugin-ai';
+export * from '@tilewright/plugin-botanical-ui';
 export * from '@tilewright/plugin-combat';
 export * from '@tilewright/plugin-controls';
 export * from '@tilewright/plugin-inventory';

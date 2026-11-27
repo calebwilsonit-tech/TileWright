@@ -56,6 +56,8 @@ export const sub = (id: string, text: string, patch: Patch = {}): UiNode => word
 export const hint = (id: string, text: string): UiNode => words(id, text, TYPE.hint, { name: 'Hint', style: { color: COLOR.dim } });
 export const space = (id: string, h: number = SPACE.group): UiNode => widget('spacer', id, { name: 'Space', wMode: 'fill', hMode: 'fixed', w: 8, h });
 export const rule = (id: string): UiNode => widget('panel', id, { name: 'Divider', wMode: 'fill', hMode: 'fixed', w: 8, h: 2, padding: 0, gap: 0, style: { fill: RULE_FILL } });
+export const flourish = (id: string): UiNode => widget('plugin', id, { name: 'Flourish', source: 'botanical-flourish', wMode: 'fill', hMode: 'fixed', w: 360, h: 22, padding: 0, style: {} });
+export const backdrop = (id: string): UiNode => widget('plugin', id, { name: 'Backdrop', source: 'botanical-backdrop', anchor: 'fill', wMode: 'fill', hMode: 'fill', padding: 0, style: {} });
 const grow = (id: string): UiNode => widget('spacer', id, { name: 'Space', wMode: 'fill', hMode: 'auto', w: 8, h: 8 });
 
 /** A line of a menu: words on the left, quieter words on the right, something that happens when it is chosen. */
@@ -118,9 +120,9 @@ export function box(id: string, title: string, rows: UiNode[], opts: { subtitle?
     children: [
       opts.titleNode ?? heading(`${id}.title`, title),
       ...(opts.subtitle ? [sub(`${id}.sub`, opts.subtitle)] : []),
-      space(`${id}.top`, SPACE.rowPad),
-      rule(`${id}.rule.top`),
-      space(`${id}.top2`, SPACE.rowPad),
+      space(`${id}.top`, SPACE.rowGap),
+      flourish(`${id}.flourish`),
+      space(`${id}.top2`, SPACE.rowGap),
       ...rows,
       space(`${id}.bottom`, SPACE.rowPad),
       rule(`${id}.rule.bottom`),
@@ -132,7 +134,7 @@ export function box(id: string, title: string, rows: UiNode[], opts: { subtitle?
 
 /** A menu screen: the game waits, the buttons belong to it, Back leaves it. */
 export function menu(o: { id: string; name: string; role?: string; box: UiNode; back?: UiScreen['back']; dim?: number }): UiScreen {
-  const root = widget('panel', `${o.id}.root`, { name: `${o.name} root`, anchor: 'fill', layout: 'free', style: {}, padding: 0, children: [o.box] });
+  const root = widget('panel', `${o.id}.root`, { name: `${o.name} root`, anchor: 'fill', layout: 'free', style: {}, padding: 0, children: [backdrop(`${o.id}.bg`), o.box] });
   return { id: o.id, name: o.name, root, modal: true, back: o.back ?? 'auto', backTo: '', priority: 0, dim: o.dim ?? 0.86, transition: 'fade', mapX: 0, mapY: 0, opensOnStart: false, ...(o.role ? { role: o.role } : {}) };
 }
 

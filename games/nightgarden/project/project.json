@@ -109,9 +109,10 @@
   "startScene": "scenes/r101.scene.json",
   "plugins": [
     "lighting",
-    "room-camera"
+    "room-camera",
+    "botanical-ui"
   ],
-  "engine": "0.2.0",
+  "engine": "0.4.0",
   "title": {
     "enabled": true,
     "subtitle": "A puzzle garden by lamplight"
