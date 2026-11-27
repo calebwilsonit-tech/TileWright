@@ -366,6 +366,7 @@
           "name": "Doorstop",
           "no": 15,
           "hint": "A gate never shuts on what stands in its doorway.",
+          "nudge": "Hint: Try moving a crate or brazier first · shortest way is 6 steps and uses 3 pushes.",
           "chapter": "The Tool Yard",
           "chapterNo": 3,
           "chapterLine": "Crates, trellis screens, iron gates on stone plates. Everything here can be leaned on, and some of it throws a useful shadow.",

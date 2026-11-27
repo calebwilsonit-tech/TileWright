@@ -60,10 +60,12 @@ function pause(): UiScreen {
     box: box('pause', 'Paused', [
       row('pause.resume', 'Resume', [close('role:pause')], { primary: true }),
       row('pause.restart', 'Restart room', [close('role:pause'), act('restartArea')], { detail: 'R' }),
+      row('pause.hint', 'Gentle hint', [act('setVariable', { name: 'ng_hint', op: 'set', value: '{ng_nudge}' }), close('role:pause')], { detail: 'Nudge', visible: '{ng_in_hub} = 0' }),
       row('pause.rooms', 'Rooms', [open('Rooms')], { detail: '{ng_done} of {ng_total} tended' }),
       row('pause.hub', 'The Conservatory', goHub, { detail: 'Garden hub', visible: '{ng_in_hub} = 0' }),
       row('pause.shop', 'Garden shop', [close('role:pause'), open('Garden shop')], { detail: '{ng_jar} fireflies', visible: '{ng_in_hub}' }),
       row('pause.herbarium', 'Herbarium', [open('Herbarium')], { detail: '{ng_pars} par medals' }),
+      row('pause.milestones', 'Milestones', [open('Milestones')], { detail: '{ng_achs} of 8' }),
       row('pause.how', 'How to play', [open('How to play')]),
       row('pause.settings', 'Settings', [open('role:settings')]),
       row('pause.mainmenu', 'Main menu', [close('role:pause'), open('role:title')]),
@@ -188,7 +190,9 @@ function herbarium(): UiScreen {
         entry('firefly', 'firefly', 24, 24, 'Conservatory Firefly — Ignis horti', 'Drawn to quiet side paths. Every one caught puts 3 in your jar to spend in the Garden shop.'),
         entry('gracelily', 'glowlamp', 24, 48, "Grace's Moon-Lily — Lilium gratiae", 'A rare pale bloom named for Elizabeth Grace. Sold in the Garden shop once you hold 10 Master Gardener Par medals.'),
         entry('traversrose', 'shadestone_on', 48, 24, 'Travers Night-Rose — Rosa traversii', 'An heirloom specimen of the Travers Conservatory. Sold in the Garden shop when every room is tended.'),
+        entry('journal', 'lamp_on', 24, 48, "Elizabeth's Conservatory Note", 'Every lamp lit in the quiet dark is a small kindness kept for the morning. Tend the garden at your own pace.'),
         row('herb.hub', 'Visit the Conservatory', goHub, { primary: true }),
+        row('herb.milestones', 'Milestones', [open('Milestones')], { detail: '{ng_achs} of 8 unlocked' }),
         row('herb.back', 'Back', [back()]),
       ],
       { subtitle: '{ng_done} of {ng_total} tended · {ng_flies} fireflies · {ng_pars} par medals', hint: 'Esc back', wide: true },
@@ -196,9 +200,65 @@ function herbarium(): UiScreen {
   });
 }
 
+/** Steam-ready garden milestones tracked automatically as you tend rooms, earn Par medals, and grow the Conservatory. */
+function milestones(): UiScreen {
+  const item = (id: string, title: string, desc: string): UiNode =>
+    widget('panel', `ach.${id}`, {
+      name: title,
+      layout: 'row',
+      wMode: 'fill',
+      hMode: 'auto',
+      align: 'center',
+      gap: SPACE.group,
+      padding: SPACE.rowPad,
+      style: { fill: 'color-mix(in srgb, var(--tw-border) 16%, var(--tw-panel))', radius: RADIUS.row },
+      children: [
+        words(`ach.${id}.done`, '★', TYPE.row, { name: 'Unlocked', style: { color: COLOR.accent }, visible: `{${id}} = 1` }),
+        words(`ach.${id}.lock`, '·', TYPE.row, { name: 'Locked', style: { color: COLOR.locked }, visible: `{${id}} = 0` }),
+        widget('panel', `ach.${id}.copy`, {
+          name: 'Copy',
+          layout: 'column',
+          wMode: 'fill',
+          hMode: 'auto',
+          gap: SPACE.rowGap,
+          padding: 0,
+          style: {},
+          children: [
+            words(`ach.${id}.title`, title, TYPE.body, { style: { color: COLOR.text, bold: true } }),
+            words(`ach.${id}.desc`, desc, TYPE.hint, { wMode: 'fill', style: { color: COLOR.dim } }),
+          ],
+        }),
+      ],
+    });
+  return menu({
+    id: 'ng-milestones',
+    name: 'Milestones',
+    box: box(
+      'ach',
+      'Garden Milestones',
+      [
+        item('ach_first', 'First Light', 'Tend your very first garden room.'),
+        item('ach_ch2', 'Shadow Walker', 'Tend 6 rooms and enter The Shade Walk.'),
+        item('ach_par5', 'Steady Hand', 'Earn 5 Master Gardener Par medals.'),
+        item('ach_par10', 'Master Gardener', 'Earn 10 Master Gardener Par medals.'),
+        item('ach_flies10', 'Firefly Keeper', 'Catch 10 fireflies across the garden.'),
+        item('ach_builder', 'Conservatory Keeper', 'Place 8 pieces in The Travers Conservatory.'),
+        item('ach_grand', 'Grand Conservatory', 'Grow the Conservatory to its largest size (14 × 8).'),
+        item('ach_all', "Elizabeth's Garden", 'Tend every room of Nightgarden.'),
+        row('ach.back', 'Back', [back()]),
+      ],
+      { subtitle: '{ng_achs} of 8 milestones unlocked', hint: 'Esc back', wide: true },
+    ),
+  });
+}
+
 /** The Garden shop of the Conservatory: fireflies from the jar buy garden pieces and grow the garden itself. */
 function shop(): UiScreen {
-  const spend = (cost: number) => [act('setVariable', { name: 'hub_spent', op: 'add', value: String(cost) }), act('setVariable', { name: 'ng_jar', op: 'subtract', value: String(cost) })];
+  const spend = (cost: number) => [
+    act('setVariable', { name: 'hub_spent', op: 'add', value: String(cost) }),
+    act('setVariable', { name: 'ng_jar', op: 'subtract', value: String(cost) }),
+    act('sound', { name: 'shop', volume: 0.65 }),
+  ];
   const piece = (id: string, label: string, cost: number, need = '', needText = ''): UiNode =>
     row(`shop.${id}`, label, [act('setVariable', { name: `inv_${id}`, op: 'add', value: '1' }), ...spend(cost)], {
       detail: `${cost} ✦ · held {inv_${id}}${needText ? ` · ${needText}` : ''}`,
@@ -223,11 +283,13 @@ function shop(): UiScreen {
         grow(3, 'Grow the garden to 14 × 8', 35, 30),
         piece('moonbloom', 'Moonbloom', 2),
         piece('crate', 'Potting crate', 1),
+        piece('soil', 'Mossy bed', 1),
+        piece('terrace', 'Moonlit stone', 2),
         piece('screen', 'Trellis screen', 2),
         piece('lantern', 'Amber lantern', 4),
-        piece('moonstone', 'Moonstone', 3, '{ng_flies} >= 3', 'needs 3 fireflies caught'),
+        piece('moonstone', 'Moonstone', 3, '{ng_flies} >= 3', 'needs 3 fireflies'),
         piece('duskcap', 'Duskcap', 3, '{ng_done} >= 6', 'needs 6 rooms'),
-        piece('teallamp', 'Teal lamp', 5, '{ng_flies} >= 5', 'needs 5 fireflies caught'),
+        piece('teallamp', 'Teal lamp', 5, '{ng_flies} >= 5', 'needs 5 fireflies'),
         piece('brazier', 'Warm brazier', 5, '{ng_done} >= 12', 'needs 12 rooms'),
         piece('gracelily', "Grace's Moon-Lily", 8, '{ng_pars} >= 10', 'needs 10 par medals'),
         piece('traversrose', 'Travers Night-Rose', 10, '{ng_done} >= 30', 'needs every room'),
@@ -375,7 +437,12 @@ function hud(): UiScreen {
       words('hud.room', '{ng_room_no}', TYPE.body, { style: { color: COLOR.accent, bold: true }, visible: '{ng_room_no}' }),
       words('hud.name', '{ng_room_name}', TYPE.body),
     ],
-    { anchor: 'tl', x: SPACE.edge, y: SPACE.edge, visible: '{ng_room_name}' },
+    { anchor: 'tl', x: SPACE.edge, y: SPACE.edge, visible: '{ng_room_name} && {ng_photo} = 0' },
+  );
+  const toast = chip(
+    'hud.toast',
+    [words('hud.toast.words', '{ng_toast}', TYPE.body, { style: { color: COLOR.accent, bold: true } })],
+    { anchor: 't', x: 0, y: SPACE.edge, visible: '{ng_toast} && {ng_photo} = 0' },
   );
   const tally = chip(
     'hud.tally',
@@ -388,7 +455,7 @@ function hud(): UiScreen {
       words('hud.sep2', '·', TYPE.body, { style: { color: COLOR.dim }, visible: '{ng_par} > 0' }),
       words('hud.steps', 'Steps {ng_steps}/{ng_par}', TYPE.body, { style: { color: COLOR.dim }, visible: '{ng_par} > 0' }),
     ],
-    { anchor: 'tr', x: -SPACE.edge, y: SPACE.edge, visible: '{ng_room_name} && {ng_in_hub} = 0' },
+    { anchor: 'tr', x: -SPACE.edge, y: SPACE.edge, visible: '{ng_room_name} && {ng_in_hub} = 0 && {ng_photo} = 0' },
   );
   const jar = chip(
     'hud.jar',
@@ -400,11 +467,11 @@ function hud(): UiScreen {
       words('hud.jar.placed', '{hub_placed} / {hub_cap}', TYPE.body, { style: { bold: true } }),
       words('hud.jar.placed.label', 'placed', TYPE.body, { style: { color: COLOR.dim } }),
     ],
-    { anchor: 'tr', x: -SPACE.edge, y: SPACE.edge, visible: '{ng_in_hub}' },
+    { anchor: 'tr', x: -SPACE.edge, y: SPACE.edge, visible: '{ng_in_hub} && {ng_photo} = 0' },
   );
   const foot = widget('panel', 'hud.foot', {
     name: 'Hint and keys',
-    visible: '{ng_room_name}',
+    visible: '{ng_room_name} && {ng_photo} = 0',
     anchor: 'b',
     x: 0,
     y: -SPACE.edge,
@@ -422,16 +489,16 @@ function hud(): UiScreen {
         [words('hud.holding.label', 'In hand', TYPE.body, { style: { color: COLOR.dim } }), words('hud.holding.what', '{hub_sel_label}', TYPE.body, { style: { color: COLOR.accent, bold: true } })],
         { visible: '{ng_in_hub}' },
       ),
-      widget('plugin', 'hud.keys', { name: 'Keys', source: 'botanical-keys', text: 'Arrows:walk|E:lamp|Shift:turn|R:restart|H:hub|Esc:pause', wMode: 'auto', hMode: 'auto', padding: 0, style: {}, visible: '{ng_in_hub} = 0' }),
-      widget('plugin', 'hud.keys.hub', { name: 'Garden keys', source: 'botanical-keys', text: 'Arrows:walk|Shift:turn|E:plant / lift|Q:next piece|B:shop|H:leave|Esc:pause', wMode: 'auto', hMode: 'auto', padding: 0, style: {}, visible: '{ng_in_hub}' }),
+      widget('plugin', 'hud.keys', { name: 'Keys', source: 'botanical-keys', text: 'Arrows:walk|E:lamp|Z:undo|R:restart|H:hub|V:photo|Esc:pause', wMode: 'auto', hMode: 'auto', padding: 0, style: {}, visible: '{ng_in_hub} = 0' }),
+      widget('plugin', 'hud.keys.hub', { name: 'Garden keys', source: 'botanical-keys', text: 'Arrows:walk|E:plant / lift|Q:next|B:shop|V:photo|H:leave|Esc:pause', wMode: 'auto', hMode: 'auto', padding: 0, style: {}, visible: '{ng_in_hub}' }),
     ],
   });
-  const root = widget('panel', 'hud.root', { name: 'HUD root', anchor: 'fill', layout: 'free', padding: 0, style: {}, children: [where, tally, jar, foot] });
+  const root = widget('panel', 'hud.root', { name: 'HUD root', anchor: 'fill', layout: 'free', padding: 0, style: {}, children: [where, toast, tally, jar, foot] });
   return { id: 'ng-hud', name: 'HUD', root, modal: false, back: 'auto', backTo: '', priority: 0, dim: 0, transition: 'none', mapX: 0, mapY: 0, opensOnStart: true, role: 'hud' };
 }
 
 export function screensDoc(): UiDoc {
-  const list = [title(), hud(), pause(), rooms(), herbarium(), shop(), howToPlay(), settings(), controls(), chapterCard(), theEnd()];
+  const list = [title(), hud(), pause(), rooms(), herbarium(), milestones(), shop(), howToPlay(), settings(), controls(), chapterCard(), theEnd()];
   // where each box sits on the designer's screen-flow map
   list.forEach((s, i) => {
     s.mapX = 40 + (i % 4) * 220;

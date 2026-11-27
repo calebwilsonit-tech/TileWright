@@ -646,6 +646,7 @@
           "name": "Elizabeth's garden",
           "no": 30,
           "hint": "Every stone, every lamp and every shadow has its part.",
+          "nudge": "Hint: Try moving a crate or brazier first · shortest way is 16 steps and uses 1 lamp and 4 push moves.",
           "chapter": "The Travers Conservatory",
           "chapterNo": 5,
           "chapterLine": "Stones set in the path that feel the light. A moonstone wakes when lit, a shadestone when dark, and each is wired to the conservatory.",
@@ -695,7 +696,7 @@
       "w": 12,
       "h": 6,
       "cameraBounds": false,
-      "music": "nightgarden",
+      "music": "deepgarden",
       "darkness": 0,
       "bossActive": false
     }

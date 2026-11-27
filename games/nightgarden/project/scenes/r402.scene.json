@@ -300,6 +300,7 @@
           "name": "Warm hands",
           "no": 20,
           "hint": "A brazier lights the eight beds round it.",
+          "nudge": "Hint: Try moving a crate or brazier first · shortest way is 6 steps and uses 2 pushes.",
           "chapter": "The Brazier Court",
           "chapterNo": 4,
           "chapterLine": "Here the light has wheels. A brazier warms the eight beds round it, wherever you leave it. Mind the sunken beds and the pond.",
@@ -349,7 +350,7 @@
       "w": 7,
       "h": 4,
       "cameraBounds": false,
-      "music": "nightgarden",
+      "music": "deepgarden",
       "darkness": 0,
       "bossActive": false
     }

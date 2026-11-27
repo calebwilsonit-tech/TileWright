@@ -1,13 +1,14 @@
 // The Conservatory builder. The gardener holds one piece from the inventory (Q picks the next one), sees a see-through
 // preview of it on the bed in front, and presses E to set it down. E on a placed piece lifts it back into the inventory,
 // so anything can be moved. B opens the Garden shop, where fireflies buy pieces and grow the garden.
-// Everything is kept in game variables, so it is saved with the game:
-//   hub_layout  "x,y,piece;x,y,piece..."   inv_<piece>  how many are held   hub_sel  the piece in hand
-const CATALOG: { id: string; label: string; sprite: string; w: number; height: number; solid: boolean; light?: string; flat?: boolean }[] = [
-  { id: 'moonbloom', label: 'Moonbloom', sprite: 'moonbloom_3', w: 0.9, height: 1.2, solid: true },
-  { id: 'duskcap', label: 'Duskcap', sprite: 'duskcap_3', w: 0.9, height: 1.2, solid: true },
+// Living garden: placed Moonblooms and Duskcaps react dynamically to lamps & braziers, and ambient fireflies drift overhead.
+const CATALOG: { id: string; label: string; sprite: string; w: number; height: number; solid: boolean; light?: string; flat?: boolean; reactive?: 'bloom' | 'dusk' }[] = [
+  { id: 'moonbloom', label: 'Moonbloom', sprite: 'moonbloom_3', w: 0.9, height: 1.2, solid: true, reactive: 'bloom' },
+  { id: 'duskcap', label: 'Duskcap', sprite: 'duskcap_3', w: 0.9, height: 1.2, solid: true, reactive: 'dusk' },
   { id: 'crate', label: 'Potting crate', sprite: 'crate', w: 0.9, height: 0.9, solid: true },
   { id: 'screen', label: 'Trellis screen', sprite: 'screen', w: 0.9, height: 1.2, solid: true },
+  { id: 'soil', label: 'Mossy bed', sprite: 'soil', w: 0.95, height: 0.05, solid: false, flat: true },
+  { id: 'terrace', label: 'Moonlit stone', sprite: 'terrace', w: 0.95, height: 0.05, solid: false, flat: true },
   { id: 'lantern', label: 'Amber lantern', sprite: 'lamp_on', w: 0.4, height: 1.1, solid: true, light: 'warm' },
   { id: 'brazier', label: 'Warm brazier', sprite: 'brazier', w: 0.9, height: 1.1, solid: true, light: 'warm' },
   { id: 'teallamp', label: 'Teal lamp', sprite: 'wirelamp_on', w: 0.4, height: 1.1, solid: true, light: 'cool' },
@@ -54,29 +55,50 @@ export default defineScript({
     const at = (x: number, y: number): string => (x < 0 || y < 0 || x >= w ? '#' : ground[y * w + x] ?? '#');
     const layout = parse(String(v.hub_layout ?? ''));
 
-    // dress the decor from the layout whenever it changes
+    // animate ambient fireflies drifting gently over the lily pond and beds
+    const flies = game.findAll('tag:ambfly');
+    flies.forEach((f, idx) => {
+      const t = game.time * (0.42 + idx * 0.08) + idx * 1.9;
+      f.x = 4.6 + Math.sin(t) * (1.8 + idx * 0.35);
+      f.y = 2.8 + Math.cos(t * 0.75 + idx) * (1.2 + (idx % 2) * 0.4);
+      f.h = me.h + 1.15 + 0.28 * Math.sin(t * 2.1);
+      f.alpha = 0.65 + 0.35 * Math.sin(t * 3.1);
+    });
+
+    // gather active light sources (corner lamps + player-placed lanterns/braziers/lilies)
+    const lights: { x: number; y: number; r: number }[] = [];
+    for (const l of game.findAll('tag:handlamp')) if (l.isOutputOn('lit')) lights.push({ x: Math.floor(l.x), y: Math.floor(l.y), r: 3.1 });
+    for (const p of layout) {
+      const c = CATALOG.find((k) => k.id === p.id);
+      if (c?.light) lights.push({ x: p.x, y: p.y, r: p.id === 'brazier' ? 2.2 : 2.8 });
+    }
+    const isCellLit = (x: number, y: number): boolean => lights.some((l) => Math.hypot(l.x - x, l.y - y) <= l.r);
+
+    // dress the decor from the layout and let Moonblooms / Duskcaps react to light
+    const pool = game.findAll('tag:decor').sort((a, b) => (a.name < b.name ? -1 : 1));
     const sig = String(v.hub_layout ?? '');
-    if (me.state.sig !== sig) {
-      me.state.sig = sig;
-      const pool = game.findAll('tag:decor').sort((a, b) => (a.name < b.name ? -1 : 1));
-      pool.forEach((d, i) => {
-        const p = layout[i];
-        const sp = d.get<{ asset?: string; w: number; d: number; height: number; visible: boolean; sortOffset: number; noShadow?: boolean }>('sprite');
-        const col = d.get<{ enabled: boolean }>('collider');
-        const glow = d.get<{ mode: string; color: string }>('light');
-        const c = p ? CATALOG.find((k) => k.id === p.id) : undefined;
-        if (!p || !c) {
+    const dirty = me.state.sig !== sig;
+    if (dirty) me.state.sig = sig;
+    pool.forEach((d, i) => {
+      const p = layout[i];
+      const sp = d.get<{ asset?: string; w: number; d: number; height: number; visible: boolean; sortOffset: number; noShadow?: boolean }>('sprite');
+      const col = d.get<{ enabled: boolean }>('collider');
+      const glow = d.get<{ mode: string; color: string }>('light');
+      const c = p ? CATALOG.find((k) => k.id === p.id) : undefined;
+      if (!p || !c) {
+        if (dirty) {
           d.visible = false;
           if (col) col.enabled = false;
           if (glow) glow.mode = 'whenOn';
-          return;
         }
+        return;
+      }
+      if (dirty) {
         d.x = p.x + 0.5;
         d.y = p.y + 0.5;
         d.h = me.h;
         d.visible = true;
         if (sp) {
-          sp.asset = c.sprite;
           sp.w = c.w;
           sp.d = c.w;
           sp.height = c.height;
@@ -89,8 +111,14 @@ export default defineScript({
           glow.mode = c.light ? 'always' : 'whenOn';
           if (c.light) glow.color = c.light;
         }
-      });
-    }
+      }
+      if (sp) {
+        let want = c.sprite;
+        if (c.reactive === 'bloom') want = isCellLit(p.x, p.y) ? 'moonbloom_3' : 'moonbloom_1';
+        else if (c.reactive === 'dusk') want = isCellLit(p.x, p.y) ? 'duskcap_1' : 'duskcap_3';
+        if (sp.asset !== want) sp.asset = want;
+      }
+    });
 
     // the piece in hand: Q picks the next one held
     const owned = CATALOG.filter((c) => Number(v[`inv_${c.id}`] ?? 0) > 0);

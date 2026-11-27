@@ -436,6 +436,7 @@
           "name": "Dark stair",
           "no": 12,
           "hint": "Tops are floors. Some tops need light, some need none.",
+          "nudge": "Hint: Try lighting or dousing a lamp first · shortest way is 15 steps and uses 2 lamp toggles.",
           "chapter": "The Shade Walk",
           "chapterNo": 2,
           "chapterLine": "Under the old yews grow duskcaps. They stand tall in the dark and shrink from a lamp. Mind what stands between a lamp and a bed.",

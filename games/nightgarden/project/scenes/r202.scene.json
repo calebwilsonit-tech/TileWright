@@ -396,6 +396,7 @@
           "name": "The yew hedge",
           "no": 8,
           "hint": "A hedge stops light as well as feet.",
+          "nudge": "Hint: Try lighting or dousing a lamp first · shortest way is 8 steps and uses 1 lamp toggle.",
           "chapter": "The Shade Walk",
           "chapterNo": 2,
           "chapterLine": "Under the old yews grow duskcaps. They stand tall in the dark and shrink from a lamp. Mind what stands between a lamp and a bed.",

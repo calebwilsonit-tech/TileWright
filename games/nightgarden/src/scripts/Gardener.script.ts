@@ -42,6 +42,7 @@ export default defineScript({
         const [dx, dy, facing] = STEP[go]!;
         me.facing = facing;
         if (!game.input.down('run')) {
+          game.emit('before-action', {});
           st.tx = cx + dx;
           st.ty = cy + dy;
           st.hx = cx;

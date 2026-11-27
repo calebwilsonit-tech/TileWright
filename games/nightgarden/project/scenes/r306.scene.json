@@ -390,6 +390,7 @@
           "name": "Yard work",
           "no": 18,
           "hint": "A crate is a weight, a doorstop and a step.",
+          "nudge": "Hint: Try moving a crate or brazier first · shortest way is 19 steps and uses 3 lamp and 3 push moves.",
           "chapter": "The Tool Yard",
           "chapterNo": 3,
           "chapterLine": "Crates, trellis screens, iron gates on stone plates. Everything here can be leaned on, and some of it throws a useful shadow.",

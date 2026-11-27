@@ -1,5 +1,5 @@
 // What a room tells the rest of the game when it starts: its name and number for the heads-up display, the totals
-// for the Rooms screen, and the chapter card the first time a chapter is entered. R starts the room again.
+// for the Rooms screen, the chapter card, step-by-step Undo (Z), Photo Mode (V), and live Milestone tracking.
 /* The light rule (written here by the build from src/light.ts: change it there, never here). */
 function groundTop(ch: string): number {
   return ch === '~' ? 1 : ch === '^' ? 5 : 3;
@@ -48,14 +48,36 @@ const jar = (v: Record<string, unknown>): number => Math.max(0, Number(v.ng_done
 /** The Conservatory scene for the garden's current size. */
 const hubScene = (v: Record<string, unknown>): string => `scenes/hub${Math.max(0, Math.min(3, Math.floor(Number(v.hub_size ?? 0))))}.scene.json`;
 
+type Snap = {
+  px: number;
+  py: number;
+  ph: number;
+  pf: number;
+  steps: number;
+  lamps: [number, boolean][];
+  crates: [number, number, number, number][];
+};
+
+const MILESTONES: { key: string; label: string; check: (v: Record<string, unknown>) => boolean }[] = [
+  { key: 'ach_first', label: 'First Light', check: (v) => Number(v.ng_done ?? 0) >= 1 },
+  { key: 'ach_ch2', label: 'Shadow Walker', check: (v) => Number(v.ng_done ?? 0) >= 6 },
+  { key: 'ach_par5', label: 'Steady Hand', check: (v) => Number(v.ng_pars ?? 0) >= 5 },
+  { key: 'ach_par10', label: 'Master Gardener', check: (v) => Number(v.ng_pars ?? 0) >= 10 },
+  { key: 'ach_flies10', label: 'Firefly Keeper', check: (v) => Number(v.ng_flies ?? 0) >= 10 },
+  { key: 'ach_builder', label: 'Conservatory Keeper', check: (v) => Number(v.hub_placed ?? 0) >= 8 },
+  { key: 'ach_grand', label: 'Grand Conservatory', check: (v) => Number(v.hub_size ?? 0) >= 3 },
+  { key: 'ach_all', label: "Elizabeth's Garden", check: (v) => Number(v.ng_done ?? 0) >= Number(v.ng_total ?? 30) },
+];
+
 export default defineScript({
   name: 'Room',
-  description: 'Works out which beds are lit (the light rule of the game), says which room this is (for the heads-up display and the Rooms screen), shows the chapter card the first time a chapter is entered, and starts the room again when the Restart button is pressed.',
+  description: 'Works out which beds are lit, manages HUD variables, Undo (Z), Photo Mode (V), Conservatory routing, and Milestones.',
   settings: {
     room: { value: '', label: 'Room id' },
     name: { value: '', label: 'Room name' },
     no: { value: 1, label: 'Number in the game', min: 1 },
     hint: { value: '', label: 'One line shown at the bottom' },
+    nudge: { value: '', label: 'Optional gentle hint from Pause' },
     chapter: { value: '', label: 'Chapter name' },
     chapterNo: { value: 1, label: 'Chapter number', min: 1 },
     chapterLine: { value: '', label: 'The line on the chapter card' },
@@ -74,6 +96,7 @@ export default defineScript({
     v.ng_room_name = String(s.name);
     v.ng_room_no = Number(s.no);
     v.ng_hint = String(s.hint);
+    v.ng_nudge = String(s.nudge || 'Try lighting a lamp or pushing a crate toward a plate.');
     v.ng_chapter = String(s.chapter);
     v.ng_chapter_no = Number(s.chapterNo);
     v.ng_chapter_line = String(s.chapterLine);
@@ -89,9 +112,14 @@ export default defineScript({
     if (v.ng_done === undefined) v.ng_done = 0;
     if (v.ng_flies === undefined) v.ng_flies = 0;
     if (v.ng_pars === undefined) v.ng_pars = 0;
+    if (v.ng_achs === undefined) v.ng_achs = 0;
+    if (v.ng_photo === undefined) v.ng_photo = 0;
+    if (v.ng_toast === undefined) v.ng_toast = '';
+    if (v.ng_toast_t === undefined) v.ng_toast_t = 0;
     if (v.hub_size === undefined) v.hub_size = 0;
     if (v.hub_spent === undefined) v.hub_spent = 0;
     v.ng_jar = jar(v);
+    me.state.history = [] as Snap[];
     // every room up to the one being played can be gone back to
     if (Number(s.no) > 0) {
       v.ng_reach = Math.max(Number(v.ng_reach ?? 1), Number(s.no));
@@ -104,6 +132,71 @@ export default defineScript({
     }
   },
   update(me, game) {
+    const v = game.vars;
+    const room = String(me.settings.room);
+    const inHub = room.startsWith('hub');
+
+    // capture Undo snapshot before a step or lamp toggle in puzzle rooms
+    if (!inHub && game.eventsOf('before-action').length > 0 && game.player) {
+      const p = game.player;
+      const hist = (me.state.history ?? []) as Snap[];
+      hist.push({
+        px: Math.floor(p.x) + 0.5,
+        py: Math.floor(p.y) + 0.5,
+        ph: p.h,
+        pf: p.facing,
+        steps: Number(v.ng_steps ?? 0),
+        lamps: game.findAll('tag:handlamp').map((l) => [l.id, l.isOutputOn('lit')]),
+        crates: game.findAll('tag:crate').map((c) => [c.id, Math.floor(c.x) + 0.5, Math.floor(c.y) + 0.5, c.h]),
+      });
+      if (hist.length > 200) hist.shift();
+      me.state.history = hist;
+    }
+
+    // Undo (Z / Backspace): restore the previous snapshot cleanly
+    if (!inHub && game.input.pressed('undo') && !v.ng_moving && game.player) {
+      const hist = (me.state.history ?? []) as Snap[];
+      const snap = hist.pop();
+      if (snap) {
+        const p = game.player;
+        p.x = snap.px;
+        p.y = snap.py;
+        p.h = snap.ph;
+        p.facing = snap.pf;
+        v.ng_steps = snap.steps;
+        const byId = new Map<number, typeof p>();
+        for (const l of game.findAll('tag:handlamp')) byId.set(l.id, l);
+        for (const [id, lit] of snap.lamps) {
+          const l = byId.get(id);
+          if (l) {
+            l.state.on = lit;
+            l.output('lit', lit);
+          }
+        }
+        const cratesById = new Map<number, typeof p>();
+        for (const c of game.findAll('tag:crate')) cratesById.set(c.id, c);
+        const nowCrates: Record<number, number> = {};
+        const w0 = Number(me.settings.width);
+        for (const [id, cx, cy, ch] of snap.crates) {
+          const c = cratesById.get(id);
+          if (c) {
+            c.x = cx;
+            c.y = cy;
+            c.h = ch;
+            nowCrates[id] = Math.floor(cy) * w0 + Math.floor(cx);
+          }
+        }
+        me.state.crates = nowCrates;
+        game.do('sound', { name: 'undo', volume: 0.6 });
+      }
+    }
+
+    // Photo Mode (V): hide/show HUD cleanly for screenshots
+    if (game.input.pressed('photo')) {
+      v.ng_photo = Number(v.ng_photo) ? 0 : 1;
+      game.do('sound', { name: 'photo', volume: 0.55 });
+    }
+
     // what is lit, for the blooms and the moonstones: the variable ng_lit holds one 1 or 0 for each cell, row by row
     const w = Number(me.settings.width);
     const ground = String(me.settings.ground);
@@ -117,8 +210,9 @@ export default defineScript({
     const lights: { x: number; y: number; range: number }[] = [];
     for (const l of game.findAll('tag:lamp')) if (l.hasTag('glow') || l.isOutputOn('lit')) lights.push({ x: Math.floor(l.x), y: Math.floor(l.y), range: 2.3 });
     for (const z of game.findAll('tag:brazier')) lights.push({ x: Math.floor(z.x), y: Math.floor(z.y), range: 1.5 });
-    game.vars.ng_lit = litCells({ w, h, ground, tall, lights }).map((v) => (v ? '1' : '0')).join('');
-    game.vars.ng_w = w;
+    v.ng_lit = litCells({ w, h, ground, tall, lights }).map((lit) => (lit ? '1' : '0')).join('');
+    v.ng_w = w;
+
     // soft slide sound whenever a crate, brazier or screen moves into a new cell
     const crates = game.findAll('tag:crate');
     const prev = me.state.crates as Record<number, number> | undefined;
@@ -131,12 +225,27 @@ export default defineScript({
     }
     me.state.crates = now;
     if (pushed) game.do('sound', { name: 'push', volume: 0.55 });
+
+    // toast timer & live Milestone unlock checks
+    if (Number(v.ng_toast_t ?? 0) > 0) {
+      v.ng_toast_t = Math.max(0, Number(v.ng_toast_t) - game.dt);
+      if (Number(v.ng_toast_t) <= 0) v.ng_toast = '';
+    }
+    for (const m of MILESTONES) {
+      if (!v[m.key] && m.check(v)) {
+        v[m.key] = 1;
+        v.ng_achs = Number(v.ng_achs ?? 0) + 1;
+        if (!v.ng_toast) {
+          v.ng_toast = `Milestone unlocked · ${m.label}`;
+          v.ng_toast_t = 4.2;
+          game.do('sound', { name: 'par', volume: 0.65 });
+        }
+      }
+    }
+
     if (game.input.pressed('restart')) game.do('restartArea');
-    const v = game.vars;
     v.ng_jar = jar(v);
-    const room = String(me.settings.room);
-    if (room.startsWith('hub')) {
-      // the garden was grown in the shop: walk into the bigger garden
+    if (inHub) {
       const want = hubScene(v);
       if (want !== `scenes/${room}.scene.json`) {
         game.travel(want);
@@ -144,7 +253,7 @@ export default defineScript({
       }
     }
     if (game.input.pressed('hub')) {
-      game.travel(room.startsWith('hub') ? String(v.ng_last_room || 'scenes/r101.scene.json') : hubScene(v));
+      game.travel(inHub ? String(v.ng_last_room || 'scenes/r101.scene.json') : hubScene(v));
       return;
     }
     // a card of the Rooms screen (or a Conservatory row) was chosen

@@ -578,6 +578,15 @@ const BOTANICAL_CSS = `
   filter: drop-shadow(0 0 6px rgba(255, 215, 106, 0.65));
 }
 
+.tw-screens:has(.tw-botanical-scope) [data-id="hud.toast"] {
+  background: linear-gradient(90deg, transparent 0%, rgba(16, 22, 38, 0.92) 14%, rgba(16, 22, 38, 0.92) 86%, transparent 100%) !important;
+  border: none !important;
+  border-top: 2px solid #ffd76a !important;
+  border-radius: 0 !important;
+  padding: 8px 28px !important;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.6) !important;
+}
+
 .tw-screens:has(.tw-botanical-scope) [data-id="hud.hint"] {
   background: linear-gradient(90deg, transparent 0%, rgba(10, 13, 24, 0.82) 18%, rgba(10, 13, 24, 0.82) 82%, transparent 100%) !important;
   border: none !important;

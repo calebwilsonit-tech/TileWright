@@ -429,6 +429,7 @@
           "name": "Shadestone",
           "no": 25,
           "hint": "A shadestone opens its gate while it is dark.",
+          "nudge": "Hint: Try lighting or dousing a lamp first · shortest way is 7 steps and uses 2 lamp toggles.",
           "chapter": "The Travers Conservatory",
           "chapterNo": 5,
           "chapterLine": "Stones set in the path that feel the light. A moonstone wakes when lit, a shadestone when dark, and each is wired to the conservatory.",
@@ -478,7 +479,7 @@
       "w": 7,
       "h": 4,
       "cameraBounds": false,
-      "music": "nightgarden",
+      "music": "deepgarden",
       "darkness": 0,
       "bossActive": false
     }

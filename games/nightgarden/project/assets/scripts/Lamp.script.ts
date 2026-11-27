@@ -19,6 +19,7 @@ export default defineScript({
     if (me.settings.byHand) {
       // the gardener's script says which lamp is in reach and faced (the variable ng_target)
       if (game.input.pressed('interact') && game.vars.ng_target === me.id && !game.vars.ng_moving) {
+        game.emit('before-action', {});
         me.state.on = !me.state.on;
         game.emit('lamp', { entity: me.id, lit: me.state.on });
         game.do('sound', { name: me.state.on ? 'lamp_on' : 'lamp_off', volume: 0.7 });

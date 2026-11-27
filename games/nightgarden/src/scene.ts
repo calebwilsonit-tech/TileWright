@@ -52,6 +52,7 @@ export interface SceneOptions {
   flyTotal: number;
   par: number;
   difficulty: number;
+  nudge?: string;
 }
 
 export function roomScene(room: Room, opts: SceneOptions): SceneData {
@@ -192,7 +193,7 @@ export function roomScene(room: Room, opts: SceneOptions): SceneData {
       // it stands in the middle of the room and the camera stays on it, so a room is one still picture
       transform: { x: room.w / 2, y: room.h / 2, h: FLOOR, facing: 2 },
       roomCamera: { zoom: room.w + room.h <= 12 ? 2 : room.w + room.h <= 16 ? 1.75 : 1.5, on: true },
-      script_Room: { room: room.id, name: room.name, no: opts.index, hint: room.hint, chapter: opts.chapter, chapterNo: opts.chapterNo, chapterLine: opts.chapterLine, chapters: opts.chapters, total: opts.total, flyTotal: opts.flyTotal, par: opts.par, difficulty: opts.difficulty, width: room.w, ground: groundText(room) },
+      script_Room: { room: room.id, name: room.name, no: opts.index, hint: room.hint, nudge: opts.nudge ?? '', chapter: opts.chapter, chapterNo: opts.chapterNo, chapterLine: opts.chapterLine, chapters: opts.chapters, total: opts.total, flyTotal: opts.flyTotal, par: opts.par, difficulty: opts.difficulty, width: room.w, ground: groundText(room) },
     },
   });
   // the mark that hovers over the lamp the gardener would light (starts on the gardener's open cell)
@@ -205,7 +206,7 @@ export function roomScene(room: Room, opts: SceneOptions): SceneData {
     name: room.name,
     map: tileMapToRows(map),
     entities,
-    regions: [{ id: 'r1', name: room.name, x: 0, y: 0, w: room.w, h: room.h, cameraBounds: false, music: 'nightgarden', darkness: 0, bossActive: false }],
+    regions: [{ id: 'r1', name: room.name, x: 0, y: 0, w: room.w, h: room.h, cameraBounds: false, music: opts.chapterNo >= 4 ? 'deepgarden' : 'nightgarden', darkness: 0, bossActive: false }],
     wires,
     variables: [],
     events: [pauseButtonRow()],

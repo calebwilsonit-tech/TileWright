@@ -1702,6 +1702,110 @@
     },
     {
       "id": "h38",
+      "name": "Conservatory Firefly 1",
+      "tags": [
+        "ambfly"
+      ],
+      "components": {
+        "transform": {
+          "x": 4.5,
+          "y": 2.5,
+          "h": 4.1,
+          "facing": 2
+        },
+        "sprite": {
+          "shape": "box",
+          "color": 16777215,
+          "w": 0.35,
+          "d": 0.35,
+          "height": 0.35,
+          "sortOffset": 1.5,
+          "visible": true,
+          "asset": "firefly",
+          "noShadow": true
+        }
+      }
+    },
+    {
+      "id": "h39",
+      "name": "Conservatory Firefly 2",
+      "tags": [
+        "ambfly"
+      ],
+      "components": {
+        "transform": {
+          "x": 5.5,
+          "y": 2.5,
+          "h": 4.1,
+          "facing": 2
+        },
+        "sprite": {
+          "shape": "box",
+          "color": 16777215,
+          "w": 0.35,
+          "d": 0.35,
+          "height": 0.35,
+          "sortOffset": 1.5,
+          "visible": true,
+          "asset": "firefly",
+          "noShadow": true
+        }
+      }
+    },
+    {
+      "id": "h40",
+      "name": "Conservatory Firefly 3",
+      "tags": [
+        "ambfly"
+      ],
+      "components": {
+        "transform": {
+          "x": 4.5,
+          "y": 3.5,
+          "h": 4.1,
+          "facing": 2
+        },
+        "sprite": {
+          "shape": "box",
+          "color": 16777215,
+          "w": 0.35,
+          "d": 0.35,
+          "height": 0.35,
+          "sortOffset": 1.5,
+          "visible": true,
+          "asset": "firefly",
+          "noShadow": true
+        }
+      }
+    },
+    {
+      "id": "h41",
+      "name": "Conservatory Firefly 4",
+      "tags": [
+        "ambfly"
+      ],
+      "components": {
+        "transform": {
+          "x": 5.5,
+          "y": 3.5,
+          "h": 4.1,
+          "facing": 2
+        },
+        "sprite": {
+          "shape": "box",
+          "color": 16777215,
+          "w": 0.35,
+          "d": 0.35,
+          "height": 0.35,
+          "sortOffset": 1.5,
+          "visible": true,
+          "asset": "firefly",
+          "noShadow": true
+        }
+      }
+    },
+    {
+      "id": "h42",
       "name": "Lamp mark",
       "tags": [
         "cursor"
@@ -1736,7 +1840,7 @@
       "w": 13,
       "h": 8,
       "cameraBounds": false,
-      "music": "nightgarden",
+      "music": "conservatory",
       "darkness": 0,
       "bossActive": false
     }

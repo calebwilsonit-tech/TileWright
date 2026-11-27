@@ -372,6 +372,7 @@
           "name": "Wired",
           "no": 16,
           "hint": "A teal lamp is lit by its plate, not by hand.",
+          "nudge": "Hint: Try moving a crate or brazier first · shortest way is 7 steps and uses 2 pushes.",
           "chapter": "The Tool Yard",
           "chapterNo": 3,
           "chapterLine": "Crates, trellis screens, iron gates on stone plates. Everything here can be leaned on, and some of it throws a useful shadow.",

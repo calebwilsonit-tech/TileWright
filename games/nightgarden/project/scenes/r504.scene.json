@@ -421,6 +421,7 @@
           "name": "Shadow switch",
           "no": 28,
           "hint": "A screen can give a shadestone the dark it wants.",
+          "nudge": "Hint: Try moving a crate or brazier first · shortest way is 10 steps and uses 1 push.",
           "chapter": "The Travers Conservatory",
           "chapterNo": 5,
           "chapterLine": "Stones set in the path that feel the light. A moonstone wakes when lit, a shadestone when dark, and each is wired to the conservatory.",
@@ -470,7 +471,7 @@
       "w": 9,
       "h": 5,
       "cameraBounds": false,
-      "music": "nightgarden",
+      "music": "deepgarden",
       "darkness": 0,
       "bossActive": false
     }

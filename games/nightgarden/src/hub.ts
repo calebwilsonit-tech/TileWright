@@ -178,6 +178,18 @@ export function hubScene(opts: { total: number; flyTotal: number; chapters: numb
       },
     },
   });
+  // ambient fireflies drifting gently over the lily pond and planted blooms
+  for (let i = 0; i < 4; i++) {
+    entities.push({
+      id: id(),
+      name: `Conservatory Firefly ${i + 1}`,
+      tags: ['ambfly'],
+      components: {
+        transform: { x: 4.5 + (i % 2), y: 2.5 + Math.floor(i / 2), h: FLOOR + 1.1, facing: 2 },
+        sprite: pic('firefly', 0.35, 0.35, { noShadow: true, sortOffset: 1.5 }),
+      },
+    });
+  }
   entities.push({
     id: id(),
     name: 'Lamp mark',
@@ -190,7 +202,7 @@ export function hubScene(opts: { total: number; flyTotal: number; chapters: numb
     name: 'The Conservatory',
     map: tileMapToRows(map),
     entities,
-    regions: [{ id: 'r1', name: 'The Conservatory', x: 0, y: 0, w, h, cameraBounds: false, music: 'nightgarden', darkness: 0, bossActive: false }],
+    regions: [{ id: 'r1', name: 'The Conservatory', x: 0, y: 0, w, h, cameraBounds: false, music: 'conservatory', darkness: 0, bossActive: false }],
     wires: [],
     variables: [],
     events: [pauseButtonRow()],

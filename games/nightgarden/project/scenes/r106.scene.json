@@ -495,6 +495,7 @@
           "name": "The long way down",
           "no": 6,
           "hint": "A drop is easy. The way back up is not.",
+          "nudge": "Hint: Try lighting or dousing a lamp first · shortest way is 9 steps and uses 2 lamp toggles.",
           "chapter": "The Potting Shed",
           "chapterNo": 1,
           "chapterLine": "The lamps are out and the moonblooms have gone to ground. Light makes them rise. Start with one.",

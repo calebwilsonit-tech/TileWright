@@ -23,7 +23,7 @@ describe('the interface', () => {
 
   it('has every screen of the design, each with one heading and a hint line', async () => {
     const p = await project();
-    expect(p.ui.screens.map((s) => s.name).sort()).toEqual(['Chapter', 'Controls', 'Garden shop', 'HUD', 'Herbarium', 'How to play', 'Pause', 'Rooms', 'Settings', 'The end', 'Title'].sort());
+    expect(p.ui.screens.map((s) => s.name).sort()).toEqual(['Chapter', 'Controls', 'Garden shop', 'HUD', 'Herbarium', 'How to play', 'Milestones', 'Pause', 'Rooms', 'Settings', 'The end', 'Title'].sort());
     for (const s of p.ui.screens) {
       if (s.name === 'HUD') continue;
       const all = nodes(s.root);

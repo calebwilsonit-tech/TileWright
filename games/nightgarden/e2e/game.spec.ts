@@ -89,9 +89,19 @@ test('the editor opens Nightgarden, finds nothing wrong, and every screen of the
   await ui(page, 'Resume').click();
   await expect(screen(page, 'Pause')).toHaveCount(0);
 
-  // ---- R starts the room again ----
+  // ---- Z undoes a step, R starts the room again ----
+  await page.keyboard.press('z');
+  await expect.poll(where).toEqual(start);
+  await page.keyboard.press('ArrowRight');
+  await expect.poll(where).toEqual({ x: start.x + 1, y: start.y });
   await page.keyboard.press('r');
   await expect.poll(where).toEqual(start);
+
+  // ---- V toggles Photo mode (hides and restores HUD) ----
+  await page.keyboard.press('v');
+  await page.waitForTimeout(150);
+  await page.keyboard.press('v');
+  await expect(screen(page, 'HUD')).toContainText('First light');
 
   // ---- H enters the Conservatory hub, and Pause -> Main menu returns to Title ----
   await page.keyboard.press('h');

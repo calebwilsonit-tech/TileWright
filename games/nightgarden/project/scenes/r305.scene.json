@@ -436,6 +436,7 @@
           "name": "Shade for the shy",
           "no": 17,
           "hint": "A duskcap in a shadow thinks it is night.",
+          "nudge": "Hint: Try moving a crate or brazier first · shortest way is 19 steps and uses 1 lamp and 1 push moves.",
           "chapter": "The Tool Yard",
           "chapterNo": 3,
           "chapterLine": "Crates, trellis screens, iron gates on stone plates. Everything here can be leaned on, and some of it throws a useful shadow.",

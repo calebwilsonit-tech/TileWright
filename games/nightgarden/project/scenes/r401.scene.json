@@ -346,6 +346,7 @@
           "name": "Cellar lamp",
           "no": 19,
           "hint": "Down in a sunken bed you can only reach what is down there with you.",
+          "nudge": "Hint: Try lighting or dousing a lamp first · shortest way is 7 steps and uses 1 lamp toggle.",
           "chapter": "The Brazier Court",
           "chapterNo": 4,
           "chapterLine": "Here the light has wheels. A brazier warms the eight beds round it, wherever you leave it. Mind the sunken beds and the pond.",
@@ -395,7 +396,7 @@
       "w": 7,
       "h": 4,
       "cameraBounds": false,
-      "music": "nightgarden",
+      "music": "deepgarden",
       "darkness": 0,
       "bossActive": false
     }

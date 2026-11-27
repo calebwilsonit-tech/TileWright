@@ -80,19 +80,27 @@ export function buildProject(chapters: Chapter[], dir = PROJECT_DIR): { rooms: R
   write('project.json', projectText(project));
   write('.gitignore', '.tilewright/\nsaves/\nlogs/\n');
   const flyTotal = rooms.filter(({ room }) => room.things.some((t) => t.kind === 'firefly')).length;
-  // Compute exact Par steps and 0..100 difficulty scores for every room from the solver.
+  // Compute exact Par steps, gentle spoiler-light hints, and 0..100 difficulty scores for every room from the solver.
+  const nudgeById = new Map<string, string>();
   const solvedEntries = rooms.map(({ room }) => {
     const r = new Rules(room);
     const main = solve(r);
+    const actions = main?.actions ?? [];
+    const toggles = actions.filter((a) => a.kind === 'toggle').length;
+    const pushes = actions.filter((a) => a.kind === 'push').length;
+    const firstKey = actions.find((a) => a.kind === 'toggle' || a.kind === 'push');
+    const lead = firstKey?.kind === 'toggle' ? 'Try lighting or dousing a lamp first' : firstKey?.kind === 'push' ? 'Try moving a crate or brazier first' : 'Follow the open stepping stones';
+    const tail = toggles > 0 && pushes > 0 ? `uses ${toggles} lamp and ${pushes} push moves` : toggles > 0 ? `uses ${toggles} lamp ${toggles === 1 ? 'toggle' : 'toggles'}` : pushes > 0 ? `uses ${pushes} ${pushes === 1 ? 'push' : 'pushes'}` : 'needs no lamps or pushes';
+    nudgeById.set(room.id, `Hint: ${lead} · shortest way is ${actions.length} steps and ${tail}.`);
     return {
       room,
       report: {
         id: room.id,
         name: room.name,
         ok: Boolean(main),
-        steps: main?.actions.length ?? 0,
-        toggles: main?.actions.filter((a) => a.kind === 'toggle').length ?? 0,
-        pushes: main?.actions.filter((a) => a.kind === 'push').length ?? 0,
+        steps: actions.length,
+        toggles,
+        pushes,
         states: main?.states ?? 0,
         fireflySteps: 0,
         seconds: 0,
@@ -104,7 +112,7 @@ export function buildProject(chapters: Chapter[], dir = PROJECT_DIR): { rooms: R
   rooms.forEach(({ room, chapter }, i) => {
     const next = rooms[i + 1]?.room;
     const d = diffById.get(room.id)!;
-    const opts = { next: next ? scenePath(next.id) : '', index: i + 1, chapter: chapter.name, chapterNo: chapters.indexOf(chapter) + 1, chapterLine: chapter.line, chapters: chapters.length, total: rooms.length, flyTotal, par: d.par, difficulty: d.score };
+    const opts = { next: next ? scenePath(next.id) : '', index: i + 1, chapter: chapter.name, chapterNo: chapters.indexOf(chapter) + 1, chapterLine: chapter.line, chapters: chapters.length, total: rooms.length, flyTotal, par: d.par, difficulty: d.score, nudge: nudgeById.get(room.id) ?? '' };
     write(scenePath(room.id), stringifyScene(roomScene(room, opts)));
   });
   HUB_SIZES.forEach((_s, i) => write(hubScenePath(i), stringifyScene(hubScene({ total: rooms.length, flyTotal, chapters: chapters.length }, i))));
@@ -129,10 +137,12 @@ export function buildProject(chapters: Chapter[], dir = PROJECT_DIR): { rooms: R
       schemaVersion: 1,
       overrides: {},
       actions: [
+        { id: 'undo', label: 'Undo the last step', bindings: ['key:KeyZ', 'key:Backspace'] },
         { id: 'restart', label: 'Start the room again', bindings: ['key:KeyR', 'pad:button2'] },
         { id: 'hub', label: 'Visit the Conservatory hub', bindings: ['key:KeyH'] },
         { id: 'shop', label: 'Open the Garden shop (in the Conservatory)', bindings: ['key:KeyB'] },
         { id: 'hub_next', label: 'Hold the next garden piece (in the Conservatory)', bindings: ['key:KeyQ'] },
+        { id: 'photo', label: 'Photo mode (hide or show the HUD)', bindings: ['key:KeyV'] },
       ],
     }),
   );

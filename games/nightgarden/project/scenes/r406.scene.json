@@ -516,6 +516,7 @@
           "name": "Hearth and gate",
           "no": 24,
           "hint": "A brazier has weight as well as light.",
+          "nudge": "Hint: Try moving a crate or brazier first · shortest way is 12 steps and uses 1 lamp and 3 push moves.",
           "chapter": "The Brazier Court",
           "chapterNo": 4,
           "chapterLine": "Here the light has wheels. A brazier warms the eight beds round it, wherever you leave it. Mind the sunken beds and the pond.",
@@ -565,7 +566,7 @@
       "w": 10,
       "h": 5,
       "cameraBounds": false,
-      "music": "nightgarden",
+      "music": "deepgarden",
       "darkness": 0,
       "bossActive": false
     }

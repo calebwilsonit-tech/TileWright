@@ -344,6 +344,7 @@
           "name": "Lily pond",
           "no": 21,
           "hint": "Light crosses water. Feet do not.",
+          "nudge": "Hint: Try moving a crate or brazier first · shortest way is 6 steps and uses 1 push.",
           "chapter": "The Brazier Court",
           "chapterNo": 4,
           "chapterLine": "Here the light has wheels. A brazier warms the eight beds round it, wherever you leave it. Mind the sunken beds and the pond.",
@@ -393,7 +394,7 @@
       "w": 7,
       "h": 4,
       "cameraBounds": false,
-      "music": "nightgarden",
+      "music": "deepgarden",
       "darkness": 0,
       "bossActive": false
     }

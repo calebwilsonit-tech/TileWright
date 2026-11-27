@@ -3,6 +3,14 @@
   "overrides": {},
   "actions": [
     {
+      "id": "undo",
+      "label": "Undo the last step",
+      "bindings": [
+        "key:KeyZ",
+        "key:Backspace"
+      ]
+    },
+    {
       "id": "restart",
       "label": "Start the room again",
       "bindings": [
@@ -29,6 +37,13 @@
       "label": "Hold the next garden piece (in the Conservatory)",
       "bindings": [
         "key:KeyQ"
+      ]
+    },
+    {
+      "id": "photo",
+      "label": "Photo mode (hide or show the HUD)",
+      "bindings": [
+        "key:KeyV"
       ]
     }
   ]

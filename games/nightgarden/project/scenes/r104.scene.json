@@ -452,6 +452,7 @@
           "name": "Behind you",
           "no": 4,
           "hint": "The same lamp can open one way and close another.",
+          "nudge": "Hint: Try lighting or dousing a lamp first · shortest way is 9 steps and uses 2 lamp toggles.",
           "chapter": "The Potting Shed",
           "chapterNo": 1,
           "chapterLine": "The lamps are out and the moonblooms have gone to ground. Light makes them rise. Start with one.",
