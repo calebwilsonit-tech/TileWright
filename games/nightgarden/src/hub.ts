@@ -170,7 +170,7 @@ export function hubScene(opts: { total: number; flyTotal: number; chapters: numb
     name: 'The Conservatory',
     map: tileMapToRows(map),
     entities,
-    regions: [{ id: 'r1', name: 'The Conservatory', x: 0, y: 0, w, h, cameraBounds: false, music: 'nightgarden', darkness: DARKNESS * 0.75, bossActive: false }],
+    regions: [{ id: 'r1', name: 'The Conservatory', x: 0, y: 0, w, h, cameraBounds: false, music: 'nightgarden', darkness: 0, bossActive: false }],
     wires: [],
     variables: [],
     events: [pauseButtonRow()],

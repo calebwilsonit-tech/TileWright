@@ -205,7 +205,7 @@ export function roomScene(room: Room, opts: SceneOptions): SceneData {
     name: room.name,
     map: tileMapToRows(map),
     entities,
-    regions: [{ id: 'r1', name: room.name, x: 0, y: 0, w: room.w, h: room.h, cameraBounds: false, music: 'nightgarden', darkness: DARKNESS, bossActive: false }],
+    regions: [{ id: 'r1', name: room.name, x: 0, y: 0, w: room.w, h: room.h, cameraBounds: false, music: 'nightgarden', darkness: 0, bossActive: false }],
     wires,
     variables: [],
     events: [pauseButtonRow()],

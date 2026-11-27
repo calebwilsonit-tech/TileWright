@@ -570,7 +570,7 @@
       "h": 6,
       "cameraBounds": false,
       "music": "nightgarden",
-      "darkness": 0.41250000000000003,
+      "darkness": 0,
       "bossActive": false
     }
   ],

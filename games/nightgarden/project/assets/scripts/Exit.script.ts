@@ -17,6 +17,13 @@ export default defineScript({
       game.vars[key] = 1;
       game.vars.ng_done = Number(game.vars.ng_done ?? 0) + 1;
     }
+    const par = Number(game.vars.ng_par ?? 0);
+    const steps = Number(game.vars.ng_steps ?? 0);
+    const parKey = `par_${me.settings.room}`;
+    if (par > 0 && steps > 0 && steps <= par && !game.vars[parKey]) {
+      game.vars[parKey] = 1;
+      game.vars.ng_pars = Number(game.vars.ng_pars ?? 0) + 1;
+    }
     game.emit('room-done', { room: String(me.settings.room) });
     game.do('sound', { name: 'room_done', volume: 0.8 });
     game.vars.ng_reach = Math.max(Number(game.vars.ng_reach ?? 1), Number(game.vars.ng_room_no ?? 1) + 1);

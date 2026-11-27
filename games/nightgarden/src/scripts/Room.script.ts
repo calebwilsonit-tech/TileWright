@@ -38,6 +38,7 @@ export default defineScript({
     v.ng_par = Number(s.par);
     v.ng_difficulty = Number(s.difficulty);
     v.ng_steps = 0;
+    v.darkness = Number(s.room === 'hub' ? 0.42 : 0.55);
     if (v.ng_done === undefined) v.ng_done = 0;
     if (v.ng_flies === undefined) v.ng_flies = 0;
     if (v.ng_pars === undefined) v.ng_pars = 0;
