@@ -1,5 +1,15 @@
 # Changelog
 
+## 0.4.3 (2026-11-27)
+
+- Sync generated Nightgarden project files
+- Full-screen borderless Settings and Controls UI with clean frameless sliders
+- Full-screen Rooms chooser, Main menu button, and working Conservatory hub shortcut
+- Nightgarden: use full-screen scene darkness instead of height-0 region darkness (removes offset shade box)
+- Nightgarden: open front diorama walls to eliminate wall-fade shade box and remove HUD chip borders
+- Nightgarden: redo all 30 rooms as walled gardens with 0-100 difficulty scaling, add The Travers Conservatory hub, Herbarium, Par medals, and Elizabeth's dedication
+- Botanical UI: scope panel rule to top-level boxes (fixes Full screen toggle) and fit Settings sliders inside rows
+
 ## 0.4.2 (2026-11-27)
 
 - Nightgarden UI: full-screen editorial main menu, full-height pause drawer, hard corners, and borderless typographic items
