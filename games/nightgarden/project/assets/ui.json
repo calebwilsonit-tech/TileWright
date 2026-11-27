@@ -7,7 +7,7 @@
     "panel": "#141826",
     "border": "#343b5c",
     "highlight": "#f2a93b",
-    "radius": 10,
+    "radius": 0,
     "scale": 1
   },
   "widgets": []

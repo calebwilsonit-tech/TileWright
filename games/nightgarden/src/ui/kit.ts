@@ -6,7 +6,7 @@ import { newWidget, type UiNode, type UiScreen, type UiStyle, type WidgetType } 
  */
 
 /** The theme of the game (assets/ui.json). */
-export const THEME = { font: 'rounded', text: '#e6ecff', accent: '#ffd76a', panel: '#141826', border: '#343b5c', highlight: '#f2a93b', radius: 10, scale: 1 } as const;
+export const THEME = { font: 'rounded', text: '#e6ecff', accent: '#ffd76a', panel: '#141826', border: '#343b5c', highlight: '#f2a93b', radius: 0, scale: 1 } as const;
 
 /** Colours of the interface: the theme's (as CSS variables, so changing the theme changes every screen) and the four plain ones. */
 export const COLOR = {
@@ -25,7 +25,7 @@ export const COLOR = {
 export const TYPE = { title: 40, heading: 26, row: 18, body: 15, hint: 12 } as const;
 /** Spacing, in fours. */
 export const SPACE = { rowGap: 4, rowPad: 8, group: 12, box: 20, edge: 16 } as const;
-export const RADIUS = { box: 10, row: 8, chip: 6 } as const;
+export const RADIUS = { box: 0, row: 0, chip: 0 } as const;
 export const MENU_WIDTH = 480;
 export const WIDE_WIDTH = 880;
 

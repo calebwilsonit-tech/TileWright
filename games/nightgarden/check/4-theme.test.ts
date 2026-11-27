@@ -43,7 +43,7 @@ describe('the interface', () => {
           if (!st) continue;
           for (const key of ['fill', 'border', 'color'] as const) if (st[key] !== undefined && !colourOk(st[key]!)) wrong.push(`${s.name} / ${n.name}${state ? ` (${state})` : ''}: ${key} ${st[key]}`);
           if (st.fontSize !== undefined && !SIZES.has(st.fontSize)) wrong.push(`${s.name} / ${n.name}: type size ${st.fontSize}`);
-          if (st.radius !== undefined && ![6, 8, 10].includes(st.radius)) wrong.push(`${s.name} / ${n.name}: radius ${st.radius}`);
+          if (st.radius !== undefined && ![0, 6, 8, 10].includes(st.radius)) wrong.push(`${s.name} / ${n.name}: radius ${st.radius}`);
         }
         if (n.type === 'text' && n.style.fontSize === undefined) wrong.push(`${s.name} / ${n.name}: words with no type size`);
         if (n.type === 'panel' && n.children.length > 0 && n.layout !== 'free') {

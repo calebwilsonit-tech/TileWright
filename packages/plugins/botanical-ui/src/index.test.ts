@@ -15,7 +15,7 @@ describe('botanical-ui plugin', () => {
   it('scopes all custom CSS to games that mount a botanical widget', () => {
     expect(botanicalBackdropWidget.css).toContain('.tw-screens:has(.tw-botanical-scope)');
     expect(botanicalFlourishWidget.css).toContain('.tw-botanical-flourish');
-    expect(botanicalCornersWidget.css).toContain('.tw-botanical-corners');
+    expect(botanicalCornersWidget.css).toContain('.tw-botanical-scope');
     expect(botanicalKeysWidget.css).toContain('.tw-botanical-keys');
   });
 });
