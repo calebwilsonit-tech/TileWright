@@ -30,8 +30,14 @@ export const MENU_WIDTH = 480;
 export const WIDE_WIDTH = 880;
 
 const BOX_FILL = 'color-mix(in srgb, var(--tw-panel) 94%, transparent)';
-const CHIP_FILL = 'color-mix(in srgb, var(--tw-panel) 80%, transparent)';
+const CHIP_FILL = 'color-mix(in srgb, var(--tw-panel) 84%, transparent)';
+const ROW_FILL = 'color-mix(in srgb, var(--tw-border) 18%, var(--tw-panel))';
+const ROW_BORDER = 'color-mix(in srgb, var(--tw-border) 55%, var(--tw-panel))';
+const PRIMARY_FILL = 'color-mix(in srgb, var(--tw-highlight) 14%, var(--tw-panel))';
+const PRIMARY_BORDER = 'color-mix(in srgb, var(--tw-highlight) 48%, var(--tw-panel))';
+const RULE_FILL = 'color-mix(in srgb, var(--tw-border) 65%, var(--tw-panel))';
 const FOCUS: UiStyle = { fill: 'color-mix(in srgb, var(--tw-highlight) 22%, var(--tw-panel))', border: COLOR.highlight, borderWidth: 1 };
+const PRESSED: UiStyle = { fill: 'color-mix(in srgb, var(--tw-highlight) 32%, var(--tw-panel))', border: COLOR.highlight, borderWidth: 1 };
 
 type Patch = Partial<UiNode>;
 export type Act = { type: string; params: Record<string, unknown> };
@@ -49,10 +55,11 @@ export const heading = (id: string, text: string): UiNode => words(id, text, TYP
 export const sub = (id: string, text: string, patch: Patch = {}): UiNode => words(id, text, TYPE.hint, { name: 'Subtitle', ...patch, style: { color: COLOR.dim, ...(patch.style ?? {}) } });
 export const hint = (id: string, text: string): UiNode => words(id, text, TYPE.hint, { name: 'Hint', style: { color: COLOR.dim } });
 export const space = (id: string, h: number = SPACE.group): UiNode => widget('spacer', id, { name: 'Space', wMode: 'fill', hMode: 'fixed', w: 8, h });
+export const rule = (id: string): UiNode => widget('panel', id, { name: 'Divider', wMode: 'fill', hMode: 'fixed', w: 8, h: 2, padding: 0, gap: 0, style: { fill: RULE_FILL } });
 const grow = (id: string): UiNode => widget('spacer', id, { name: 'Space', wMode: 'fill', hMode: 'auto', w: 8, h: 8 });
 
 /** A line of a menu: words on the left, quieter words on the right, something that happens when it is chosen. */
-export function row(id: string, label: string, click: Act[], opts: { detail?: string; visible?: string; enabled?: string } = {}): UiNode {
+export function row(id: string, label: string, click: Act[], opts: { detail?: string; visible?: string; enabled?: string; primary?: boolean } = {}): UiNode {
   return widget('panel', id, {
     name: label.replace(/[{}]/g, '') || id,
     layout: 'row',
@@ -61,18 +68,33 @@ export function row(id: string, label: string, click: Act[], opts: { detail?: st
     align: 'center',
     padding: SPACE.rowPad,
     gap: SPACE.group,
-    style: { radius: RADIUS.row },
-    states: { hover: FOCUS, focus: FOCUS, disabled: { opacity: 0.4 } },
+    style: { fill: opts.primary ? PRIMARY_FILL : ROW_FILL, border: opts.primary ? PRIMARY_BORDER : ROW_BORDER, borderWidth: 1, radius: RADIUS.row },
+    states: { hover: FOCUS, focus: FOCUS, pressed: PRESSED, disabled: { opacity: 0.4 } },
     on: { click, hover: [], change: [] },
     visible: opts.visible ?? '',
     enabled: opts.enabled ?? '',
-    children: [words(`${id}.label`, label, TYPE.row, { name: 'Label' }), grow(`${id}.gap`), ...(opts.detail ? [words(`${id}.detail`, opts.detail, TYPE.hint, { name: 'Detail', style: { color: COLOR.dim, align: 'right' } })] : [])],
+    children: [
+      words(`${id}.label`, label, TYPE.row, { name: 'Label', style: opts.primary ? { color: COLOR.accent } : {} }),
+      grow(`${id}.gap`),
+      ...(opts.detail ? [words(`${id}.detail`, opts.detail, TYPE.hint, { name: 'Detail', style: { color: COLOR.dim, align: 'right' } })] : []),
+    ],
   });
 }
 
 /** A line with a label and a control (a slider, a tick box). */
 export function setting(id: string, label: string, control: UiNode, visible = ''): UiNode {
-  return widget('panel', id, { name: label, layout: 'row', wMode: 'fill', hMode: 'auto', align: 'center', padding: SPACE.rowPad, gap: SPACE.group, style: { radius: RADIUS.row }, visible, children: [words(`${id}.label`, label, TYPE.row, { name: 'Label' }), grow(`${id}.gap`), control] });
+  return widget('panel', id, {
+    name: label,
+    layout: 'row',
+    wMode: 'fill',
+    hMode: 'auto',
+    align: 'center',
+    padding: SPACE.rowPad,
+    gap: SPACE.group,
+    style: { fill: ROW_FILL, border: ROW_BORDER, borderWidth: 1, radius: RADIUS.row },
+    visible,
+    children: [words(`${id}.label`, label, TYPE.row, { name: 'Label' }), grow(`${id}.gap`), control],
+  });
 }
 
 export const slider = (id: string, name: string, value: string, min: number, max: number, step: number): UiNode =>
@@ -91,9 +113,20 @@ export function box(id: string, title: string, rows: UiNode[], opts: { subtitle?
     align: 'stretch',
     padding: SPACE.box,
     gap: SPACE.rowGap,
-    style: { fill: BOX_FILL, border: COLOR.border, borderWidth: 2, radius: RADIUS.box, scroll: true, maxH: 88, themeScale: true },
-    anim: [{ on: 'show', kind: 'fade', ms: 150, dir: 'up' }],
-    children: [opts.titleNode ?? heading(`${id}.title`, title), ...(opts.subtitle ? [sub(`${id}.sub`, opts.subtitle)] : []), space(`${id}.top`), ...rows, space(`${id}.bottom`), hint(`${id}.hint`, opts.hint)],
+    style: { fill: BOX_FILL, border: COLOR.border, borderWidth: 2, radius: RADIUS.box, shadow: true, scroll: true, maxH: 88, themeScale: true, fit: 'stage' },
+    anim: [{ on: 'show', kind: 'fade', ms: 180, dir: 'up' }],
+    children: [
+      opts.titleNode ?? heading(`${id}.title`, title),
+      ...(opts.subtitle ? [sub(`${id}.sub`, opts.subtitle)] : []),
+      space(`${id}.top`, SPACE.rowPad),
+      rule(`${id}.rule.top`),
+      space(`${id}.top2`, SPACE.rowPad),
+      ...rows,
+      space(`${id}.bottom`, SPACE.rowPad),
+      rule(`${id}.rule.bottom`),
+      space(`${id}.bottom2`, SPACE.rowGap),
+      hint(`${id}.hint`, opts.hint),
+    ],
   });
 }
 
@@ -105,5 +138,15 @@ export function menu(o: { id: string; name: string; role?: string; box: UiNode; 
 
 /** A chip of the heads-up display: a small dark pill with words in it. */
 export function chip(id: string, children: UiNode[], patch: Patch = {}): UiNode {
-  return widget('panel', id, { layout: 'row', wMode: 'auto', hMode: 'auto', align: 'center', gap: 8, padding: 8, ...patch, style: { fill: CHIP_FILL, radius: RADIUS.chip, themeScale: true, ...(patch.style ?? {}) }, children });
+  return widget('panel', id, {
+    layout: 'row',
+    wMode: 'auto',
+    hMode: 'auto',
+    align: 'center',
+    gap: 8,
+    padding: 8,
+    ...patch,
+    style: { fill: CHIP_FILL, border: COLOR.border, borderWidth: 1, radius: RADIUS.chip, shadow: true, themeScale: true, fit: 'hud', ...(patch.style ?? {}) },
+    children,
+  });
 }

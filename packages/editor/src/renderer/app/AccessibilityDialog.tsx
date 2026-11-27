@@ -1,12 +1,13 @@
 import { useEffect, useState } from 'react';
 import { api } from '../project/api';
 import { DEFAULT_ACCESSIBILITY, ZOOMS, applyAccessibility, cleanAccessibility, type Accessibility } from './accessibility';
-import { store } from './store';
+import { store, useApp } from './store';
 
 /** Text size, colour-blind-safe colours and less motion. Changes apply at once and are remembered. */
 export function AccessibilityDialog() {
   const [open, setOpen] = useState(false);
   const [a, setA] = useState<Accessibility>(DEFAULT_ACCESSIBILITY);
+  const uiStyle = useApp((s) => s.uiStyle);
 
   useEffect(() => {
     const show = (): void => {
@@ -45,6 +46,15 @@ export function AccessibilityDialog() {
         <label className="field check">
           <input data-testid="acc-motion" type="checkbox" checked={a.reduceMotion} onChange={(e) => change({ reduceMotion: e.target.checked })} />
           <span>Less motion in the editor (no pulsing)</span>
+        </label>
+        <label className="field check">
+          <input
+            data-testid="acc-ui-style"
+            type="checkbox"
+            checked={uiStyle === 'studio'}
+            onChange={(e) => store.setUiStyle(e.target.checked ? 'studio' : 'classic')}
+          />
+          <span>Use refreshed Studio UI (glass surfaces, layered elevation, softer accents)</span>
         </label>
         <p className="hint">Every key in the editor can be changed under Shortcuts, and the game&rsquo;s own controls can be remapped from its pause menu (Settings, Controls).</p>
         <div className="row end">

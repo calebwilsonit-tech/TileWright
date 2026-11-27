@@ -37,8 +37,9 @@ function title(): UiScreen {
     back: 'nothing',
     dim: 0.86,
     box: box('title', 'Nightgarden', [
-      row('title.continue', 'Continue', [act('loadGame', { slot: 'latest' }), close('role:title')], { detail: '{host.latestSave}', visible: '{host.hasSave}' }),
-      row('title.new', 'New game', [close('role:title')]),
+      row('title.continue', 'Continue', [act('loadGame', { slot: 'latest' }), close('role:title')], { detail: '{host.latestSave}', visible: '{host.hasSave}', primary: true }),
+      row('title.new', 'New game', [close('role:title')], { primary: true }),
+      row('title.rooms', 'Rooms', [open('Rooms')], { visible: '{host.hasSave}' }),
       row('title.how', 'How to play', [open('How to play')]),
       row('title.settings', 'Settings', [open('role:settings')]),
       row('title.quit', 'Quit', [act('quitGame')], { visible: '{host.quit}' }),
@@ -52,7 +53,7 @@ function pause(): UiScreen {
     name: 'Pause',
     role: 'pause',
     box: box('pause', 'Paused', [
-      row('pause.resume', 'Resume', [close('role:pause')]),
+      row('pause.resume', 'Resume', [close('role:pause')], { primary: true }),
       row('pause.restart', 'Restart room', [close('role:pause'), act('restartArea')], { detail: 'R' }),
       row('pause.rooms', 'Rooms', [open('Rooms')], { detail: '{ng_done} of {ng_total} tended' }),
       row('pause.how', 'How to play', [open('How to play')]),
@@ -105,8 +106,8 @@ function howToPlay(): UiScreen {
       hMode: 'auto',
       align: 'center',
       gap: SPACE.group,
-      padding: SPACE.rowGap,
-      style: {},
+      padding: SPACE.rowPad,
+      style: { fill: 'color-mix(in srgb, var(--tw-border) 16%, var(--tw-panel))', border: 'color-mix(in srgb, var(--tw-border) 48%, var(--tw-panel))', borderWidth: 1, radius: RADIUS.row },
       children: [
         widget('panel', `how.${id}.frame`, { name: 'Picture frame', w: 56, h: 48, wMode: 'fixed', hMode: 'fixed', layout: 'free', padding: 0, style: {}, children: [widget('image', `how.${id}.picture`, { name: 'Picture', sprite, anchor: 'c', w, h, wMode: 'fixed', hMode: 'fixed', style: {} })] }),
         words(`how.${id}.words`, text, TYPE.body, { wMode: 'fill' }),
@@ -139,8 +140,13 @@ function rooms(): UiScreen {
     align: 'start',
     gap: SPACE.rowGap,
     padding: SPACE.rowPad,
-    style: { fill: 'color-mix(in srgb, var(--tw-border) 40%, var(--tw-panel))', border: COLOR.border, borderWidth: 1, radius: RADIUS.row },
-    states: { hover: { border: COLOR.highlight, borderWidth: 2 }, focus: { border: COLOR.highlight, borderWidth: 2 }, disabled: { opacity: 0.4 } },
+    style: { fill: 'color-mix(in srgb, var(--tw-border) 32%, var(--tw-panel))', border: COLOR.border, borderWidth: 1, radius: RADIUS.row, shadow: true },
+    states: {
+      hover: { fill: 'color-mix(in srgb, var(--tw-highlight) 20%, var(--tw-panel))', border: COLOR.highlight, borderWidth: 2 },
+      focus: { fill: 'color-mix(in srgb, var(--tw-highlight) 20%, var(--tw-panel))', border: COLOR.highlight, borderWidth: 2 },
+      pressed: { fill: 'color-mix(in srgb, var(--tw-highlight) 32%, var(--tw-panel))', border: COLOR.highlight, borderWidth: 2 },
+      disabled: { opacity: 0.4 },
+    },
     enabled: '{row.no} = 1 || {row.no} <= {ng_reach}',
     // the Room script of the room being played sees ng_goto and goes there (the row's scene is only known here, on the card)
     on: { click: [act('setVariable', { name: 'ng_goto', op: 'set', value: '{row.scene}' }), ...leaveMenus], hover: [], change: [] },
@@ -171,15 +177,61 @@ function rooms(): UiScreen {
 
 /** Shown when a chapter is entered for the first time. */
 function chapterCard(): UiScreen {
+  const header = widget('panel', 'chapter.header', {
+    name: 'Chapter header',
+    layout: 'row',
+    wMode: 'fill',
+    hMode: 'auto',
+    align: 'center',
+    gap: SPACE.group,
+    padding: 0,
+    style: {},
+    children: [
+      widget('image', 'chapter.emblem', { name: 'Emblem', sprite: 'moonbloom_3', w: 48, h: 48, wMode: 'fixed', hMode: 'fixed', style: {} }),
+      widget('panel', 'chapter.titles', {
+        name: 'Titles',
+        layout: 'column',
+        wMode: 'fill',
+        hMode: 'auto',
+        gap: SPACE.rowGap,
+        padding: 0,
+        style: {},
+        children: [heading('chapter.title', '{ng_chapter}'), sub('chapter.sub', 'Part {ng_chapter_no} of {ng_chapters}')],
+      }),
+    ],
+  });
   return menu({
     id: 'ng-chapter',
     name: 'Chapter',
     dim: 0.86,
-    box: box('chapter', '{ng_chapter}', [words('chapter.line', '{ng_chapter_line}', TYPE.body, { wMode: 'fill' }), space('chapter.space'), row('chapter.go', 'Go on', [close('Chapter')])], { subtitle: 'Part {ng_chapter_no} of {ng_chapters}', hint: 'E go on' }),
+    box: box('chapter', '{ng_chapter}', [words('chapter.line', '{ng_chapter_line}', TYPE.body, { wMode: 'fill' }), space('chapter.space'), row('chapter.go', 'Go on', [close('Chapter')], { primary: true })], { hint: 'E go on', titleNode: header }),
   });
 }
 
 function theEnd(): UiScreen {
+  const header = widget('panel', 'end.header', {
+    name: 'End header',
+    layout: 'row',
+    wMode: 'fill',
+    hMode: 'auto',
+    align: 'center',
+    gap: SPACE.group,
+    padding: 0,
+    style: {},
+    children: [
+      widget('image', 'end.emblem', { name: 'Emblem', sprite: 'moonbloom_3', w: 48, h: 48, wMode: 'fixed', hMode: 'fixed', style: {} }),
+      widget('panel', 'end.titles', {
+        name: 'Titles',
+        layout: 'column',
+        wMode: 'fill',
+        hMode: 'auto',
+        gap: SPACE.rowGap,
+        padding: 0,
+        style: {},
+        children: [heading('end.title', 'The garden is awake'), sub('end.sub', 'Nightgarden')],
+      }),
+    ],
+  });
   return menu({
     id: 'ng-end',
     name: 'The end',
@@ -190,15 +242,25 @@ function theEnd(): UiScreen {
       setting('end.rooms', 'Rooms tended', words('end.rooms.n', '{ng_done} of {ng_total}', TYPE.row, { style: { color: COLOR.accent, bold: true } })),
       setting('end.flies', 'Fireflies caught', words('end.flies.n', '{ng_flies} of {ng_fly_total}', TYPE.row, { style: { color: COLOR.accent, bold: true } })),
       space('end.space2'),
-      row('end.rooms.go', 'Rooms', [open('Rooms')]),
+      row('end.rooms.go', 'Rooms', [open('Rooms')], { primary: true }),
       row('end.stay', 'Stay in the garden', [close('The end')]),
-    ], { subtitle: 'Nightgarden', hint: KEYS }),
+    ], { hint: KEYS, titleNode: header }),
   });
 }
 
 /** Always up while a room is played: where you are, what you have done, and the keys. */
 function hud(): UiScreen {
-  const where = chip('hud.where', [words('hud.chapter', '{ng_chapter}', TYPE.body, { style: { color: COLOR.dim } }), words('hud.room', '{ng_room_no}', TYPE.body, { style: { color: COLOR.accent, bold: true } }), words('hud.name', '{ng_room_name}', TYPE.body)], { anchor: 'tl', x: SPACE.edge, y: SPACE.edge, visible: '{ng_room_no}' });
+  const where = chip(
+    'hud.where',
+    [
+      widget('image', 'hud.lamp.icon', { name: 'Lamp', sprite: 'lamp_on', w: 12, h: 24, wMode: 'fixed', hMode: 'fixed', style: {} }),
+      words('hud.chapter', '{ng_chapter}', TYPE.body, { style: { color: COLOR.dim } }),
+      words('hud.sep0', '·', TYPE.body, { style: { color: COLOR.dim } }),
+      words('hud.room', '{ng_room_no}', TYPE.body, { style: { color: COLOR.accent, bold: true } }),
+      words('hud.name', '{ng_room_name}', TYPE.body),
+    ],
+    { anchor: 'tl', x: SPACE.edge, y: SPACE.edge, visible: '{ng_room_no}' },
+  );
   const tally = chip(
     'hud.tally',
     [
@@ -223,7 +285,10 @@ function hud(): UiScreen {
     wMode: 'auto',
     hMode: 'auto',
     style: {},
-    children: [chip('hud.hint', [words('hud.hint.words', '{ng_hint}', TYPE.body)], { visible: '{ng_hint}' }), hint('hud.keys', 'Arrows walk · E lamp · Shift turn · R restart · Esc pause')],
+    children: [
+      chip('hud.hint', [words('hud.hint.words', '{ng_hint}', TYPE.body)], { visible: '{ng_hint}', style: { border: 'color-mix(in srgb, var(--tw-highlight) 45%, var(--tw-panel))' } }),
+      hint('hud.keys', 'Arrows walk · E lamp · Shift turn · R restart · Esc pause'),
+    ],
   });
   const root = widget('panel', 'hud.root', { name: 'HUD root', anchor: 'fill', layout: 'free', padding: 0, style: {}, children: [where, tally, foot] });
   return { id: 'ng-hud', name: 'HUD', root, modal: false, back: 'auto', backTo: '', priority: 0, dim: 0, transition: 'none', mapX: 0, mapY: 0, opensOnStart: true, role: 'hud' };

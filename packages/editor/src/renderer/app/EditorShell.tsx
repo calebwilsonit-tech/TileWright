@@ -109,6 +109,7 @@ function Toolbar() {
   const paused = useApp((s) => s.paused);
   const hotReload = useApp((s) => s.hotReload);
   const theme = useApp((s) => s.theme);
+  const uiStyle = useApp((s) => s.uiStyle);
   const ws = useApp((s) => s.workspace);
   useApp((s) => s.docVersion);
   const doc = store.doc;
@@ -242,6 +243,14 @@ function Toolbar() {
       </button>
       <button data-testid="btn-theme" onClick={() => store.setTheme(theme === 'dark' ? 'light' : 'dark')} title="Switch light / dark theme">
         {theme === 'dark' ? 'Light' : 'Dark'}
+      </button>
+      <button
+        data-testid="btn-ui-style"
+        className={uiStyle === 'studio' ? 'on' : ''}
+        onClick={() => store.setUiStyle(uiStyle === 'studio' ? 'classic' : 'studio')}
+        title="Switch between the Classic editor look and the refreshed Studio UI"
+      >
+        {uiStyle === 'studio' ? 'Classic UI' : 'Studio UI'}
       </button>
     </header>
   );

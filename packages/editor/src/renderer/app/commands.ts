@@ -98,6 +98,7 @@ export function buildCommands(): Command[] {
     { id: 'file.projectSettings', label: 'Project settings: name, title screen, controls…', category: 'File', keys: '', run: () => document.dispatchEvent(new CustomEvent('tw:project-settings')), enabled: inEditor },
     { id: 'tiles.autotile', label: 'Autotiling: edges, shores and cliff faces…', category: 'Tiles', keys: '', run: () => document.dispatchEvent(new CustomEvent('tw:autotile')) },
     { id: 'view.accessibility', label: 'Accessibility: text size, colours, motion…', category: 'View', keys: '', run: () => document.dispatchEvent(new CustomEvent('tw:accessibility')) },
+    { id: 'view.uiStyle', label: 'Switch editor UI style (Classic / Studio)', category: 'View', keys: '', run: () => store.setUiStyle(store.state.uiStyle === 'studio' ? 'classic' : 'studio') },
     { id: 'app.updates', label: 'Check for Tilewright updates…', category: 'App', keys: '', run: () => document.dispatchEvent(new CustomEvent('tw:updates')) },
     { id: 'help.tutorial', label: 'Start the tutorial', category: 'Help', keys: '', run: () => void import('../tutorial/store').then((m) => m.tutorial.start()), enabled: inEditor },
     { id: 'file.export', label: 'Export the game…', category: 'File', keys: '', run: () => document.dispatchEvent(new CustomEvent('tw:export')), enabled: inEditor },

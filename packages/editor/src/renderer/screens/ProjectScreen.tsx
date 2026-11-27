@@ -9,6 +9,8 @@ import { api } from '../project/api';
 export function ProjectScreen() {
   const recent = useApp((s) => s.recent);
   const busy = useApp((s) => s.busy);
+  const theme = useApp((s) => s.theme);
+  const uiStyle = useApp((s) => s.uiStyle);
   const update = useUpdateStatus();
   const [name, setName] = useState('My Game');
   const [template, setTemplate] = useState(listTemplates()[0]!.id);
@@ -34,6 +36,17 @@ export function ProjectScreen() {
             title="Check GitHub for a newer release of Tilewright"
           >
             {update.status === 'available' || update.status === 'ready' ? `Update to v${update.latest}` : 'Check for updates'}
+          </button>
+          <button
+            data-testid="btn-ui-style"
+            className={uiStyle === 'studio' ? 'primary' : ''}
+            onClick={() => store.setUiStyle(uiStyle === 'studio' ? 'classic' : 'studio')}
+            title="Toggle the refreshed Studio UI look (optional)"
+          >
+            {uiStyle === 'studio' ? 'Classic UI' : 'Try Studio UI'}
+          </button>
+          <button data-testid="btn-theme" onClick={() => store.setTheme(theme === 'dark' ? 'light' : 'dark')} title="Switch light / dark theme">
+            {theme === 'dark' ? 'Light' : 'Dark'}
           </button>
         </div>
       </header>

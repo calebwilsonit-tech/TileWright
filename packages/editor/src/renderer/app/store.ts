@@ -186,6 +186,7 @@ export interface AppState {
   mode: Mode;
   paused: boolean;
   theme: 'dark' | 'light';
+  uiStyle: 'classic' | 'studio';
   notices: Notice[];
   log: { time: number; kind: Notice['kind']; text: string }[];
   recent: { dir: string; name: string; opened: number }[];
@@ -274,6 +275,7 @@ const initial: AppState = {
   mode: 'edit',
   paused: false,
   theme: 'dark',
+  uiStyle: 'classic',
   notices: [],
   log: [],
   recent: [],
@@ -382,8 +384,15 @@ class AppStore {
     const info = await api().info();
     const settings = await api().settings.get();
     const recent = await api().recent.list();
-    this.set({ testMode: info.testMode, recent, theme: settings.theme === 'light' ? 'light' : 'dark', hotReload: settings.hotReload === true });
+    this.set({
+      testMode: info.testMode,
+      recent,
+      theme: settings.theme === 'light' ? 'light' : 'dark',
+      uiStyle: settings.uiStyle === 'studio' ? 'studio' : 'classic',
+      hotReload: settings.hotReload === true,
+    });
     document.documentElement.dataset.theme = this.state.theme;
+    document.documentElement.dataset.ui = this.state.uiStyle;
     applyAccessibility(cleanAccessibility(settings.accessibility));
   }
 
@@ -391,6 +400,12 @@ class AppStore {
     this.set({ theme });
     document.documentElement.dataset.theme = theme;
     void this.saveSetting('theme', theme);
+  }
+
+  setUiStyle(uiStyle: 'classic' | 'studio'): void {
+    this.set({ uiStyle });
+    document.documentElement.dataset.ui = uiStyle;
+    void this.saveSetting('uiStyle', uiStyle);
   }
 
   async saveSetting(key: string, value: unknown): Promise<void> {
