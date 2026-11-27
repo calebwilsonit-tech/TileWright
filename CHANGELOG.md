@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.4.0 (2026-11-27)
+
+- Botanical UI plugin and Nightgarden custom conservatory UI (fireflies, brass plaques, SVG filigree, embossed keycaps)
+
 ## 0.3.0 (2026-11-27)
 
 - UI revamp: add optional Studio UI theme for Tilewright editor and polish Nightgarden screens and HUD
