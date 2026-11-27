@@ -215,14 +215,15 @@ const BOTANICAL_CSS = `
 }
 
 /* ---------- ALL OTHER OVERLAY PANELS (Chapter, Rooms, Settings, Controls, How to play, The end) ---------- */
-/* Hard corners, zero 4-sided outline, clean dark tonal surface + single top 2px gold hairline */
-.tw-screens:has(.tw-botanical-scope) [data-id$=".box"]:not([data-id$="title.box"]):not([data-id$="pause.box"]) {
+/* Hard corners, zero 4-sided outline, clean dark tonal surface + single top 2px gold hairline.
+   Use > .tw-w > so nested widgets whose id happens to end in ".box" (like settings.full.box) are never matched! */
+.tw-screens:has(.tw-botanical-scope) .tw-screen > .tw-w > [data-id$=".box"]:not([data-id$="title.box"]):not([data-id$="pause.box"]) {
   background: linear-gradient(180deg, rgba(18, 23, 40, 0.96) 0%, rgba(11, 14, 25, 0.98) 100%) !important;
   border: none !important;
   border-top: 2px solid #ffd76a !important;
   border-radius: 0 !important;
   box-shadow: 0 32px 80px rgba(0, 0, 0, 0.82) !important;
-  padding: 32px 36px 26px !important;
+  padding: 28px 32px 24px !important;
 }
 
 /* ---------- TYPOGRAPHY ---------- */
@@ -283,12 +284,20 @@ const BOTANICAL_CSS = `
   border-left: 2px solid rgba(255, 215, 106, 0.6) !important;
 }
 
-/* Settings & How-to-play rows: subtle tonal zebra strips, NO borders */
-.tw-screens:has(.tw-botanical-scope) [data-id^="settings."].tw-w.panel,
-.tw-screens:has(.tw-botanical-scope) [data-id^="how."].tw-w.panel:not([data-id$=".frame"]):not([data-id="how.back"]):not([data-id="how.box"]):not([data-id="ng-how.root"]) {
+/* Settings & How-to-play rows: subtle tonal zebra strips, NO borders (never touch inner control parts!) */
+.tw-screens:has(.tw-botanical-scope) [data-testid="tw-screen-Settings"] .tw-scroll-content > .tw-w.panel:not(.clickable),
+.tw-screens:has(.tw-botanical-scope) [data-testid="tw-screen-How to play"] .tw-scroll-content > .tw-w.panel:not(.clickable) {
   background: rgba(255, 255, 255, 0.03) !important;
   border: none !important;
   border-radius: 0 !important;
+  overflow: hidden;
+}
+
+/* Keep sliders cleanly inside their row without overflowing */
+.tw-screens:has(.tw-botanical-scope) .tw-w.engine-slider {
+  max-width: 180px !important;
+  width: 180px !important;
+  flex: 0 0 180px !important;
 }
 
 /* ---------- SHARP-CORNERED BORDERLESS ROOM TILES ---------- */
