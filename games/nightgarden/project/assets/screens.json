@@ -988,7 +988,7 @@
                       "params": {
                         "name": "ng_goto",
                         "op": "set",
-                        "value": "scenes/hub.scene.json"
+                        "value": "hub"
                       }
                     },
                     {
@@ -2694,7 +2694,7 @@
             "source": "",
             "template": "",
             "drag": false,
-            "visible": "{ng_room_name}",
+            "visible": "{ng_room_name} && {ng_in_hub} = 0",
             "enabled": "",
             "on": {
               "click": [],
@@ -3070,6 +3070,364 @@
             ]
           },
           {
+            "id": "hud.jar",
+            "name": "hud.jar",
+            "type": "panel",
+            "anchor": "tr",
+            "x": -16,
+            "y": 16,
+            "w": 240,
+            "h": 160,
+            "wMode": "auto",
+            "hMode": "auto",
+            "layout": "row",
+            "gap": 8,
+            "padding": 8,
+            "align": "center",
+            "columns": 3,
+            "style": {
+              "fill": "color-mix(in srgb, var(--tw-panel) 84%, transparent)",
+              "radius": 0,
+              "themeScale": true,
+              "fit": "hud"
+            },
+            "states": {},
+            "anim": [],
+            "text": "",
+            "sprite": "",
+            "value": "",
+            "max": "100",
+            "min": 0,
+            "step": 1,
+            "options": "",
+            "source": "",
+            "template": "",
+            "drag": false,
+            "visible": "{ng_in_hub}",
+            "enabled": "",
+            "on": {
+              "click": [],
+              "hover": [],
+              "change": []
+            },
+            "focus": {
+              "up": "",
+              "down": "",
+              "left": "",
+              "right": ""
+            },
+            "tooltip": "",
+            "prefab": "",
+            "overrides": {},
+            "marks": "player:#6fe08a, enemy:#e05a5a",
+            "children": [
+              {
+                "id": "hud.jar.icon",
+                "name": "Firefly",
+                "type": "image",
+                "anchor": "tl",
+                "x": 0,
+                "y": 0,
+                "w": 16,
+                "h": 16,
+                "wMode": "fixed",
+                "hMode": "fixed",
+                "layout": "free",
+                "gap": 8,
+                "padding": 8,
+                "align": "start",
+                "columns": 3,
+                "style": {},
+                "states": {},
+                "anim": [],
+                "text": "",
+                "sprite": "firefly",
+                "value": "",
+                "max": "100",
+                "min": 0,
+                "step": 1,
+                "options": "",
+                "source": "",
+                "template": "",
+                "drag": false,
+                "visible": "",
+                "enabled": "",
+                "on": {
+                  "click": [],
+                  "hover": [],
+                  "change": []
+                },
+                "focus": {
+                  "up": "",
+                  "down": "",
+                  "left": "",
+                  "right": ""
+                },
+                "tooltip": "",
+                "prefab": "",
+                "overrides": {},
+                "marks": "player:#6fe08a, enemy:#e05a5a",
+                "children": []
+              },
+              {
+                "id": "hud.jar.n",
+                "name": "hud.jar.n",
+                "type": "text",
+                "anchor": "tl",
+                "x": 0,
+                "y": 0,
+                "w": 160,
+                "h": 28,
+                "wMode": "auto",
+                "hMode": "auto",
+                "layout": "free",
+                "gap": 8,
+                "padding": 0,
+                "align": "start",
+                "columns": 3,
+                "style": {
+                  "fontSize": 15,
+                  "color": "#ffd76a",
+                  "bold": true
+                },
+                "states": {},
+                "anim": [],
+                "text": "{ng_jar}",
+                "sprite": "",
+                "value": "",
+                "max": "100",
+                "min": 0,
+                "step": 1,
+                "options": "",
+                "source": "",
+                "template": "",
+                "drag": false,
+                "visible": "",
+                "enabled": "",
+                "on": {
+                  "click": [],
+                  "hover": [],
+                  "change": []
+                },
+                "focus": {
+                  "up": "",
+                  "down": "",
+                  "left": "",
+                  "right": ""
+                },
+                "tooltip": "",
+                "prefab": "",
+                "overrides": {},
+                "marks": "player:#6fe08a, enemy:#e05a5a",
+                "children": []
+              },
+              {
+                "id": "hud.jar.label",
+                "name": "hud.jar.label",
+                "type": "text",
+                "anchor": "tl",
+                "x": 0,
+                "y": 0,
+                "w": 160,
+                "h": 28,
+                "wMode": "auto",
+                "hMode": "auto",
+                "layout": "free",
+                "gap": 8,
+                "padding": 0,
+                "align": "start",
+                "columns": 3,
+                "style": {
+                  "fontSize": 15,
+                  "color": "#8f96b3"
+                },
+                "states": {},
+                "anim": [],
+                "text": "in your jar",
+                "sprite": "",
+                "value": "",
+                "max": "100",
+                "min": 0,
+                "step": 1,
+                "options": "",
+                "source": "",
+                "template": "",
+                "drag": false,
+                "visible": "",
+                "enabled": "",
+                "on": {
+                  "click": [],
+                  "hover": [],
+                  "change": []
+                },
+                "focus": {
+                  "up": "",
+                  "down": "",
+                  "left": "",
+                  "right": ""
+                },
+                "tooltip": "",
+                "prefab": "",
+                "overrides": {},
+                "marks": "player:#6fe08a, enemy:#e05a5a",
+                "children": []
+              },
+              {
+                "id": "hud.jar.sep",
+                "name": "hud.jar.sep",
+                "type": "text",
+                "anchor": "tl",
+                "x": 0,
+                "y": 0,
+                "w": 160,
+                "h": 28,
+                "wMode": "auto",
+                "hMode": "auto",
+                "layout": "free",
+                "gap": 8,
+                "padding": 0,
+                "align": "start",
+                "columns": 3,
+                "style": {
+                  "fontSize": 15,
+                  "color": "#8f96b3"
+                },
+                "states": {},
+                "anim": [],
+                "text": "·",
+                "sprite": "",
+                "value": "",
+                "max": "100",
+                "min": 0,
+                "step": 1,
+                "options": "",
+                "source": "",
+                "template": "",
+                "drag": false,
+                "visible": "",
+                "enabled": "",
+                "on": {
+                  "click": [],
+                  "hover": [],
+                  "change": []
+                },
+                "focus": {
+                  "up": "",
+                  "down": "",
+                  "left": "",
+                  "right": ""
+                },
+                "tooltip": "",
+                "prefab": "",
+                "overrides": {},
+                "marks": "player:#6fe08a, enemy:#e05a5a",
+                "children": []
+              },
+              {
+                "id": "hud.jar.placed",
+                "name": "hud.jar.placed",
+                "type": "text",
+                "anchor": "tl",
+                "x": 0,
+                "y": 0,
+                "w": 160,
+                "h": 28,
+                "wMode": "auto",
+                "hMode": "auto",
+                "layout": "free",
+                "gap": 8,
+                "padding": 0,
+                "align": "start",
+                "columns": 3,
+                "style": {
+                  "fontSize": 15,
+                  "bold": true
+                },
+                "states": {},
+                "anim": [],
+                "text": "{hub_placed} / {hub_cap}",
+                "sprite": "",
+                "value": "",
+                "max": "100",
+                "min": 0,
+                "step": 1,
+                "options": "",
+                "source": "",
+                "template": "",
+                "drag": false,
+                "visible": "",
+                "enabled": "",
+                "on": {
+                  "click": [],
+                  "hover": [],
+                  "change": []
+                },
+                "focus": {
+                  "up": "",
+                  "down": "",
+                  "left": "",
+                  "right": ""
+                },
+                "tooltip": "",
+                "prefab": "",
+                "overrides": {},
+                "marks": "player:#6fe08a, enemy:#e05a5a",
+                "children": []
+              },
+              {
+                "id": "hud.jar.placed.label",
+                "name": "hud.jar.placed.label",
+                "type": "text",
+                "anchor": "tl",
+                "x": 0,
+                "y": 0,
+                "w": 160,
+                "h": 28,
+                "wMode": "auto",
+                "hMode": "auto",
+                "layout": "free",
+                "gap": 8,
+                "padding": 0,
+                "align": "start",
+                "columns": 3,
+                "style": {
+                  "fontSize": 15,
+                  "color": "#8f96b3"
+                },
+                "states": {},
+                "anim": [],
+                "text": "placed",
+                "sprite": "",
+                "value": "",
+                "max": "100",
+                "min": 0,
+                "step": 1,
+                "options": "",
+                "source": "",
+                "template": "",
+                "drag": false,
+                "visible": "",
+                "enabled": "",
+                "on": {
+                  "click": [],
+                  "hover": [],
+                  "change": []
+                },
+                "focus": {
+                  "up": "",
+                  "down": "",
+                  "left": "",
+                  "right": ""
+                },
+                "tooltip": "",
+                "prefab": "",
+                "overrides": {},
+                "marks": "player:#6fe08a, enemy:#e05a5a",
+                "children": []
+              }
+            ]
+          },
+          {
             "id": "hud.foot",
             "name": "Hint and keys",
             "type": "panel",
@@ -3221,6 +3579,163 @@
                 ]
               },
               {
+                "id": "hud.holding",
+                "name": "hud.holding",
+                "type": "panel",
+                "anchor": "tl",
+                "x": 0,
+                "y": 0,
+                "w": 240,
+                "h": 160,
+                "wMode": "auto",
+                "hMode": "auto",
+                "layout": "row",
+                "gap": 8,
+                "padding": 8,
+                "align": "center",
+                "columns": 3,
+                "style": {
+                  "fill": "color-mix(in srgb, var(--tw-panel) 84%, transparent)",
+                  "radius": 0,
+                  "themeScale": true,
+                  "fit": "hud"
+                },
+                "states": {},
+                "anim": [],
+                "text": "",
+                "sprite": "",
+                "value": "",
+                "max": "100",
+                "min": 0,
+                "step": 1,
+                "options": "",
+                "source": "",
+                "template": "",
+                "drag": false,
+                "visible": "{ng_in_hub}",
+                "enabled": "",
+                "on": {
+                  "click": [],
+                  "hover": [],
+                  "change": []
+                },
+                "focus": {
+                  "up": "",
+                  "down": "",
+                  "left": "",
+                  "right": ""
+                },
+                "tooltip": "",
+                "prefab": "",
+                "overrides": {},
+                "marks": "player:#6fe08a, enemy:#e05a5a",
+                "children": [
+                  {
+                    "id": "hud.holding.label",
+                    "name": "hud.holding.label",
+                    "type": "text",
+                    "anchor": "tl",
+                    "x": 0,
+                    "y": 0,
+                    "w": 160,
+                    "h": 28,
+                    "wMode": "auto",
+                    "hMode": "auto",
+                    "layout": "free",
+                    "gap": 8,
+                    "padding": 0,
+                    "align": "start",
+                    "columns": 3,
+                    "style": {
+                      "fontSize": 15,
+                      "color": "#8f96b3"
+                    },
+                    "states": {},
+                    "anim": [],
+                    "text": "In hand",
+                    "sprite": "",
+                    "value": "",
+                    "max": "100",
+                    "min": 0,
+                    "step": 1,
+                    "options": "",
+                    "source": "",
+                    "template": "",
+                    "drag": false,
+                    "visible": "",
+                    "enabled": "",
+                    "on": {
+                      "click": [],
+                      "hover": [],
+                      "change": []
+                    },
+                    "focus": {
+                      "up": "",
+                      "down": "",
+                      "left": "",
+                      "right": ""
+                    },
+                    "tooltip": "",
+                    "prefab": "",
+                    "overrides": {},
+                    "marks": "player:#6fe08a, enemy:#e05a5a",
+                    "children": []
+                  },
+                  {
+                    "id": "hud.holding.what",
+                    "name": "hud.holding.what",
+                    "type": "text",
+                    "anchor": "tl",
+                    "x": 0,
+                    "y": 0,
+                    "w": 160,
+                    "h": 28,
+                    "wMode": "auto",
+                    "hMode": "auto",
+                    "layout": "free",
+                    "gap": 8,
+                    "padding": 0,
+                    "align": "start",
+                    "columns": 3,
+                    "style": {
+                      "fontSize": 15,
+                      "color": "var(--tw-accent)",
+                      "bold": true
+                    },
+                    "states": {},
+                    "anim": [],
+                    "text": "{hub_sel_label}",
+                    "sprite": "",
+                    "value": "",
+                    "max": "100",
+                    "min": 0,
+                    "step": 1,
+                    "options": "",
+                    "source": "",
+                    "template": "",
+                    "drag": false,
+                    "visible": "",
+                    "enabled": "",
+                    "on": {
+                      "click": [],
+                      "hover": [],
+                      "change": []
+                    },
+                    "focus": {
+                      "up": "",
+                      "down": "",
+                      "left": "",
+                      "right": ""
+                    },
+                    "tooltip": "",
+                    "prefab": "",
+                    "overrides": {},
+                    "marks": "player:#6fe08a, enemy:#e05a5a",
+                    "children": []
+                  }
+                ]
+              },
+              {
                 "id": "hud.keys",
                 "name": "Keys",
                 "type": "plugin",
@@ -3249,7 +3764,55 @@
                 "source": "botanical-keys",
                 "template": "",
                 "drag": false,
-                "visible": "",
+                "visible": "{ng_in_hub} = 0",
+                "enabled": "",
+                "on": {
+                  "click": [],
+                  "hover": [],
+                  "change": []
+                },
+                "focus": {
+                  "up": "",
+                  "down": "",
+                  "left": "",
+                  "right": ""
+                },
+                "tooltip": "",
+                "prefab": "",
+                "overrides": {},
+                "marks": "player:#6fe08a, enemy:#e05a5a",
+                "children": []
+              },
+              {
+                "id": "hud.keys.hub",
+                "name": "Garden keys",
+                "type": "plugin",
+                "anchor": "tl",
+                "x": 0,
+                "y": 0,
+                "w": 120,
+                "h": 40,
+                "wMode": "auto",
+                "hMode": "auto",
+                "layout": "free",
+                "gap": 8,
+                "padding": 0,
+                "align": "start",
+                "columns": 3,
+                "style": {},
+                "states": {},
+                "anim": [],
+                "text": "Arrows:walk|Shift:turn|E:plant / lift|Q:next piece|B:shop|H:leave|Esc:pause",
+                "sprite": "",
+                "value": "",
+                "max": "100",
+                "min": 0,
+                "step": 1,
+                "options": "",
+                "source": "botanical-keys",
+                "template": "",
+                "drag": false,
+                "visible": "{ng_in_hub}",
                 "enabled": "",
                 "on": {
                   "click": [],
@@ -4390,7 +4953,7 @@
                 "source": "",
                 "template": "",
                 "drag": false,
-                "visible": "",
+                "visible": "{ng_in_hub} = 0",
                 "enabled": "",
                 "on": {
                   "click": [
@@ -4399,7 +4962,7 @@
                       "params": {
                         "name": "ng_goto",
                         "op": "set",
-                        "value": "scenes/hub.scene.json"
+                        "value": "hub"
                       }
                     },
                     {
@@ -4581,6 +5144,244 @@
                     "states": {},
                     "anim": [],
                     "text": "Garden hub",
+                    "sprite": "",
+                    "value": "",
+                    "max": "100",
+                    "min": 0,
+                    "step": 1,
+                    "options": "",
+                    "source": "",
+                    "template": "",
+                    "drag": false,
+                    "visible": "",
+                    "enabled": "",
+                    "on": {
+                      "click": [],
+                      "hover": [],
+                      "change": []
+                    },
+                    "focus": {
+                      "up": "",
+                      "down": "",
+                      "left": "",
+                      "right": ""
+                    },
+                    "tooltip": "",
+                    "prefab": "",
+                    "overrides": {},
+                    "marks": "player:#6fe08a, enemy:#e05a5a",
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "id": "pause.shop",
+                "name": "Garden shop",
+                "type": "panel",
+                "anchor": "tl",
+                "x": 0,
+                "y": 0,
+                "w": 240,
+                "h": 160,
+                "wMode": "fill",
+                "hMode": "auto",
+                "layout": "row",
+                "gap": 12,
+                "padding": 8,
+                "align": "center",
+                "columns": 3,
+                "style": {
+                  "fill": "color-mix(in srgb, var(--tw-border) 18%, var(--tw-panel))",
+                  "border": "color-mix(in srgb, var(--tw-border) 55%, var(--tw-panel))",
+                  "borderWidth": 1,
+                  "radius": 0
+                },
+                "states": {
+                  "hover": {
+                    "fill": "color-mix(in srgb, var(--tw-highlight) 22%, var(--tw-panel))",
+                    "border": "var(--tw-highlight)",
+                    "borderWidth": 1
+                  },
+                  "focus": {
+                    "fill": "color-mix(in srgb, var(--tw-highlight) 22%, var(--tw-panel))",
+                    "border": "var(--tw-highlight)",
+                    "borderWidth": 1
+                  },
+                  "pressed": {
+                    "fill": "color-mix(in srgb, var(--tw-highlight) 32%, var(--tw-panel))",
+                    "border": "var(--tw-highlight)",
+                    "borderWidth": 1
+                  },
+                  "disabled": {
+                    "opacity": 0.4
+                  }
+                },
+                "anim": [],
+                "text": "",
+                "sprite": "",
+                "value": "",
+                "max": "100",
+                "min": 0,
+                "step": 1,
+                "options": "",
+                "source": "",
+                "template": "",
+                "drag": false,
+                "visible": "{ng_in_hub}",
+                "enabled": "",
+                "on": {
+                  "click": [
+                    {
+                      "type": "uiScreen",
+                      "params": {
+                        "op": "close",
+                        "screen": "role:pause"
+                      }
+                    },
+                    {
+                      "type": "uiScreen",
+                      "params": {
+                        "op": "open",
+                        "screen": "Garden shop"
+                      }
+                    }
+                  ],
+                  "hover": [],
+                  "change": []
+                },
+                "focus": {
+                  "up": "",
+                  "down": "",
+                  "left": "",
+                  "right": ""
+                },
+                "tooltip": "",
+                "prefab": "",
+                "overrides": {},
+                "marks": "player:#6fe08a, enemy:#e05a5a",
+                "children": [
+                  {
+                    "id": "pause.shop.label",
+                    "name": "Label",
+                    "type": "text",
+                    "anchor": "tl",
+                    "x": 0,
+                    "y": 0,
+                    "w": 160,
+                    "h": 28,
+                    "wMode": "auto",
+                    "hMode": "auto",
+                    "layout": "free",
+                    "gap": 8,
+                    "padding": 0,
+                    "align": "start",
+                    "columns": 3,
+                    "style": {
+                      "fontSize": 18
+                    },
+                    "states": {},
+                    "anim": [],
+                    "text": "Garden shop",
+                    "sprite": "",
+                    "value": "",
+                    "max": "100",
+                    "min": 0,
+                    "step": 1,
+                    "options": "",
+                    "source": "",
+                    "template": "",
+                    "drag": false,
+                    "visible": "",
+                    "enabled": "",
+                    "on": {
+                      "click": [],
+                      "hover": [],
+                      "change": []
+                    },
+                    "focus": {
+                      "up": "",
+                      "down": "",
+                      "left": "",
+                      "right": ""
+                    },
+                    "tooltip": "",
+                    "prefab": "",
+                    "overrides": {},
+                    "marks": "player:#6fe08a, enemy:#e05a5a",
+                    "children": []
+                  },
+                  {
+                    "id": "pause.shop.gap",
+                    "name": "Space",
+                    "type": "spacer",
+                    "anchor": "tl",
+                    "x": 0,
+                    "y": 0,
+                    "w": 8,
+                    "h": 8,
+                    "wMode": "fill",
+                    "hMode": "auto",
+                    "layout": "free",
+                    "gap": 8,
+                    "padding": 8,
+                    "align": "start",
+                    "columns": 3,
+                    "style": {},
+                    "states": {},
+                    "anim": [],
+                    "text": "",
+                    "sprite": "",
+                    "value": "",
+                    "max": "100",
+                    "min": 0,
+                    "step": 1,
+                    "options": "",
+                    "source": "",
+                    "template": "",
+                    "drag": false,
+                    "visible": "",
+                    "enabled": "",
+                    "on": {
+                      "click": [],
+                      "hover": [],
+                      "change": []
+                    },
+                    "focus": {
+                      "up": "",
+                      "down": "",
+                      "left": "",
+                      "right": ""
+                    },
+                    "tooltip": "",
+                    "prefab": "",
+                    "overrides": {},
+                    "marks": "player:#6fe08a, enemy:#e05a5a",
+                    "children": []
+                  },
+                  {
+                    "id": "pause.shop.detail",
+                    "name": "Detail",
+                    "type": "text",
+                    "anchor": "tl",
+                    "x": 0,
+                    "y": 0,
+                    "w": 160,
+                    "h": 28,
+                    "wMode": "auto",
+                    "hMode": "auto",
+                    "layout": "free",
+                    "gap": 8,
+                    "padding": 0,
+                    "align": "start",
+                    "columns": 3,
+                    "style": {
+                      "fontSize": 12,
+                      "color": "#8f96b3",
+                      "align": "right"
+                    },
+                    "states": {},
+                    "anim": [],
+                    "text": "{ng_jar} fireflies",
                     "sprite": "",
                     "value": "",
                     "max": "100",
@@ -7826,7 +8627,7 @@
                         },
                         "states": {},
                         "anim": [],
-                        "text": "Opens under warm lamplight and lifts whoever stands on its bed. Always available in the Conservatory.",
+                        "text": "Opens under warm lamplight and lifts whoever stands on its bed. Two come with the Conservatory; more are 2 fireflies in the Garden shop.",
                         "sprite": "",
                         "value": "",
                         "max": "100",
@@ -8127,7 +8928,7 @@
                         },
                         "states": {},
                         "anim": [],
-                        "text": "Rises tall in shadow and shrinks from fire. Unlocks for the Conservatory at 6 rooms tended.",
+                        "text": "Rises tall in shadow and shrinks from fire. Sold in the Garden shop once 6 rooms are tended.",
                         "sprite": "",
                         "value": "",
                         "max": "100",
@@ -8428,7 +9229,7 @@
                         },
                         "states": {},
                         "anim": [],
-                        "text": "Drawn to quiet side paths. Unlocks teal lamps at 5 fireflies and moonstones at 10.",
+                        "text": "Drawn to quiet side paths. Every one caught puts 3 in your jar to spend in the Garden shop.",
                         "sprite": "",
                         "value": "",
                         "max": "100",
@@ -8729,7 +9530,7 @@
                         },
                         "states": {},
                         "anim": [],
-                        "text": "A rare pale bloom named for Elizabeth Grace. Unlocks at 10 Master Gardener Par medals.",
+                        "text": "A rare pale bloom named for Elizabeth Grace. Sold in the Garden shop once you hold 10 Master Gardener Par medals.",
                         "sprite": "",
                         "value": "",
                         "max": "100",
@@ -9030,7 +9831,7 @@
                         },
                         "states": {},
                         "anim": [],
-                        "text": "An heirloom specimen of the Travers Conservatory. Unlocks when every room is tended.",
+                        "text": "An heirloom specimen of the Travers Conservatory. Sold in the Garden shop when every room is tended.",
                         "sprite": "",
                         "value": "",
                         "max": "100",
@@ -9125,7 +9926,7 @@
                       "params": {
                         "name": "ng_goto",
                         "op": "set",
-                        "value": "scenes/hub.scene.json"
+                        "value": "hub"
                       }
                     },
                     {
@@ -9673,6 +10474,4031 @@
       "dim": 0.86,
       "transition": "fade",
       "mapX": 40,
+      "mapY": 170,
+      "opensOnStart": false
+    },
+    {
+      "id": "ng-shop",
+      "name": "Garden shop",
+      "root": {
+        "id": "ng-shop.root",
+        "name": "Garden shop root",
+        "type": "panel",
+        "anchor": "fill",
+        "x": 0,
+        "y": 0,
+        "w": 240,
+        "h": 160,
+        "wMode": "fixed",
+        "hMode": "fixed",
+        "layout": "free",
+        "gap": 8,
+        "padding": 0,
+        "align": "start",
+        "columns": 3,
+        "style": {},
+        "states": {},
+        "anim": [],
+        "text": "",
+        "sprite": "",
+        "value": "",
+        "max": "100",
+        "min": 0,
+        "step": 1,
+        "options": "",
+        "source": "",
+        "template": "",
+        "drag": false,
+        "visible": "",
+        "enabled": "",
+        "on": {
+          "click": [],
+          "hover": [],
+          "change": []
+        },
+        "focus": {
+          "up": "",
+          "down": "",
+          "left": "",
+          "right": ""
+        },
+        "tooltip": "",
+        "prefab": "",
+        "overrides": {},
+        "marks": "player:#6fe08a, enemy:#e05a5a",
+        "children": [
+          {
+            "id": "ng-shop.bg",
+            "name": "Backdrop",
+            "type": "plugin",
+            "anchor": "fill",
+            "x": 0,
+            "y": 0,
+            "w": 120,
+            "h": 40,
+            "wMode": "fill",
+            "hMode": "fill",
+            "layout": "free",
+            "gap": 8,
+            "padding": 0,
+            "align": "start",
+            "columns": 3,
+            "style": {},
+            "states": {},
+            "anim": [],
+            "text": "",
+            "sprite": "",
+            "value": "",
+            "max": "100",
+            "min": 0,
+            "step": 1,
+            "options": "",
+            "source": "botanical-backdrop",
+            "template": "",
+            "drag": false,
+            "visible": "",
+            "enabled": "",
+            "on": {
+              "click": [],
+              "hover": [],
+              "change": []
+            },
+            "focus": {
+              "up": "",
+              "down": "",
+              "left": "",
+              "right": ""
+            },
+            "tooltip": "",
+            "prefab": "",
+            "overrides": {},
+            "marks": "player:#6fe08a, enemy:#e05a5a",
+            "children": []
+          },
+          {
+            "id": "shop.box",
+            "name": "The Garden shop box",
+            "type": "panel",
+            "anchor": "c",
+            "x": 0,
+            "y": 0,
+            "w": 480,
+            "h": 160,
+            "wMode": "fixed",
+            "hMode": "auto",
+            "layout": "column",
+            "gap": 4,
+            "padding": 20,
+            "align": "stretch",
+            "columns": 3,
+            "style": {
+              "fill": "color-mix(in srgb, var(--tw-panel) 94%, transparent)",
+              "border": "var(--tw-border)",
+              "borderWidth": 2,
+              "radius": 0,
+              "shadow": true,
+              "scroll": true,
+              "maxH": 88,
+              "themeScale": true,
+              "fit": "stage"
+            },
+            "states": {},
+            "anim": [
+              {
+                "on": "show",
+                "kind": "fade",
+                "ms": 180,
+                "dir": "up"
+              }
+            ],
+            "text": "",
+            "sprite": "",
+            "value": "",
+            "max": "100",
+            "min": 0,
+            "step": 1,
+            "options": "",
+            "source": "",
+            "template": "",
+            "drag": false,
+            "visible": "",
+            "enabled": "",
+            "on": {
+              "click": [],
+              "hover": [],
+              "change": []
+            },
+            "focus": {
+              "up": "",
+              "down": "",
+              "left": "",
+              "right": ""
+            },
+            "tooltip": "",
+            "prefab": "",
+            "overrides": {},
+            "marks": "player:#6fe08a, enemy:#e05a5a",
+            "children": [
+              {
+                "id": "shop.title",
+                "name": "Heading",
+                "type": "text",
+                "anchor": "tl",
+                "x": 0,
+                "y": 0,
+                "w": 160,
+                "h": 28,
+                "wMode": "auto",
+                "hMode": "auto",
+                "layout": "free",
+                "gap": 8,
+                "padding": 0,
+                "align": "start",
+                "columns": 3,
+                "style": {
+                  "fontSize": 26,
+                  "color": "var(--tw-accent)"
+                },
+                "states": {},
+                "anim": [],
+                "text": "The Garden shop",
+                "sprite": "",
+                "value": "",
+                "max": "100",
+                "min": 0,
+                "step": 1,
+                "options": "",
+                "source": "",
+                "template": "",
+                "drag": false,
+                "visible": "",
+                "enabled": "",
+                "on": {
+                  "click": [],
+                  "hover": [],
+                  "change": []
+                },
+                "focus": {
+                  "up": "",
+                  "down": "",
+                  "left": "",
+                  "right": ""
+                },
+                "tooltip": "",
+                "prefab": "",
+                "overrides": {},
+                "marks": "player:#6fe08a, enemy:#e05a5a",
+                "children": []
+              },
+              {
+                "id": "shop.sub",
+                "name": "Subtitle",
+                "type": "text",
+                "anchor": "tl",
+                "x": 0,
+                "y": 0,
+                "w": 160,
+                "h": 28,
+                "wMode": "auto",
+                "hMode": "auto",
+                "layout": "free",
+                "gap": 8,
+                "padding": 0,
+                "align": "start",
+                "columns": 3,
+                "style": {
+                  "fontSize": 12,
+                  "color": "#8f96b3"
+                },
+                "states": {},
+                "anim": [],
+                "text": "{ng_jar} fireflies in your jar · {hub_placed} of {hub_cap} pieces placed",
+                "sprite": "",
+                "value": "",
+                "max": "100",
+                "min": 0,
+                "step": 1,
+                "options": "",
+                "source": "",
+                "template": "",
+                "drag": false,
+                "visible": "",
+                "enabled": "",
+                "on": {
+                  "click": [],
+                  "hover": [],
+                  "change": []
+                },
+                "focus": {
+                  "up": "",
+                  "down": "",
+                  "left": "",
+                  "right": ""
+                },
+                "tooltip": "",
+                "prefab": "",
+                "overrides": {},
+                "marks": "player:#6fe08a, enemy:#e05a5a",
+                "children": []
+              },
+              {
+                "id": "shop.top",
+                "name": "Space",
+                "type": "spacer",
+                "anchor": "tl",
+                "x": 0,
+                "y": 0,
+                "w": 8,
+                "h": 4,
+                "wMode": "fill",
+                "hMode": "fixed",
+                "layout": "free",
+                "gap": 8,
+                "padding": 8,
+                "align": "start",
+                "columns": 3,
+                "style": {},
+                "states": {},
+                "anim": [],
+                "text": "",
+                "sprite": "",
+                "value": "",
+                "max": "100",
+                "min": 0,
+                "step": 1,
+                "options": "",
+                "source": "",
+                "template": "",
+                "drag": false,
+                "visible": "",
+                "enabled": "",
+                "on": {
+                  "click": [],
+                  "hover": [],
+                  "change": []
+                },
+                "focus": {
+                  "up": "",
+                  "down": "",
+                  "left": "",
+                  "right": ""
+                },
+                "tooltip": "",
+                "prefab": "",
+                "overrides": {},
+                "marks": "player:#6fe08a, enemy:#e05a5a",
+                "children": []
+              },
+              {
+                "id": "shop.flourish",
+                "name": "Flourish",
+                "type": "plugin",
+                "anchor": "tl",
+                "x": 0,
+                "y": 0,
+                "w": 360,
+                "h": 22,
+                "wMode": "fill",
+                "hMode": "fixed",
+                "layout": "free",
+                "gap": 8,
+                "padding": 0,
+                "align": "start",
+                "columns": 3,
+                "style": {},
+                "states": {},
+                "anim": [],
+                "text": "",
+                "sprite": "",
+                "value": "",
+                "max": "100",
+                "min": 0,
+                "step": 1,
+                "options": "",
+                "source": "botanical-flourish",
+                "template": "",
+                "drag": false,
+                "visible": "",
+                "enabled": "",
+                "on": {
+                  "click": [],
+                  "hover": [],
+                  "change": []
+                },
+                "focus": {
+                  "up": "",
+                  "down": "",
+                  "left": "",
+                  "right": ""
+                },
+                "tooltip": "",
+                "prefab": "",
+                "overrides": {},
+                "marks": "player:#6fe08a, enemy:#e05a5a",
+                "children": []
+              },
+              {
+                "id": "shop.top2",
+                "name": "Space",
+                "type": "spacer",
+                "anchor": "tl",
+                "x": 0,
+                "y": 0,
+                "w": 8,
+                "h": 4,
+                "wMode": "fill",
+                "hMode": "fixed",
+                "layout": "free",
+                "gap": 8,
+                "padding": 8,
+                "align": "start",
+                "columns": 3,
+                "style": {},
+                "states": {},
+                "anim": [],
+                "text": "",
+                "sprite": "",
+                "value": "",
+                "max": "100",
+                "min": 0,
+                "step": 1,
+                "options": "",
+                "source": "",
+                "template": "",
+                "drag": false,
+                "visible": "",
+                "enabled": "",
+                "on": {
+                  "click": [],
+                  "hover": [],
+                  "change": []
+                },
+                "focus": {
+                  "up": "",
+                  "down": "",
+                  "left": "",
+                  "right": ""
+                },
+                "tooltip": "",
+                "prefab": "",
+                "overrides": {},
+                "marks": "player:#6fe08a, enemy:#e05a5a",
+                "children": []
+              },
+              {
+                "id": "shop.grow1",
+                "name": "Grow the garden to 10 × 6",
+                "type": "panel",
+                "anchor": "tl",
+                "x": 0,
+                "y": 0,
+                "w": 240,
+                "h": 160,
+                "wMode": "fill",
+                "hMode": "auto",
+                "layout": "row",
+                "gap": 12,
+                "padding": 8,
+                "align": "center",
+                "columns": 3,
+                "style": {
+                  "fill": "color-mix(in srgb, var(--tw-highlight) 14%, var(--tw-panel))",
+                  "border": "color-mix(in srgb, var(--tw-highlight) 48%, var(--tw-panel))",
+                  "borderWidth": 1,
+                  "radius": 0
+                },
+                "states": {
+                  "hover": {
+                    "fill": "color-mix(in srgb, var(--tw-highlight) 22%, var(--tw-panel))",
+                    "border": "var(--tw-highlight)",
+                    "borderWidth": 1
+                  },
+                  "focus": {
+                    "fill": "color-mix(in srgb, var(--tw-highlight) 22%, var(--tw-panel))",
+                    "border": "var(--tw-highlight)",
+                    "borderWidth": 1
+                  },
+                  "pressed": {
+                    "fill": "color-mix(in srgb, var(--tw-highlight) 32%, var(--tw-panel))",
+                    "border": "var(--tw-highlight)",
+                    "borderWidth": 1
+                  },
+                  "disabled": {
+                    "opacity": 0.4
+                  }
+                },
+                "anim": [],
+                "text": "",
+                "sprite": "",
+                "value": "",
+                "max": "100",
+                "min": 0,
+                "step": 1,
+                "options": "",
+                "source": "",
+                "template": "",
+                "drag": false,
+                "visible": "{hub_size} = 0",
+                "enabled": "{ng_jar} >= 10",
+                "on": {
+                  "click": [
+                    {
+                      "type": "setVariable",
+                      "params": {
+                        "name": "hub_size",
+                        "op": "add",
+                        "value": "1"
+                      }
+                    },
+                    {
+                      "type": "setVariable",
+                      "params": {
+                        "name": "hub_spent",
+                        "op": "add",
+                        "value": "10"
+                      }
+                    },
+                    {
+                      "type": "setVariable",
+                      "params": {
+                        "name": "ng_jar",
+                        "op": "subtract",
+                        "value": "10"
+                      }
+                    }
+                  ],
+                  "hover": [],
+                  "change": []
+                },
+                "focus": {
+                  "up": "",
+                  "down": "",
+                  "left": "",
+                  "right": ""
+                },
+                "tooltip": "",
+                "prefab": "",
+                "overrides": {},
+                "marks": "player:#6fe08a, enemy:#e05a5a",
+                "children": [
+                  {
+                    "id": "shop.grow1.label",
+                    "name": "Label",
+                    "type": "text",
+                    "anchor": "tl",
+                    "x": 0,
+                    "y": 0,
+                    "w": 160,
+                    "h": 28,
+                    "wMode": "auto",
+                    "hMode": "auto",
+                    "layout": "free",
+                    "gap": 8,
+                    "padding": 0,
+                    "align": "start",
+                    "columns": 3,
+                    "style": {
+                      "fontSize": 18,
+                      "color": "var(--tw-accent)"
+                    },
+                    "states": {},
+                    "anim": [],
+                    "text": "Grow the garden to 10 × 6",
+                    "sprite": "",
+                    "value": "",
+                    "max": "100",
+                    "min": 0,
+                    "step": 1,
+                    "options": "",
+                    "source": "",
+                    "template": "",
+                    "drag": false,
+                    "visible": "",
+                    "enabled": "",
+                    "on": {
+                      "click": [],
+                      "hover": [],
+                      "change": []
+                    },
+                    "focus": {
+                      "up": "",
+                      "down": "",
+                      "left": "",
+                      "right": ""
+                    },
+                    "tooltip": "",
+                    "prefab": "",
+                    "overrides": {},
+                    "marks": "player:#6fe08a, enemy:#e05a5a",
+                    "children": []
+                  },
+                  {
+                    "id": "shop.grow1.gap",
+                    "name": "Space",
+                    "type": "spacer",
+                    "anchor": "tl",
+                    "x": 0,
+                    "y": 0,
+                    "w": 8,
+                    "h": 8,
+                    "wMode": "fill",
+                    "hMode": "auto",
+                    "layout": "free",
+                    "gap": 8,
+                    "padding": 8,
+                    "align": "start",
+                    "columns": 3,
+                    "style": {},
+                    "states": {},
+                    "anim": [],
+                    "text": "",
+                    "sprite": "",
+                    "value": "",
+                    "max": "100",
+                    "min": 0,
+                    "step": 1,
+                    "options": "",
+                    "source": "",
+                    "template": "",
+                    "drag": false,
+                    "visible": "",
+                    "enabled": "",
+                    "on": {
+                      "click": [],
+                      "hover": [],
+                      "change": []
+                    },
+                    "focus": {
+                      "up": "",
+                      "down": "",
+                      "left": "",
+                      "right": ""
+                    },
+                    "tooltip": "",
+                    "prefab": "",
+                    "overrides": {},
+                    "marks": "player:#6fe08a, enemy:#e05a5a",
+                    "children": []
+                  },
+                  {
+                    "id": "shop.grow1.detail",
+                    "name": "Detail",
+                    "type": "text",
+                    "anchor": "tl",
+                    "x": 0,
+                    "y": 0,
+                    "w": 160,
+                    "h": 28,
+                    "wMode": "auto",
+                    "hMode": "auto",
+                    "layout": "free",
+                    "gap": 8,
+                    "padding": 0,
+                    "align": "start",
+                    "columns": 3,
+                    "style": {
+                      "fontSize": 12,
+                      "color": "#8f96b3",
+                      "align": "right"
+                    },
+                    "states": {},
+                    "anim": [],
+                    "text": "10 ✦ · room for 18 pieces",
+                    "sprite": "",
+                    "value": "",
+                    "max": "100",
+                    "min": 0,
+                    "step": 1,
+                    "options": "",
+                    "source": "",
+                    "template": "",
+                    "drag": false,
+                    "visible": "",
+                    "enabled": "",
+                    "on": {
+                      "click": [],
+                      "hover": [],
+                      "change": []
+                    },
+                    "focus": {
+                      "up": "",
+                      "down": "",
+                      "left": "",
+                      "right": ""
+                    },
+                    "tooltip": "",
+                    "prefab": "",
+                    "overrides": {},
+                    "marks": "player:#6fe08a, enemy:#e05a5a",
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "id": "shop.grow2",
+                "name": "Grow the garden to 12 × 7",
+                "type": "panel",
+                "anchor": "tl",
+                "x": 0,
+                "y": 0,
+                "w": 240,
+                "h": 160,
+                "wMode": "fill",
+                "hMode": "auto",
+                "layout": "row",
+                "gap": 12,
+                "padding": 8,
+                "align": "center",
+                "columns": 3,
+                "style": {
+                  "fill": "color-mix(in srgb, var(--tw-highlight) 14%, var(--tw-panel))",
+                  "border": "color-mix(in srgb, var(--tw-highlight) 48%, var(--tw-panel))",
+                  "borderWidth": 1,
+                  "radius": 0
+                },
+                "states": {
+                  "hover": {
+                    "fill": "color-mix(in srgb, var(--tw-highlight) 22%, var(--tw-panel))",
+                    "border": "var(--tw-highlight)",
+                    "borderWidth": 1
+                  },
+                  "focus": {
+                    "fill": "color-mix(in srgb, var(--tw-highlight) 22%, var(--tw-panel))",
+                    "border": "var(--tw-highlight)",
+                    "borderWidth": 1
+                  },
+                  "pressed": {
+                    "fill": "color-mix(in srgb, var(--tw-highlight) 32%, var(--tw-panel))",
+                    "border": "var(--tw-highlight)",
+                    "borderWidth": 1
+                  },
+                  "disabled": {
+                    "opacity": 0.4
+                  }
+                },
+                "anim": [],
+                "text": "",
+                "sprite": "",
+                "value": "",
+                "max": "100",
+                "min": 0,
+                "step": 1,
+                "options": "",
+                "source": "",
+                "template": "",
+                "drag": false,
+                "visible": "{hub_size} = 1",
+                "enabled": "{ng_jar} >= 20",
+                "on": {
+                  "click": [
+                    {
+                      "type": "setVariable",
+                      "params": {
+                        "name": "hub_size",
+                        "op": "add",
+                        "value": "1"
+                      }
+                    },
+                    {
+                      "type": "setVariable",
+                      "params": {
+                        "name": "hub_spent",
+                        "op": "add",
+                        "value": "20"
+                      }
+                    },
+                    {
+                      "type": "setVariable",
+                      "params": {
+                        "name": "ng_jar",
+                        "op": "subtract",
+                        "value": "20"
+                      }
+                    }
+                  ],
+                  "hover": [],
+                  "change": []
+                },
+                "focus": {
+                  "up": "",
+                  "down": "",
+                  "left": "",
+                  "right": ""
+                },
+                "tooltip": "",
+                "prefab": "",
+                "overrides": {},
+                "marks": "player:#6fe08a, enemy:#e05a5a",
+                "children": [
+                  {
+                    "id": "shop.grow2.label",
+                    "name": "Label",
+                    "type": "text",
+                    "anchor": "tl",
+                    "x": 0,
+                    "y": 0,
+                    "w": 160,
+                    "h": 28,
+                    "wMode": "auto",
+                    "hMode": "auto",
+                    "layout": "free",
+                    "gap": 8,
+                    "padding": 0,
+                    "align": "start",
+                    "columns": 3,
+                    "style": {
+                      "fontSize": 18,
+                      "color": "var(--tw-accent)"
+                    },
+                    "states": {},
+                    "anim": [],
+                    "text": "Grow the garden to 12 × 7",
+                    "sprite": "",
+                    "value": "",
+                    "max": "100",
+                    "min": 0,
+                    "step": 1,
+                    "options": "",
+                    "source": "",
+                    "template": "",
+                    "drag": false,
+                    "visible": "",
+                    "enabled": "",
+                    "on": {
+                      "click": [],
+                      "hover": [],
+                      "change": []
+                    },
+                    "focus": {
+                      "up": "",
+                      "down": "",
+                      "left": "",
+                      "right": ""
+                    },
+                    "tooltip": "",
+                    "prefab": "",
+                    "overrides": {},
+                    "marks": "player:#6fe08a, enemy:#e05a5a",
+                    "children": []
+                  },
+                  {
+                    "id": "shop.grow2.gap",
+                    "name": "Space",
+                    "type": "spacer",
+                    "anchor": "tl",
+                    "x": 0,
+                    "y": 0,
+                    "w": 8,
+                    "h": 8,
+                    "wMode": "fill",
+                    "hMode": "auto",
+                    "layout": "free",
+                    "gap": 8,
+                    "padding": 8,
+                    "align": "start",
+                    "columns": 3,
+                    "style": {},
+                    "states": {},
+                    "anim": [],
+                    "text": "",
+                    "sprite": "",
+                    "value": "",
+                    "max": "100",
+                    "min": 0,
+                    "step": 1,
+                    "options": "",
+                    "source": "",
+                    "template": "",
+                    "drag": false,
+                    "visible": "",
+                    "enabled": "",
+                    "on": {
+                      "click": [],
+                      "hover": [],
+                      "change": []
+                    },
+                    "focus": {
+                      "up": "",
+                      "down": "",
+                      "left": "",
+                      "right": ""
+                    },
+                    "tooltip": "",
+                    "prefab": "",
+                    "overrides": {},
+                    "marks": "player:#6fe08a, enemy:#e05a5a",
+                    "children": []
+                  },
+                  {
+                    "id": "shop.grow2.detail",
+                    "name": "Detail",
+                    "type": "text",
+                    "anchor": "tl",
+                    "x": 0,
+                    "y": 0,
+                    "w": 160,
+                    "h": 28,
+                    "wMode": "auto",
+                    "hMode": "auto",
+                    "layout": "free",
+                    "gap": 8,
+                    "padding": 0,
+                    "align": "start",
+                    "columns": 3,
+                    "style": {
+                      "fontSize": 12,
+                      "color": "#8f96b3",
+                      "align": "right"
+                    },
+                    "states": {},
+                    "anim": [],
+                    "text": "20 ✦ · room for 24 pieces",
+                    "sprite": "",
+                    "value": "",
+                    "max": "100",
+                    "min": 0,
+                    "step": 1,
+                    "options": "",
+                    "source": "",
+                    "template": "",
+                    "drag": false,
+                    "visible": "",
+                    "enabled": "",
+                    "on": {
+                      "click": [],
+                      "hover": [],
+                      "change": []
+                    },
+                    "focus": {
+                      "up": "",
+                      "down": "",
+                      "left": "",
+                      "right": ""
+                    },
+                    "tooltip": "",
+                    "prefab": "",
+                    "overrides": {},
+                    "marks": "player:#6fe08a, enemy:#e05a5a",
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "id": "shop.grow3",
+                "name": "Grow the garden to 14 × 8",
+                "type": "panel",
+                "anchor": "tl",
+                "x": 0,
+                "y": 0,
+                "w": 240,
+                "h": 160,
+                "wMode": "fill",
+                "hMode": "auto",
+                "layout": "row",
+                "gap": 12,
+                "padding": 8,
+                "align": "center",
+                "columns": 3,
+                "style": {
+                  "fill": "color-mix(in srgb, var(--tw-highlight) 14%, var(--tw-panel))",
+                  "border": "color-mix(in srgb, var(--tw-highlight) 48%, var(--tw-panel))",
+                  "borderWidth": 1,
+                  "radius": 0
+                },
+                "states": {
+                  "hover": {
+                    "fill": "color-mix(in srgb, var(--tw-highlight) 22%, var(--tw-panel))",
+                    "border": "var(--tw-highlight)",
+                    "borderWidth": 1
+                  },
+                  "focus": {
+                    "fill": "color-mix(in srgb, var(--tw-highlight) 22%, var(--tw-panel))",
+                    "border": "var(--tw-highlight)",
+                    "borderWidth": 1
+                  },
+                  "pressed": {
+                    "fill": "color-mix(in srgb, var(--tw-highlight) 32%, var(--tw-panel))",
+                    "border": "var(--tw-highlight)",
+                    "borderWidth": 1
+                  },
+                  "disabled": {
+                    "opacity": 0.4
+                  }
+                },
+                "anim": [],
+                "text": "",
+                "sprite": "",
+                "value": "",
+                "max": "100",
+                "min": 0,
+                "step": 1,
+                "options": "",
+                "source": "",
+                "template": "",
+                "drag": false,
+                "visible": "{hub_size} = 2",
+                "enabled": "{ng_jar} >= 35",
+                "on": {
+                  "click": [
+                    {
+                      "type": "setVariable",
+                      "params": {
+                        "name": "hub_size",
+                        "op": "add",
+                        "value": "1"
+                      }
+                    },
+                    {
+                      "type": "setVariable",
+                      "params": {
+                        "name": "hub_spent",
+                        "op": "add",
+                        "value": "35"
+                      }
+                    },
+                    {
+                      "type": "setVariable",
+                      "params": {
+                        "name": "ng_jar",
+                        "op": "subtract",
+                        "value": "35"
+                      }
+                    }
+                  ],
+                  "hover": [],
+                  "change": []
+                },
+                "focus": {
+                  "up": "",
+                  "down": "",
+                  "left": "",
+                  "right": ""
+                },
+                "tooltip": "",
+                "prefab": "",
+                "overrides": {},
+                "marks": "player:#6fe08a, enemy:#e05a5a",
+                "children": [
+                  {
+                    "id": "shop.grow3.label",
+                    "name": "Label",
+                    "type": "text",
+                    "anchor": "tl",
+                    "x": 0,
+                    "y": 0,
+                    "w": 160,
+                    "h": 28,
+                    "wMode": "auto",
+                    "hMode": "auto",
+                    "layout": "free",
+                    "gap": 8,
+                    "padding": 0,
+                    "align": "start",
+                    "columns": 3,
+                    "style": {
+                      "fontSize": 18,
+                      "color": "var(--tw-accent)"
+                    },
+                    "states": {},
+                    "anim": [],
+                    "text": "Grow the garden to 14 × 8",
+                    "sprite": "",
+                    "value": "",
+                    "max": "100",
+                    "min": 0,
+                    "step": 1,
+                    "options": "",
+                    "source": "",
+                    "template": "",
+                    "drag": false,
+                    "visible": "",
+                    "enabled": "",
+                    "on": {
+                      "click": [],
+                      "hover": [],
+                      "change": []
+                    },
+                    "focus": {
+                      "up": "",
+                      "down": "",
+                      "left": "",
+                      "right": ""
+                    },
+                    "tooltip": "",
+                    "prefab": "",
+                    "overrides": {},
+                    "marks": "player:#6fe08a, enemy:#e05a5a",
+                    "children": []
+                  },
+                  {
+                    "id": "shop.grow3.gap",
+                    "name": "Space",
+                    "type": "spacer",
+                    "anchor": "tl",
+                    "x": 0,
+                    "y": 0,
+                    "w": 8,
+                    "h": 8,
+                    "wMode": "fill",
+                    "hMode": "auto",
+                    "layout": "free",
+                    "gap": 8,
+                    "padding": 8,
+                    "align": "start",
+                    "columns": 3,
+                    "style": {},
+                    "states": {},
+                    "anim": [],
+                    "text": "",
+                    "sprite": "",
+                    "value": "",
+                    "max": "100",
+                    "min": 0,
+                    "step": 1,
+                    "options": "",
+                    "source": "",
+                    "template": "",
+                    "drag": false,
+                    "visible": "",
+                    "enabled": "",
+                    "on": {
+                      "click": [],
+                      "hover": [],
+                      "change": []
+                    },
+                    "focus": {
+                      "up": "",
+                      "down": "",
+                      "left": "",
+                      "right": ""
+                    },
+                    "tooltip": "",
+                    "prefab": "",
+                    "overrides": {},
+                    "marks": "player:#6fe08a, enemy:#e05a5a",
+                    "children": []
+                  },
+                  {
+                    "id": "shop.grow3.detail",
+                    "name": "Detail",
+                    "type": "text",
+                    "anchor": "tl",
+                    "x": 0,
+                    "y": 0,
+                    "w": 160,
+                    "h": 28,
+                    "wMode": "auto",
+                    "hMode": "auto",
+                    "layout": "free",
+                    "gap": 8,
+                    "padding": 0,
+                    "align": "start",
+                    "columns": 3,
+                    "style": {
+                      "fontSize": 12,
+                      "color": "#8f96b3",
+                      "align": "right"
+                    },
+                    "states": {},
+                    "anim": [],
+                    "text": "35 ✦ · room for 30 pieces",
+                    "sprite": "",
+                    "value": "",
+                    "max": "100",
+                    "min": 0,
+                    "step": 1,
+                    "options": "",
+                    "source": "",
+                    "template": "",
+                    "drag": false,
+                    "visible": "",
+                    "enabled": "",
+                    "on": {
+                      "click": [],
+                      "hover": [],
+                      "change": []
+                    },
+                    "focus": {
+                      "up": "",
+                      "down": "",
+                      "left": "",
+                      "right": ""
+                    },
+                    "tooltip": "",
+                    "prefab": "",
+                    "overrides": {},
+                    "marks": "player:#6fe08a, enemy:#e05a5a",
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "id": "shop.moonbloom",
+                "name": "Moonbloom",
+                "type": "panel",
+                "anchor": "tl",
+                "x": 0,
+                "y": 0,
+                "w": 240,
+                "h": 160,
+                "wMode": "fill",
+                "hMode": "auto",
+                "layout": "row",
+                "gap": 12,
+                "padding": 8,
+                "align": "center",
+                "columns": 3,
+                "style": {
+                  "fill": "color-mix(in srgb, var(--tw-border) 18%, var(--tw-panel))",
+                  "border": "color-mix(in srgb, var(--tw-border) 55%, var(--tw-panel))",
+                  "borderWidth": 1,
+                  "radius": 0
+                },
+                "states": {
+                  "hover": {
+                    "fill": "color-mix(in srgb, var(--tw-highlight) 22%, var(--tw-panel))",
+                    "border": "var(--tw-highlight)",
+                    "borderWidth": 1
+                  },
+                  "focus": {
+                    "fill": "color-mix(in srgb, var(--tw-highlight) 22%, var(--tw-panel))",
+                    "border": "var(--tw-highlight)",
+                    "borderWidth": 1
+                  },
+                  "pressed": {
+                    "fill": "color-mix(in srgb, var(--tw-highlight) 32%, var(--tw-panel))",
+                    "border": "var(--tw-highlight)",
+                    "borderWidth": 1
+                  },
+                  "disabled": {
+                    "opacity": 0.4
+                  }
+                },
+                "anim": [],
+                "text": "",
+                "sprite": "",
+                "value": "",
+                "max": "100",
+                "min": 0,
+                "step": 1,
+                "options": "",
+                "source": "",
+                "template": "",
+                "drag": false,
+                "visible": "",
+                "enabled": "{ng_jar} >= 2",
+                "on": {
+                  "click": [
+                    {
+                      "type": "setVariable",
+                      "params": {
+                        "name": "inv_moonbloom",
+                        "op": "add",
+                        "value": "1"
+                      }
+                    },
+                    {
+                      "type": "setVariable",
+                      "params": {
+                        "name": "hub_spent",
+                        "op": "add",
+                        "value": "2"
+                      }
+                    },
+                    {
+                      "type": "setVariable",
+                      "params": {
+                        "name": "ng_jar",
+                        "op": "subtract",
+                        "value": "2"
+                      }
+                    }
+                  ],
+                  "hover": [],
+                  "change": []
+                },
+                "focus": {
+                  "up": "",
+                  "down": "",
+                  "left": "",
+                  "right": ""
+                },
+                "tooltip": "",
+                "prefab": "",
+                "overrides": {},
+                "marks": "player:#6fe08a, enemy:#e05a5a",
+                "children": [
+                  {
+                    "id": "shop.moonbloom.label",
+                    "name": "Label",
+                    "type": "text",
+                    "anchor": "tl",
+                    "x": 0,
+                    "y": 0,
+                    "w": 160,
+                    "h": 28,
+                    "wMode": "auto",
+                    "hMode": "auto",
+                    "layout": "free",
+                    "gap": 8,
+                    "padding": 0,
+                    "align": "start",
+                    "columns": 3,
+                    "style": {
+                      "fontSize": 18
+                    },
+                    "states": {},
+                    "anim": [],
+                    "text": "Moonbloom",
+                    "sprite": "",
+                    "value": "",
+                    "max": "100",
+                    "min": 0,
+                    "step": 1,
+                    "options": "",
+                    "source": "",
+                    "template": "",
+                    "drag": false,
+                    "visible": "",
+                    "enabled": "",
+                    "on": {
+                      "click": [],
+                      "hover": [],
+                      "change": []
+                    },
+                    "focus": {
+                      "up": "",
+                      "down": "",
+                      "left": "",
+                      "right": ""
+                    },
+                    "tooltip": "",
+                    "prefab": "",
+                    "overrides": {},
+                    "marks": "player:#6fe08a, enemy:#e05a5a",
+                    "children": []
+                  },
+                  {
+                    "id": "shop.moonbloom.gap",
+                    "name": "Space",
+                    "type": "spacer",
+                    "anchor": "tl",
+                    "x": 0,
+                    "y": 0,
+                    "w": 8,
+                    "h": 8,
+                    "wMode": "fill",
+                    "hMode": "auto",
+                    "layout": "free",
+                    "gap": 8,
+                    "padding": 8,
+                    "align": "start",
+                    "columns": 3,
+                    "style": {},
+                    "states": {},
+                    "anim": [],
+                    "text": "",
+                    "sprite": "",
+                    "value": "",
+                    "max": "100",
+                    "min": 0,
+                    "step": 1,
+                    "options": "",
+                    "source": "",
+                    "template": "",
+                    "drag": false,
+                    "visible": "",
+                    "enabled": "",
+                    "on": {
+                      "click": [],
+                      "hover": [],
+                      "change": []
+                    },
+                    "focus": {
+                      "up": "",
+                      "down": "",
+                      "left": "",
+                      "right": ""
+                    },
+                    "tooltip": "",
+                    "prefab": "",
+                    "overrides": {},
+                    "marks": "player:#6fe08a, enemy:#e05a5a",
+                    "children": []
+                  },
+                  {
+                    "id": "shop.moonbloom.detail",
+                    "name": "Detail",
+                    "type": "text",
+                    "anchor": "tl",
+                    "x": 0,
+                    "y": 0,
+                    "w": 160,
+                    "h": 28,
+                    "wMode": "auto",
+                    "hMode": "auto",
+                    "layout": "free",
+                    "gap": 8,
+                    "padding": 0,
+                    "align": "start",
+                    "columns": 3,
+                    "style": {
+                      "fontSize": 12,
+                      "color": "#8f96b3",
+                      "align": "right"
+                    },
+                    "states": {},
+                    "anim": [],
+                    "text": "2 ✦ · held {inv_moonbloom}",
+                    "sprite": "",
+                    "value": "",
+                    "max": "100",
+                    "min": 0,
+                    "step": 1,
+                    "options": "",
+                    "source": "",
+                    "template": "",
+                    "drag": false,
+                    "visible": "",
+                    "enabled": "",
+                    "on": {
+                      "click": [],
+                      "hover": [],
+                      "change": []
+                    },
+                    "focus": {
+                      "up": "",
+                      "down": "",
+                      "left": "",
+                      "right": ""
+                    },
+                    "tooltip": "",
+                    "prefab": "",
+                    "overrides": {},
+                    "marks": "player:#6fe08a, enemy:#e05a5a",
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "id": "shop.crate",
+                "name": "Potting crate",
+                "type": "panel",
+                "anchor": "tl",
+                "x": 0,
+                "y": 0,
+                "w": 240,
+                "h": 160,
+                "wMode": "fill",
+                "hMode": "auto",
+                "layout": "row",
+                "gap": 12,
+                "padding": 8,
+                "align": "center",
+                "columns": 3,
+                "style": {
+                  "fill": "color-mix(in srgb, var(--tw-border) 18%, var(--tw-panel))",
+                  "border": "color-mix(in srgb, var(--tw-border) 55%, var(--tw-panel))",
+                  "borderWidth": 1,
+                  "radius": 0
+                },
+                "states": {
+                  "hover": {
+                    "fill": "color-mix(in srgb, var(--tw-highlight) 22%, var(--tw-panel))",
+                    "border": "var(--tw-highlight)",
+                    "borderWidth": 1
+                  },
+                  "focus": {
+                    "fill": "color-mix(in srgb, var(--tw-highlight) 22%, var(--tw-panel))",
+                    "border": "var(--tw-highlight)",
+                    "borderWidth": 1
+                  },
+                  "pressed": {
+                    "fill": "color-mix(in srgb, var(--tw-highlight) 32%, var(--tw-panel))",
+                    "border": "var(--tw-highlight)",
+                    "borderWidth": 1
+                  },
+                  "disabled": {
+                    "opacity": 0.4
+                  }
+                },
+                "anim": [],
+                "text": "",
+                "sprite": "",
+                "value": "",
+                "max": "100",
+                "min": 0,
+                "step": 1,
+                "options": "",
+                "source": "",
+                "template": "",
+                "drag": false,
+                "visible": "",
+                "enabled": "{ng_jar} >= 1",
+                "on": {
+                  "click": [
+                    {
+                      "type": "setVariable",
+                      "params": {
+                        "name": "inv_crate",
+                        "op": "add",
+                        "value": "1"
+                      }
+                    },
+                    {
+                      "type": "setVariable",
+                      "params": {
+                        "name": "hub_spent",
+                        "op": "add",
+                        "value": "1"
+                      }
+                    },
+                    {
+                      "type": "setVariable",
+                      "params": {
+                        "name": "ng_jar",
+                        "op": "subtract",
+                        "value": "1"
+                      }
+                    }
+                  ],
+                  "hover": [],
+                  "change": []
+                },
+                "focus": {
+                  "up": "",
+                  "down": "",
+                  "left": "",
+                  "right": ""
+                },
+                "tooltip": "",
+                "prefab": "",
+                "overrides": {},
+                "marks": "player:#6fe08a, enemy:#e05a5a",
+                "children": [
+                  {
+                    "id": "shop.crate.label",
+                    "name": "Label",
+                    "type": "text",
+                    "anchor": "tl",
+                    "x": 0,
+                    "y": 0,
+                    "w": 160,
+                    "h": 28,
+                    "wMode": "auto",
+                    "hMode": "auto",
+                    "layout": "free",
+                    "gap": 8,
+                    "padding": 0,
+                    "align": "start",
+                    "columns": 3,
+                    "style": {
+                      "fontSize": 18
+                    },
+                    "states": {},
+                    "anim": [],
+                    "text": "Potting crate",
+                    "sprite": "",
+                    "value": "",
+                    "max": "100",
+                    "min": 0,
+                    "step": 1,
+                    "options": "",
+                    "source": "",
+                    "template": "",
+                    "drag": false,
+                    "visible": "",
+                    "enabled": "",
+                    "on": {
+                      "click": [],
+                      "hover": [],
+                      "change": []
+                    },
+                    "focus": {
+                      "up": "",
+                      "down": "",
+                      "left": "",
+                      "right": ""
+                    },
+                    "tooltip": "",
+                    "prefab": "",
+                    "overrides": {},
+                    "marks": "player:#6fe08a, enemy:#e05a5a",
+                    "children": []
+                  },
+                  {
+                    "id": "shop.crate.gap",
+                    "name": "Space",
+                    "type": "spacer",
+                    "anchor": "tl",
+                    "x": 0,
+                    "y": 0,
+                    "w": 8,
+                    "h": 8,
+                    "wMode": "fill",
+                    "hMode": "auto",
+                    "layout": "free",
+                    "gap": 8,
+                    "padding": 8,
+                    "align": "start",
+                    "columns": 3,
+                    "style": {},
+                    "states": {},
+                    "anim": [],
+                    "text": "",
+                    "sprite": "",
+                    "value": "",
+                    "max": "100",
+                    "min": 0,
+                    "step": 1,
+                    "options": "",
+                    "source": "",
+                    "template": "",
+                    "drag": false,
+                    "visible": "",
+                    "enabled": "",
+                    "on": {
+                      "click": [],
+                      "hover": [],
+                      "change": []
+                    },
+                    "focus": {
+                      "up": "",
+                      "down": "",
+                      "left": "",
+                      "right": ""
+                    },
+                    "tooltip": "",
+                    "prefab": "",
+                    "overrides": {},
+                    "marks": "player:#6fe08a, enemy:#e05a5a",
+                    "children": []
+                  },
+                  {
+                    "id": "shop.crate.detail",
+                    "name": "Detail",
+                    "type": "text",
+                    "anchor": "tl",
+                    "x": 0,
+                    "y": 0,
+                    "w": 160,
+                    "h": 28,
+                    "wMode": "auto",
+                    "hMode": "auto",
+                    "layout": "free",
+                    "gap": 8,
+                    "padding": 0,
+                    "align": "start",
+                    "columns": 3,
+                    "style": {
+                      "fontSize": 12,
+                      "color": "#8f96b3",
+                      "align": "right"
+                    },
+                    "states": {},
+                    "anim": [],
+                    "text": "1 ✦ · held {inv_crate}",
+                    "sprite": "",
+                    "value": "",
+                    "max": "100",
+                    "min": 0,
+                    "step": 1,
+                    "options": "",
+                    "source": "",
+                    "template": "",
+                    "drag": false,
+                    "visible": "",
+                    "enabled": "",
+                    "on": {
+                      "click": [],
+                      "hover": [],
+                      "change": []
+                    },
+                    "focus": {
+                      "up": "",
+                      "down": "",
+                      "left": "",
+                      "right": ""
+                    },
+                    "tooltip": "",
+                    "prefab": "",
+                    "overrides": {},
+                    "marks": "player:#6fe08a, enemy:#e05a5a",
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "id": "shop.screen",
+                "name": "Trellis screen",
+                "type": "panel",
+                "anchor": "tl",
+                "x": 0,
+                "y": 0,
+                "w": 240,
+                "h": 160,
+                "wMode": "fill",
+                "hMode": "auto",
+                "layout": "row",
+                "gap": 12,
+                "padding": 8,
+                "align": "center",
+                "columns": 3,
+                "style": {
+                  "fill": "color-mix(in srgb, var(--tw-border) 18%, var(--tw-panel))",
+                  "border": "color-mix(in srgb, var(--tw-border) 55%, var(--tw-panel))",
+                  "borderWidth": 1,
+                  "radius": 0
+                },
+                "states": {
+                  "hover": {
+                    "fill": "color-mix(in srgb, var(--tw-highlight) 22%, var(--tw-panel))",
+                    "border": "var(--tw-highlight)",
+                    "borderWidth": 1
+                  },
+                  "focus": {
+                    "fill": "color-mix(in srgb, var(--tw-highlight) 22%, var(--tw-panel))",
+                    "border": "var(--tw-highlight)",
+                    "borderWidth": 1
+                  },
+                  "pressed": {
+                    "fill": "color-mix(in srgb, var(--tw-highlight) 32%, var(--tw-panel))",
+                    "border": "var(--tw-highlight)",
+                    "borderWidth": 1
+                  },
+                  "disabled": {
+                    "opacity": 0.4
+                  }
+                },
+                "anim": [],
+                "text": "",
+                "sprite": "",
+                "value": "",
+                "max": "100",
+                "min": 0,
+                "step": 1,
+                "options": "",
+                "source": "",
+                "template": "",
+                "drag": false,
+                "visible": "",
+                "enabled": "{ng_jar} >= 2",
+                "on": {
+                  "click": [
+                    {
+                      "type": "setVariable",
+                      "params": {
+                        "name": "inv_screen",
+                        "op": "add",
+                        "value": "1"
+                      }
+                    },
+                    {
+                      "type": "setVariable",
+                      "params": {
+                        "name": "hub_spent",
+                        "op": "add",
+                        "value": "2"
+                      }
+                    },
+                    {
+                      "type": "setVariable",
+                      "params": {
+                        "name": "ng_jar",
+                        "op": "subtract",
+                        "value": "2"
+                      }
+                    }
+                  ],
+                  "hover": [],
+                  "change": []
+                },
+                "focus": {
+                  "up": "",
+                  "down": "",
+                  "left": "",
+                  "right": ""
+                },
+                "tooltip": "",
+                "prefab": "",
+                "overrides": {},
+                "marks": "player:#6fe08a, enemy:#e05a5a",
+                "children": [
+                  {
+                    "id": "shop.screen.label",
+                    "name": "Label",
+                    "type": "text",
+                    "anchor": "tl",
+                    "x": 0,
+                    "y": 0,
+                    "w": 160,
+                    "h": 28,
+                    "wMode": "auto",
+                    "hMode": "auto",
+                    "layout": "free",
+                    "gap": 8,
+                    "padding": 0,
+                    "align": "start",
+                    "columns": 3,
+                    "style": {
+                      "fontSize": 18
+                    },
+                    "states": {},
+                    "anim": [],
+                    "text": "Trellis screen",
+                    "sprite": "",
+                    "value": "",
+                    "max": "100",
+                    "min": 0,
+                    "step": 1,
+                    "options": "",
+                    "source": "",
+                    "template": "",
+                    "drag": false,
+                    "visible": "",
+                    "enabled": "",
+                    "on": {
+                      "click": [],
+                      "hover": [],
+                      "change": []
+                    },
+                    "focus": {
+                      "up": "",
+                      "down": "",
+                      "left": "",
+                      "right": ""
+                    },
+                    "tooltip": "",
+                    "prefab": "",
+                    "overrides": {},
+                    "marks": "player:#6fe08a, enemy:#e05a5a",
+                    "children": []
+                  },
+                  {
+                    "id": "shop.screen.gap",
+                    "name": "Space",
+                    "type": "spacer",
+                    "anchor": "tl",
+                    "x": 0,
+                    "y": 0,
+                    "w": 8,
+                    "h": 8,
+                    "wMode": "fill",
+                    "hMode": "auto",
+                    "layout": "free",
+                    "gap": 8,
+                    "padding": 8,
+                    "align": "start",
+                    "columns": 3,
+                    "style": {},
+                    "states": {},
+                    "anim": [],
+                    "text": "",
+                    "sprite": "",
+                    "value": "",
+                    "max": "100",
+                    "min": 0,
+                    "step": 1,
+                    "options": "",
+                    "source": "",
+                    "template": "",
+                    "drag": false,
+                    "visible": "",
+                    "enabled": "",
+                    "on": {
+                      "click": [],
+                      "hover": [],
+                      "change": []
+                    },
+                    "focus": {
+                      "up": "",
+                      "down": "",
+                      "left": "",
+                      "right": ""
+                    },
+                    "tooltip": "",
+                    "prefab": "",
+                    "overrides": {},
+                    "marks": "player:#6fe08a, enemy:#e05a5a",
+                    "children": []
+                  },
+                  {
+                    "id": "shop.screen.detail",
+                    "name": "Detail",
+                    "type": "text",
+                    "anchor": "tl",
+                    "x": 0,
+                    "y": 0,
+                    "w": 160,
+                    "h": 28,
+                    "wMode": "auto",
+                    "hMode": "auto",
+                    "layout": "free",
+                    "gap": 8,
+                    "padding": 0,
+                    "align": "start",
+                    "columns": 3,
+                    "style": {
+                      "fontSize": 12,
+                      "color": "#8f96b3",
+                      "align": "right"
+                    },
+                    "states": {},
+                    "anim": [],
+                    "text": "2 ✦ · held {inv_screen}",
+                    "sprite": "",
+                    "value": "",
+                    "max": "100",
+                    "min": 0,
+                    "step": 1,
+                    "options": "",
+                    "source": "",
+                    "template": "",
+                    "drag": false,
+                    "visible": "",
+                    "enabled": "",
+                    "on": {
+                      "click": [],
+                      "hover": [],
+                      "change": []
+                    },
+                    "focus": {
+                      "up": "",
+                      "down": "",
+                      "left": "",
+                      "right": ""
+                    },
+                    "tooltip": "",
+                    "prefab": "",
+                    "overrides": {},
+                    "marks": "player:#6fe08a, enemy:#e05a5a",
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "id": "shop.lantern",
+                "name": "Amber lantern",
+                "type": "panel",
+                "anchor": "tl",
+                "x": 0,
+                "y": 0,
+                "w": 240,
+                "h": 160,
+                "wMode": "fill",
+                "hMode": "auto",
+                "layout": "row",
+                "gap": 12,
+                "padding": 8,
+                "align": "center",
+                "columns": 3,
+                "style": {
+                  "fill": "color-mix(in srgb, var(--tw-border) 18%, var(--tw-panel))",
+                  "border": "color-mix(in srgb, var(--tw-border) 55%, var(--tw-panel))",
+                  "borderWidth": 1,
+                  "radius": 0
+                },
+                "states": {
+                  "hover": {
+                    "fill": "color-mix(in srgb, var(--tw-highlight) 22%, var(--tw-panel))",
+                    "border": "var(--tw-highlight)",
+                    "borderWidth": 1
+                  },
+                  "focus": {
+                    "fill": "color-mix(in srgb, var(--tw-highlight) 22%, var(--tw-panel))",
+                    "border": "var(--tw-highlight)",
+                    "borderWidth": 1
+                  },
+                  "pressed": {
+                    "fill": "color-mix(in srgb, var(--tw-highlight) 32%, var(--tw-panel))",
+                    "border": "var(--tw-highlight)",
+                    "borderWidth": 1
+                  },
+                  "disabled": {
+                    "opacity": 0.4
+                  }
+                },
+                "anim": [],
+                "text": "",
+                "sprite": "",
+                "value": "",
+                "max": "100",
+                "min": 0,
+                "step": 1,
+                "options": "",
+                "source": "",
+                "template": "",
+                "drag": false,
+                "visible": "",
+                "enabled": "{ng_jar} >= 4",
+                "on": {
+                  "click": [
+                    {
+                      "type": "setVariable",
+                      "params": {
+                        "name": "inv_lantern",
+                        "op": "add",
+                        "value": "1"
+                      }
+                    },
+                    {
+                      "type": "setVariable",
+                      "params": {
+                        "name": "hub_spent",
+                        "op": "add",
+                        "value": "4"
+                      }
+                    },
+                    {
+                      "type": "setVariable",
+                      "params": {
+                        "name": "ng_jar",
+                        "op": "subtract",
+                        "value": "4"
+                      }
+                    }
+                  ],
+                  "hover": [],
+                  "change": []
+                },
+                "focus": {
+                  "up": "",
+                  "down": "",
+                  "left": "",
+                  "right": ""
+                },
+                "tooltip": "",
+                "prefab": "",
+                "overrides": {},
+                "marks": "player:#6fe08a, enemy:#e05a5a",
+                "children": [
+                  {
+                    "id": "shop.lantern.label",
+                    "name": "Label",
+                    "type": "text",
+                    "anchor": "tl",
+                    "x": 0,
+                    "y": 0,
+                    "w": 160,
+                    "h": 28,
+                    "wMode": "auto",
+                    "hMode": "auto",
+                    "layout": "free",
+                    "gap": 8,
+                    "padding": 0,
+                    "align": "start",
+                    "columns": 3,
+                    "style": {
+                      "fontSize": 18
+                    },
+                    "states": {},
+                    "anim": [],
+                    "text": "Amber lantern",
+                    "sprite": "",
+                    "value": "",
+                    "max": "100",
+                    "min": 0,
+                    "step": 1,
+                    "options": "",
+                    "source": "",
+                    "template": "",
+                    "drag": false,
+                    "visible": "",
+                    "enabled": "",
+                    "on": {
+                      "click": [],
+                      "hover": [],
+                      "change": []
+                    },
+                    "focus": {
+                      "up": "",
+                      "down": "",
+                      "left": "",
+                      "right": ""
+                    },
+                    "tooltip": "",
+                    "prefab": "",
+                    "overrides": {},
+                    "marks": "player:#6fe08a, enemy:#e05a5a",
+                    "children": []
+                  },
+                  {
+                    "id": "shop.lantern.gap",
+                    "name": "Space",
+                    "type": "spacer",
+                    "anchor": "tl",
+                    "x": 0,
+                    "y": 0,
+                    "w": 8,
+                    "h": 8,
+                    "wMode": "fill",
+                    "hMode": "auto",
+                    "layout": "free",
+                    "gap": 8,
+                    "padding": 8,
+                    "align": "start",
+                    "columns": 3,
+                    "style": {},
+                    "states": {},
+                    "anim": [],
+                    "text": "",
+                    "sprite": "",
+                    "value": "",
+                    "max": "100",
+                    "min": 0,
+                    "step": 1,
+                    "options": "",
+                    "source": "",
+                    "template": "",
+                    "drag": false,
+                    "visible": "",
+                    "enabled": "",
+                    "on": {
+                      "click": [],
+                      "hover": [],
+                      "change": []
+                    },
+                    "focus": {
+                      "up": "",
+                      "down": "",
+                      "left": "",
+                      "right": ""
+                    },
+                    "tooltip": "",
+                    "prefab": "",
+                    "overrides": {},
+                    "marks": "player:#6fe08a, enemy:#e05a5a",
+                    "children": []
+                  },
+                  {
+                    "id": "shop.lantern.detail",
+                    "name": "Detail",
+                    "type": "text",
+                    "anchor": "tl",
+                    "x": 0,
+                    "y": 0,
+                    "w": 160,
+                    "h": 28,
+                    "wMode": "auto",
+                    "hMode": "auto",
+                    "layout": "free",
+                    "gap": 8,
+                    "padding": 0,
+                    "align": "start",
+                    "columns": 3,
+                    "style": {
+                      "fontSize": 12,
+                      "color": "#8f96b3",
+                      "align": "right"
+                    },
+                    "states": {},
+                    "anim": [],
+                    "text": "4 ✦ · held {inv_lantern}",
+                    "sprite": "",
+                    "value": "",
+                    "max": "100",
+                    "min": 0,
+                    "step": 1,
+                    "options": "",
+                    "source": "",
+                    "template": "",
+                    "drag": false,
+                    "visible": "",
+                    "enabled": "",
+                    "on": {
+                      "click": [],
+                      "hover": [],
+                      "change": []
+                    },
+                    "focus": {
+                      "up": "",
+                      "down": "",
+                      "left": "",
+                      "right": ""
+                    },
+                    "tooltip": "",
+                    "prefab": "",
+                    "overrides": {},
+                    "marks": "player:#6fe08a, enemy:#e05a5a",
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "id": "shop.moonstone",
+                "name": "Moonstone",
+                "type": "panel",
+                "anchor": "tl",
+                "x": 0,
+                "y": 0,
+                "w": 240,
+                "h": 160,
+                "wMode": "fill",
+                "hMode": "auto",
+                "layout": "row",
+                "gap": 12,
+                "padding": 8,
+                "align": "center",
+                "columns": 3,
+                "style": {
+                  "fill": "color-mix(in srgb, var(--tw-border) 18%, var(--tw-panel))",
+                  "border": "color-mix(in srgb, var(--tw-border) 55%, var(--tw-panel))",
+                  "borderWidth": 1,
+                  "radius": 0
+                },
+                "states": {
+                  "hover": {
+                    "fill": "color-mix(in srgb, var(--tw-highlight) 22%, var(--tw-panel))",
+                    "border": "var(--tw-highlight)",
+                    "borderWidth": 1
+                  },
+                  "focus": {
+                    "fill": "color-mix(in srgb, var(--tw-highlight) 22%, var(--tw-panel))",
+                    "border": "var(--tw-highlight)",
+                    "borderWidth": 1
+                  },
+                  "pressed": {
+                    "fill": "color-mix(in srgb, var(--tw-highlight) 32%, var(--tw-panel))",
+                    "border": "var(--tw-highlight)",
+                    "borderWidth": 1
+                  },
+                  "disabled": {
+                    "opacity": 0.4
+                  }
+                },
+                "anim": [],
+                "text": "",
+                "sprite": "",
+                "value": "",
+                "max": "100",
+                "min": 0,
+                "step": 1,
+                "options": "",
+                "source": "",
+                "template": "",
+                "drag": false,
+                "visible": "",
+                "enabled": "{ng_jar} >= 3 && {ng_flies} >= 3",
+                "on": {
+                  "click": [
+                    {
+                      "type": "setVariable",
+                      "params": {
+                        "name": "inv_moonstone",
+                        "op": "add",
+                        "value": "1"
+                      }
+                    },
+                    {
+                      "type": "setVariable",
+                      "params": {
+                        "name": "hub_spent",
+                        "op": "add",
+                        "value": "3"
+                      }
+                    },
+                    {
+                      "type": "setVariable",
+                      "params": {
+                        "name": "ng_jar",
+                        "op": "subtract",
+                        "value": "3"
+                      }
+                    }
+                  ],
+                  "hover": [],
+                  "change": []
+                },
+                "focus": {
+                  "up": "",
+                  "down": "",
+                  "left": "",
+                  "right": ""
+                },
+                "tooltip": "",
+                "prefab": "",
+                "overrides": {},
+                "marks": "player:#6fe08a, enemy:#e05a5a",
+                "children": [
+                  {
+                    "id": "shop.moonstone.label",
+                    "name": "Label",
+                    "type": "text",
+                    "anchor": "tl",
+                    "x": 0,
+                    "y": 0,
+                    "w": 160,
+                    "h": 28,
+                    "wMode": "auto",
+                    "hMode": "auto",
+                    "layout": "free",
+                    "gap": 8,
+                    "padding": 0,
+                    "align": "start",
+                    "columns": 3,
+                    "style": {
+                      "fontSize": 18
+                    },
+                    "states": {},
+                    "anim": [],
+                    "text": "Moonstone",
+                    "sprite": "",
+                    "value": "",
+                    "max": "100",
+                    "min": 0,
+                    "step": 1,
+                    "options": "",
+                    "source": "",
+                    "template": "",
+                    "drag": false,
+                    "visible": "",
+                    "enabled": "",
+                    "on": {
+                      "click": [],
+                      "hover": [],
+                      "change": []
+                    },
+                    "focus": {
+                      "up": "",
+                      "down": "",
+                      "left": "",
+                      "right": ""
+                    },
+                    "tooltip": "",
+                    "prefab": "",
+                    "overrides": {},
+                    "marks": "player:#6fe08a, enemy:#e05a5a",
+                    "children": []
+                  },
+                  {
+                    "id": "shop.moonstone.gap",
+                    "name": "Space",
+                    "type": "spacer",
+                    "anchor": "tl",
+                    "x": 0,
+                    "y": 0,
+                    "w": 8,
+                    "h": 8,
+                    "wMode": "fill",
+                    "hMode": "auto",
+                    "layout": "free",
+                    "gap": 8,
+                    "padding": 8,
+                    "align": "start",
+                    "columns": 3,
+                    "style": {},
+                    "states": {},
+                    "anim": [],
+                    "text": "",
+                    "sprite": "",
+                    "value": "",
+                    "max": "100",
+                    "min": 0,
+                    "step": 1,
+                    "options": "",
+                    "source": "",
+                    "template": "",
+                    "drag": false,
+                    "visible": "",
+                    "enabled": "",
+                    "on": {
+                      "click": [],
+                      "hover": [],
+                      "change": []
+                    },
+                    "focus": {
+                      "up": "",
+                      "down": "",
+                      "left": "",
+                      "right": ""
+                    },
+                    "tooltip": "",
+                    "prefab": "",
+                    "overrides": {},
+                    "marks": "player:#6fe08a, enemy:#e05a5a",
+                    "children": []
+                  },
+                  {
+                    "id": "shop.moonstone.detail",
+                    "name": "Detail",
+                    "type": "text",
+                    "anchor": "tl",
+                    "x": 0,
+                    "y": 0,
+                    "w": 160,
+                    "h": 28,
+                    "wMode": "auto",
+                    "hMode": "auto",
+                    "layout": "free",
+                    "gap": 8,
+                    "padding": 0,
+                    "align": "start",
+                    "columns": 3,
+                    "style": {
+                      "fontSize": 12,
+                      "color": "#8f96b3",
+                      "align": "right"
+                    },
+                    "states": {},
+                    "anim": [],
+                    "text": "3 ✦ · held {inv_moonstone} · needs 3 fireflies caught",
+                    "sprite": "",
+                    "value": "",
+                    "max": "100",
+                    "min": 0,
+                    "step": 1,
+                    "options": "",
+                    "source": "",
+                    "template": "",
+                    "drag": false,
+                    "visible": "",
+                    "enabled": "",
+                    "on": {
+                      "click": [],
+                      "hover": [],
+                      "change": []
+                    },
+                    "focus": {
+                      "up": "",
+                      "down": "",
+                      "left": "",
+                      "right": ""
+                    },
+                    "tooltip": "",
+                    "prefab": "",
+                    "overrides": {},
+                    "marks": "player:#6fe08a, enemy:#e05a5a",
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "id": "shop.duskcap",
+                "name": "Duskcap",
+                "type": "panel",
+                "anchor": "tl",
+                "x": 0,
+                "y": 0,
+                "w": 240,
+                "h": 160,
+                "wMode": "fill",
+                "hMode": "auto",
+                "layout": "row",
+                "gap": 12,
+                "padding": 8,
+                "align": "center",
+                "columns": 3,
+                "style": {
+                  "fill": "color-mix(in srgb, var(--tw-border) 18%, var(--tw-panel))",
+                  "border": "color-mix(in srgb, var(--tw-border) 55%, var(--tw-panel))",
+                  "borderWidth": 1,
+                  "radius": 0
+                },
+                "states": {
+                  "hover": {
+                    "fill": "color-mix(in srgb, var(--tw-highlight) 22%, var(--tw-panel))",
+                    "border": "var(--tw-highlight)",
+                    "borderWidth": 1
+                  },
+                  "focus": {
+                    "fill": "color-mix(in srgb, var(--tw-highlight) 22%, var(--tw-panel))",
+                    "border": "var(--tw-highlight)",
+                    "borderWidth": 1
+                  },
+                  "pressed": {
+                    "fill": "color-mix(in srgb, var(--tw-highlight) 32%, var(--tw-panel))",
+                    "border": "var(--tw-highlight)",
+                    "borderWidth": 1
+                  },
+                  "disabled": {
+                    "opacity": 0.4
+                  }
+                },
+                "anim": [],
+                "text": "",
+                "sprite": "",
+                "value": "",
+                "max": "100",
+                "min": 0,
+                "step": 1,
+                "options": "",
+                "source": "",
+                "template": "",
+                "drag": false,
+                "visible": "",
+                "enabled": "{ng_jar} >= 3 && {ng_done} >= 6",
+                "on": {
+                  "click": [
+                    {
+                      "type": "setVariable",
+                      "params": {
+                        "name": "inv_duskcap",
+                        "op": "add",
+                        "value": "1"
+                      }
+                    },
+                    {
+                      "type": "setVariable",
+                      "params": {
+                        "name": "hub_spent",
+                        "op": "add",
+                        "value": "3"
+                      }
+                    },
+                    {
+                      "type": "setVariable",
+                      "params": {
+                        "name": "ng_jar",
+                        "op": "subtract",
+                        "value": "3"
+                      }
+                    }
+                  ],
+                  "hover": [],
+                  "change": []
+                },
+                "focus": {
+                  "up": "",
+                  "down": "",
+                  "left": "",
+                  "right": ""
+                },
+                "tooltip": "",
+                "prefab": "",
+                "overrides": {},
+                "marks": "player:#6fe08a, enemy:#e05a5a",
+                "children": [
+                  {
+                    "id": "shop.duskcap.label",
+                    "name": "Label",
+                    "type": "text",
+                    "anchor": "tl",
+                    "x": 0,
+                    "y": 0,
+                    "w": 160,
+                    "h": 28,
+                    "wMode": "auto",
+                    "hMode": "auto",
+                    "layout": "free",
+                    "gap": 8,
+                    "padding": 0,
+                    "align": "start",
+                    "columns": 3,
+                    "style": {
+                      "fontSize": 18
+                    },
+                    "states": {},
+                    "anim": [],
+                    "text": "Duskcap",
+                    "sprite": "",
+                    "value": "",
+                    "max": "100",
+                    "min": 0,
+                    "step": 1,
+                    "options": "",
+                    "source": "",
+                    "template": "",
+                    "drag": false,
+                    "visible": "",
+                    "enabled": "",
+                    "on": {
+                      "click": [],
+                      "hover": [],
+                      "change": []
+                    },
+                    "focus": {
+                      "up": "",
+                      "down": "",
+                      "left": "",
+                      "right": ""
+                    },
+                    "tooltip": "",
+                    "prefab": "",
+                    "overrides": {},
+                    "marks": "player:#6fe08a, enemy:#e05a5a",
+                    "children": []
+                  },
+                  {
+                    "id": "shop.duskcap.gap",
+                    "name": "Space",
+                    "type": "spacer",
+                    "anchor": "tl",
+                    "x": 0,
+                    "y": 0,
+                    "w": 8,
+                    "h": 8,
+                    "wMode": "fill",
+                    "hMode": "auto",
+                    "layout": "free",
+                    "gap": 8,
+                    "padding": 8,
+                    "align": "start",
+                    "columns": 3,
+                    "style": {},
+                    "states": {},
+                    "anim": [],
+                    "text": "",
+                    "sprite": "",
+                    "value": "",
+                    "max": "100",
+                    "min": 0,
+                    "step": 1,
+                    "options": "",
+                    "source": "",
+                    "template": "",
+                    "drag": false,
+                    "visible": "",
+                    "enabled": "",
+                    "on": {
+                      "click": [],
+                      "hover": [],
+                      "change": []
+                    },
+                    "focus": {
+                      "up": "",
+                      "down": "",
+                      "left": "",
+                      "right": ""
+                    },
+                    "tooltip": "",
+                    "prefab": "",
+                    "overrides": {},
+                    "marks": "player:#6fe08a, enemy:#e05a5a",
+                    "children": []
+                  },
+                  {
+                    "id": "shop.duskcap.detail",
+                    "name": "Detail",
+                    "type": "text",
+                    "anchor": "tl",
+                    "x": 0,
+                    "y": 0,
+                    "w": 160,
+                    "h": 28,
+                    "wMode": "auto",
+                    "hMode": "auto",
+                    "layout": "free",
+                    "gap": 8,
+                    "padding": 0,
+                    "align": "start",
+                    "columns": 3,
+                    "style": {
+                      "fontSize": 12,
+                      "color": "#8f96b3",
+                      "align": "right"
+                    },
+                    "states": {},
+                    "anim": [],
+                    "text": "3 ✦ · held {inv_duskcap} · needs 6 rooms",
+                    "sprite": "",
+                    "value": "",
+                    "max": "100",
+                    "min": 0,
+                    "step": 1,
+                    "options": "",
+                    "source": "",
+                    "template": "",
+                    "drag": false,
+                    "visible": "",
+                    "enabled": "",
+                    "on": {
+                      "click": [],
+                      "hover": [],
+                      "change": []
+                    },
+                    "focus": {
+                      "up": "",
+                      "down": "",
+                      "left": "",
+                      "right": ""
+                    },
+                    "tooltip": "",
+                    "prefab": "",
+                    "overrides": {},
+                    "marks": "player:#6fe08a, enemy:#e05a5a",
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "id": "shop.teallamp",
+                "name": "Teal lamp",
+                "type": "panel",
+                "anchor": "tl",
+                "x": 0,
+                "y": 0,
+                "w": 240,
+                "h": 160,
+                "wMode": "fill",
+                "hMode": "auto",
+                "layout": "row",
+                "gap": 12,
+                "padding": 8,
+                "align": "center",
+                "columns": 3,
+                "style": {
+                  "fill": "color-mix(in srgb, var(--tw-border) 18%, var(--tw-panel))",
+                  "border": "color-mix(in srgb, var(--tw-border) 55%, var(--tw-panel))",
+                  "borderWidth": 1,
+                  "radius": 0
+                },
+                "states": {
+                  "hover": {
+                    "fill": "color-mix(in srgb, var(--tw-highlight) 22%, var(--tw-panel))",
+                    "border": "var(--tw-highlight)",
+                    "borderWidth": 1
+                  },
+                  "focus": {
+                    "fill": "color-mix(in srgb, var(--tw-highlight) 22%, var(--tw-panel))",
+                    "border": "var(--tw-highlight)",
+                    "borderWidth": 1
+                  },
+                  "pressed": {
+                    "fill": "color-mix(in srgb, var(--tw-highlight) 32%, var(--tw-panel))",
+                    "border": "var(--tw-highlight)",
+                    "borderWidth": 1
+                  },
+                  "disabled": {
+                    "opacity": 0.4
+                  }
+                },
+                "anim": [],
+                "text": "",
+                "sprite": "",
+                "value": "",
+                "max": "100",
+                "min": 0,
+                "step": 1,
+                "options": "",
+                "source": "",
+                "template": "",
+                "drag": false,
+                "visible": "",
+                "enabled": "{ng_jar} >= 5 && {ng_flies} >= 5",
+                "on": {
+                  "click": [
+                    {
+                      "type": "setVariable",
+                      "params": {
+                        "name": "inv_teallamp",
+                        "op": "add",
+                        "value": "1"
+                      }
+                    },
+                    {
+                      "type": "setVariable",
+                      "params": {
+                        "name": "hub_spent",
+                        "op": "add",
+                        "value": "5"
+                      }
+                    },
+                    {
+                      "type": "setVariable",
+                      "params": {
+                        "name": "ng_jar",
+                        "op": "subtract",
+                        "value": "5"
+                      }
+                    }
+                  ],
+                  "hover": [],
+                  "change": []
+                },
+                "focus": {
+                  "up": "",
+                  "down": "",
+                  "left": "",
+                  "right": ""
+                },
+                "tooltip": "",
+                "prefab": "",
+                "overrides": {},
+                "marks": "player:#6fe08a, enemy:#e05a5a",
+                "children": [
+                  {
+                    "id": "shop.teallamp.label",
+                    "name": "Label",
+                    "type": "text",
+                    "anchor": "tl",
+                    "x": 0,
+                    "y": 0,
+                    "w": 160,
+                    "h": 28,
+                    "wMode": "auto",
+                    "hMode": "auto",
+                    "layout": "free",
+                    "gap": 8,
+                    "padding": 0,
+                    "align": "start",
+                    "columns": 3,
+                    "style": {
+                      "fontSize": 18
+                    },
+                    "states": {},
+                    "anim": [],
+                    "text": "Teal lamp",
+                    "sprite": "",
+                    "value": "",
+                    "max": "100",
+                    "min": 0,
+                    "step": 1,
+                    "options": "",
+                    "source": "",
+                    "template": "",
+                    "drag": false,
+                    "visible": "",
+                    "enabled": "",
+                    "on": {
+                      "click": [],
+                      "hover": [],
+                      "change": []
+                    },
+                    "focus": {
+                      "up": "",
+                      "down": "",
+                      "left": "",
+                      "right": ""
+                    },
+                    "tooltip": "",
+                    "prefab": "",
+                    "overrides": {},
+                    "marks": "player:#6fe08a, enemy:#e05a5a",
+                    "children": []
+                  },
+                  {
+                    "id": "shop.teallamp.gap",
+                    "name": "Space",
+                    "type": "spacer",
+                    "anchor": "tl",
+                    "x": 0,
+                    "y": 0,
+                    "w": 8,
+                    "h": 8,
+                    "wMode": "fill",
+                    "hMode": "auto",
+                    "layout": "free",
+                    "gap": 8,
+                    "padding": 8,
+                    "align": "start",
+                    "columns": 3,
+                    "style": {},
+                    "states": {},
+                    "anim": [],
+                    "text": "",
+                    "sprite": "",
+                    "value": "",
+                    "max": "100",
+                    "min": 0,
+                    "step": 1,
+                    "options": "",
+                    "source": "",
+                    "template": "",
+                    "drag": false,
+                    "visible": "",
+                    "enabled": "",
+                    "on": {
+                      "click": [],
+                      "hover": [],
+                      "change": []
+                    },
+                    "focus": {
+                      "up": "",
+                      "down": "",
+                      "left": "",
+                      "right": ""
+                    },
+                    "tooltip": "",
+                    "prefab": "",
+                    "overrides": {},
+                    "marks": "player:#6fe08a, enemy:#e05a5a",
+                    "children": []
+                  },
+                  {
+                    "id": "shop.teallamp.detail",
+                    "name": "Detail",
+                    "type": "text",
+                    "anchor": "tl",
+                    "x": 0,
+                    "y": 0,
+                    "w": 160,
+                    "h": 28,
+                    "wMode": "auto",
+                    "hMode": "auto",
+                    "layout": "free",
+                    "gap": 8,
+                    "padding": 0,
+                    "align": "start",
+                    "columns": 3,
+                    "style": {
+                      "fontSize": 12,
+                      "color": "#8f96b3",
+                      "align": "right"
+                    },
+                    "states": {},
+                    "anim": [],
+                    "text": "5 ✦ · held {inv_teallamp} · needs 5 fireflies caught",
+                    "sprite": "",
+                    "value": "",
+                    "max": "100",
+                    "min": 0,
+                    "step": 1,
+                    "options": "",
+                    "source": "",
+                    "template": "",
+                    "drag": false,
+                    "visible": "",
+                    "enabled": "",
+                    "on": {
+                      "click": [],
+                      "hover": [],
+                      "change": []
+                    },
+                    "focus": {
+                      "up": "",
+                      "down": "",
+                      "left": "",
+                      "right": ""
+                    },
+                    "tooltip": "",
+                    "prefab": "",
+                    "overrides": {},
+                    "marks": "player:#6fe08a, enemy:#e05a5a",
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "id": "shop.brazier",
+                "name": "Warm brazier",
+                "type": "panel",
+                "anchor": "tl",
+                "x": 0,
+                "y": 0,
+                "w": 240,
+                "h": 160,
+                "wMode": "fill",
+                "hMode": "auto",
+                "layout": "row",
+                "gap": 12,
+                "padding": 8,
+                "align": "center",
+                "columns": 3,
+                "style": {
+                  "fill": "color-mix(in srgb, var(--tw-border) 18%, var(--tw-panel))",
+                  "border": "color-mix(in srgb, var(--tw-border) 55%, var(--tw-panel))",
+                  "borderWidth": 1,
+                  "radius": 0
+                },
+                "states": {
+                  "hover": {
+                    "fill": "color-mix(in srgb, var(--tw-highlight) 22%, var(--tw-panel))",
+                    "border": "var(--tw-highlight)",
+                    "borderWidth": 1
+                  },
+                  "focus": {
+                    "fill": "color-mix(in srgb, var(--tw-highlight) 22%, var(--tw-panel))",
+                    "border": "var(--tw-highlight)",
+                    "borderWidth": 1
+                  },
+                  "pressed": {
+                    "fill": "color-mix(in srgb, var(--tw-highlight) 32%, var(--tw-panel))",
+                    "border": "var(--tw-highlight)",
+                    "borderWidth": 1
+                  },
+                  "disabled": {
+                    "opacity": 0.4
+                  }
+                },
+                "anim": [],
+                "text": "",
+                "sprite": "",
+                "value": "",
+                "max": "100",
+                "min": 0,
+                "step": 1,
+                "options": "",
+                "source": "",
+                "template": "",
+                "drag": false,
+                "visible": "",
+                "enabled": "{ng_jar} >= 5 && {ng_done} >= 12",
+                "on": {
+                  "click": [
+                    {
+                      "type": "setVariable",
+                      "params": {
+                        "name": "inv_brazier",
+                        "op": "add",
+                        "value": "1"
+                      }
+                    },
+                    {
+                      "type": "setVariable",
+                      "params": {
+                        "name": "hub_spent",
+                        "op": "add",
+                        "value": "5"
+                      }
+                    },
+                    {
+                      "type": "setVariable",
+                      "params": {
+                        "name": "ng_jar",
+                        "op": "subtract",
+                        "value": "5"
+                      }
+                    }
+                  ],
+                  "hover": [],
+                  "change": []
+                },
+                "focus": {
+                  "up": "",
+                  "down": "",
+                  "left": "",
+                  "right": ""
+                },
+                "tooltip": "",
+                "prefab": "",
+                "overrides": {},
+                "marks": "player:#6fe08a, enemy:#e05a5a",
+                "children": [
+                  {
+                    "id": "shop.brazier.label",
+                    "name": "Label",
+                    "type": "text",
+                    "anchor": "tl",
+                    "x": 0,
+                    "y": 0,
+                    "w": 160,
+                    "h": 28,
+                    "wMode": "auto",
+                    "hMode": "auto",
+                    "layout": "free",
+                    "gap": 8,
+                    "padding": 0,
+                    "align": "start",
+                    "columns": 3,
+                    "style": {
+                      "fontSize": 18
+                    },
+                    "states": {},
+                    "anim": [],
+                    "text": "Warm brazier",
+                    "sprite": "",
+                    "value": "",
+                    "max": "100",
+                    "min": 0,
+                    "step": 1,
+                    "options": "",
+                    "source": "",
+                    "template": "",
+                    "drag": false,
+                    "visible": "",
+                    "enabled": "",
+                    "on": {
+                      "click": [],
+                      "hover": [],
+                      "change": []
+                    },
+                    "focus": {
+                      "up": "",
+                      "down": "",
+                      "left": "",
+                      "right": ""
+                    },
+                    "tooltip": "",
+                    "prefab": "",
+                    "overrides": {},
+                    "marks": "player:#6fe08a, enemy:#e05a5a",
+                    "children": []
+                  },
+                  {
+                    "id": "shop.brazier.gap",
+                    "name": "Space",
+                    "type": "spacer",
+                    "anchor": "tl",
+                    "x": 0,
+                    "y": 0,
+                    "w": 8,
+                    "h": 8,
+                    "wMode": "fill",
+                    "hMode": "auto",
+                    "layout": "free",
+                    "gap": 8,
+                    "padding": 8,
+                    "align": "start",
+                    "columns": 3,
+                    "style": {},
+                    "states": {},
+                    "anim": [],
+                    "text": "",
+                    "sprite": "",
+                    "value": "",
+                    "max": "100",
+                    "min": 0,
+                    "step": 1,
+                    "options": "",
+                    "source": "",
+                    "template": "",
+                    "drag": false,
+                    "visible": "",
+                    "enabled": "",
+                    "on": {
+                      "click": [],
+                      "hover": [],
+                      "change": []
+                    },
+                    "focus": {
+                      "up": "",
+                      "down": "",
+                      "left": "",
+                      "right": ""
+                    },
+                    "tooltip": "",
+                    "prefab": "",
+                    "overrides": {},
+                    "marks": "player:#6fe08a, enemy:#e05a5a",
+                    "children": []
+                  },
+                  {
+                    "id": "shop.brazier.detail",
+                    "name": "Detail",
+                    "type": "text",
+                    "anchor": "tl",
+                    "x": 0,
+                    "y": 0,
+                    "w": 160,
+                    "h": 28,
+                    "wMode": "auto",
+                    "hMode": "auto",
+                    "layout": "free",
+                    "gap": 8,
+                    "padding": 0,
+                    "align": "start",
+                    "columns": 3,
+                    "style": {
+                      "fontSize": 12,
+                      "color": "#8f96b3",
+                      "align": "right"
+                    },
+                    "states": {},
+                    "anim": [],
+                    "text": "5 ✦ · held {inv_brazier} · needs 12 rooms",
+                    "sprite": "",
+                    "value": "",
+                    "max": "100",
+                    "min": 0,
+                    "step": 1,
+                    "options": "",
+                    "source": "",
+                    "template": "",
+                    "drag": false,
+                    "visible": "",
+                    "enabled": "",
+                    "on": {
+                      "click": [],
+                      "hover": [],
+                      "change": []
+                    },
+                    "focus": {
+                      "up": "",
+                      "down": "",
+                      "left": "",
+                      "right": ""
+                    },
+                    "tooltip": "",
+                    "prefab": "",
+                    "overrides": {},
+                    "marks": "player:#6fe08a, enemy:#e05a5a",
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "id": "shop.gracelily",
+                "name": "Grace's Moon-Lily",
+                "type": "panel",
+                "anchor": "tl",
+                "x": 0,
+                "y": 0,
+                "w": 240,
+                "h": 160,
+                "wMode": "fill",
+                "hMode": "auto",
+                "layout": "row",
+                "gap": 12,
+                "padding": 8,
+                "align": "center",
+                "columns": 3,
+                "style": {
+                  "fill": "color-mix(in srgb, var(--tw-border) 18%, var(--tw-panel))",
+                  "border": "color-mix(in srgb, var(--tw-border) 55%, var(--tw-panel))",
+                  "borderWidth": 1,
+                  "radius": 0
+                },
+                "states": {
+                  "hover": {
+                    "fill": "color-mix(in srgb, var(--tw-highlight) 22%, var(--tw-panel))",
+                    "border": "var(--tw-highlight)",
+                    "borderWidth": 1
+                  },
+                  "focus": {
+                    "fill": "color-mix(in srgb, var(--tw-highlight) 22%, var(--tw-panel))",
+                    "border": "var(--tw-highlight)",
+                    "borderWidth": 1
+                  },
+                  "pressed": {
+                    "fill": "color-mix(in srgb, var(--tw-highlight) 32%, var(--tw-panel))",
+                    "border": "var(--tw-highlight)",
+                    "borderWidth": 1
+                  },
+                  "disabled": {
+                    "opacity": 0.4
+                  }
+                },
+                "anim": [],
+                "text": "",
+                "sprite": "",
+                "value": "",
+                "max": "100",
+                "min": 0,
+                "step": 1,
+                "options": "",
+                "source": "",
+                "template": "",
+                "drag": false,
+                "visible": "",
+                "enabled": "{ng_jar} >= 8 && {ng_pars} >= 10",
+                "on": {
+                  "click": [
+                    {
+                      "type": "setVariable",
+                      "params": {
+                        "name": "inv_gracelily",
+                        "op": "add",
+                        "value": "1"
+                      }
+                    },
+                    {
+                      "type": "setVariable",
+                      "params": {
+                        "name": "hub_spent",
+                        "op": "add",
+                        "value": "8"
+                      }
+                    },
+                    {
+                      "type": "setVariable",
+                      "params": {
+                        "name": "ng_jar",
+                        "op": "subtract",
+                        "value": "8"
+                      }
+                    }
+                  ],
+                  "hover": [],
+                  "change": []
+                },
+                "focus": {
+                  "up": "",
+                  "down": "",
+                  "left": "",
+                  "right": ""
+                },
+                "tooltip": "",
+                "prefab": "",
+                "overrides": {},
+                "marks": "player:#6fe08a, enemy:#e05a5a",
+                "children": [
+                  {
+                    "id": "shop.gracelily.label",
+                    "name": "Label",
+                    "type": "text",
+                    "anchor": "tl",
+                    "x": 0,
+                    "y": 0,
+                    "w": 160,
+                    "h": 28,
+                    "wMode": "auto",
+                    "hMode": "auto",
+                    "layout": "free",
+                    "gap": 8,
+                    "padding": 0,
+                    "align": "start",
+                    "columns": 3,
+                    "style": {
+                      "fontSize": 18
+                    },
+                    "states": {},
+                    "anim": [],
+                    "text": "Grace's Moon-Lily",
+                    "sprite": "",
+                    "value": "",
+                    "max": "100",
+                    "min": 0,
+                    "step": 1,
+                    "options": "",
+                    "source": "",
+                    "template": "",
+                    "drag": false,
+                    "visible": "",
+                    "enabled": "",
+                    "on": {
+                      "click": [],
+                      "hover": [],
+                      "change": []
+                    },
+                    "focus": {
+                      "up": "",
+                      "down": "",
+                      "left": "",
+                      "right": ""
+                    },
+                    "tooltip": "",
+                    "prefab": "",
+                    "overrides": {},
+                    "marks": "player:#6fe08a, enemy:#e05a5a",
+                    "children": []
+                  },
+                  {
+                    "id": "shop.gracelily.gap",
+                    "name": "Space",
+                    "type": "spacer",
+                    "anchor": "tl",
+                    "x": 0,
+                    "y": 0,
+                    "w": 8,
+                    "h": 8,
+                    "wMode": "fill",
+                    "hMode": "auto",
+                    "layout": "free",
+                    "gap": 8,
+                    "padding": 8,
+                    "align": "start",
+                    "columns": 3,
+                    "style": {},
+                    "states": {},
+                    "anim": [],
+                    "text": "",
+                    "sprite": "",
+                    "value": "",
+                    "max": "100",
+                    "min": 0,
+                    "step": 1,
+                    "options": "",
+                    "source": "",
+                    "template": "",
+                    "drag": false,
+                    "visible": "",
+                    "enabled": "",
+                    "on": {
+                      "click": [],
+                      "hover": [],
+                      "change": []
+                    },
+                    "focus": {
+                      "up": "",
+                      "down": "",
+                      "left": "",
+                      "right": ""
+                    },
+                    "tooltip": "",
+                    "prefab": "",
+                    "overrides": {},
+                    "marks": "player:#6fe08a, enemy:#e05a5a",
+                    "children": []
+                  },
+                  {
+                    "id": "shop.gracelily.detail",
+                    "name": "Detail",
+                    "type": "text",
+                    "anchor": "tl",
+                    "x": 0,
+                    "y": 0,
+                    "w": 160,
+                    "h": 28,
+                    "wMode": "auto",
+                    "hMode": "auto",
+                    "layout": "free",
+                    "gap": 8,
+                    "padding": 0,
+                    "align": "start",
+                    "columns": 3,
+                    "style": {
+                      "fontSize": 12,
+                      "color": "#8f96b3",
+                      "align": "right"
+                    },
+                    "states": {},
+                    "anim": [],
+                    "text": "8 ✦ · held {inv_gracelily} · needs 10 par medals",
+                    "sprite": "",
+                    "value": "",
+                    "max": "100",
+                    "min": 0,
+                    "step": 1,
+                    "options": "",
+                    "source": "",
+                    "template": "",
+                    "drag": false,
+                    "visible": "",
+                    "enabled": "",
+                    "on": {
+                      "click": [],
+                      "hover": [],
+                      "change": []
+                    },
+                    "focus": {
+                      "up": "",
+                      "down": "",
+                      "left": "",
+                      "right": ""
+                    },
+                    "tooltip": "",
+                    "prefab": "",
+                    "overrides": {},
+                    "marks": "player:#6fe08a, enemy:#e05a5a",
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "id": "shop.traversrose",
+                "name": "Travers Night-Rose",
+                "type": "panel",
+                "anchor": "tl",
+                "x": 0,
+                "y": 0,
+                "w": 240,
+                "h": 160,
+                "wMode": "fill",
+                "hMode": "auto",
+                "layout": "row",
+                "gap": 12,
+                "padding": 8,
+                "align": "center",
+                "columns": 3,
+                "style": {
+                  "fill": "color-mix(in srgb, var(--tw-border) 18%, var(--tw-panel))",
+                  "border": "color-mix(in srgb, var(--tw-border) 55%, var(--tw-panel))",
+                  "borderWidth": 1,
+                  "radius": 0
+                },
+                "states": {
+                  "hover": {
+                    "fill": "color-mix(in srgb, var(--tw-highlight) 22%, var(--tw-panel))",
+                    "border": "var(--tw-highlight)",
+                    "borderWidth": 1
+                  },
+                  "focus": {
+                    "fill": "color-mix(in srgb, var(--tw-highlight) 22%, var(--tw-panel))",
+                    "border": "var(--tw-highlight)",
+                    "borderWidth": 1
+                  },
+                  "pressed": {
+                    "fill": "color-mix(in srgb, var(--tw-highlight) 32%, var(--tw-panel))",
+                    "border": "var(--tw-highlight)",
+                    "borderWidth": 1
+                  },
+                  "disabled": {
+                    "opacity": 0.4
+                  }
+                },
+                "anim": [],
+                "text": "",
+                "sprite": "",
+                "value": "",
+                "max": "100",
+                "min": 0,
+                "step": 1,
+                "options": "",
+                "source": "",
+                "template": "",
+                "drag": false,
+                "visible": "",
+                "enabled": "{ng_jar} >= 10 && {ng_done} >= 30",
+                "on": {
+                  "click": [
+                    {
+                      "type": "setVariable",
+                      "params": {
+                        "name": "inv_traversrose",
+                        "op": "add",
+                        "value": "1"
+                      }
+                    },
+                    {
+                      "type": "setVariable",
+                      "params": {
+                        "name": "hub_spent",
+                        "op": "add",
+                        "value": "10"
+                      }
+                    },
+                    {
+                      "type": "setVariable",
+                      "params": {
+                        "name": "ng_jar",
+                        "op": "subtract",
+                        "value": "10"
+                      }
+                    }
+                  ],
+                  "hover": [],
+                  "change": []
+                },
+                "focus": {
+                  "up": "",
+                  "down": "",
+                  "left": "",
+                  "right": ""
+                },
+                "tooltip": "",
+                "prefab": "",
+                "overrides": {},
+                "marks": "player:#6fe08a, enemy:#e05a5a",
+                "children": [
+                  {
+                    "id": "shop.traversrose.label",
+                    "name": "Label",
+                    "type": "text",
+                    "anchor": "tl",
+                    "x": 0,
+                    "y": 0,
+                    "w": 160,
+                    "h": 28,
+                    "wMode": "auto",
+                    "hMode": "auto",
+                    "layout": "free",
+                    "gap": 8,
+                    "padding": 0,
+                    "align": "start",
+                    "columns": 3,
+                    "style": {
+                      "fontSize": 18
+                    },
+                    "states": {},
+                    "anim": [],
+                    "text": "Travers Night-Rose",
+                    "sprite": "",
+                    "value": "",
+                    "max": "100",
+                    "min": 0,
+                    "step": 1,
+                    "options": "",
+                    "source": "",
+                    "template": "",
+                    "drag": false,
+                    "visible": "",
+                    "enabled": "",
+                    "on": {
+                      "click": [],
+                      "hover": [],
+                      "change": []
+                    },
+                    "focus": {
+                      "up": "",
+                      "down": "",
+                      "left": "",
+                      "right": ""
+                    },
+                    "tooltip": "",
+                    "prefab": "",
+                    "overrides": {},
+                    "marks": "player:#6fe08a, enemy:#e05a5a",
+                    "children": []
+                  },
+                  {
+                    "id": "shop.traversrose.gap",
+                    "name": "Space",
+                    "type": "spacer",
+                    "anchor": "tl",
+                    "x": 0,
+                    "y": 0,
+                    "w": 8,
+                    "h": 8,
+                    "wMode": "fill",
+                    "hMode": "auto",
+                    "layout": "free",
+                    "gap": 8,
+                    "padding": 8,
+                    "align": "start",
+                    "columns": 3,
+                    "style": {},
+                    "states": {},
+                    "anim": [],
+                    "text": "",
+                    "sprite": "",
+                    "value": "",
+                    "max": "100",
+                    "min": 0,
+                    "step": 1,
+                    "options": "",
+                    "source": "",
+                    "template": "",
+                    "drag": false,
+                    "visible": "",
+                    "enabled": "",
+                    "on": {
+                      "click": [],
+                      "hover": [],
+                      "change": []
+                    },
+                    "focus": {
+                      "up": "",
+                      "down": "",
+                      "left": "",
+                      "right": ""
+                    },
+                    "tooltip": "",
+                    "prefab": "",
+                    "overrides": {},
+                    "marks": "player:#6fe08a, enemy:#e05a5a",
+                    "children": []
+                  },
+                  {
+                    "id": "shop.traversrose.detail",
+                    "name": "Detail",
+                    "type": "text",
+                    "anchor": "tl",
+                    "x": 0,
+                    "y": 0,
+                    "w": 160,
+                    "h": 28,
+                    "wMode": "auto",
+                    "hMode": "auto",
+                    "layout": "free",
+                    "gap": 8,
+                    "padding": 0,
+                    "align": "start",
+                    "columns": 3,
+                    "style": {
+                      "fontSize": 12,
+                      "color": "#8f96b3",
+                      "align": "right"
+                    },
+                    "states": {},
+                    "anim": [],
+                    "text": "10 ✦ · held {inv_traversrose} · needs every room",
+                    "sprite": "",
+                    "value": "",
+                    "max": "100",
+                    "min": 0,
+                    "step": 1,
+                    "options": "",
+                    "source": "",
+                    "template": "",
+                    "drag": false,
+                    "visible": "",
+                    "enabled": "",
+                    "on": {
+                      "click": [],
+                      "hover": [],
+                      "change": []
+                    },
+                    "focus": {
+                      "up": "",
+                      "down": "",
+                      "left": "",
+                      "right": ""
+                    },
+                    "tooltip": "",
+                    "prefab": "",
+                    "overrides": {},
+                    "marks": "player:#6fe08a, enemy:#e05a5a",
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "id": "shop.back",
+                "name": "Back to the garden",
+                "type": "panel",
+                "anchor": "tl",
+                "x": 0,
+                "y": 0,
+                "w": 240,
+                "h": 160,
+                "wMode": "fill",
+                "hMode": "auto",
+                "layout": "row",
+                "gap": 12,
+                "padding": 8,
+                "align": "center",
+                "columns": 3,
+                "style": {
+                  "fill": "color-mix(in srgb, var(--tw-border) 18%, var(--tw-panel))",
+                  "border": "color-mix(in srgb, var(--tw-border) 55%, var(--tw-panel))",
+                  "borderWidth": 1,
+                  "radius": 0
+                },
+                "states": {
+                  "hover": {
+                    "fill": "color-mix(in srgb, var(--tw-highlight) 22%, var(--tw-panel))",
+                    "border": "var(--tw-highlight)",
+                    "borderWidth": 1
+                  },
+                  "focus": {
+                    "fill": "color-mix(in srgb, var(--tw-highlight) 22%, var(--tw-panel))",
+                    "border": "var(--tw-highlight)",
+                    "borderWidth": 1
+                  },
+                  "pressed": {
+                    "fill": "color-mix(in srgb, var(--tw-highlight) 32%, var(--tw-panel))",
+                    "border": "var(--tw-highlight)",
+                    "borderWidth": 1
+                  },
+                  "disabled": {
+                    "opacity": 0.4
+                  }
+                },
+                "anim": [],
+                "text": "",
+                "sprite": "",
+                "value": "",
+                "max": "100",
+                "min": 0,
+                "step": 1,
+                "options": "",
+                "source": "",
+                "template": "",
+                "drag": false,
+                "visible": "",
+                "enabled": "",
+                "on": {
+                  "click": [
+                    {
+                      "type": "uiScreen",
+                      "params": {
+                        "op": "back",
+                        "screen": ""
+                      }
+                    }
+                  ],
+                  "hover": [],
+                  "change": []
+                },
+                "focus": {
+                  "up": "",
+                  "down": "",
+                  "left": "",
+                  "right": ""
+                },
+                "tooltip": "",
+                "prefab": "",
+                "overrides": {},
+                "marks": "player:#6fe08a, enemy:#e05a5a",
+                "children": [
+                  {
+                    "id": "shop.back.label",
+                    "name": "Label",
+                    "type": "text",
+                    "anchor": "tl",
+                    "x": 0,
+                    "y": 0,
+                    "w": 160,
+                    "h": 28,
+                    "wMode": "auto",
+                    "hMode": "auto",
+                    "layout": "free",
+                    "gap": 8,
+                    "padding": 0,
+                    "align": "start",
+                    "columns": 3,
+                    "style": {
+                      "fontSize": 18
+                    },
+                    "states": {},
+                    "anim": [],
+                    "text": "Back to the garden",
+                    "sprite": "",
+                    "value": "",
+                    "max": "100",
+                    "min": 0,
+                    "step": 1,
+                    "options": "",
+                    "source": "",
+                    "template": "",
+                    "drag": false,
+                    "visible": "",
+                    "enabled": "",
+                    "on": {
+                      "click": [],
+                      "hover": [],
+                      "change": []
+                    },
+                    "focus": {
+                      "up": "",
+                      "down": "",
+                      "left": "",
+                      "right": ""
+                    },
+                    "tooltip": "",
+                    "prefab": "",
+                    "overrides": {},
+                    "marks": "player:#6fe08a, enemy:#e05a5a",
+                    "children": []
+                  },
+                  {
+                    "id": "shop.back.gap",
+                    "name": "Space",
+                    "type": "spacer",
+                    "anchor": "tl",
+                    "x": 0,
+                    "y": 0,
+                    "w": 8,
+                    "h": 8,
+                    "wMode": "fill",
+                    "hMode": "auto",
+                    "layout": "free",
+                    "gap": 8,
+                    "padding": 8,
+                    "align": "start",
+                    "columns": 3,
+                    "style": {},
+                    "states": {},
+                    "anim": [],
+                    "text": "",
+                    "sprite": "",
+                    "value": "",
+                    "max": "100",
+                    "min": 0,
+                    "step": 1,
+                    "options": "",
+                    "source": "",
+                    "template": "",
+                    "drag": false,
+                    "visible": "",
+                    "enabled": "",
+                    "on": {
+                      "click": [],
+                      "hover": [],
+                      "change": []
+                    },
+                    "focus": {
+                      "up": "",
+                      "down": "",
+                      "left": "",
+                      "right": ""
+                    },
+                    "tooltip": "",
+                    "prefab": "",
+                    "overrides": {},
+                    "marks": "player:#6fe08a, enemy:#e05a5a",
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "id": "shop.bottom",
+                "name": "Space",
+                "type": "spacer",
+                "anchor": "tl",
+                "x": 0,
+                "y": 0,
+                "w": 8,
+                "h": 8,
+                "wMode": "fill",
+                "hMode": "fixed",
+                "layout": "free",
+                "gap": 8,
+                "padding": 8,
+                "align": "start",
+                "columns": 3,
+                "style": {},
+                "states": {},
+                "anim": [],
+                "text": "",
+                "sprite": "",
+                "value": "",
+                "max": "100",
+                "min": 0,
+                "step": 1,
+                "options": "",
+                "source": "",
+                "template": "",
+                "drag": false,
+                "visible": "",
+                "enabled": "",
+                "on": {
+                  "click": [],
+                  "hover": [],
+                  "change": []
+                },
+                "focus": {
+                  "up": "",
+                  "down": "",
+                  "left": "",
+                  "right": ""
+                },
+                "tooltip": "",
+                "prefab": "",
+                "overrides": {},
+                "marks": "player:#6fe08a, enemy:#e05a5a",
+                "children": []
+              },
+              {
+                "id": "shop.rule.bottom",
+                "name": "Divider",
+                "type": "panel",
+                "anchor": "tl",
+                "x": 0,
+                "y": 0,
+                "w": 8,
+                "h": 2,
+                "wMode": "fill",
+                "hMode": "fixed",
+                "layout": "column",
+                "gap": 0,
+                "padding": 0,
+                "align": "start",
+                "columns": 3,
+                "style": {
+                  "fill": "color-mix(in srgb, var(--tw-border) 65%, var(--tw-panel))"
+                },
+                "states": {},
+                "anim": [],
+                "text": "",
+                "sprite": "",
+                "value": "",
+                "max": "100",
+                "min": 0,
+                "step": 1,
+                "options": "",
+                "source": "",
+                "template": "",
+                "drag": false,
+                "visible": "",
+                "enabled": "",
+                "on": {
+                  "click": [],
+                  "hover": [],
+                  "change": []
+                },
+                "focus": {
+                  "up": "",
+                  "down": "",
+                  "left": "",
+                  "right": ""
+                },
+                "tooltip": "",
+                "prefab": "",
+                "overrides": {},
+                "marks": "player:#6fe08a, enemy:#e05a5a",
+                "children": []
+              },
+              {
+                "id": "shop.bottom2",
+                "name": "Space",
+                "type": "spacer",
+                "anchor": "tl",
+                "x": 0,
+                "y": 0,
+                "w": 8,
+                "h": 4,
+                "wMode": "fill",
+                "hMode": "fixed",
+                "layout": "free",
+                "gap": 8,
+                "padding": 8,
+                "align": "start",
+                "columns": 3,
+                "style": {},
+                "states": {},
+                "anim": [],
+                "text": "",
+                "sprite": "",
+                "value": "",
+                "max": "100",
+                "min": 0,
+                "step": 1,
+                "options": "",
+                "source": "",
+                "template": "",
+                "drag": false,
+                "visible": "",
+                "enabled": "",
+                "on": {
+                  "click": [],
+                  "hover": [],
+                  "change": []
+                },
+                "focus": {
+                  "up": "",
+                  "down": "",
+                  "left": "",
+                  "right": ""
+                },
+                "tooltip": "",
+                "prefab": "",
+                "overrides": {},
+                "marks": "player:#6fe08a, enemy:#e05a5a",
+                "children": []
+              },
+              {
+                "id": "shop.hint",
+                "name": "Hint",
+                "type": "text",
+                "anchor": "tl",
+                "x": 0,
+                "y": 0,
+                "w": 160,
+                "h": 28,
+                "wMode": "auto",
+                "hMode": "auto",
+                "layout": "free",
+                "gap": 8,
+                "padding": 0,
+                "align": "start",
+                "columns": 3,
+                "style": {
+                  "fontSize": 12,
+                  "color": "#8f96b3"
+                },
+                "states": {},
+                "anim": [],
+                "text": "Every room tended gives 1 ✦, every firefly caught 3, every par medal 2 · Esc back",
+                "sprite": "",
+                "value": "",
+                "max": "100",
+                "min": 0,
+                "step": 1,
+                "options": "",
+                "source": "",
+                "template": "",
+                "drag": false,
+                "visible": "",
+                "enabled": "",
+                "on": {
+                  "click": [],
+                  "hover": [],
+                  "change": []
+                },
+                "focus": {
+                  "up": "",
+                  "down": "",
+                  "left": "",
+                  "right": ""
+                },
+                "tooltip": "",
+                "prefab": "",
+                "overrides": {},
+                "marks": "player:#6fe08a, enemy:#e05a5a",
+                "children": []
+              }
+            ]
+          }
+        ]
+      },
+      "modal": true,
+      "back": "auto",
+      "backTo": "",
+      "priority": 0,
+      "dim": 0.86,
+      "transition": "fade",
+      "mapX": 260,
       "mapY": 170,
       "opensOnStart": false
     },
@@ -11625,7 +16451,7 @@
       "priority": 0,
       "dim": 0.86,
       "transition": "fade",
-      "mapX": 260,
+      "mapX": 480,
       "mapY": 170,
       "opensOnStart": false
     },
@@ -13629,7 +18455,7 @@
       "priority": 0,
       "dim": 0.86,
       "transition": "fade",
-      "mapX": 480,
+      "mapX": 700,
       "mapY": 170,
       "opensOnStart": false,
       "role": "settings"
@@ -14710,8 +19536,8 @@
       "priority": 0,
       "dim": 0.86,
       "transition": "fade",
-      "mapX": 700,
-      "mapY": 170,
+      "mapX": 40,
+      "mapY": 300,
       "opensOnStart": false,
       "role": "controls"
     },
@@ -15754,7 +20580,7 @@
       "priority": 0,
       "dim": 0.86,
       "transition": "fade",
-      "mapX": 40,
+      "mapX": 260,
       "mapY": 300,
       "opensOnStart": false
     },
@@ -17183,7 +22009,7 @@
                       "params": {
                         "name": "ng_goto",
                         "op": "set",
-                        "value": "scenes/hub.scene.json"
+                        "value": "hub"
                       }
                     },
                     {
@@ -18095,7 +22921,7 @@
       "priority": 0,
       "dim": 0.9,
       "transition": "fade",
-      "mapX": 260,
+      "mapX": 480,
       "mapY": 300,
       "opensOnStart": false
     }

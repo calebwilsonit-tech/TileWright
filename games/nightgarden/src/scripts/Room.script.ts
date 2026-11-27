@@ -3,6 +3,11 @@
 /* The light rule (written here by the build from src/light.ts: change it there, never here). */
 /*__LIGHT_RULE__*/
 
+/** Fireflies in the jar for the Conservatory's Garden shop: 1 for every room tended, 3 for every firefly caught, 2 for every par medal, less what was spent. */
+const jar = (v: Record<string, unknown>): number => Math.max(0, Number(v.ng_done ?? 0) + 3 * Number(v.ng_flies ?? 0) + 2 * Number(v.ng_pars ?? 0) - Number(v.hub_spent ?? 0));
+/** The Conservatory scene for the garden's current size. */
+const hubScene = (v: Record<string, unknown>): string => `scenes/hub${Math.max(0, Math.min(3, Math.floor(Number(v.hub_size ?? 0))))}.scene.json`;
+
 export default defineScript({
   name: 'Room',
   description: 'Works out which beds are lit (the light rule of the game), says which room this is (for the heads-up display and the Rooms screen), shows the chapter card the first time a chapter is entered, and starts the room again when the Restart button is pressed.',
@@ -38,10 +43,15 @@ export default defineScript({
     v.ng_par = Number(s.par);
     v.ng_difficulty = Number(s.difficulty);
     v.ng_steps = 0;
-    v.darkness = Number(s.room === 'hub' ? 0.42 : 0.55);
+    const inHub = String(s.room).startsWith('hub');
+    v.ng_in_hub = inHub ? 1 : 0;
+    v.darkness = Number(inHub ? 0.42 : 0.55);
     if (v.ng_done === undefined) v.ng_done = 0;
     if (v.ng_flies === undefined) v.ng_flies = 0;
     if (v.ng_pars === undefined) v.ng_pars = 0;
+    if (v.hub_size === undefined) v.hub_size = 0;
+    if (v.hub_spent === undefined) v.hub_spent = 0;
+    v.ng_jar = jar(v);
     // every room up to the one being played can be gone back to
     if (Number(s.no) > 0) {
       v.ng_reach = Math.max(Number(v.ng_reach ?? 1), Number(s.no));
@@ -82,16 +92,26 @@ export default defineScript({
     me.state.crates = now;
     if (pushed) game.do('sound', { name: 'push', volume: 0.55 });
     if (game.input.pressed('restart')) game.do('restartArea');
+    const v = game.vars;
+    v.ng_jar = jar(v);
+    const room = String(me.settings.room);
+    if (room.startsWith('hub')) {
+      // the garden was grown in the shop: walk into the bigger garden
+      const want = hubScene(v);
+      if (want !== `scenes/${room}.scene.json`) {
+        game.travel(want);
+        return;
+      }
+    }
     if (game.input.pressed('hub')) {
-      const target = me.settings.room === 'hub' ? String(game.vars.ng_last_room || 'scenes/r101.scene.json') : 'scenes/hub.scene.json';
-      game.travel(target);
+      game.travel(room.startsWith('hub') ? String(v.ng_last_room || 'scenes/r101.scene.json') : hubScene(v));
       return;
     }
-    // a card of the Rooms screen was chosen
-    const to = game.vars.ng_goto;
+    // a card of the Rooms screen (or a Conservatory row) was chosen
+    const to = v.ng_goto;
     if (typeof to === 'string' && to !== '') {
-      game.vars.ng_goto = '';
-      game.travel(to);
+      v.ng_goto = '';
+      game.travel(to === 'hub' ? hubScene(v) : to);
     }
   },
 });

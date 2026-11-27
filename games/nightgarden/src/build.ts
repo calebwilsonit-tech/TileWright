@@ -6,7 +6,7 @@ import { baseProject } from '@tilewright/behaviors';
 import { projectText } from '../../../packages/editor/src/renderer/project/io';
 import { nightgardenAudio } from './audio';
 import { analyzeProgression } from './difficulty';
-import { hubScene } from './hub';
+import { HUB_SIZES, hubScene, hubScenePath } from './hub';
 import { parseRoom, type Room, type RoomDef } from './model';
 import { roomScene, scenePath } from './scene';
 import { Rules, solve } from './solver';
@@ -72,7 +72,7 @@ export function buildProject(chapters: Chapter[], dir = PROJECT_DIR): { rooms: R
     ...baseProject('Nightgarden', PLUGINS),
     engine: ENGINE_VERSION,
     tileset: art.tiles,
-    scenes: [...rooms.map(({ room }) => scenePath(room.id)), 'scenes/hub.scene.json'],
+    scenes: [...rooms.map(({ room }) => scenePath(room.id)), ...HUB_SIZES.map((_s, i) => hubScenePath(i))],
     startScene: scenePath(rooms[0]!.room.id),
     title: { enabled: true, subtitle: 'A puzzle garden by lamplight' },
     compat: currentFlags(),
@@ -107,7 +107,7 @@ export function buildProject(chapters: Chapter[], dir = PROJECT_DIR): { rooms: R
     const opts = { next: next ? scenePath(next.id) : '', index: i + 1, chapter: chapter.name, chapterNo: chapters.indexOf(chapter) + 1, chapterLine: chapter.line, chapters: chapters.length, total: rooms.length, flyTotal, par: d.par, difficulty: d.score };
     write(scenePath(room.id), stringifyScene(roomScene(room, opts)));
   });
-  write('scenes/hub.scene.json', stringifyScene(hubScene({ total: rooms.length, flyTotal, chapters: chapters.length })));
+  HUB_SIZES.forEach((_s, i) => write(hubScenePath(i), stringifyScene(hubScene({ total: rooms.length, flyTotal, chapters: chapters.length }, i))));
   // the interface: its theme, its screens, the table the Rooms screen shows, and the game's own button (R)
   const json = (v: unknown): string => JSON.stringify(v, null, 2) + '\n';
   write('assets/ui.json', json(uiLayout()));
@@ -131,6 +131,8 @@ export function buildProject(chapters: Chapter[], dir = PROJECT_DIR): { rooms: R
       actions: [
         { id: 'restart', label: 'Start the room again', bindings: ['key:KeyR', 'pad:button2'] },
         { id: 'hub', label: 'Visit the Conservatory hub', bindings: ['key:KeyH'] },
+        { id: 'shop', label: 'Open the Garden shop (in the Conservatory)', bindings: ['key:KeyB'] },
+        { id: 'hub_next', label: 'Hold the next garden piece (in the Conservatory)', bindings: ['key:KeyQ'] },
       ],
     }),
   );

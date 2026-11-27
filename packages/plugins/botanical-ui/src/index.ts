@@ -266,6 +266,7 @@ const BOTANICAL_CSS = `
 
 /* ---------- FULL-SCREEN SETTINGS & CONTROLS (clean editorial layout, zero wonky boxes) ---------- */
 .tw-screens:has(.tw-botanical-scope) [data-testid="tw-screen-Settings"] [data-id$="settings.box"],
+.tw-screens:has(.tw-botanical-scope) [data-testid="tw-screen-Garden shop"] [data-id$="shop.box"],
 .tw-screens:has(.tw-botanical-scope) [data-testid="tw-screen-Controls"] [data-id$="controls.box"] {
   position: absolute !important;
   inset: 0 !important;
@@ -301,8 +302,72 @@ const BOTANICAL_CSS = `
 }
 
 .tw-screens:has(.tw-botanical-scope) [data-testid="tw-screen-Settings"] [data-id$="settings.rule.bottom"],
+.tw-screens:has(.tw-botanical-scope) [data-testid="tw-screen-Garden shop"] [data-id$="shop.rule.bottom"],
 .tw-screens:has(.tw-botanical-scope) [data-testid="tw-screen-Controls"] [data-id$="controls.rule.bottom"] {
   display: none !important;
+}
+
+/* ---------- GARDEN SHOP: full-screen left column of borderless rows ---------- */
+.tw-screens:has(.tw-botanical-scope) [data-testid="tw-screen-Garden shop"] [data-id$="shop.box"] {
+  background: linear-gradient(90deg, rgba(9, 12, 22, 0.95) 0%, rgba(11, 15, 28, 0.9) 60%, rgba(11, 15, 28, 0.55) 100%) !important;
+}
+
+.tw-screens:has(.tw-botanical-scope) [data-testid="tw-screen-Garden shop"] [data-id$="shop.box"] > .tw-scroll-content {
+  display: grid !important;
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  column-gap: 14px !important;
+  row-gap: 4px !important;
+  align-content: center !important;
+  min-height: 100% !important;
+  width: 100% !important;
+  max-width: 980px !important;
+}
+
+/* headings, rules and hints span both columns; the pieces sit two to a line */
+.tw-screens:has(.tw-botanical-scope) [data-testid="tw-screen-Garden shop"] [data-id$="shop.box"] > .tw-scroll-content > * {
+  grid-column: 1 / -1 !important;
+}
+
+.tw-screens:has(.tw-botanical-scope) [data-testid="tw-screen-Garden shop"] [data-id$="shop.box"] > .tw-scroll-content > .tw-w.panel {
+  grid-column: auto !important;
+  width: 100% !important;
+  min-width: 0 !important;
+  padding: 9px 14px !important;
+  background: rgba(15, 20, 35, 0.72) !important;
+  border: none !important;
+  border-left: 2px solid rgba(255, 215, 106, 0.22) !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  transform: none !important;
+}
+
+.tw-screens:has(.tw-botanical-scope) [data-testid="tw-screen-Garden shop"] [data-id$="shop.box"] > .tw-scroll-content > .tw-w.panel[data-id*="shop.grow"],
+.tw-screens:has(.tw-botanical-scope) [data-testid="tw-screen-Garden shop"] [data-id$="shop.box"] > .tw-scroll-content > .tw-w.panel[data-id$="shop.back"] {
+  grid-column: 1 / -1 !important;
+}
+
+.tw-screens:has(.tw-botanical-scope) [data-testid="tw-screen-Garden shop"] [data-id$="shop.box"] > .tw-scroll-content > .tw-w.panel:hover:not(.disabled),
+.tw-screens:has(.tw-botanical-scope) [data-testid="tw-screen-Garden shop"] [data-id$="shop.box"] > .tw-scroll-content > .tw-w.panel.focused {
+  background: linear-gradient(90deg, rgba(255, 215, 106, 0.2) 0%, rgba(15, 20, 35, 0.78) 100%) !important;
+  border-left-color: #ffd76a !important;
+}
+
+/* not affordable yet, or not unlocked: quiet, never a box */
+.tw-screens:has(.tw-botanical-scope) [data-testid="tw-screen-Garden shop"] [data-id$="shop.box"] > .tw-scroll-content > .tw-w.panel.disabled {
+  background: rgba(12, 16, 28, 0.5) !important;
+  border-left-color: rgba(143, 155, 184, 0.14) !important;
+  opacity: 0.55 !important;
+}
+
+.tw-screens:has(.tw-botanical-scope) [data-testid="tw-screen-Garden shop"] [data-name="Label"] {
+  font-size: 16px !important;
+  white-space: nowrap !important;
+}
+
+.tw-screens:has(.tw-botanical-scope) [data-testid="tw-screen-Garden shop"] [data-name="Detail"] {
+  white-space: nowrap !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
 }
 
 .tw-screens:has(.tw-botanical-scope) [data-testid="tw-screen-Settings"] .tw-scroll-content > .tw-w.panel:not(.clickable) {
@@ -361,7 +426,7 @@ const BOTANICAL_CSS = `
 /* ---------- ALL OTHER OVERLAY PANELS (Chapter, How to play, Herbarium, The end) ---------- */
 /* Hard corners, zero 4-sided outline, clean dark tonal surface + single top 2px gold hairline.
    Use > .tw-w > so nested widgets whose id happens to end in ".box" (like settings.full.box) are never matched! */
-.tw-screens:has(.tw-botanical-scope) .tw-screen > .tw-w > [data-id$=".box"]:not([data-id$="title.box"]):not([data-id$="pause.box"]):not([data-id$="rooms.box"]):not([data-id$="settings.box"]):not([data-id$="controls.box"]) {
+.tw-screens:has(.tw-botanical-scope) .tw-screen > .tw-w > [data-id$=".box"]:not([data-id$="title.box"]):not([data-id$="pause.box"]):not([data-id$="rooms.box"]):not([data-id$="settings.box"]):not([data-id$="controls.box"]):not([data-id$="shop.box"]) {
   background: linear-gradient(180deg, rgba(18, 23, 40, 0.96) 0%, rgba(11, 14, 25, 0.98) 100%) !important;
   border: none !important;
   border-top: 2px solid #ffd76a !important;

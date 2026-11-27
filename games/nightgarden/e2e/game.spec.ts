@@ -97,7 +97,19 @@ test('the editor opens Nightgarden, finds nothing wrong, and every screen of the
   await page.keyboard.press('h');
   await page.waitForTimeout(500);
   await expect(screen(page, 'HUD')).toContainText('The Conservatory');
+  await expect(screen(page, 'HUD')).toContainText('in your jar');
+  // plant one of the two starting moonblooms on the bed in front of the gardener
+  await page.keyboard.press('e');
+  await page.waitForTimeout(300);
+  await expect(screen(page, 'HUD')).toContainText('Planted a Moonbloom');
   await page.screenshot({ path: shot('12-hub.png') });
+  // the Garden shop
+  await page.keyboard.press('b');
+  await expect(screen(page, 'Garden shop')).toBeVisible();
+  await page.waitForTimeout(300);
+  await page.screenshot({ path: shot('13-shop.png') });
+  await page.keyboard.press('p');
+  await expect(screen(page, 'Garden shop')).toHaveCount(0);
   await page.keyboard.press('p');
   await expect(screen(page, 'Pause')).toBeVisible();
   await ui(page, 'Main menu').click();

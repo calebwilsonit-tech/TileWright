@@ -94,7 +94,10 @@
     "scenes/r504.scene.json",
     "scenes/r505.scene.json",
     "scenes/r506.scene.json",
-    "scenes/hub.scene.json"
+    "scenes/hub0.scene.json",
+    "scenes/hub1.scene.json",
+    "scenes/hub2.scene.json",
+    "scenes/hub3.scene.json"
   ],
   "startScene": "scenes/r101.scene.json",
   "plugins": [
