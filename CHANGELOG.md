@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.4.4 (2026-11-27)
+
+- Conservatory garden builder: firefly jar, Garden shop, place/lift/move pieces, four garden sizes
+- Rebuild Nightgarden project cleanly after v0.4.3 release
+
 ## 0.4.3 (2026-11-27)
 
 - Sync generated Nightgarden project files
