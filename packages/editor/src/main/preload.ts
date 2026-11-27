@@ -101,6 +101,17 @@ const door = {
     remove: (dir: string) => invoke<void>('recent:remove', dir),
     allow: (dir: string) => invoke<string>('recent:open-allowed', dir),
   },
+  updater: {
+    check: () => invoke('updater:check'),
+    download: () => invoke<{ path: string; name: string }>('updater:download'),
+    install: () => invoke<{ launched: boolean }>('updater:install'),
+    openRelease: (url?: string) => invoke<void>('updater:open-release', url),
+    onProgress: (fn: (p: { received: number; total: number; percent: number }) => void) => {
+      const l = (_e: unknown, p: { received: number; total: number; percent: number }): void => fn(p);
+      ipcRenderer.on('updater:progress', l);
+      return () => ipcRenderer.removeListener('updater:progress', l);
+    },
+  },
 };
 let handedOver = false;
 contextBridge.exposeInMainWorld(

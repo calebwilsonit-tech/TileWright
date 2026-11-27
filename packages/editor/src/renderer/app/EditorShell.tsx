@@ -27,6 +27,7 @@ import { MixerPanel } from '../panels/MixerPanel';
 import { ConnectDialog } from './ConnectDialog';
 import { ExportDialog } from '../export/ExportDialog';
 import { TutorialCard } from '../tutorial/TutorialCard';
+import { openUpdateDialog, useUpdateStatus } from './UpdateDialog';
 import { AssistantPanel } from '../assistant/AssistantPanel';
 import { assistant } from '../assistant/store';
 import { PluginPanelView, syncPluginPanels } from '../plugins/PluginPanel';
@@ -101,6 +102,7 @@ function useBuildLabel(): { text: string; title: string } {
 
 function Toolbar() {
   const build = useBuildLabel();
+  const update = useUpdateStatus();
   const project = useApp((s) => s.project);
   const scenePath = useApp((s) => s.scenePath);
   const mode = useApp((s) => s.mode);
@@ -126,9 +128,15 @@ function Toolbar() {
         Tilewright
       </strong>
       {build.text && (
-        <span className="build-label" data-testid="build-label" title={build.title}>
+        <button
+          className={`build-label${update.status === 'available' || update.status === 'ready' ? ' has-update' : ''}`}
+          data-testid="build-label"
+          title={update.status === 'available' ? `${build.title} — Tilewright v${update.latest} is available (click to update)` : `${build.title} — click to check for updates`}
+          onClick={openUpdateDialog}
+        >
           {build.text}
-        </span>
+          {(update.status === 'available' || update.status === 'ready') && ` · Update v${update.latest}`}
+        </button>
       )}
       <span className="project-name" data-testid="project-name">
         {project?.project.name}

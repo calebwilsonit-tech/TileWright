@@ -9,6 +9,7 @@ import { registerExport } from './export';
 import { registerSamples } from './samples';
 import { registerPlugins } from './plugins';
 import { registerPreview } from './preview';
+import { registerUpdater } from './updater';
 
 const here = path.dirname(fileURLToPath(import.meta.url));
 
@@ -70,6 +71,7 @@ function registerIpc(): void {
   const plugins = registerPlugins({ allow, settings: async () => readJsonFile<Record<string, unknown>>(userFile('settings.json'), {}), storeDir: process.env.TILEWRIGHT_PLUGINS ?? path.join(app.getPath('userData'), 'plugins'), testMode: TEST_DIR !== undefined });
   registerPreview({ resolveInside, distDir: path.join(here, '..'), testMode: TEST_DIR !== undefined });
   registerAssistant({ pluginPermissions: plugins.permissionsOf });
+  registerUpdater({ testMode: TEST_DIR !== undefined });
   // the library folder may always be used by the editor
   allow(libraryDir());
   const build = readBuildInfo();

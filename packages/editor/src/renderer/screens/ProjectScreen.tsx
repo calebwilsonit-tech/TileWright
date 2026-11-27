@@ -2,12 +2,14 @@ import { useEffect, useState } from 'react';
 import { useApp, store } from '../app/store';
 import { listTemplates } from '../project/templates';
 import { Toasts } from '../app/Chrome';
+import { openUpdateDialog, useUpdateStatus } from '../app/UpdateDialog';
 import { tutorial } from '../tutorial/store';
 import { api } from '../project/api';
 
 export function ProjectScreen() {
   const recent = useApp((s) => s.recent);
   const busy = useApp((s) => s.busy);
+  const update = useUpdateStatus();
   const [name, setName] = useState('My Game');
   const [template, setTemplate] = useState(listTemplates()[0]!.id);
   const [showNew, setShowNew] = useState(false);
@@ -21,9 +23,19 @@ export function ProjectScreen() {
       <header>
         <h1>Tilewright</h1>
         <p>Make isometric games without writing code.</p>
-        <button data-testid="btn-access" onClick={() => document.dispatchEvent(new CustomEvent('tw:accessibility'))} title="Accessibility: text size, colour-blind-safe colours, less motion">
-          Aa Accessibility
-        </button>
+        <div className="row">
+          <button data-testid="btn-access" onClick={() => document.dispatchEvent(new CustomEvent('tw:accessibility'))} title="Accessibility: text size, colour-blind-safe colours, less motion">
+            Aa Accessibility
+          </button>
+          <button
+            data-testid="btn-updates"
+            className={update.status === 'available' || update.status === 'ready' ? 'primary' : ''}
+            onClick={openUpdateDialog}
+            title="Check GitHub for a newer release of Tilewright"
+          >
+            {update.status === 'available' || update.status === 'ready' ? `Update to v${update.latest}` : 'Check for updates'}
+          </button>
+        </div>
       </header>
 
       <div className="projects-grid">

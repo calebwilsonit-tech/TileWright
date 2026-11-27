@@ -91,6 +91,25 @@ export interface TilewrightApi {
     remove(dir: string): Promise<void>;
     allow(dir: string): Promise<string>;
   };
+  updater?: {
+    check(): Promise<{
+      status: 'up-to-date' | 'available' | 'error';
+      current: string;
+      latest?: string;
+      releaseUrl?: string;
+      notes?: string;
+      publishedAt?: string;
+      assetName?: string;
+      assetUrl?: string;
+      size?: number;
+      sha256?: string;
+      message?: string;
+    }>;
+    download(): Promise<{ path: string; name: string }>;
+    install(): Promise<{ launched: boolean }>;
+    openRelease(url?: string): Promise<void>;
+    onProgress(fn: (p: { received: number; total: number; percent: number }) => void): () => void;
+  };
 }
 
 declare global {

@@ -9,6 +9,7 @@ import { AccessibilityDialog } from './app/AccessibilityDialog';
 import { AutotileDialog } from './app/AutotileDialog';
 import { ProjectSettingsDialog } from './app/ProjectSettingsDialog';
 import { TranslationsDialog } from './app/TranslationsDialog';
+import { UpdateDialog } from './app/UpdateDialog';
 import { studio } from './studio/store';
 import { host } from '@tilewright/behaviors';
 import { pluginManager } from './plugins/manager';
@@ -109,6 +110,7 @@ export function App() {
       <AutotileDialog />
       <ProjectSettingsDialog />
       <TranslationsDialog />
+      <UpdateDialog />
     </>
   );
 }
