@@ -349,7 +349,7 @@ function hud(): UiScreen {
     hMode: 'auto',
     style: {},
     children: [
-      chip('hud.hint', [words('hud.hint.words', '{ng_hint}', TYPE.body)], { visible: '{ng_hint}', style: { border: 'color-mix(in srgb, var(--tw-highlight) 45%, var(--tw-panel))' } }),
+      chip('hud.hint', [words('hud.hint.words', '{ng_hint}', TYPE.body)], { visible: '{ng_hint}' }),
       widget('plugin', 'hud.keys', { name: 'Keys', source: 'botanical-keys', text: 'Arrows:walk|E:lamp|Shift:turn|R:restart|Esc:pause', wMode: 'auto', hMode: 'auto', padding: 0, style: {} }),
     ],
   });

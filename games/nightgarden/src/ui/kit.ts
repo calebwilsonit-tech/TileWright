@@ -138,7 +138,7 @@ export function menu(o: { id: string; name: string; role?: string; box: UiNode; 
   return { id: o.id, name: o.name, root, modal: true, back: o.back ?? 'auto', backTo: '', priority: 0, dim: o.dim ?? 0.86, transition: 'fade', mapX: 0, mapY: 0, opensOnStart: false, ...(o.role ? { role: o.role } : {}) };
 }
 
-/** A chip of the heads-up display: a small dark pill with words in it. */
+/** A chip of the heads-up display: a clean borderless dark scrim with words in it. */
 export function chip(id: string, children: UiNode[], patch: Patch = {}): UiNode {
   return widget('panel', id, {
     layout: 'row',
@@ -148,7 +148,7 @@ export function chip(id: string, children: UiNode[], patch: Patch = {}): UiNode 
     gap: 8,
     padding: 8,
     ...patch,
-    style: { fill: CHIP_FILL, border: COLOR.border, borderWidth: 1, radius: RADIUS.chip, shadow: true, themeScale: true, fit: 'hud', ...(patch.style ?? {}) },
+    style: { fill: CHIP_FILL, radius: RADIUS.chip, themeScale: true, fit: 'hud', ...(patch.style ?? {}) },
     children,
   });
 }

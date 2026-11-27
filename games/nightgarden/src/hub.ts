@@ -8,13 +8,12 @@ import { HEDGE_TOP, TILE } from './scene';
  * any of the 6 planters to arrange their unlocked nocturnal flora and garden decor.
  */
 const HUB_GRID = [
-  '#  #  #  #  #  #  #  #  #  #  #',
-  '#  ^  ^  .  .  .  .  .  ^  ^  #',
-  '#  ^  .  .  .  w  .  .  .  ^  #',
-  '#  .  .  .  w  w  w  .  .  .  #',
-  '#  .  .  .  .  w  .  .  .  .  #',
-  '#  #  .  .  .  .  .  .  .  #  #',
-  '#  #  #  #  #  #  #  #  #  #  #',
+  '#  #  #  #  #  #  #  #  #  #',
+  '#  ^  ^  .  .  .  .  .  ^  ^',
+  '#  ^  .  .  .  w  .  .  .  ^',
+  '#  .  .  .  w  w  w  .  .  .',
+  '#  .  .  .  .  w  .  .  .  .',
+  '#  .  .  .  .  .  .  .  .  .',
 ];
 
 const pic = (asset: string, w: number, height: number, extra: Record<string, unknown> = {}): Record<string, unknown> => ({

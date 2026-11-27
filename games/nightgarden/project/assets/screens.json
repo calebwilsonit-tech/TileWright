@@ -275,8 +275,8 @@
                     "align": "start",
                     "columns": 3,
                     "style": {
-                      "fontSize": 40,
                       "color": "var(--tw-accent)",
+                      "fontSize": 40,
                       "align": "center"
                     },
                     "states": {},
@@ -327,8 +327,8 @@
                     "align": "start",
                     "columns": 3,
                     "style": {
-                      "fontSize": 12,
                       "color": "#8f96b3",
+                      "fontSize": 12,
                       "align": "center"
                     },
                     "states": {},
@@ -536,11 +536,6 @@
                     "border": "var(--tw-highlight)",
                     "borderWidth": 1
                   },
-                  "focus": {
-                    "fill": "color-mix(in srgb, var(--tw-highlight) 22%, var(--tw-panel))",
-                    "border": "var(--tw-highlight)",
-                    "borderWidth": 1
-                  },
                   "pressed": {
                     "fill": "color-mix(in srgb, var(--tw-highlight) 32%, var(--tw-panel))",
                     "border": "var(--tw-highlight)",
@@ -548,6 +543,11 @@
                   },
                   "disabled": {
                     "opacity": 0.4
+                  },
+                  "focus": {
+                    "fill": "color-mix(in srgb, var(--tw-highlight) 22%, var(--tw-panel))",
+                    "border": "var(--tw-highlight)",
+                    "borderWidth": 1
                   }
                 },
                 "anim": [],
@@ -610,8 +610,8 @@
                     "align": "start",
                     "columns": 3,
                     "style": {
-                      "fontSize": 18,
-                      "color": "var(--tw-accent)"
+                      "color": "var(--tw-accent)",
+                      "fontSize": 18
                     },
                     "states": {},
                     "anim": [],
@@ -709,8 +709,8 @@
                     "align": "start",
                     "columns": 3,
                     "style": {
-                      "fontSize": 12,
                       "color": "#8f96b3",
+                      "fontSize": 12,
                       "align": "right"
                     },
                     "states": {},
@@ -774,11 +774,6 @@
                     "border": "var(--tw-highlight)",
                     "borderWidth": 1
                   },
-                  "focus": {
-                    "fill": "color-mix(in srgb, var(--tw-highlight) 22%, var(--tw-panel))",
-                    "border": "var(--tw-highlight)",
-                    "borderWidth": 1
-                  },
                   "pressed": {
                     "fill": "color-mix(in srgb, var(--tw-highlight) 32%, var(--tw-panel))",
                     "border": "var(--tw-highlight)",
@@ -786,6 +781,11 @@
                   },
                   "disabled": {
                     "opacity": 0.4
+                  },
+                  "focus": {
+                    "fill": "color-mix(in srgb, var(--tw-highlight) 22%, var(--tw-panel))",
+                    "border": "var(--tw-highlight)",
+                    "borderWidth": 1
                   }
                 },
                 "anim": [],
@@ -842,8 +842,8 @@
                     "align": "start",
                     "columns": 3,
                     "style": {
-                      "fontSize": 18,
-                      "color": "var(--tw-accent)"
+                      "color": "var(--tw-accent)",
+                      "fontSize": 18
                     },
                     "states": {},
                     "anim": [],
@@ -927,452 +927,6 @@
                 ]
               },
               {
-                "id": "title.hub",
-                "name": "The Conservatory",
-                "type": "panel",
-                "anchor": "tl",
-                "x": 0,
-                "y": 0,
-                "w": 240,
-                "h": 160,
-                "wMode": "fill",
-                "hMode": "auto",
-                "layout": "row",
-                "gap": 12,
-                "padding": 8,
-                "align": "center",
-                "columns": 3,
-                "style": {
-                  "fill": "color-mix(in srgb, var(--tw-border) 18%, var(--tw-panel))",
-                  "border": "color-mix(in srgb, var(--tw-border) 55%, var(--tw-panel))",
-                  "borderWidth": 1,
-                  "radius": 0
-                },
-                "states": {
-                  "hover": {
-                    "fill": "color-mix(in srgb, var(--tw-highlight) 22%, var(--tw-panel))",
-                    "border": "var(--tw-highlight)",
-                    "borderWidth": 1
-                  },
-                  "focus": {
-                    "fill": "color-mix(in srgb, var(--tw-highlight) 22%, var(--tw-panel))",
-                    "border": "var(--tw-highlight)",
-                    "borderWidth": 1
-                  },
-                  "pressed": {
-                    "fill": "color-mix(in srgb, var(--tw-highlight) 32%, var(--tw-panel))",
-                    "border": "var(--tw-highlight)",
-                    "borderWidth": 1
-                  },
-                  "disabled": {
-                    "opacity": 0.4
-                  }
-                },
-                "anim": [],
-                "text": "",
-                "sprite": "",
-                "value": "",
-                "max": "100",
-                "min": 0,
-                "step": 1,
-                "options": "",
-                "source": "",
-                "template": "",
-                "drag": false,
-                "visible": "",
-                "enabled": "",
-                "on": {
-                  "click": [
-                    {
-                      "type": "setVariable",
-                      "params": {
-                        "name": "ng_goto",
-                        "op": "set",
-                        "value": "scenes/hub.scene.json"
-                      }
-                    },
-                    {
-                      "type": "uiScreen",
-                      "params": {
-                        "op": "close",
-                        "screen": "Rooms"
-                      }
-                    },
-                    {
-                      "type": "uiScreen",
-                      "params": {
-                        "op": "close",
-                        "screen": "Herbarium"
-                      }
-                    },
-                    {
-                      "type": "uiScreen",
-                      "params": {
-                        "op": "close",
-                        "screen": "The end"
-                      }
-                    },
-                    {
-                      "type": "uiScreen",
-                      "params": {
-                        "op": "close",
-                        "screen": "role:pause"
-                      }
-                    },
-                    {
-                      "type": "uiScreen",
-                      "params": {
-                        "op": "close",
-                        "screen": "role:title"
-                      }
-                    }
-                  ],
-                  "hover": [],
-                  "change": []
-                },
-                "focus": {
-                  "up": "",
-                  "down": "",
-                  "left": "",
-                  "right": ""
-                },
-                "tooltip": "",
-                "prefab": "",
-                "overrides": {},
-                "marks": "player:#6fe08a, enemy:#e05a5a",
-                "children": [
-                  {
-                    "id": "title.hub.label",
-                    "name": "Label",
-                    "type": "text",
-                    "anchor": "tl",
-                    "x": 0,
-                    "y": 0,
-                    "w": 160,
-                    "h": 28,
-                    "wMode": "auto",
-                    "hMode": "auto",
-                    "layout": "free",
-                    "gap": 8,
-                    "padding": 0,
-                    "align": "start",
-                    "columns": 3,
-                    "style": {
-                      "fontSize": 18
-                    },
-                    "states": {},
-                    "anim": [],
-                    "text": "The Conservatory",
-                    "sprite": "",
-                    "value": "",
-                    "max": "100",
-                    "min": 0,
-                    "step": 1,
-                    "options": "",
-                    "source": "",
-                    "template": "",
-                    "drag": false,
-                    "visible": "",
-                    "enabled": "",
-                    "on": {
-                      "click": [],
-                      "hover": [],
-                      "change": []
-                    },
-                    "focus": {
-                      "up": "",
-                      "down": "",
-                      "left": "",
-                      "right": ""
-                    },
-                    "tooltip": "",
-                    "prefab": "",
-                    "overrides": {},
-                    "marks": "player:#6fe08a, enemy:#e05a5a",
-                    "children": []
-                  },
-                  {
-                    "id": "title.hub.gap",
-                    "name": "Space",
-                    "type": "spacer",
-                    "anchor": "tl",
-                    "x": 0,
-                    "y": 0,
-                    "w": 8,
-                    "h": 8,
-                    "wMode": "fill",
-                    "hMode": "auto",
-                    "layout": "free",
-                    "gap": 8,
-                    "padding": 8,
-                    "align": "start",
-                    "columns": 3,
-                    "style": {},
-                    "states": {},
-                    "anim": [],
-                    "text": "",
-                    "sprite": "",
-                    "value": "",
-                    "max": "100",
-                    "min": 0,
-                    "step": 1,
-                    "options": "",
-                    "source": "",
-                    "template": "",
-                    "drag": false,
-                    "visible": "",
-                    "enabled": "",
-                    "on": {
-                      "click": [],
-                      "hover": [],
-                      "change": []
-                    },
-                    "focus": {
-                      "up": "",
-                      "down": "",
-                      "left": "",
-                      "right": ""
-                    },
-                    "tooltip": "",
-                    "prefab": "",
-                    "overrides": {},
-                    "marks": "player:#6fe08a, enemy:#e05a5a",
-                    "children": []
-                  },
-                  {
-                    "id": "title.hub.detail",
-                    "name": "Detail",
-                    "type": "text",
-                    "anchor": "tl",
-                    "x": 0,
-                    "y": 0,
-                    "w": 160,
-                    "h": 28,
-                    "wMode": "auto",
-                    "hMode": "auto",
-                    "layout": "free",
-                    "gap": 8,
-                    "padding": 0,
-                    "align": "start",
-                    "columns": 3,
-                    "style": {
-                      "fontSize": 12,
-                      "color": "#8f96b3",
-                      "align": "right"
-                    },
-                    "states": {},
-                    "anim": [],
-                    "text": "Garden hub",
-                    "sprite": "",
-                    "value": "",
-                    "max": "100",
-                    "min": 0,
-                    "step": 1,
-                    "options": "",
-                    "source": "",
-                    "template": "",
-                    "drag": false,
-                    "visible": "",
-                    "enabled": "",
-                    "on": {
-                      "click": [],
-                      "hover": [],
-                      "change": []
-                    },
-                    "focus": {
-                      "up": "",
-                      "down": "",
-                      "left": "",
-                      "right": ""
-                    },
-                    "tooltip": "",
-                    "prefab": "",
-                    "overrides": {},
-                    "marks": "player:#6fe08a, enemy:#e05a5a",
-                    "children": []
-                  }
-                ]
-              },
-              {
-                "id": "title.herbarium",
-                "name": "Herbarium",
-                "type": "panel",
-                "anchor": "tl",
-                "x": 0,
-                "y": 0,
-                "w": 240,
-                "h": 160,
-                "wMode": "fill",
-                "hMode": "auto",
-                "layout": "row",
-                "gap": 12,
-                "padding": 8,
-                "align": "center",
-                "columns": 3,
-                "style": {
-                  "fill": "color-mix(in srgb, var(--tw-border) 18%, var(--tw-panel))",
-                  "border": "color-mix(in srgb, var(--tw-border) 55%, var(--tw-panel))",
-                  "borderWidth": 1,
-                  "radius": 0
-                },
-                "states": {
-                  "hover": {
-                    "fill": "color-mix(in srgb, var(--tw-highlight) 22%, var(--tw-panel))",
-                    "border": "var(--tw-highlight)",
-                    "borderWidth": 1
-                  },
-                  "focus": {
-                    "fill": "color-mix(in srgb, var(--tw-highlight) 22%, var(--tw-panel))",
-                    "border": "var(--tw-highlight)",
-                    "borderWidth": 1
-                  },
-                  "pressed": {
-                    "fill": "color-mix(in srgb, var(--tw-highlight) 32%, var(--tw-panel))",
-                    "border": "var(--tw-highlight)",
-                    "borderWidth": 1
-                  },
-                  "disabled": {
-                    "opacity": 0.4
-                  }
-                },
-                "anim": [],
-                "text": "",
-                "sprite": "",
-                "value": "",
-                "max": "100",
-                "min": 0,
-                "step": 1,
-                "options": "",
-                "source": "",
-                "template": "",
-                "drag": false,
-                "visible": "",
-                "enabled": "",
-                "on": {
-                  "click": [
-                    {
-                      "type": "uiScreen",
-                      "params": {
-                        "op": "open",
-                        "screen": "Herbarium"
-                      }
-                    }
-                  ],
-                  "hover": [],
-                  "change": []
-                },
-                "focus": {
-                  "up": "",
-                  "down": "",
-                  "left": "",
-                  "right": ""
-                },
-                "tooltip": "",
-                "prefab": "",
-                "overrides": {},
-                "marks": "player:#6fe08a, enemy:#e05a5a",
-                "children": [
-                  {
-                    "id": "title.herbarium.label",
-                    "name": "Label",
-                    "type": "text",
-                    "anchor": "tl",
-                    "x": 0,
-                    "y": 0,
-                    "w": 160,
-                    "h": 28,
-                    "wMode": "auto",
-                    "hMode": "auto",
-                    "layout": "free",
-                    "gap": 8,
-                    "padding": 0,
-                    "align": "start",
-                    "columns": 3,
-                    "style": {
-                      "fontSize": 18
-                    },
-                    "states": {},
-                    "anim": [],
-                    "text": "Herbarium",
-                    "sprite": "",
-                    "value": "",
-                    "max": "100",
-                    "min": 0,
-                    "step": 1,
-                    "options": "",
-                    "source": "",
-                    "template": "",
-                    "drag": false,
-                    "visible": "",
-                    "enabled": "",
-                    "on": {
-                      "click": [],
-                      "hover": [],
-                      "change": []
-                    },
-                    "focus": {
-                      "up": "",
-                      "down": "",
-                      "left": "",
-                      "right": ""
-                    },
-                    "tooltip": "",
-                    "prefab": "",
-                    "overrides": {},
-                    "marks": "player:#6fe08a, enemy:#e05a5a",
-                    "children": []
-                  },
-                  {
-                    "id": "title.herbarium.gap",
-                    "name": "Space",
-                    "type": "spacer",
-                    "anchor": "tl",
-                    "x": 0,
-                    "y": 0,
-                    "w": 8,
-                    "h": 8,
-                    "wMode": "fill",
-                    "hMode": "auto",
-                    "layout": "free",
-                    "gap": 8,
-                    "padding": 8,
-                    "align": "start",
-                    "columns": 3,
-                    "style": {},
-                    "states": {},
-                    "anim": [],
-                    "text": "",
-                    "sprite": "",
-                    "value": "",
-                    "max": "100",
-                    "min": 0,
-                    "step": 1,
-                    "options": "",
-                    "source": "",
-                    "template": "",
-                    "drag": false,
-                    "visible": "",
-                    "enabled": "",
-                    "on": {
-                      "click": [],
-                      "hover": [],
-                      "change": []
-                    },
-                    "focus": {
-                      "up": "",
-                      "down": "",
-                      "left": "",
-                      "right": ""
-                    },
-                    "tooltip": "",
-                    "prefab": "",
-                    "overrides": {},
-                    "marks": "player:#6fe08a, enemy:#e05a5a",
-                    "children": []
-                  }
-                ]
-              },
-              {
                 "id": "title.rooms",
                 "name": "Rooms",
                 "type": "panel",
@@ -1400,11 +954,6 @@
                     "border": "var(--tw-highlight)",
                     "borderWidth": 1
                   },
-                  "focus": {
-                    "fill": "color-mix(in srgb, var(--tw-highlight) 22%, var(--tw-panel))",
-                    "border": "var(--tw-highlight)",
-                    "borderWidth": 1
-                  },
                   "pressed": {
                     "fill": "color-mix(in srgb, var(--tw-highlight) 32%, var(--tw-panel))",
                     "border": "var(--tw-highlight)",
@@ -1412,6 +961,11 @@
                   },
                   "disabled": {
                     "opacity": 0.4
+                  },
+                  "focus": {
+                    "fill": "color-mix(in srgb, var(--tw-highlight) 22%, var(--tw-panel))",
+                    "border": "var(--tw-highlight)",
+                    "borderWidth": 1
                   }
                 },
                 "anim": [],
@@ -1579,11 +1133,6 @@
                     "border": "var(--tw-highlight)",
                     "borderWidth": 1
                   },
-                  "focus": {
-                    "fill": "color-mix(in srgb, var(--tw-highlight) 22%, var(--tw-panel))",
-                    "border": "var(--tw-highlight)",
-                    "borderWidth": 1
-                  },
                   "pressed": {
                     "fill": "color-mix(in srgb, var(--tw-highlight) 32%, var(--tw-panel))",
                     "border": "var(--tw-highlight)",
@@ -1591,6 +1140,11 @@
                   },
                   "disabled": {
                     "opacity": 0.4
+                  },
+                  "focus": {
+                    "fill": "color-mix(in srgb, var(--tw-highlight) 22%, var(--tw-panel))",
+                    "border": "var(--tw-highlight)",
+                    "borderWidth": 1
                   }
                 },
                 "anim": [],
@@ -1758,11 +1312,6 @@
                     "border": "var(--tw-highlight)",
                     "borderWidth": 1
                   },
-                  "focus": {
-                    "fill": "color-mix(in srgb, var(--tw-highlight) 22%, var(--tw-panel))",
-                    "border": "var(--tw-highlight)",
-                    "borderWidth": 1
-                  },
                   "pressed": {
                     "fill": "color-mix(in srgb, var(--tw-highlight) 32%, var(--tw-panel))",
                     "border": "var(--tw-highlight)",
@@ -1770,6 +1319,11 @@
                   },
                   "disabled": {
                     "opacity": 0.4
+                  },
+                  "focus": {
+                    "fill": "color-mix(in srgb, var(--tw-highlight) 22%, var(--tw-panel))",
+                    "border": "var(--tw-highlight)",
+                    "borderWidth": 1
                   }
                 },
                 "anim": [],
@@ -1937,11 +1491,6 @@
                     "border": "var(--tw-highlight)",
                     "borderWidth": 1
                   },
-                  "focus": {
-                    "fill": "color-mix(in srgb, var(--tw-highlight) 22%, var(--tw-panel))",
-                    "border": "var(--tw-highlight)",
-                    "borderWidth": 1
-                  },
                   "pressed": {
                     "fill": "color-mix(in srgb, var(--tw-highlight) 32%, var(--tw-panel))",
                     "border": "var(--tw-highlight)",
@@ -1949,6 +1498,11 @@
                   },
                   "disabled": {
                     "opacity": 0.4
+                  },
+                  "focus": {
+                    "fill": "color-mix(in srgb, var(--tw-highlight) 22%, var(--tw-panel))",
+                    "border": "var(--tw-highlight)",
+                    "borderWidth": 1
                   }
                 },
                 "anim": [],
@@ -2248,8 +1802,8 @@
                 "align": "start",
                 "columns": 3,
                 "style": {
-                  "fontSize": 12,
-                  "color": "#8f96b3"
+                  "color": "#8f96b3",
+                  "fontSize": 12
                 },
                 "states": {},
                 "anim": [],
@@ -2467,8 +2021,8 @@
                 "align": "start",
                 "columns": 3,
                 "style": {
-                  "fontSize": 15,
-                  "color": "#8f96b3"
+                  "color": "#8f96b3",
+                  "fontSize": 15
                 },
                 "states": {},
                 "anim": [],
@@ -2518,8 +2072,8 @@
                 "align": "start",
                 "columns": 3,
                 "style": {
-                  "fontSize": 15,
-                  "color": "#8f96b3"
+                  "color": "#8f96b3",
+                  "fontSize": 15
                 },
                 "states": {},
                 "anim": [],
@@ -2569,8 +2123,8 @@
                 "align": "start",
                 "columns": 3,
                 "style": {
-                  "fontSize": 15,
                   "color": "var(--tw-accent)",
+                  "fontSize": 15,
                   "bold": true
                 },
                 "states": {},
@@ -2693,7 +2247,7 @@
             "source": "",
             "template": "",
             "drag": false,
-            "visible": "{ng_room_name}",
+            "visible": "{ng_room_no}",
             "enabled": "",
             "on": {
               "click": [],
@@ -2776,8 +2330,8 @@
                 "align": "start",
                 "columns": 3,
                 "style": {
-                  "fontSize": 15,
                   "color": "#ffd76a",
+                  "fontSize": 15,
                   "bold": true
                 },
                 "states": {},
@@ -2828,8 +2382,8 @@
                 "align": "start",
                 "columns": 3,
                 "style": {
-                  "fontSize": 15,
-                  "color": "#8f96b3"
+                  "color": "#8f96b3",
+                  "fontSize": 15
                 },
                 "states": {},
                 "anim": [],
@@ -2930,8 +2484,8 @@
                 "align": "start",
                 "columns": 3,
                 "style": {
-                  "fontSize": 15,
-                  "color": "#8f96b3"
+                  "color": "#8f96b3",
+                  "fontSize": 15
                 },
                 "states": {},
                 "anim": [],
@@ -2946,108 +2500,6 @@
                 "template": "",
                 "drag": false,
                 "visible": "",
-                "enabled": "",
-                "on": {
-                  "click": [],
-                  "hover": [],
-                  "change": []
-                },
-                "focus": {
-                  "up": "",
-                  "down": "",
-                  "left": "",
-                  "right": ""
-                },
-                "tooltip": "",
-                "prefab": "",
-                "overrides": {},
-                "marks": "player:#6fe08a, enemy:#e05a5a",
-                "children": []
-              },
-              {
-                "id": "hud.sep2",
-                "name": "hud.sep2",
-                "type": "text",
-                "anchor": "tl",
-                "x": 0,
-                "y": 0,
-                "w": 160,
-                "h": 28,
-                "wMode": "auto",
-                "hMode": "auto",
-                "layout": "free",
-                "gap": 8,
-                "padding": 0,
-                "align": "start",
-                "columns": 3,
-                "style": {
-                  "fontSize": 15,
-                  "color": "#8f96b3"
-                },
-                "states": {},
-                "anim": [],
-                "text": "·",
-                "sprite": "",
-                "value": "",
-                "max": "100",
-                "min": 0,
-                "step": 1,
-                "options": "",
-                "source": "",
-                "template": "",
-                "drag": false,
-                "visible": "{ng_par} > 0",
-                "enabled": "",
-                "on": {
-                  "click": [],
-                  "hover": [],
-                  "change": []
-                },
-                "focus": {
-                  "up": "",
-                  "down": "",
-                  "left": "",
-                  "right": ""
-                },
-                "tooltip": "",
-                "prefab": "",
-                "overrides": {},
-                "marks": "player:#6fe08a, enemy:#e05a5a",
-                "children": []
-              },
-              {
-                "id": "hud.steps",
-                "name": "hud.steps",
-                "type": "text",
-                "anchor": "tl",
-                "x": 0,
-                "y": 0,
-                "w": 160,
-                "h": 28,
-                "wMode": "auto",
-                "hMode": "auto",
-                "layout": "free",
-                "gap": 8,
-                "padding": 0,
-                "align": "start",
-                "columns": 3,
-                "style": {
-                  "fontSize": 15,
-                  "color": "#8f96b3"
-                },
-                "states": {},
-                "anim": [],
-                "text": "Steps {ng_steps}/{ng_par}",
-                "sprite": "",
-                "value": "",
-                "max": "100",
-                "min": 0,
-                "step": 1,
-                "options": "",
-                "source": "",
-                "template": "",
-                "drag": false,
-                "visible": "{ng_par} > 0",
                 "enabled": "",
                 "on": {
                   "click": [],
@@ -3464,8 +2916,8 @@
                 "align": "start",
                 "columns": 3,
                 "style": {
-                  "fontSize": 26,
-                  "color": "var(--tw-accent)"
+                  "color": "var(--tw-accent)",
+                  "fontSize": 26
                 },
                 "states": {},
                 "anim": [],
@@ -3515,8 +2967,8 @@
                 "align": "start",
                 "columns": 3,
                 "style": {
-                  "fontSize": 12,
-                  "color": "#8f96b3"
+                  "color": "#8f96b3",
+                  "fontSize": 12
                 },
                 "states": {},
                 "anim": [],
@@ -3721,11 +3173,6 @@
                     "border": "var(--tw-highlight)",
                     "borderWidth": 1
                   },
-                  "focus": {
-                    "fill": "color-mix(in srgb, var(--tw-highlight) 22%, var(--tw-panel))",
-                    "border": "var(--tw-highlight)",
-                    "borderWidth": 1
-                  },
                   "pressed": {
                     "fill": "color-mix(in srgb, var(--tw-highlight) 32%, var(--tw-panel))",
                     "border": "var(--tw-highlight)",
@@ -3733,6 +3180,11 @@
                   },
                   "disabled": {
                     "opacity": 0.4
+                  },
+                  "focus": {
+                    "fill": "color-mix(in srgb, var(--tw-highlight) 22%, var(--tw-panel))",
+                    "border": "var(--tw-highlight)",
+                    "borderWidth": 1
                   }
                 },
                 "anim": [],
@@ -3789,8 +3241,8 @@
                     "align": "start",
                     "columns": 3,
                     "style": {
-                      "fontSize": 18,
-                      "color": "var(--tw-accent)"
+                      "color": "var(--tw-accent)",
+                      "fontSize": 18
                     },
                     "states": {},
                     "anim": [],
@@ -3901,11 +3353,6 @@
                     "border": "var(--tw-highlight)",
                     "borderWidth": 1
                   },
-                  "focus": {
-                    "fill": "color-mix(in srgb, var(--tw-highlight) 22%, var(--tw-panel))",
-                    "border": "var(--tw-highlight)",
-                    "borderWidth": 1
-                  },
                   "pressed": {
                     "fill": "color-mix(in srgb, var(--tw-highlight) 32%, var(--tw-panel))",
                     "border": "var(--tw-highlight)",
@@ -3913,6 +3360,11 @@
                   },
                   "disabled": {
                     "opacity": 0.4
+                  },
+                  "focus": {
+                    "fill": "color-mix(in srgb, var(--tw-highlight) 22%, var(--tw-panel))",
+                    "border": "var(--tw-highlight)",
+                    "borderWidth": 1
                   }
                 },
                 "anim": [],
@@ -4071,8 +3523,8 @@
                     "align": "start",
                     "columns": 3,
                     "style": {
-                      "fontSize": 12,
                       "color": "#8f96b3",
+                      "fontSize": 12,
                       "align": "right"
                     },
                     "states": {},
@@ -4136,11 +3588,6 @@
                     "border": "var(--tw-highlight)",
                     "borderWidth": 1
                   },
-                  "focus": {
-                    "fill": "color-mix(in srgb, var(--tw-highlight) 22%, var(--tw-panel))",
-                    "border": "var(--tw-highlight)",
-                    "borderWidth": 1
-                  },
                   "pressed": {
                     "fill": "color-mix(in srgb, var(--tw-highlight) 32%, var(--tw-panel))",
                     "border": "var(--tw-highlight)",
@@ -4148,6 +3595,11 @@
                   },
                   "disabled": {
                     "opacity": 0.4
+                  },
+                  "focus": {
+                    "fill": "color-mix(in srgb, var(--tw-highlight) 22%, var(--tw-panel))",
+                    "border": "var(--tw-highlight)",
+                    "borderWidth": 1
                   }
                 },
                 "anim": [],
@@ -4302,511 +3754,13 @@
                     "align": "start",
                     "columns": 3,
                     "style": {
-                      "fontSize": 12,
                       "color": "#8f96b3",
+                      "fontSize": 12,
                       "align": "right"
                     },
                     "states": {},
                     "anim": [],
                     "text": "{ng_done} of {ng_total} tended",
-                    "sprite": "",
-                    "value": "",
-                    "max": "100",
-                    "min": 0,
-                    "step": 1,
-                    "options": "",
-                    "source": "",
-                    "template": "",
-                    "drag": false,
-                    "visible": "",
-                    "enabled": "",
-                    "on": {
-                      "click": [],
-                      "hover": [],
-                      "change": []
-                    },
-                    "focus": {
-                      "up": "",
-                      "down": "",
-                      "left": "",
-                      "right": ""
-                    },
-                    "tooltip": "",
-                    "prefab": "",
-                    "overrides": {},
-                    "marks": "player:#6fe08a, enemy:#e05a5a",
-                    "children": []
-                  }
-                ]
-              },
-              {
-                "id": "pause.hub",
-                "name": "The Conservatory",
-                "type": "panel",
-                "anchor": "tl",
-                "x": 0,
-                "y": 0,
-                "w": 240,
-                "h": 160,
-                "wMode": "fill",
-                "hMode": "auto",
-                "layout": "row",
-                "gap": 12,
-                "padding": 8,
-                "align": "center",
-                "columns": 3,
-                "style": {
-                  "fill": "color-mix(in srgb, var(--tw-border) 18%, var(--tw-panel))",
-                  "border": "color-mix(in srgb, var(--tw-border) 55%, var(--tw-panel))",
-                  "borderWidth": 1,
-                  "radius": 0
-                },
-                "states": {
-                  "hover": {
-                    "fill": "color-mix(in srgb, var(--tw-highlight) 22%, var(--tw-panel))",
-                    "border": "var(--tw-highlight)",
-                    "borderWidth": 1
-                  },
-                  "focus": {
-                    "fill": "color-mix(in srgb, var(--tw-highlight) 22%, var(--tw-panel))",
-                    "border": "var(--tw-highlight)",
-                    "borderWidth": 1
-                  },
-                  "pressed": {
-                    "fill": "color-mix(in srgb, var(--tw-highlight) 32%, var(--tw-panel))",
-                    "border": "var(--tw-highlight)",
-                    "borderWidth": 1
-                  },
-                  "disabled": {
-                    "opacity": 0.4
-                  }
-                },
-                "anim": [],
-                "text": "",
-                "sprite": "",
-                "value": "",
-                "max": "100",
-                "min": 0,
-                "step": 1,
-                "options": "",
-                "source": "",
-                "template": "",
-                "drag": false,
-                "visible": "",
-                "enabled": "",
-                "on": {
-                  "click": [
-                    {
-                      "type": "setVariable",
-                      "params": {
-                        "name": "ng_goto",
-                        "op": "set",
-                        "value": "scenes/hub.scene.json"
-                      }
-                    },
-                    {
-                      "type": "uiScreen",
-                      "params": {
-                        "op": "close",
-                        "screen": "Rooms"
-                      }
-                    },
-                    {
-                      "type": "uiScreen",
-                      "params": {
-                        "op": "close",
-                        "screen": "Herbarium"
-                      }
-                    },
-                    {
-                      "type": "uiScreen",
-                      "params": {
-                        "op": "close",
-                        "screen": "The end"
-                      }
-                    },
-                    {
-                      "type": "uiScreen",
-                      "params": {
-                        "op": "close",
-                        "screen": "role:pause"
-                      }
-                    },
-                    {
-                      "type": "uiScreen",
-                      "params": {
-                        "op": "close",
-                        "screen": "role:title"
-                      }
-                    }
-                  ],
-                  "hover": [],
-                  "change": []
-                },
-                "focus": {
-                  "up": "",
-                  "down": "",
-                  "left": "",
-                  "right": ""
-                },
-                "tooltip": "",
-                "prefab": "",
-                "overrides": {},
-                "marks": "player:#6fe08a, enemy:#e05a5a",
-                "children": [
-                  {
-                    "id": "pause.hub.label",
-                    "name": "Label",
-                    "type": "text",
-                    "anchor": "tl",
-                    "x": 0,
-                    "y": 0,
-                    "w": 160,
-                    "h": 28,
-                    "wMode": "auto",
-                    "hMode": "auto",
-                    "layout": "free",
-                    "gap": 8,
-                    "padding": 0,
-                    "align": "start",
-                    "columns": 3,
-                    "style": {
-                      "fontSize": 18
-                    },
-                    "states": {},
-                    "anim": [],
-                    "text": "The Conservatory",
-                    "sprite": "",
-                    "value": "",
-                    "max": "100",
-                    "min": 0,
-                    "step": 1,
-                    "options": "",
-                    "source": "",
-                    "template": "",
-                    "drag": false,
-                    "visible": "",
-                    "enabled": "",
-                    "on": {
-                      "click": [],
-                      "hover": [],
-                      "change": []
-                    },
-                    "focus": {
-                      "up": "",
-                      "down": "",
-                      "left": "",
-                      "right": ""
-                    },
-                    "tooltip": "",
-                    "prefab": "",
-                    "overrides": {},
-                    "marks": "player:#6fe08a, enemy:#e05a5a",
-                    "children": []
-                  },
-                  {
-                    "id": "pause.hub.gap",
-                    "name": "Space",
-                    "type": "spacer",
-                    "anchor": "tl",
-                    "x": 0,
-                    "y": 0,
-                    "w": 8,
-                    "h": 8,
-                    "wMode": "fill",
-                    "hMode": "auto",
-                    "layout": "free",
-                    "gap": 8,
-                    "padding": 8,
-                    "align": "start",
-                    "columns": 3,
-                    "style": {},
-                    "states": {},
-                    "anim": [],
-                    "text": "",
-                    "sprite": "",
-                    "value": "",
-                    "max": "100",
-                    "min": 0,
-                    "step": 1,
-                    "options": "",
-                    "source": "",
-                    "template": "",
-                    "drag": false,
-                    "visible": "",
-                    "enabled": "",
-                    "on": {
-                      "click": [],
-                      "hover": [],
-                      "change": []
-                    },
-                    "focus": {
-                      "up": "",
-                      "down": "",
-                      "left": "",
-                      "right": ""
-                    },
-                    "tooltip": "",
-                    "prefab": "",
-                    "overrides": {},
-                    "marks": "player:#6fe08a, enemy:#e05a5a",
-                    "children": []
-                  },
-                  {
-                    "id": "pause.hub.detail",
-                    "name": "Detail",
-                    "type": "text",
-                    "anchor": "tl",
-                    "x": 0,
-                    "y": 0,
-                    "w": 160,
-                    "h": 28,
-                    "wMode": "auto",
-                    "hMode": "auto",
-                    "layout": "free",
-                    "gap": 8,
-                    "padding": 0,
-                    "align": "start",
-                    "columns": 3,
-                    "style": {
-                      "fontSize": 12,
-                      "color": "#8f96b3",
-                      "align": "right"
-                    },
-                    "states": {},
-                    "anim": [],
-                    "text": "Customize flora",
-                    "sprite": "",
-                    "value": "",
-                    "max": "100",
-                    "min": 0,
-                    "step": 1,
-                    "options": "",
-                    "source": "",
-                    "template": "",
-                    "drag": false,
-                    "visible": "",
-                    "enabled": "",
-                    "on": {
-                      "click": [],
-                      "hover": [],
-                      "change": []
-                    },
-                    "focus": {
-                      "up": "",
-                      "down": "",
-                      "left": "",
-                      "right": ""
-                    },
-                    "tooltip": "",
-                    "prefab": "",
-                    "overrides": {},
-                    "marks": "player:#6fe08a, enemy:#e05a5a",
-                    "children": []
-                  }
-                ]
-              },
-              {
-                "id": "pause.herbarium",
-                "name": "Herbarium",
-                "type": "panel",
-                "anchor": "tl",
-                "x": 0,
-                "y": 0,
-                "w": 240,
-                "h": 160,
-                "wMode": "fill",
-                "hMode": "auto",
-                "layout": "row",
-                "gap": 12,
-                "padding": 8,
-                "align": "center",
-                "columns": 3,
-                "style": {
-                  "fill": "color-mix(in srgb, var(--tw-border) 18%, var(--tw-panel))",
-                  "border": "color-mix(in srgb, var(--tw-border) 55%, var(--tw-panel))",
-                  "borderWidth": 1,
-                  "radius": 0
-                },
-                "states": {
-                  "hover": {
-                    "fill": "color-mix(in srgb, var(--tw-highlight) 22%, var(--tw-panel))",
-                    "border": "var(--tw-highlight)",
-                    "borderWidth": 1
-                  },
-                  "focus": {
-                    "fill": "color-mix(in srgb, var(--tw-highlight) 22%, var(--tw-panel))",
-                    "border": "var(--tw-highlight)",
-                    "borderWidth": 1
-                  },
-                  "pressed": {
-                    "fill": "color-mix(in srgb, var(--tw-highlight) 32%, var(--tw-panel))",
-                    "border": "var(--tw-highlight)",
-                    "borderWidth": 1
-                  },
-                  "disabled": {
-                    "opacity": 0.4
-                  }
-                },
-                "anim": [],
-                "text": "",
-                "sprite": "",
-                "value": "",
-                "max": "100",
-                "min": 0,
-                "step": 1,
-                "options": "",
-                "source": "",
-                "template": "",
-                "drag": false,
-                "visible": "",
-                "enabled": "",
-                "on": {
-                  "click": [
-                    {
-                      "type": "uiScreen",
-                      "params": {
-                        "op": "open",
-                        "screen": "Herbarium"
-                      }
-                    }
-                  ],
-                  "hover": [],
-                  "change": []
-                },
-                "focus": {
-                  "up": "",
-                  "down": "",
-                  "left": "",
-                  "right": ""
-                },
-                "tooltip": "",
-                "prefab": "",
-                "overrides": {},
-                "marks": "player:#6fe08a, enemy:#e05a5a",
-                "children": [
-                  {
-                    "id": "pause.herbarium.label",
-                    "name": "Label",
-                    "type": "text",
-                    "anchor": "tl",
-                    "x": 0,
-                    "y": 0,
-                    "w": 160,
-                    "h": 28,
-                    "wMode": "auto",
-                    "hMode": "auto",
-                    "layout": "free",
-                    "gap": 8,
-                    "padding": 0,
-                    "align": "start",
-                    "columns": 3,
-                    "style": {
-                      "fontSize": 18
-                    },
-                    "states": {},
-                    "anim": [],
-                    "text": "Herbarium",
-                    "sprite": "",
-                    "value": "",
-                    "max": "100",
-                    "min": 0,
-                    "step": 1,
-                    "options": "",
-                    "source": "",
-                    "template": "",
-                    "drag": false,
-                    "visible": "",
-                    "enabled": "",
-                    "on": {
-                      "click": [],
-                      "hover": [],
-                      "change": []
-                    },
-                    "focus": {
-                      "up": "",
-                      "down": "",
-                      "left": "",
-                      "right": ""
-                    },
-                    "tooltip": "",
-                    "prefab": "",
-                    "overrides": {},
-                    "marks": "player:#6fe08a, enemy:#e05a5a",
-                    "children": []
-                  },
-                  {
-                    "id": "pause.herbarium.gap",
-                    "name": "Space",
-                    "type": "spacer",
-                    "anchor": "tl",
-                    "x": 0,
-                    "y": 0,
-                    "w": 8,
-                    "h": 8,
-                    "wMode": "fill",
-                    "hMode": "auto",
-                    "layout": "free",
-                    "gap": 8,
-                    "padding": 8,
-                    "align": "start",
-                    "columns": 3,
-                    "style": {},
-                    "states": {},
-                    "anim": [],
-                    "text": "",
-                    "sprite": "",
-                    "value": "",
-                    "max": "100",
-                    "min": 0,
-                    "step": 1,
-                    "options": "",
-                    "source": "",
-                    "template": "",
-                    "drag": false,
-                    "visible": "",
-                    "enabled": "",
-                    "on": {
-                      "click": [],
-                      "hover": [],
-                      "change": []
-                    },
-                    "focus": {
-                      "up": "",
-                      "down": "",
-                      "left": "",
-                      "right": ""
-                    },
-                    "tooltip": "",
-                    "prefab": "",
-                    "overrides": {},
-                    "marks": "player:#6fe08a, enemy:#e05a5a",
-                    "children": []
-                  },
-                  {
-                    "id": "pause.herbarium.detail",
-                    "name": "Detail",
-                    "type": "text",
-                    "anchor": "tl",
-                    "x": 0,
-                    "y": 0,
-                    "w": 160,
-                    "h": 28,
-                    "wMode": "auto",
-                    "hMode": "auto",
-                    "layout": "free",
-                    "gap": 8,
-                    "padding": 0,
-                    "align": "start",
-                    "columns": 3,
-                    "style": {
-                      "fontSize": 12,
-                      "color": "#8f96b3",
-                      "align": "right"
-                    },
-                    "states": {},
-                    "anim": [],
-                    "text": "{ng_pars} par medals",
                     "sprite": "",
                     "value": "",
                     "max": "100",
@@ -4865,11 +3819,6 @@
                     "border": "var(--tw-highlight)",
                     "borderWidth": 1
                   },
-                  "focus": {
-                    "fill": "color-mix(in srgb, var(--tw-highlight) 22%, var(--tw-panel))",
-                    "border": "var(--tw-highlight)",
-                    "borderWidth": 1
-                  },
                   "pressed": {
                     "fill": "color-mix(in srgb, var(--tw-highlight) 32%, var(--tw-panel))",
                     "border": "var(--tw-highlight)",
@@ -4877,6 +3826,11 @@
                   },
                   "disabled": {
                     "opacity": 0.4
+                  },
+                  "focus": {
+                    "fill": "color-mix(in srgb, var(--tw-highlight) 22%, var(--tw-panel))",
+                    "border": "var(--tw-highlight)",
+                    "borderWidth": 1
                   }
                 },
                 "anim": [],
@@ -5044,11 +3998,6 @@
                     "border": "var(--tw-highlight)",
                     "borderWidth": 1
                   },
-                  "focus": {
-                    "fill": "color-mix(in srgb, var(--tw-highlight) 22%, var(--tw-panel))",
-                    "border": "var(--tw-highlight)",
-                    "borderWidth": 1
-                  },
                   "pressed": {
                     "fill": "color-mix(in srgb, var(--tw-highlight) 32%, var(--tw-panel))",
                     "border": "var(--tw-highlight)",
@@ -5056,6 +4005,11 @@
                   },
                   "disabled": {
                     "opacity": 0.4
+                  },
+                  "focus": {
+                    "fill": "color-mix(in srgb, var(--tw-highlight) 22%, var(--tw-panel))",
+                    "border": "var(--tw-highlight)",
+                    "borderWidth": 1
                   }
                 },
                 "anim": [],
@@ -5223,11 +4177,6 @@
                     "border": "var(--tw-highlight)",
                     "borderWidth": 1
                   },
-                  "focus": {
-                    "fill": "color-mix(in srgb, var(--tw-highlight) 22%, var(--tw-panel))",
-                    "border": "var(--tw-highlight)",
-                    "borderWidth": 1
-                  },
                   "pressed": {
                     "fill": "color-mix(in srgb, var(--tw-highlight) 32%, var(--tw-panel))",
                     "border": "var(--tw-highlight)",
@@ -5235,6 +4184,11 @@
                   },
                   "disabled": {
                     "opacity": 0.4
+                  },
+                  "focus": {
+                    "fill": "color-mix(in srgb, var(--tw-highlight) 22%, var(--tw-panel))",
+                    "border": "var(--tw-highlight)",
+                    "borderWidth": 1
                   }
                 },
                 "anim": [],
@@ -5534,8 +4488,8 @@
                 "align": "start",
                 "columns": 3,
                 "style": {
-                  "fontSize": 12,
-                  "color": "#8f96b3"
+                  "color": "#8f96b3",
+                  "fontSize": 12
                 },
                 "states": {},
                 "anim": [],
@@ -5762,8 +4716,8 @@
                 "align": "start",
                 "columns": 3,
                 "style": {
-                  "fontSize": 26,
-                  "color": "var(--tw-accent)"
+                  "color": "var(--tw-accent)",
+                  "fontSize": 26
                 },
                 "states": {},
                 "anim": [],
@@ -5813,12 +4767,12 @@
                 "align": "start",
                 "columns": 3,
                 "style": {
-                  "fontSize": 12,
-                  "color": "#8f96b3"
+                  "color": "#8f96b3",
+                  "fontSize": 12
                 },
                 "states": {},
                 "anim": [],
-                "text": "{ng_done} of {ng_total} tended · {ng_flies} fireflies · {ng_pars} par medals",
+                "text": "{ng_done} of {ng_total} tended · {ng_flies} fireflies",
                 "sprite": "",
                 "value": "",
                 "max": "100",
@@ -6006,7 +4960,7 @@
                 "gap": 8,
                 "padding": 0,
                 "align": "start",
-                "columns": 6,
+                "columns": 8,
                 "style": {},
                 "states": {},
                 "anim": [],
@@ -6067,11 +5021,6 @@
                         "border": "var(--tw-highlight)",
                         "borderWidth": 2
                       },
-                      "focus": {
-                        "fill": "color-mix(in srgb, var(--tw-highlight) 20%, var(--tw-panel))",
-                        "border": "var(--tw-highlight)",
-                        "borderWidth": 2
-                      },
                       "pressed": {
                         "fill": "color-mix(in srgb, var(--tw-highlight) 32%, var(--tw-panel))",
                         "border": "var(--tw-highlight)",
@@ -6079,6 +5028,11 @@
                       },
                       "disabled": {
                         "opacity": 0.4
+                      },
+                      "focus": {
+                        "fill": "color-mix(in srgb, var(--tw-highlight) 20%, var(--tw-panel))",
+                        "border": "var(--tw-highlight)",
+                        "borderWidth": 2
                       }
                     },
                     "anim": [],
@@ -6109,20 +5063,6 @@
                           "params": {
                             "op": "close",
                             "screen": "Rooms"
-                          }
-                        },
-                        {
-                          "type": "uiScreen",
-                          "params": {
-                            "op": "close",
-                            "screen": "Herbarium"
-                          }
-                        },
-                        {
-                          "type": "uiScreen",
-                          "params": {
-                            "op": "close",
-                            "screen": "The end"
                           }
                         },
                         {
@@ -6218,8 +5158,8 @@
                             "align": "start",
                             "columns": 3,
                             "style": {
-                              "fontSize": 18,
-                              "color": "var(--tw-accent)"
+                              "color": "var(--tw-accent)",
+                              "fontSize": 18
                             },
                             "states": {},
                             "anim": [],
@@ -6301,57 +5241,6 @@
                             "children": []
                           },
                           {
-                            "id": "rooms.card.par",
-                            "name": "Par medal",
-                            "type": "text",
-                            "anchor": "tl",
-                            "x": 0,
-                            "y": 0,
-                            "w": 160,
-                            "h": 28,
-                            "wMode": "auto",
-                            "hMode": "auto",
-                            "layout": "free",
-                            "gap": 8,
-                            "padding": 0,
-                            "align": "start",
-                            "columns": 3,
-                            "style": {
-                              "fontSize": 15,
-                              "color": "var(--tw-accent)"
-                            },
-                            "states": {},
-                            "anim": [],
-                            "text": "★",
-                            "sprite": "",
-                            "value": "",
-                            "max": "100",
-                            "min": 0,
-                            "step": 1,
-                            "options": "",
-                            "source": "",
-                            "template": "",
-                            "drag": false,
-                            "visible": "{par_{row.id}} = 1",
-                            "enabled": "",
-                            "on": {
-                              "click": [],
-                              "hover": [],
-                              "change": []
-                            },
-                            "focus": {
-                              "up": "",
-                              "down": "",
-                              "left": "",
-                              "right": ""
-                            },
-                            "tooltip": "",
-                            "prefab": "",
-                            "overrides": {},
-                            "marks": "player:#6fe08a, enemy:#e05a5a",
-                            "children": []
-                          },
-                          {
                             "id": "rooms.card.fly",
                             "name": "Firefly caught",
                             "type": "text",
@@ -6368,8 +5257,8 @@
                             "align": "start",
                             "columns": 3,
                             "style": {
-                              "fontSize": 15,
-                              "color": "#ffd76a"
+                              "color": "#ffd76a",
+                              "fontSize": 15
                             },
                             "states": {},
                             "anim": [],
@@ -6419,8 +5308,8 @@
                             "align": "start",
                             "columns": 3,
                             "style": {
-                              "fontSize": 15,
-                              "color": "#55a868"
+                              "color": "#55a868",
+                              "fontSize": 15
                             },
                             "states": {},
                             "anim": [],
@@ -6472,63 +5361,12 @@
                         "align": "start",
                         "columns": 3,
                         "style": {
-                          "fontSize": 12,
-                          "color": "#8f96b3"
+                          "color": "#8f96b3",
+                          "fontSize": 12
                         },
                         "states": {},
                         "anim": [],
                         "text": "{row.name}",
-                        "sprite": "",
-                        "value": "",
-                        "max": "100",
-                        "min": 0,
-                        "step": 1,
-                        "options": "",
-                        "source": "",
-                        "template": "",
-                        "drag": false,
-                        "visible": "",
-                        "enabled": "",
-                        "on": {
-                          "click": [],
-                          "hover": [],
-                          "change": []
-                        },
-                        "focus": {
-                          "up": "",
-                          "down": "",
-                          "left": "",
-                          "right": ""
-                        },
-                        "tooltip": "",
-                        "prefab": "",
-                        "overrides": {},
-                        "marks": "player:#6fe08a, enemy:#e05a5a",
-                        "children": []
-                      },
-                      {
-                        "id": "rooms.card.diff",
-                        "name": "Difficulty",
-                        "type": "text",
-                        "anchor": "tl",
-                        "x": 0,
-                        "y": 0,
-                        "w": 160,
-                        "h": 28,
-                        "wMode": "fill",
-                        "hMode": "auto",
-                        "layout": "free",
-                        "gap": 8,
-                        "padding": 0,
-                        "align": "start",
-                        "columns": 3,
-                        "style": {
-                          "fontSize": 12,
-                          "color": "#5b6384"
-                        },
-                        "states": {},
-                        "anim": [],
-                        "text": "Diff {row.difficulty} · Par {row.par}",
                         "sprite": "",
                         "value": "",
                         "max": "100",
@@ -6589,11 +5427,6 @@
                     "border": "var(--tw-highlight)",
                     "borderWidth": 1
                   },
-                  "focus": {
-                    "fill": "color-mix(in srgb, var(--tw-highlight) 22%, var(--tw-panel))",
-                    "border": "var(--tw-highlight)",
-                    "borderWidth": 1
-                  },
                   "pressed": {
                     "fill": "color-mix(in srgb, var(--tw-highlight) 32%, var(--tw-panel))",
                     "border": "var(--tw-highlight)",
@@ -6601,6 +5434,11 @@
                   },
                   "disabled": {
                     "opacity": 0.4
+                  },
+                  "focus": {
+                    "fill": "color-mix(in srgb, var(--tw-highlight) 22%, var(--tw-panel))",
+                    "border": "var(--tw-highlight)",
+                    "borderWidth": 1
                   }
                 },
                 "anim": [],
@@ -6903,8 +5741,8 @@
                 "align": "start",
                 "columns": 3,
                 "style": {
-                  "fontSize": 12,
-                  "color": "#8f96b3"
+                  "color": "#8f96b3",
+                  "fontSize": 12
                 },
                 "states": {},
                 "anim": [],
@@ -6949,2525 +5787,6 @@
       "transition": "fade",
       "mapX": 700,
       "mapY": 40,
-      "opensOnStart": false
-    },
-    {
-      "id": "ng-herbarium",
-      "name": "Herbarium",
-      "root": {
-        "id": "ng-herbarium.root",
-        "name": "Herbarium root",
-        "type": "panel",
-        "anchor": "fill",
-        "x": 0,
-        "y": 0,
-        "w": 240,
-        "h": 160,
-        "wMode": "fixed",
-        "hMode": "fixed",
-        "layout": "free",
-        "gap": 8,
-        "padding": 0,
-        "align": "start",
-        "columns": 3,
-        "style": {},
-        "states": {},
-        "anim": [],
-        "text": "",
-        "sprite": "",
-        "value": "",
-        "max": "100",
-        "min": 0,
-        "step": 1,
-        "options": "",
-        "source": "",
-        "template": "",
-        "drag": false,
-        "visible": "",
-        "enabled": "",
-        "on": {
-          "click": [],
-          "hover": [],
-          "change": []
-        },
-        "focus": {
-          "up": "",
-          "down": "",
-          "left": "",
-          "right": ""
-        },
-        "tooltip": "",
-        "prefab": "",
-        "overrides": {},
-        "marks": "player:#6fe08a, enemy:#e05a5a",
-        "children": [
-          {
-            "id": "ng-herbarium.bg",
-            "name": "Backdrop",
-            "type": "plugin",
-            "anchor": "fill",
-            "x": 0,
-            "y": 0,
-            "w": 120,
-            "h": 40,
-            "wMode": "fill",
-            "hMode": "fill",
-            "layout": "free",
-            "gap": 8,
-            "padding": 0,
-            "align": "start",
-            "columns": 3,
-            "style": {},
-            "states": {},
-            "anim": [],
-            "text": "",
-            "sprite": "",
-            "value": "",
-            "max": "100",
-            "min": 0,
-            "step": 1,
-            "options": "",
-            "source": "botanical-backdrop",
-            "template": "",
-            "drag": false,
-            "visible": "",
-            "enabled": "",
-            "on": {
-              "click": [],
-              "hover": [],
-              "change": []
-            },
-            "focus": {
-              "up": "",
-              "down": "",
-              "left": "",
-              "right": ""
-            },
-            "tooltip": "",
-            "prefab": "",
-            "overrides": {},
-            "marks": "player:#6fe08a, enemy:#e05a5a",
-            "children": []
-          },
-          {
-            "id": "herb.box",
-            "name": "The Travers Herbarium box",
-            "type": "panel",
-            "anchor": "c",
-            "x": 0,
-            "y": 0,
-            "w": 880,
-            "h": 160,
-            "wMode": "fixed",
-            "hMode": "auto",
-            "layout": "column",
-            "gap": 4,
-            "padding": 20,
-            "align": "stretch",
-            "columns": 3,
-            "style": {
-              "fill": "color-mix(in srgb, var(--tw-panel) 94%, transparent)",
-              "border": "var(--tw-border)",
-              "borderWidth": 2,
-              "radius": 0,
-              "shadow": true,
-              "scroll": true,
-              "maxH": 88,
-              "themeScale": true,
-              "fit": "stage"
-            },
-            "states": {},
-            "anim": [
-              {
-                "on": "show",
-                "kind": "fade",
-                "ms": 180,
-                "dir": "up"
-              }
-            ],
-            "text": "",
-            "sprite": "",
-            "value": "",
-            "max": "100",
-            "min": 0,
-            "step": 1,
-            "options": "",
-            "source": "",
-            "template": "",
-            "drag": false,
-            "visible": "",
-            "enabled": "",
-            "on": {
-              "click": [],
-              "hover": [],
-              "change": []
-            },
-            "focus": {
-              "up": "",
-              "down": "",
-              "left": "",
-              "right": ""
-            },
-            "tooltip": "",
-            "prefab": "",
-            "overrides": {},
-            "marks": "player:#6fe08a, enemy:#e05a5a",
-            "children": [
-              {
-                "id": "herb.title",
-                "name": "Heading",
-                "type": "text",
-                "anchor": "tl",
-                "x": 0,
-                "y": 0,
-                "w": 160,
-                "h": 28,
-                "wMode": "auto",
-                "hMode": "auto",
-                "layout": "free",
-                "gap": 8,
-                "padding": 0,
-                "align": "start",
-                "columns": 3,
-                "style": {
-                  "fontSize": 26,
-                  "color": "var(--tw-accent)"
-                },
-                "states": {},
-                "anim": [],
-                "text": "The Travers Herbarium",
-                "sprite": "",
-                "value": "",
-                "max": "100",
-                "min": 0,
-                "step": 1,
-                "options": "",
-                "source": "",
-                "template": "",
-                "drag": false,
-                "visible": "",
-                "enabled": "",
-                "on": {
-                  "click": [],
-                  "hover": [],
-                  "change": []
-                },
-                "focus": {
-                  "up": "",
-                  "down": "",
-                  "left": "",
-                  "right": ""
-                },
-                "tooltip": "",
-                "prefab": "",
-                "overrides": {},
-                "marks": "player:#6fe08a, enemy:#e05a5a",
-                "children": []
-              },
-              {
-                "id": "herb.sub",
-                "name": "Subtitle",
-                "type": "text",
-                "anchor": "tl",
-                "x": 0,
-                "y": 0,
-                "w": 160,
-                "h": 28,
-                "wMode": "auto",
-                "hMode": "auto",
-                "layout": "free",
-                "gap": 8,
-                "padding": 0,
-                "align": "start",
-                "columns": 3,
-                "style": {
-                  "fontSize": 12,
-                  "color": "#8f96b3"
-                },
-                "states": {},
-                "anim": [],
-                "text": "{ng_done} of {ng_total} tended · {ng_flies} fireflies · {ng_pars} par medals",
-                "sprite": "",
-                "value": "",
-                "max": "100",
-                "min": 0,
-                "step": 1,
-                "options": "",
-                "source": "",
-                "template": "",
-                "drag": false,
-                "visible": "",
-                "enabled": "",
-                "on": {
-                  "click": [],
-                  "hover": [],
-                  "change": []
-                },
-                "focus": {
-                  "up": "",
-                  "down": "",
-                  "left": "",
-                  "right": ""
-                },
-                "tooltip": "",
-                "prefab": "",
-                "overrides": {},
-                "marks": "player:#6fe08a, enemy:#e05a5a",
-                "children": []
-              },
-              {
-                "id": "herb.top",
-                "name": "Space",
-                "type": "spacer",
-                "anchor": "tl",
-                "x": 0,
-                "y": 0,
-                "w": 8,
-                "h": 4,
-                "wMode": "fill",
-                "hMode": "fixed",
-                "layout": "free",
-                "gap": 8,
-                "padding": 8,
-                "align": "start",
-                "columns": 3,
-                "style": {},
-                "states": {},
-                "anim": [],
-                "text": "",
-                "sprite": "",
-                "value": "",
-                "max": "100",
-                "min": 0,
-                "step": 1,
-                "options": "",
-                "source": "",
-                "template": "",
-                "drag": false,
-                "visible": "",
-                "enabled": "",
-                "on": {
-                  "click": [],
-                  "hover": [],
-                  "change": []
-                },
-                "focus": {
-                  "up": "",
-                  "down": "",
-                  "left": "",
-                  "right": ""
-                },
-                "tooltip": "",
-                "prefab": "",
-                "overrides": {},
-                "marks": "player:#6fe08a, enemy:#e05a5a",
-                "children": []
-              },
-              {
-                "id": "herb.flourish",
-                "name": "Flourish",
-                "type": "plugin",
-                "anchor": "tl",
-                "x": 0,
-                "y": 0,
-                "w": 360,
-                "h": 22,
-                "wMode": "fill",
-                "hMode": "fixed",
-                "layout": "free",
-                "gap": 8,
-                "padding": 0,
-                "align": "start",
-                "columns": 3,
-                "style": {},
-                "states": {},
-                "anim": [],
-                "text": "",
-                "sprite": "",
-                "value": "",
-                "max": "100",
-                "min": 0,
-                "step": 1,
-                "options": "",
-                "source": "botanical-flourish",
-                "template": "",
-                "drag": false,
-                "visible": "",
-                "enabled": "",
-                "on": {
-                  "click": [],
-                  "hover": [],
-                  "change": []
-                },
-                "focus": {
-                  "up": "",
-                  "down": "",
-                  "left": "",
-                  "right": ""
-                },
-                "tooltip": "",
-                "prefab": "",
-                "overrides": {},
-                "marks": "player:#6fe08a, enemy:#e05a5a",
-                "children": []
-              },
-              {
-                "id": "herb.top2",
-                "name": "Space",
-                "type": "spacer",
-                "anchor": "tl",
-                "x": 0,
-                "y": 0,
-                "w": 8,
-                "h": 4,
-                "wMode": "fill",
-                "hMode": "fixed",
-                "layout": "free",
-                "gap": 8,
-                "padding": 8,
-                "align": "start",
-                "columns": 3,
-                "style": {},
-                "states": {},
-                "anim": [],
-                "text": "",
-                "sprite": "",
-                "value": "",
-                "max": "100",
-                "min": 0,
-                "step": 1,
-                "options": "",
-                "source": "",
-                "template": "",
-                "drag": false,
-                "visible": "",
-                "enabled": "",
-                "on": {
-                  "click": [],
-                  "hover": [],
-                  "change": []
-                },
-                "focus": {
-                  "up": "",
-                  "down": "",
-                  "left": "",
-                  "right": ""
-                },
-                "tooltip": "",
-                "prefab": "",
-                "overrides": {},
-                "marks": "player:#6fe08a, enemy:#e05a5a",
-                "children": []
-              },
-              {
-                "id": "herb.moonbloom",
-                "name": "Moonbloom — Lunaria alba",
-                "type": "panel",
-                "anchor": "tl",
-                "x": 0,
-                "y": 0,
-                "w": 240,
-                "h": 160,
-                "wMode": "fill",
-                "hMode": "auto",
-                "layout": "row",
-                "gap": 12,
-                "padding": 8,
-                "align": "center",
-                "columns": 3,
-                "style": {
-                  "fill": "color-mix(in srgb, var(--tw-border) 16%, var(--tw-panel))",
-                  "radius": 0
-                },
-                "states": {},
-                "anim": [],
-                "text": "",
-                "sprite": "",
-                "value": "",
-                "max": "100",
-                "min": 0,
-                "step": 1,
-                "options": "",
-                "source": "",
-                "template": "",
-                "drag": false,
-                "visible": "",
-                "enabled": "",
-                "on": {
-                  "click": [],
-                  "hover": [],
-                  "change": []
-                },
-                "focus": {
-                  "up": "",
-                  "down": "",
-                  "left": "",
-                  "right": ""
-                },
-                "tooltip": "",
-                "prefab": "",
-                "overrides": {},
-                "marks": "player:#6fe08a, enemy:#e05a5a",
-                "children": [
-                  {
-                    "id": "herb.moonbloom.frame",
-                    "name": "Picture frame",
-                    "type": "panel",
-                    "anchor": "tl",
-                    "x": 0,
-                    "y": 0,
-                    "w": 56,
-                    "h": 48,
-                    "wMode": "fixed",
-                    "hMode": "fixed",
-                    "layout": "free",
-                    "gap": 8,
-                    "padding": 0,
-                    "align": "start",
-                    "columns": 3,
-                    "style": {},
-                    "states": {},
-                    "anim": [],
-                    "text": "",
-                    "sprite": "",
-                    "value": "",
-                    "max": "100",
-                    "min": 0,
-                    "step": 1,
-                    "options": "",
-                    "source": "",
-                    "template": "",
-                    "drag": false,
-                    "visible": "",
-                    "enabled": "",
-                    "on": {
-                      "click": [],
-                      "hover": [],
-                      "change": []
-                    },
-                    "focus": {
-                      "up": "",
-                      "down": "",
-                      "left": "",
-                      "right": ""
-                    },
-                    "tooltip": "",
-                    "prefab": "",
-                    "overrides": {},
-                    "marks": "player:#6fe08a, enemy:#e05a5a",
-                    "children": [
-                      {
-                        "id": "herb.moonbloom.picture",
-                        "name": "Picture",
-                        "type": "image",
-                        "anchor": "c",
-                        "x": 0,
-                        "y": 0,
-                        "w": 48,
-                        "h": 48,
-                        "wMode": "fixed",
-                        "hMode": "fixed",
-                        "layout": "free",
-                        "gap": 8,
-                        "padding": 8,
-                        "align": "start",
-                        "columns": 3,
-                        "style": {},
-                        "states": {},
-                        "anim": [],
-                        "text": "",
-                        "sprite": "moonbloom_3",
-                        "value": "",
-                        "max": "100",
-                        "min": 0,
-                        "step": 1,
-                        "options": "",
-                        "source": "",
-                        "template": "",
-                        "drag": false,
-                        "visible": "",
-                        "enabled": "",
-                        "on": {
-                          "click": [],
-                          "hover": [],
-                          "change": []
-                        },
-                        "focus": {
-                          "up": "",
-                          "down": "",
-                          "left": "",
-                          "right": ""
-                        },
-                        "tooltip": "",
-                        "prefab": "",
-                        "overrides": {},
-                        "marks": "player:#6fe08a, enemy:#e05a5a",
-                        "children": []
-                      }
-                    ]
-                  },
-                  {
-                    "id": "herb.moonbloom.copy",
-                    "name": "Copy",
-                    "type": "panel",
-                    "anchor": "tl",
-                    "x": 0,
-                    "y": 0,
-                    "w": 240,
-                    "h": 160,
-                    "wMode": "fill",
-                    "hMode": "auto",
-                    "layout": "column",
-                    "gap": 4,
-                    "padding": 0,
-                    "align": "start",
-                    "columns": 3,
-                    "style": {},
-                    "states": {},
-                    "anim": [],
-                    "text": "",
-                    "sprite": "",
-                    "value": "",
-                    "max": "100",
-                    "min": 0,
-                    "step": 1,
-                    "options": "",
-                    "source": "",
-                    "template": "",
-                    "drag": false,
-                    "visible": "",
-                    "enabled": "",
-                    "on": {
-                      "click": [],
-                      "hover": [],
-                      "change": []
-                    },
-                    "focus": {
-                      "up": "",
-                      "down": "",
-                      "left": "",
-                      "right": ""
-                    },
-                    "tooltip": "",
-                    "prefab": "",
-                    "overrides": {},
-                    "marks": "player:#6fe08a, enemy:#e05a5a",
-                    "children": [
-                      {
-                        "id": "herb.moonbloom.title",
-                        "name": "herb.moonbloom.title",
-                        "type": "text",
-                        "anchor": "tl",
-                        "x": 0,
-                        "y": 0,
-                        "w": 160,
-                        "h": 28,
-                        "wMode": "auto",
-                        "hMode": "auto",
-                        "layout": "free",
-                        "gap": 8,
-                        "padding": 0,
-                        "align": "start",
-                        "columns": 3,
-                        "style": {
-                          "fontSize": 15,
-                          "color": "var(--tw-accent)",
-                          "bold": true
-                        },
-                        "states": {},
-                        "anim": [],
-                        "text": "Moonbloom — Lunaria alba",
-                        "sprite": "",
-                        "value": "",
-                        "max": "100",
-                        "min": 0,
-                        "step": 1,
-                        "options": "",
-                        "source": "",
-                        "template": "",
-                        "drag": false,
-                        "visible": "",
-                        "enabled": "",
-                        "on": {
-                          "click": [],
-                          "hover": [],
-                          "change": []
-                        },
-                        "focus": {
-                          "up": "",
-                          "down": "",
-                          "left": "",
-                          "right": ""
-                        },
-                        "tooltip": "",
-                        "prefab": "",
-                        "overrides": {},
-                        "marks": "player:#6fe08a, enemy:#e05a5a",
-                        "children": []
-                      },
-                      {
-                        "id": "herb.moonbloom.desc",
-                        "name": "herb.moonbloom.desc",
-                        "type": "text",
-                        "anchor": "tl",
-                        "x": 0,
-                        "y": 0,
-                        "w": 160,
-                        "h": 28,
-                        "wMode": "fill",
-                        "hMode": "auto",
-                        "layout": "free",
-                        "gap": 8,
-                        "padding": 0,
-                        "align": "start",
-                        "columns": 3,
-                        "style": {
-                          "fontSize": 12,
-                          "color": "#8f96b3"
-                        },
-                        "states": {},
-                        "anim": [],
-                        "text": "Opens under warm lamplight and lifts whoever stands on its bed. Always available in the Conservatory.",
-                        "sprite": "",
-                        "value": "",
-                        "max": "100",
-                        "min": 0,
-                        "step": 1,
-                        "options": "",
-                        "source": "",
-                        "template": "",
-                        "drag": false,
-                        "visible": "",
-                        "enabled": "",
-                        "on": {
-                          "click": [],
-                          "hover": [],
-                          "change": []
-                        },
-                        "focus": {
-                          "up": "",
-                          "down": "",
-                          "left": "",
-                          "right": ""
-                        },
-                        "tooltip": "",
-                        "prefab": "",
-                        "overrides": {},
-                        "marks": "player:#6fe08a, enemy:#e05a5a",
-                        "children": []
-                      }
-                    ]
-                  }
-                ]
-              },
-              {
-                "id": "herb.duskcap",
-                "name": "Duskcap — Umbracapa violacea",
-                "type": "panel",
-                "anchor": "tl",
-                "x": 0,
-                "y": 0,
-                "w": 240,
-                "h": 160,
-                "wMode": "fill",
-                "hMode": "auto",
-                "layout": "row",
-                "gap": 12,
-                "padding": 8,
-                "align": "center",
-                "columns": 3,
-                "style": {
-                  "fill": "color-mix(in srgb, var(--tw-border) 16%, var(--tw-panel))",
-                  "radius": 0
-                },
-                "states": {},
-                "anim": [],
-                "text": "",
-                "sprite": "",
-                "value": "",
-                "max": "100",
-                "min": 0,
-                "step": 1,
-                "options": "",
-                "source": "",
-                "template": "",
-                "drag": false,
-                "visible": "",
-                "enabled": "",
-                "on": {
-                  "click": [],
-                  "hover": [],
-                  "change": []
-                },
-                "focus": {
-                  "up": "",
-                  "down": "",
-                  "left": "",
-                  "right": ""
-                },
-                "tooltip": "",
-                "prefab": "",
-                "overrides": {},
-                "marks": "player:#6fe08a, enemy:#e05a5a",
-                "children": [
-                  {
-                    "id": "herb.duskcap.frame",
-                    "name": "Picture frame",
-                    "type": "panel",
-                    "anchor": "tl",
-                    "x": 0,
-                    "y": 0,
-                    "w": 56,
-                    "h": 48,
-                    "wMode": "fixed",
-                    "hMode": "fixed",
-                    "layout": "free",
-                    "gap": 8,
-                    "padding": 0,
-                    "align": "start",
-                    "columns": 3,
-                    "style": {},
-                    "states": {},
-                    "anim": [],
-                    "text": "",
-                    "sprite": "",
-                    "value": "",
-                    "max": "100",
-                    "min": 0,
-                    "step": 1,
-                    "options": "",
-                    "source": "",
-                    "template": "",
-                    "drag": false,
-                    "visible": "",
-                    "enabled": "",
-                    "on": {
-                      "click": [],
-                      "hover": [],
-                      "change": []
-                    },
-                    "focus": {
-                      "up": "",
-                      "down": "",
-                      "left": "",
-                      "right": ""
-                    },
-                    "tooltip": "",
-                    "prefab": "",
-                    "overrides": {},
-                    "marks": "player:#6fe08a, enemy:#e05a5a",
-                    "children": [
-                      {
-                        "id": "herb.duskcap.picture",
-                        "name": "Picture",
-                        "type": "image",
-                        "anchor": "c",
-                        "x": 0,
-                        "y": 0,
-                        "w": 48,
-                        "h": 48,
-                        "wMode": "fixed",
-                        "hMode": "fixed",
-                        "layout": "free",
-                        "gap": 8,
-                        "padding": 8,
-                        "align": "start",
-                        "columns": 3,
-                        "style": {},
-                        "states": {},
-                        "anim": [],
-                        "text": "",
-                        "sprite": "duskcap_3",
-                        "value": "",
-                        "max": "100",
-                        "min": 0,
-                        "step": 1,
-                        "options": "",
-                        "source": "",
-                        "template": "",
-                        "drag": false,
-                        "visible": "",
-                        "enabled": "",
-                        "on": {
-                          "click": [],
-                          "hover": [],
-                          "change": []
-                        },
-                        "focus": {
-                          "up": "",
-                          "down": "",
-                          "left": "",
-                          "right": ""
-                        },
-                        "tooltip": "",
-                        "prefab": "",
-                        "overrides": {},
-                        "marks": "player:#6fe08a, enemy:#e05a5a",
-                        "children": []
-                      }
-                    ]
-                  },
-                  {
-                    "id": "herb.duskcap.copy",
-                    "name": "Copy",
-                    "type": "panel",
-                    "anchor": "tl",
-                    "x": 0,
-                    "y": 0,
-                    "w": 240,
-                    "h": 160,
-                    "wMode": "fill",
-                    "hMode": "auto",
-                    "layout": "column",
-                    "gap": 4,
-                    "padding": 0,
-                    "align": "start",
-                    "columns": 3,
-                    "style": {},
-                    "states": {},
-                    "anim": [],
-                    "text": "",
-                    "sprite": "",
-                    "value": "",
-                    "max": "100",
-                    "min": 0,
-                    "step": 1,
-                    "options": "",
-                    "source": "",
-                    "template": "",
-                    "drag": false,
-                    "visible": "",
-                    "enabled": "",
-                    "on": {
-                      "click": [],
-                      "hover": [],
-                      "change": []
-                    },
-                    "focus": {
-                      "up": "",
-                      "down": "",
-                      "left": "",
-                      "right": ""
-                    },
-                    "tooltip": "",
-                    "prefab": "",
-                    "overrides": {},
-                    "marks": "player:#6fe08a, enemy:#e05a5a",
-                    "children": [
-                      {
-                        "id": "herb.duskcap.title",
-                        "name": "herb.duskcap.title",
-                        "type": "text",
-                        "anchor": "tl",
-                        "x": 0,
-                        "y": 0,
-                        "w": 160,
-                        "h": 28,
-                        "wMode": "auto",
-                        "hMode": "auto",
-                        "layout": "free",
-                        "gap": 8,
-                        "padding": 0,
-                        "align": "start",
-                        "columns": 3,
-                        "style": {
-                          "fontSize": 15,
-                          "color": "var(--tw-accent)",
-                          "bold": true
-                        },
-                        "states": {},
-                        "anim": [],
-                        "text": "Duskcap — Umbracapa violacea",
-                        "sprite": "",
-                        "value": "",
-                        "max": "100",
-                        "min": 0,
-                        "step": 1,
-                        "options": "",
-                        "source": "",
-                        "template": "",
-                        "drag": false,
-                        "visible": "",
-                        "enabled": "",
-                        "on": {
-                          "click": [],
-                          "hover": [],
-                          "change": []
-                        },
-                        "focus": {
-                          "up": "",
-                          "down": "",
-                          "left": "",
-                          "right": ""
-                        },
-                        "tooltip": "",
-                        "prefab": "",
-                        "overrides": {},
-                        "marks": "player:#6fe08a, enemy:#e05a5a",
-                        "children": []
-                      },
-                      {
-                        "id": "herb.duskcap.desc",
-                        "name": "herb.duskcap.desc",
-                        "type": "text",
-                        "anchor": "tl",
-                        "x": 0,
-                        "y": 0,
-                        "w": 160,
-                        "h": 28,
-                        "wMode": "fill",
-                        "hMode": "auto",
-                        "layout": "free",
-                        "gap": 8,
-                        "padding": 0,
-                        "align": "start",
-                        "columns": 3,
-                        "style": {
-                          "fontSize": 12,
-                          "color": "#8f96b3"
-                        },
-                        "states": {},
-                        "anim": [],
-                        "text": "Rises tall in shadow and shrinks from fire. Unlocks for the Conservatory at 6 rooms tended.",
-                        "sprite": "",
-                        "value": "",
-                        "max": "100",
-                        "min": 0,
-                        "step": 1,
-                        "options": "",
-                        "source": "",
-                        "template": "",
-                        "drag": false,
-                        "visible": "",
-                        "enabled": "",
-                        "on": {
-                          "click": [],
-                          "hover": [],
-                          "change": []
-                        },
-                        "focus": {
-                          "up": "",
-                          "down": "",
-                          "left": "",
-                          "right": ""
-                        },
-                        "tooltip": "",
-                        "prefab": "",
-                        "overrides": {},
-                        "marks": "player:#6fe08a, enemy:#e05a5a",
-                        "children": []
-                      }
-                    ]
-                  }
-                ]
-              },
-              {
-                "id": "herb.firefly",
-                "name": "Conservatory Firefly — Ignis horti",
-                "type": "panel",
-                "anchor": "tl",
-                "x": 0,
-                "y": 0,
-                "w": 240,
-                "h": 160,
-                "wMode": "fill",
-                "hMode": "auto",
-                "layout": "row",
-                "gap": 12,
-                "padding": 8,
-                "align": "center",
-                "columns": 3,
-                "style": {
-                  "fill": "color-mix(in srgb, var(--tw-border) 16%, var(--tw-panel))",
-                  "radius": 0
-                },
-                "states": {},
-                "anim": [],
-                "text": "",
-                "sprite": "",
-                "value": "",
-                "max": "100",
-                "min": 0,
-                "step": 1,
-                "options": "",
-                "source": "",
-                "template": "",
-                "drag": false,
-                "visible": "",
-                "enabled": "",
-                "on": {
-                  "click": [],
-                  "hover": [],
-                  "change": []
-                },
-                "focus": {
-                  "up": "",
-                  "down": "",
-                  "left": "",
-                  "right": ""
-                },
-                "tooltip": "",
-                "prefab": "",
-                "overrides": {},
-                "marks": "player:#6fe08a, enemy:#e05a5a",
-                "children": [
-                  {
-                    "id": "herb.firefly.frame",
-                    "name": "Picture frame",
-                    "type": "panel",
-                    "anchor": "tl",
-                    "x": 0,
-                    "y": 0,
-                    "w": 56,
-                    "h": 48,
-                    "wMode": "fixed",
-                    "hMode": "fixed",
-                    "layout": "free",
-                    "gap": 8,
-                    "padding": 0,
-                    "align": "start",
-                    "columns": 3,
-                    "style": {},
-                    "states": {},
-                    "anim": [],
-                    "text": "",
-                    "sprite": "",
-                    "value": "",
-                    "max": "100",
-                    "min": 0,
-                    "step": 1,
-                    "options": "",
-                    "source": "",
-                    "template": "",
-                    "drag": false,
-                    "visible": "",
-                    "enabled": "",
-                    "on": {
-                      "click": [],
-                      "hover": [],
-                      "change": []
-                    },
-                    "focus": {
-                      "up": "",
-                      "down": "",
-                      "left": "",
-                      "right": ""
-                    },
-                    "tooltip": "",
-                    "prefab": "",
-                    "overrides": {},
-                    "marks": "player:#6fe08a, enemy:#e05a5a",
-                    "children": [
-                      {
-                        "id": "herb.firefly.picture",
-                        "name": "Picture",
-                        "type": "image",
-                        "anchor": "c",
-                        "x": 0,
-                        "y": 0,
-                        "w": 24,
-                        "h": 24,
-                        "wMode": "fixed",
-                        "hMode": "fixed",
-                        "layout": "free",
-                        "gap": 8,
-                        "padding": 8,
-                        "align": "start",
-                        "columns": 3,
-                        "style": {},
-                        "states": {},
-                        "anim": [],
-                        "text": "",
-                        "sprite": "firefly",
-                        "value": "",
-                        "max": "100",
-                        "min": 0,
-                        "step": 1,
-                        "options": "",
-                        "source": "",
-                        "template": "",
-                        "drag": false,
-                        "visible": "",
-                        "enabled": "",
-                        "on": {
-                          "click": [],
-                          "hover": [],
-                          "change": []
-                        },
-                        "focus": {
-                          "up": "",
-                          "down": "",
-                          "left": "",
-                          "right": ""
-                        },
-                        "tooltip": "",
-                        "prefab": "",
-                        "overrides": {},
-                        "marks": "player:#6fe08a, enemy:#e05a5a",
-                        "children": []
-                      }
-                    ]
-                  },
-                  {
-                    "id": "herb.firefly.copy",
-                    "name": "Copy",
-                    "type": "panel",
-                    "anchor": "tl",
-                    "x": 0,
-                    "y": 0,
-                    "w": 240,
-                    "h": 160,
-                    "wMode": "fill",
-                    "hMode": "auto",
-                    "layout": "column",
-                    "gap": 4,
-                    "padding": 0,
-                    "align": "start",
-                    "columns": 3,
-                    "style": {},
-                    "states": {},
-                    "anim": [],
-                    "text": "",
-                    "sprite": "",
-                    "value": "",
-                    "max": "100",
-                    "min": 0,
-                    "step": 1,
-                    "options": "",
-                    "source": "",
-                    "template": "",
-                    "drag": false,
-                    "visible": "",
-                    "enabled": "",
-                    "on": {
-                      "click": [],
-                      "hover": [],
-                      "change": []
-                    },
-                    "focus": {
-                      "up": "",
-                      "down": "",
-                      "left": "",
-                      "right": ""
-                    },
-                    "tooltip": "",
-                    "prefab": "",
-                    "overrides": {},
-                    "marks": "player:#6fe08a, enemy:#e05a5a",
-                    "children": [
-                      {
-                        "id": "herb.firefly.title",
-                        "name": "herb.firefly.title",
-                        "type": "text",
-                        "anchor": "tl",
-                        "x": 0,
-                        "y": 0,
-                        "w": 160,
-                        "h": 28,
-                        "wMode": "auto",
-                        "hMode": "auto",
-                        "layout": "free",
-                        "gap": 8,
-                        "padding": 0,
-                        "align": "start",
-                        "columns": 3,
-                        "style": {
-                          "fontSize": 15,
-                          "color": "var(--tw-accent)",
-                          "bold": true
-                        },
-                        "states": {},
-                        "anim": [],
-                        "text": "Conservatory Firefly — Ignis horti",
-                        "sprite": "",
-                        "value": "",
-                        "max": "100",
-                        "min": 0,
-                        "step": 1,
-                        "options": "",
-                        "source": "",
-                        "template": "",
-                        "drag": false,
-                        "visible": "",
-                        "enabled": "",
-                        "on": {
-                          "click": [],
-                          "hover": [],
-                          "change": []
-                        },
-                        "focus": {
-                          "up": "",
-                          "down": "",
-                          "left": "",
-                          "right": ""
-                        },
-                        "tooltip": "",
-                        "prefab": "",
-                        "overrides": {},
-                        "marks": "player:#6fe08a, enemy:#e05a5a",
-                        "children": []
-                      },
-                      {
-                        "id": "herb.firefly.desc",
-                        "name": "herb.firefly.desc",
-                        "type": "text",
-                        "anchor": "tl",
-                        "x": 0,
-                        "y": 0,
-                        "w": 160,
-                        "h": 28,
-                        "wMode": "fill",
-                        "hMode": "auto",
-                        "layout": "free",
-                        "gap": 8,
-                        "padding": 0,
-                        "align": "start",
-                        "columns": 3,
-                        "style": {
-                          "fontSize": 12,
-                          "color": "#8f96b3"
-                        },
-                        "states": {},
-                        "anim": [],
-                        "text": "Drawn to quiet side paths. Unlocks teal lamps at 5 fireflies and moonstones at 10.",
-                        "sprite": "",
-                        "value": "",
-                        "max": "100",
-                        "min": 0,
-                        "step": 1,
-                        "options": "",
-                        "source": "",
-                        "template": "",
-                        "drag": false,
-                        "visible": "",
-                        "enabled": "",
-                        "on": {
-                          "click": [],
-                          "hover": [],
-                          "change": []
-                        },
-                        "focus": {
-                          "up": "",
-                          "down": "",
-                          "left": "",
-                          "right": ""
-                        },
-                        "tooltip": "",
-                        "prefab": "",
-                        "overrides": {},
-                        "marks": "player:#6fe08a, enemy:#e05a5a",
-                        "children": []
-                      }
-                    ]
-                  }
-                ]
-              },
-              {
-                "id": "herb.gracelily",
-                "name": "Grace's Moon-Lily — Lilium gratiae",
-                "type": "panel",
-                "anchor": "tl",
-                "x": 0,
-                "y": 0,
-                "w": 240,
-                "h": 160,
-                "wMode": "fill",
-                "hMode": "auto",
-                "layout": "row",
-                "gap": 12,
-                "padding": 8,
-                "align": "center",
-                "columns": 3,
-                "style": {
-                  "fill": "color-mix(in srgb, var(--tw-border) 16%, var(--tw-panel))",
-                  "radius": 0
-                },
-                "states": {},
-                "anim": [],
-                "text": "",
-                "sprite": "",
-                "value": "",
-                "max": "100",
-                "min": 0,
-                "step": 1,
-                "options": "",
-                "source": "",
-                "template": "",
-                "drag": false,
-                "visible": "",
-                "enabled": "",
-                "on": {
-                  "click": [],
-                  "hover": [],
-                  "change": []
-                },
-                "focus": {
-                  "up": "",
-                  "down": "",
-                  "left": "",
-                  "right": ""
-                },
-                "tooltip": "",
-                "prefab": "",
-                "overrides": {},
-                "marks": "player:#6fe08a, enemy:#e05a5a",
-                "children": [
-                  {
-                    "id": "herb.gracelily.frame",
-                    "name": "Picture frame",
-                    "type": "panel",
-                    "anchor": "tl",
-                    "x": 0,
-                    "y": 0,
-                    "w": 56,
-                    "h": 48,
-                    "wMode": "fixed",
-                    "hMode": "fixed",
-                    "layout": "free",
-                    "gap": 8,
-                    "padding": 0,
-                    "align": "start",
-                    "columns": 3,
-                    "style": {},
-                    "states": {},
-                    "anim": [],
-                    "text": "",
-                    "sprite": "",
-                    "value": "",
-                    "max": "100",
-                    "min": 0,
-                    "step": 1,
-                    "options": "",
-                    "source": "",
-                    "template": "",
-                    "drag": false,
-                    "visible": "",
-                    "enabled": "",
-                    "on": {
-                      "click": [],
-                      "hover": [],
-                      "change": []
-                    },
-                    "focus": {
-                      "up": "",
-                      "down": "",
-                      "left": "",
-                      "right": ""
-                    },
-                    "tooltip": "",
-                    "prefab": "",
-                    "overrides": {},
-                    "marks": "player:#6fe08a, enemy:#e05a5a",
-                    "children": [
-                      {
-                        "id": "herb.gracelily.picture",
-                        "name": "Picture",
-                        "type": "image",
-                        "anchor": "c",
-                        "x": 0,
-                        "y": 0,
-                        "w": 24,
-                        "h": 48,
-                        "wMode": "fixed",
-                        "hMode": "fixed",
-                        "layout": "free",
-                        "gap": 8,
-                        "padding": 8,
-                        "align": "start",
-                        "columns": 3,
-                        "style": {},
-                        "states": {},
-                        "anim": [],
-                        "text": "",
-                        "sprite": "glowlamp",
-                        "value": "",
-                        "max": "100",
-                        "min": 0,
-                        "step": 1,
-                        "options": "",
-                        "source": "",
-                        "template": "",
-                        "drag": false,
-                        "visible": "",
-                        "enabled": "",
-                        "on": {
-                          "click": [],
-                          "hover": [],
-                          "change": []
-                        },
-                        "focus": {
-                          "up": "",
-                          "down": "",
-                          "left": "",
-                          "right": ""
-                        },
-                        "tooltip": "",
-                        "prefab": "",
-                        "overrides": {},
-                        "marks": "player:#6fe08a, enemy:#e05a5a",
-                        "children": []
-                      }
-                    ]
-                  },
-                  {
-                    "id": "herb.gracelily.copy",
-                    "name": "Copy",
-                    "type": "panel",
-                    "anchor": "tl",
-                    "x": 0,
-                    "y": 0,
-                    "w": 240,
-                    "h": 160,
-                    "wMode": "fill",
-                    "hMode": "auto",
-                    "layout": "column",
-                    "gap": 4,
-                    "padding": 0,
-                    "align": "start",
-                    "columns": 3,
-                    "style": {},
-                    "states": {},
-                    "anim": [],
-                    "text": "",
-                    "sprite": "",
-                    "value": "",
-                    "max": "100",
-                    "min": 0,
-                    "step": 1,
-                    "options": "",
-                    "source": "",
-                    "template": "",
-                    "drag": false,
-                    "visible": "",
-                    "enabled": "",
-                    "on": {
-                      "click": [],
-                      "hover": [],
-                      "change": []
-                    },
-                    "focus": {
-                      "up": "",
-                      "down": "",
-                      "left": "",
-                      "right": ""
-                    },
-                    "tooltip": "",
-                    "prefab": "",
-                    "overrides": {},
-                    "marks": "player:#6fe08a, enemy:#e05a5a",
-                    "children": [
-                      {
-                        "id": "herb.gracelily.title",
-                        "name": "herb.gracelily.title",
-                        "type": "text",
-                        "anchor": "tl",
-                        "x": 0,
-                        "y": 0,
-                        "w": 160,
-                        "h": 28,
-                        "wMode": "auto",
-                        "hMode": "auto",
-                        "layout": "free",
-                        "gap": 8,
-                        "padding": 0,
-                        "align": "start",
-                        "columns": 3,
-                        "style": {
-                          "fontSize": 15,
-                          "color": "var(--tw-accent)",
-                          "bold": true
-                        },
-                        "states": {},
-                        "anim": [],
-                        "text": "Grace's Moon-Lily — Lilium gratiae",
-                        "sprite": "",
-                        "value": "",
-                        "max": "100",
-                        "min": 0,
-                        "step": 1,
-                        "options": "",
-                        "source": "",
-                        "template": "",
-                        "drag": false,
-                        "visible": "",
-                        "enabled": "",
-                        "on": {
-                          "click": [],
-                          "hover": [],
-                          "change": []
-                        },
-                        "focus": {
-                          "up": "",
-                          "down": "",
-                          "left": "",
-                          "right": ""
-                        },
-                        "tooltip": "",
-                        "prefab": "",
-                        "overrides": {},
-                        "marks": "player:#6fe08a, enemy:#e05a5a",
-                        "children": []
-                      },
-                      {
-                        "id": "herb.gracelily.desc",
-                        "name": "herb.gracelily.desc",
-                        "type": "text",
-                        "anchor": "tl",
-                        "x": 0,
-                        "y": 0,
-                        "w": 160,
-                        "h": 28,
-                        "wMode": "fill",
-                        "hMode": "auto",
-                        "layout": "free",
-                        "gap": 8,
-                        "padding": 0,
-                        "align": "start",
-                        "columns": 3,
-                        "style": {
-                          "fontSize": 12,
-                          "color": "#8f96b3"
-                        },
-                        "states": {},
-                        "anim": [],
-                        "text": "A rare pale bloom named for Elizabeth Grace. Unlocks at 10 Master Gardener Par medals.",
-                        "sprite": "",
-                        "value": "",
-                        "max": "100",
-                        "min": 0,
-                        "step": 1,
-                        "options": "",
-                        "source": "",
-                        "template": "",
-                        "drag": false,
-                        "visible": "",
-                        "enabled": "",
-                        "on": {
-                          "click": [],
-                          "hover": [],
-                          "change": []
-                        },
-                        "focus": {
-                          "up": "",
-                          "down": "",
-                          "left": "",
-                          "right": ""
-                        },
-                        "tooltip": "",
-                        "prefab": "",
-                        "overrides": {},
-                        "marks": "player:#6fe08a, enemy:#e05a5a",
-                        "children": []
-                      }
-                    ]
-                  }
-                ]
-              },
-              {
-                "id": "herb.traversrose",
-                "name": "Travers Night-Rose — Rosa traversii",
-                "type": "panel",
-                "anchor": "tl",
-                "x": 0,
-                "y": 0,
-                "w": 240,
-                "h": 160,
-                "wMode": "fill",
-                "hMode": "auto",
-                "layout": "row",
-                "gap": 12,
-                "padding": 8,
-                "align": "center",
-                "columns": 3,
-                "style": {
-                  "fill": "color-mix(in srgb, var(--tw-border) 16%, var(--tw-panel))",
-                  "radius": 0
-                },
-                "states": {},
-                "anim": [],
-                "text": "",
-                "sprite": "",
-                "value": "",
-                "max": "100",
-                "min": 0,
-                "step": 1,
-                "options": "",
-                "source": "",
-                "template": "",
-                "drag": false,
-                "visible": "",
-                "enabled": "",
-                "on": {
-                  "click": [],
-                  "hover": [],
-                  "change": []
-                },
-                "focus": {
-                  "up": "",
-                  "down": "",
-                  "left": "",
-                  "right": ""
-                },
-                "tooltip": "",
-                "prefab": "",
-                "overrides": {},
-                "marks": "player:#6fe08a, enemy:#e05a5a",
-                "children": [
-                  {
-                    "id": "herb.traversrose.frame",
-                    "name": "Picture frame",
-                    "type": "panel",
-                    "anchor": "tl",
-                    "x": 0,
-                    "y": 0,
-                    "w": 56,
-                    "h": 48,
-                    "wMode": "fixed",
-                    "hMode": "fixed",
-                    "layout": "free",
-                    "gap": 8,
-                    "padding": 0,
-                    "align": "start",
-                    "columns": 3,
-                    "style": {},
-                    "states": {},
-                    "anim": [],
-                    "text": "",
-                    "sprite": "",
-                    "value": "",
-                    "max": "100",
-                    "min": 0,
-                    "step": 1,
-                    "options": "",
-                    "source": "",
-                    "template": "",
-                    "drag": false,
-                    "visible": "",
-                    "enabled": "",
-                    "on": {
-                      "click": [],
-                      "hover": [],
-                      "change": []
-                    },
-                    "focus": {
-                      "up": "",
-                      "down": "",
-                      "left": "",
-                      "right": ""
-                    },
-                    "tooltip": "",
-                    "prefab": "",
-                    "overrides": {},
-                    "marks": "player:#6fe08a, enemy:#e05a5a",
-                    "children": [
-                      {
-                        "id": "herb.traversrose.picture",
-                        "name": "Picture",
-                        "type": "image",
-                        "anchor": "c",
-                        "x": 0,
-                        "y": 0,
-                        "w": 48,
-                        "h": 24,
-                        "wMode": "fixed",
-                        "hMode": "fixed",
-                        "layout": "free",
-                        "gap": 8,
-                        "padding": 8,
-                        "align": "start",
-                        "columns": 3,
-                        "style": {},
-                        "states": {},
-                        "anim": [],
-                        "text": "",
-                        "sprite": "shadestone_on",
-                        "value": "",
-                        "max": "100",
-                        "min": 0,
-                        "step": 1,
-                        "options": "",
-                        "source": "",
-                        "template": "",
-                        "drag": false,
-                        "visible": "",
-                        "enabled": "",
-                        "on": {
-                          "click": [],
-                          "hover": [],
-                          "change": []
-                        },
-                        "focus": {
-                          "up": "",
-                          "down": "",
-                          "left": "",
-                          "right": ""
-                        },
-                        "tooltip": "",
-                        "prefab": "",
-                        "overrides": {},
-                        "marks": "player:#6fe08a, enemy:#e05a5a",
-                        "children": []
-                      }
-                    ]
-                  },
-                  {
-                    "id": "herb.traversrose.copy",
-                    "name": "Copy",
-                    "type": "panel",
-                    "anchor": "tl",
-                    "x": 0,
-                    "y": 0,
-                    "w": 240,
-                    "h": 160,
-                    "wMode": "fill",
-                    "hMode": "auto",
-                    "layout": "column",
-                    "gap": 4,
-                    "padding": 0,
-                    "align": "start",
-                    "columns": 3,
-                    "style": {},
-                    "states": {},
-                    "anim": [],
-                    "text": "",
-                    "sprite": "",
-                    "value": "",
-                    "max": "100",
-                    "min": 0,
-                    "step": 1,
-                    "options": "",
-                    "source": "",
-                    "template": "",
-                    "drag": false,
-                    "visible": "",
-                    "enabled": "",
-                    "on": {
-                      "click": [],
-                      "hover": [],
-                      "change": []
-                    },
-                    "focus": {
-                      "up": "",
-                      "down": "",
-                      "left": "",
-                      "right": ""
-                    },
-                    "tooltip": "",
-                    "prefab": "",
-                    "overrides": {},
-                    "marks": "player:#6fe08a, enemy:#e05a5a",
-                    "children": [
-                      {
-                        "id": "herb.traversrose.title",
-                        "name": "herb.traversrose.title",
-                        "type": "text",
-                        "anchor": "tl",
-                        "x": 0,
-                        "y": 0,
-                        "w": 160,
-                        "h": 28,
-                        "wMode": "auto",
-                        "hMode": "auto",
-                        "layout": "free",
-                        "gap": 8,
-                        "padding": 0,
-                        "align": "start",
-                        "columns": 3,
-                        "style": {
-                          "fontSize": 15,
-                          "color": "var(--tw-accent)",
-                          "bold": true
-                        },
-                        "states": {},
-                        "anim": [],
-                        "text": "Travers Night-Rose — Rosa traversii",
-                        "sprite": "",
-                        "value": "",
-                        "max": "100",
-                        "min": 0,
-                        "step": 1,
-                        "options": "",
-                        "source": "",
-                        "template": "",
-                        "drag": false,
-                        "visible": "",
-                        "enabled": "",
-                        "on": {
-                          "click": [],
-                          "hover": [],
-                          "change": []
-                        },
-                        "focus": {
-                          "up": "",
-                          "down": "",
-                          "left": "",
-                          "right": ""
-                        },
-                        "tooltip": "",
-                        "prefab": "",
-                        "overrides": {},
-                        "marks": "player:#6fe08a, enemy:#e05a5a",
-                        "children": []
-                      },
-                      {
-                        "id": "herb.traversrose.desc",
-                        "name": "herb.traversrose.desc",
-                        "type": "text",
-                        "anchor": "tl",
-                        "x": 0,
-                        "y": 0,
-                        "w": 160,
-                        "h": 28,
-                        "wMode": "fill",
-                        "hMode": "auto",
-                        "layout": "free",
-                        "gap": 8,
-                        "padding": 0,
-                        "align": "start",
-                        "columns": 3,
-                        "style": {
-                          "fontSize": 12,
-                          "color": "#8f96b3"
-                        },
-                        "states": {},
-                        "anim": [],
-                        "text": "An heirloom specimen of the Travers Conservatory. Unlocks when every room is tended.",
-                        "sprite": "",
-                        "value": "",
-                        "max": "100",
-                        "min": 0,
-                        "step": 1,
-                        "options": "",
-                        "source": "",
-                        "template": "",
-                        "drag": false,
-                        "visible": "",
-                        "enabled": "",
-                        "on": {
-                          "click": [],
-                          "hover": [],
-                          "change": []
-                        },
-                        "focus": {
-                          "up": "",
-                          "down": "",
-                          "left": "",
-                          "right": ""
-                        },
-                        "tooltip": "",
-                        "prefab": "",
-                        "overrides": {},
-                        "marks": "player:#6fe08a, enemy:#e05a5a",
-                        "children": []
-                      }
-                    ]
-                  }
-                ]
-              },
-              {
-                "id": "herb.hub",
-                "name": "Visit the Conservatory",
-                "type": "panel",
-                "anchor": "tl",
-                "x": 0,
-                "y": 0,
-                "w": 240,
-                "h": 160,
-                "wMode": "fill",
-                "hMode": "auto",
-                "layout": "row",
-                "gap": 12,
-                "padding": 8,
-                "align": "center",
-                "columns": 3,
-                "style": {
-                  "fill": "color-mix(in srgb, var(--tw-highlight) 14%, var(--tw-panel))",
-                  "border": "color-mix(in srgb, var(--tw-highlight) 48%, var(--tw-panel))",
-                  "borderWidth": 1,
-                  "radius": 0
-                },
-                "states": {
-                  "hover": {
-                    "fill": "color-mix(in srgb, var(--tw-highlight) 22%, var(--tw-panel))",
-                    "border": "var(--tw-highlight)",
-                    "borderWidth": 1
-                  },
-                  "focus": {
-                    "fill": "color-mix(in srgb, var(--tw-highlight) 22%, var(--tw-panel))",
-                    "border": "var(--tw-highlight)",
-                    "borderWidth": 1
-                  },
-                  "pressed": {
-                    "fill": "color-mix(in srgb, var(--tw-highlight) 32%, var(--tw-panel))",
-                    "border": "var(--tw-highlight)",
-                    "borderWidth": 1
-                  },
-                  "disabled": {
-                    "opacity": 0.4
-                  }
-                },
-                "anim": [],
-                "text": "",
-                "sprite": "",
-                "value": "",
-                "max": "100",
-                "min": 0,
-                "step": 1,
-                "options": "",
-                "source": "",
-                "template": "",
-                "drag": false,
-                "visible": "",
-                "enabled": "",
-                "on": {
-                  "click": [
-                    {
-                      "type": "setVariable",
-                      "params": {
-                        "name": "ng_goto",
-                        "op": "set",
-                        "value": "scenes/hub.scene.json"
-                      }
-                    },
-                    {
-                      "type": "uiScreen",
-                      "params": {
-                        "op": "close",
-                        "screen": "Rooms"
-                      }
-                    },
-                    {
-                      "type": "uiScreen",
-                      "params": {
-                        "op": "close",
-                        "screen": "Herbarium"
-                      }
-                    },
-                    {
-                      "type": "uiScreen",
-                      "params": {
-                        "op": "close",
-                        "screen": "The end"
-                      }
-                    },
-                    {
-                      "type": "uiScreen",
-                      "params": {
-                        "op": "close",
-                        "screen": "role:pause"
-                      }
-                    },
-                    {
-                      "type": "uiScreen",
-                      "params": {
-                        "op": "close",
-                        "screen": "role:title"
-                      }
-                    }
-                  ],
-                  "hover": [],
-                  "change": []
-                },
-                "focus": {
-                  "up": "",
-                  "down": "",
-                  "left": "",
-                  "right": ""
-                },
-                "tooltip": "",
-                "prefab": "",
-                "overrides": {},
-                "marks": "player:#6fe08a, enemy:#e05a5a",
-                "children": [
-                  {
-                    "id": "herb.hub.label",
-                    "name": "Label",
-                    "type": "text",
-                    "anchor": "tl",
-                    "x": 0,
-                    "y": 0,
-                    "w": 160,
-                    "h": 28,
-                    "wMode": "auto",
-                    "hMode": "auto",
-                    "layout": "free",
-                    "gap": 8,
-                    "padding": 0,
-                    "align": "start",
-                    "columns": 3,
-                    "style": {
-                      "fontSize": 18,
-                      "color": "var(--tw-accent)"
-                    },
-                    "states": {},
-                    "anim": [],
-                    "text": "Visit the Conservatory",
-                    "sprite": "",
-                    "value": "",
-                    "max": "100",
-                    "min": 0,
-                    "step": 1,
-                    "options": "",
-                    "source": "",
-                    "template": "",
-                    "drag": false,
-                    "visible": "",
-                    "enabled": "",
-                    "on": {
-                      "click": [],
-                      "hover": [],
-                      "change": []
-                    },
-                    "focus": {
-                      "up": "",
-                      "down": "",
-                      "left": "",
-                      "right": ""
-                    },
-                    "tooltip": "",
-                    "prefab": "",
-                    "overrides": {},
-                    "marks": "player:#6fe08a, enemy:#e05a5a",
-                    "children": []
-                  },
-                  {
-                    "id": "herb.hub.gap",
-                    "name": "Space",
-                    "type": "spacer",
-                    "anchor": "tl",
-                    "x": 0,
-                    "y": 0,
-                    "w": 8,
-                    "h": 8,
-                    "wMode": "fill",
-                    "hMode": "auto",
-                    "layout": "free",
-                    "gap": 8,
-                    "padding": 8,
-                    "align": "start",
-                    "columns": 3,
-                    "style": {},
-                    "states": {},
-                    "anim": [],
-                    "text": "",
-                    "sprite": "",
-                    "value": "",
-                    "max": "100",
-                    "min": 0,
-                    "step": 1,
-                    "options": "",
-                    "source": "",
-                    "template": "",
-                    "drag": false,
-                    "visible": "",
-                    "enabled": "",
-                    "on": {
-                      "click": [],
-                      "hover": [],
-                      "change": []
-                    },
-                    "focus": {
-                      "up": "",
-                      "down": "",
-                      "left": "",
-                      "right": ""
-                    },
-                    "tooltip": "",
-                    "prefab": "",
-                    "overrides": {},
-                    "marks": "player:#6fe08a, enemy:#e05a5a",
-                    "children": []
-                  }
-                ]
-              },
-              {
-                "id": "herb.back",
-                "name": "Back",
-                "type": "panel",
-                "anchor": "tl",
-                "x": 0,
-                "y": 0,
-                "w": 240,
-                "h": 160,
-                "wMode": "fill",
-                "hMode": "auto",
-                "layout": "row",
-                "gap": 12,
-                "padding": 8,
-                "align": "center",
-                "columns": 3,
-                "style": {
-                  "fill": "color-mix(in srgb, var(--tw-border) 18%, var(--tw-panel))",
-                  "border": "color-mix(in srgb, var(--tw-border) 55%, var(--tw-panel))",
-                  "borderWidth": 1,
-                  "radius": 0
-                },
-                "states": {
-                  "hover": {
-                    "fill": "color-mix(in srgb, var(--tw-highlight) 22%, var(--tw-panel))",
-                    "border": "var(--tw-highlight)",
-                    "borderWidth": 1
-                  },
-                  "focus": {
-                    "fill": "color-mix(in srgb, var(--tw-highlight) 22%, var(--tw-panel))",
-                    "border": "var(--tw-highlight)",
-                    "borderWidth": 1
-                  },
-                  "pressed": {
-                    "fill": "color-mix(in srgb, var(--tw-highlight) 32%, var(--tw-panel))",
-                    "border": "var(--tw-highlight)",
-                    "borderWidth": 1
-                  },
-                  "disabled": {
-                    "opacity": 0.4
-                  }
-                },
-                "anim": [],
-                "text": "",
-                "sprite": "",
-                "value": "",
-                "max": "100",
-                "min": 0,
-                "step": 1,
-                "options": "",
-                "source": "",
-                "template": "",
-                "drag": false,
-                "visible": "",
-                "enabled": "",
-                "on": {
-                  "click": [
-                    {
-                      "type": "uiScreen",
-                      "params": {
-                        "op": "back",
-                        "screen": ""
-                      }
-                    }
-                  ],
-                  "hover": [],
-                  "change": []
-                },
-                "focus": {
-                  "up": "",
-                  "down": "",
-                  "left": "",
-                  "right": ""
-                },
-                "tooltip": "",
-                "prefab": "",
-                "overrides": {},
-                "marks": "player:#6fe08a, enemy:#e05a5a",
-                "children": [
-                  {
-                    "id": "herb.back.label",
-                    "name": "Label",
-                    "type": "text",
-                    "anchor": "tl",
-                    "x": 0,
-                    "y": 0,
-                    "w": 160,
-                    "h": 28,
-                    "wMode": "auto",
-                    "hMode": "auto",
-                    "layout": "free",
-                    "gap": 8,
-                    "padding": 0,
-                    "align": "start",
-                    "columns": 3,
-                    "style": {
-                      "fontSize": 18
-                    },
-                    "states": {},
-                    "anim": [],
-                    "text": "Back",
-                    "sprite": "",
-                    "value": "",
-                    "max": "100",
-                    "min": 0,
-                    "step": 1,
-                    "options": "",
-                    "source": "",
-                    "template": "",
-                    "drag": false,
-                    "visible": "",
-                    "enabled": "",
-                    "on": {
-                      "click": [],
-                      "hover": [],
-                      "change": []
-                    },
-                    "focus": {
-                      "up": "",
-                      "down": "",
-                      "left": "",
-                      "right": ""
-                    },
-                    "tooltip": "",
-                    "prefab": "",
-                    "overrides": {},
-                    "marks": "player:#6fe08a, enemy:#e05a5a",
-                    "children": []
-                  },
-                  {
-                    "id": "herb.back.gap",
-                    "name": "Space",
-                    "type": "spacer",
-                    "anchor": "tl",
-                    "x": 0,
-                    "y": 0,
-                    "w": 8,
-                    "h": 8,
-                    "wMode": "fill",
-                    "hMode": "auto",
-                    "layout": "free",
-                    "gap": 8,
-                    "padding": 8,
-                    "align": "start",
-                    "columns": 3,
-                    "style": {},
-                    "states": {},
-                    "anim": [],
-                    "text": "",
-                    "sprite": "",
-                    "value": "",
-                    "max": "100",
-                    "min": 0,
-                    "step": 1,
-                    "options": "",
-                    "source": "",
-                    "template": "",
-                    "drag": false,
-                    "visible": "",
-                    "enabled": "",
-                    "on": {
-                      "click": [],
-                      "hover": [],
-                      "change": []
-                    },
-                    "focus": {
-                      "up": "",
-                      "down": "",
-                      "left": "",
-                      "right": ""
-                    },
-                    "tooltip": "",
-                    "prefab": "",
-                    "overrides": {},
-                    "marks": "player:#6fe08a, enemy:#e05a5a",
-                    "children": []
-                  }
-                ]
-              },
-              {
-                "id": "herb.bottom",
-                "name": "Space",
-                "type": "spacer",
-                "anchor": "tl",
-                "x": 0,
-                "y": 0,
-                "w": 8,
-                "h": 8,
-                "wMode": "fill",
-                "hMode": "fixed",
-                "layout": "free",
-                "gap": 8,
-                "padding": 8,
-                "align": "start",
-                "columns": 3,
-                "style": {},
-                "states": {},
-                "anim": [],
-                "text": "",
-                "sprite": "",
-                "value": "",
-                "max": "100",
-                "min": 0,
-                "step": 1,
-                "options": "",
-                "source": "",
-                "template": "",
-                "drag": false,
-                "visible": "",
-                "enabled": "",
-                "on": {
-                  "click": [],
-                  "hover": [],
-                  "change": []
-                },
-                "focus": {
-                  "up": "",
-                  "down": "",
-                  "left": "",
-                  "right": ""
-                },
-                "tooltip": "",
-                "prefab": "",
-                "overrides": {},
-                "marks": "player:#6fe08a, enemy:#e05a5a",
-                "children": []
-              },
-              {
-                "id": "herb.rule.bottom",
-                "name": "Divider",
-                "type": "panel",
-                "anchor": "tl",
-                "x": 0,
-                "y": 0,
-                "w": 8,
-                "h": 2,
-                "wMode": "fill",
-                "hMode": "fixed",
-                "layout": "column",
-                "gap": 0,
-                "padding": 0,
-                "align": "start",
-                "columns": 3,
-                "style": {
-                  "fill": "color-mix(in srgb, var(--tw-border) 65%, var(--tw-panel))"
-                },
-                "states": {},
-                "anim": [],
-                "text": "",
-                "sprite": "",
-                "value": "",
-                "max": "100",
-                "min": 0,
-                "step": 1,
-                "options": "",
-                "source": "",
-                "template": "",
-                "drag": false,
-                "visible": "",
-                "enabled": "",
-                "on": {
-                  "click": [],
-                  "hover": [],
-                  "change": []
-                },
-                "focus": {
-                  "up": "",
-                  "down": "",
-                  "left": "",
-                  "right": ""
-                },
-                "tooltip": "",
-                "prefab": "",
-                "overrides": {},
-                "marks": "player:#6fe08a, enemy:#e05a5a",
-                "children": []
-              },
-              {
-                "id": "herb.bottom2",
-                "name": "Space",
-                "type": "spacer",
-                "anchor": "tl",
-                "x": 0,
-                "y": 0,
-                "w": 8,
-                "h": 4,
-                "wMode": "fill",
-                "hMode": "fixed",
-                "layout": "free",
-                "gap": 8,
-                "padding": 8,
-                "align": "start",
-                "columns": 3,
-                "style": {},
-                "states": {},
-                "anim": [],
-                "text": "",
-                "sprite": "",
-                "value": "",
-                "max": "100",
-                "min": 0,
-                "step": 1,
-                "options": "",
-                "source": "",
-                "template": "",
-                "drag": false,
-                "visible": "",
-                "enabled": "",
-                "on": {
-                  "click": [],
-                  "hover": [],
-                  "change": []
-                },
-                "focus": {
-                  "up": "",
-                  "down": "",
-                  "left": "",
-                  "right": ""
-                },
-                "tooltip": "",
-                "prefab": "",
-                "overrides": {},
-                "marks": "player:#6fe08a, enemy:#e05a5a",
-                "children": []
-              },
-              {
-                "id": "herb.hint",
-                "name": "Hint",
-                "type": "text",
-                "anchor": "tl",
-                "x": 0,
-                "y": 0,
-                "w": 160,
-                "h": 28,
-                "wMode": "auto",
-                "hMode": "auto",
-                "layout": "free",
-                "gap": 8,
-                "padding": 0,
-                "align": "start",
-                "columns": 3,
-                "style": {
-                  "fontSize": 12,
-                  "color": "#8f96b3"
-                },
-                "states": {},
-                "anim": [],
-                "text": "Esc back",
-                "sprite": "",
-                "value": "",
-                "max": "100",
-                "min": 0,
-                "step": 1,
-                "options": "",
-                "source": "",
-                "template": "",
-                "drag": false,
-                "visible": "",
-                "enabled": "",
-                "on": {
-                  "click": [],
-                  "hover": [],
-                  "change": []
-                },
-                "focus": {
-                  "up": "",
-                  "down": "",
-                  "left": "",
-                  "right": ""
-                },
-                "tooltip": "",
-                "prefab": "",
-                "overrides": {},
-                "marks": "player:#6fe08a, enemy:#e05a5a",
-                "children": []
-              }
-            ]
-          }
-        ]
-      },
-      "modal": true,
-      "back": "auto",
-      "backTo": "",
-      "priority": 0,
-      "dim": 0.86,
-      "transition": "fade",
-      "mapX": 40,
-      "mapY": 170,
       "opensOnStart": false
     },
     {
@@ -9649,8 +5968,8 @@
                 "align": "start",
                 "columns": 3,
                 "style": {
-                  "fontSize": 26,
-                  "color": "var(--tw-accent)"
+                  "color": "var(--tw-accent)",
+                  "fontSize": 26
                 },
                 "states": {},
                 "anim": [],
@@ -11061,11 +7380,6 @@
                     "border": "var(--tw-highlight)",
                     "borderWidth": 1
                   },
-                  "focus": {
-                    "fill": "color-mix(in srgb, var(--tw-highlight) 22%, var(--tw-panel))",
-                    "border": "var(--tw-highlight)",
-                    "borderWidth": 1
-                  },
                   "pressed": {
                     "fill": "color-mix(in srgb, var(--tw-highlight) 32%, var(--tw-panel))",
                     "border": "var(--tw-highlight)",
@@ -11073,6 +7387,11 @@
                   },
                   "disabled": {
                     "opacity": 0.4
+                  },
+                  "focus": {
+                    "fill": "color-mix(in srgb, var(--tw-highlight) 22%, var(--tw-panel))",
+                    "border": "var(--tw-highlight)",
+                    "borderWidth": 1
                   }
                 },
                 "anim": [],
@@ -11375,8 +7694,8 @@
                 "align": "start",
                 "columns": 3,
                 "style": {
-                  "fontSize": 12,
-                  "color": "#8f96b3"
+                  "color": "#8f96b3",
+                  "fontSize": 12
                 },
                 "states": {},
                 "anim": [],
@@ -11419,7 +7738,7 @@
       "priority": 0,
       "dim": 0.86,
       "transition": "fade",
-      "mapX": 260,
+      "mapX": 40,
       "mapY": 170,
       "opensOnStart": false
     },
@@ -11602,8 +7921,8 @@
                 "align": "start",
                 "columns": 3,
                 "style": {
-                  "fontSize": 26,
-                  "color": "var(--tw-accent)"
+                  "color": "var(--tw-accent)",
+                  "fontSize": 26
                 },
                 "states": {},
                 "anim": [],
@@ -12838,11 +9157,6 @@
                     "border": "var(--tw-highlight)",
                     "borderWidth": 1
                   },
-                  "focus": {
-                    "fill": "color-mix(in srgb, var(--tw-highlight) 22%, var(--tw-panel))",
-                    "border": "var(--tw-highlight)",
-                    "borderWidth": 1
-                  },
                   "pressed": {
                     "fill": "color-mix(in srgb, var(--tw-highlight) 32%, var(--tw-panel))",
                     "border": "var(--tw-highlight)",
@@ -12850,6 +9164,11 @@
                   },
                   "disabled": {
                     "opacity": 0.4
+                  },
+                  "focus": {
+                    "fill": "color-mix(in srgb, var(--tw-highlight) 22%, var(--tw-panel))",
+                    "border": "var(--tw-highlight)",
+                    "borderWidth": 1
                   }
                 },
                 "anim": [],
@@ -13152,8 +9471,8 @@
                 "align": "start",
                 "columns": 3,
                 "style": {
-                  "fontSize": 12,
-                  "color": "#8f96b3"
+                  "color": "#8f96b3",
+                  "fontSize": 12
                 },
                 "states": {},
                 "anim": [],
@@ -13196,7 +9515,7 @@
       "priority": 0,
       "dim": 0.86,
       "transition": "fade",
-      "mapX": 480,
+      "mapX": 260,
       "mapY": 170,
       "opensOnStart": false,
       "role": "settings"
@@ -13380,8 +9699,8 @@
                 "align": "start",
                 "columns": 3,
                 "style": {
-                  "fontSize": 26,
-                  "color": "var(--tw-accent)"
+                  "color": "var(--tw-accent)",
+                  "fontSize": 26
                 },
                 "states": {},
                 "anim": [],
@@ -13659,11 +9978,11 @@
                       "right": ""
                     },
                     "tooltip": "",
+                    "label": "{control.label}",
                     "prefab": "",
                     "overrides": {},
                     "marks": "player:#6fe08a, enemy:#e05a5a",
-                    "children": [],
-                    "label": "{control.label}"
+                    "children": []
                   }
                 ]
               },
@@ -13695,11 +10014,6 @@
                     "border": "var(--tw-highlight)",
                     "borderWidth": 1
                   },
-                  "focus": {
-                    "fill": "color-mix(in srgb, var(--tw-highlight) 22%, var(--tw-panel))",
-                    "border": "var(--tw-highlight)",
-                    "borderWidth": 1
-                  },
                   "pressed": {
                     "fill": "color-mix(in srgb, var(--tw-highlight) 32%, var(--tw-panel))",
                     "border": "var(--tw-highlight)",
@@ -13707,6 +10021,11 @@
                   },
                   "disabled": {
                     "opacity": 0.4
+                  },
+                  "focus": {
+                    "fill": "color-mix(in srgb, var(--tw-highlight) 22%, var(--tw-panel))",
+                    "border": "var(--tw-highlight)",
+                    "borderWidth": 1
                   }
                 },
                 "anim": [],
@@ -14006,8 +10325,8 @@
                 "align": "start",
                 "columns": 3,
                 "style": {
-                  "fontSize": 12,
-                  "color": "#8f96b3"
+                  "color": "#8f96b3",
+                  "fontSize": 12
                 },
                 "states": {},
                 "anim": [],
@@ -14050,7 +10369,7 @@
       "priority": 0,
       "dim": 0.86,
       "transition": "fade",
-      "mapX": 700,
+      "mapX": 480,
       "mapY": 170,
       "opensOnStart": false,
       "role": "controls"
@@ -14376,8 +10695,8 @@
                         "align": "start",
                         "columns": 3,
                         "style": {
-                          "fontSize": 26,
-                          "color": "var(--tw-accent)"
+                          "color": "var(--tw-accent)",
+                          "fontSize": 26
                         },
                         "states": {},
                         "anim": [],
@@ -14427,8 +10746,8 @@
                         "align": "start",
                         "columns": 3,
                         "style": {
-                          "fontSize": 12,
-                          "color": "#8f96b3"
+                          "color": "#8f96b3",
+                          "fontSize": 12
                         },
                         "states": {},
                         "anim": [],
@@ -14735,11 +11054,6 @@
                     "border": "var(--tw-highlight)",
                     "borderWidth": 1
                   },
-                  "focus": {
-                    "fill": "color-mix(in srgb, var(--tw-highlight) 22%, var(--tw-panel))",
-                    "border": "var(--tw-highlight)",
-                    "borderWidth": 1
-                  },
                   "pressed": {
                     "fill": "color-mix(in srgb, var(--tw-highlight) 32%, var(--tw-panel))",
                     "border": "var(--tw-highlight)",
@@ -14747,6 +11061,11 @@
                   },
                   "disabled": {
                     "opacity": 0.4
+                  },
+                  "focus": {
+                    "fill": "color-mix(in srgb, var(--tw-highlight) 22%, var(--tw-panel))",
+                    "border": "var(--tw-highlight)",
+                    "borderWidth": 1
                   }
                 },
                 "anim": [],
@@ -14803,8 +11122,8 @@
                     "align": "start",
                     "columns": 3,
                     "style": {
-                      "fontSize": 18,
-                      "color": "var(--tw-accent)"
+                      "color": "var(--tw-accent)",
+                      "fontSize": 18
                     },
                     "states": {},
                     "anim": [],
@@ -15050,8 +11369,8 @@
                 "align": "start",
                 "columns": 3,
                 "style": {
-                  "fontSize": 12,
-                  "color": "#8f96b3"
+                  "color": "#8f96b3",
+                  "fontSize": 12
                 },
                 "states": {},
                 "anim": [],
@@ -15094,8 +11413,8 @@
       "priority": 0,
       "dim": 0.86,
       "transition": "fade",
-      "mapX": 40,
-      "mapY": 300,
+      "mapX": 700,
+      "mapY": 170,
       "opensOnStart": false
     },
     {
@@ -15419,8 +11738,8 @@
                         "align": "start",
                         "columns": 3,
                         "style": {
-                          "fontSize": 26,
-                          "color": "var(--tw-accent)"
+                          "color": "var(--tw-accent)",
+                          "fontSize": 26
                         },
                         "states": {},
                         "anim": [],
@@ -15470,8 +11789,8 @@
                         "align": "start",
                         "columns": 3,
                         "style": {
-                          "fontSize": 12,
-                          "color": "#8f96b3"
+                          "color": "#8f96b3",
+                          "fontSize": 12
                         },
                         "states": {},
                         "anim": [],
@@ -15674,57 +11993,6 @@
                 "states": {},
                 "anim": [],
                 "text": "Every bed is tended and every lamp has had its turn. Thank you for walking the garden.",
-                "sprite": "",
-                "value": "",
-                "max": "100",
-                "min": 0,
-                "step": 1,
-                "options": "",
-                "source": "",
-                "template": "",
-                "drag": false,
-                "visible": "",
-                "enabled": "",
-                "on": {
-                  "click": [],
-                  "hover": [],
-                  "change": []
-                },
-                "focus": {
-                  "up": "",
-                  "down": "",
-                  "left": "",
-                  "right": ""
-                },
-                "tooltip": "",
-                "prefab": "",
-                "overrides": {},
-                "marks": "player:#6fe08a, enemy:#e05a5a",
-                "children": []
-              },
-              {
-                "id": "end.dedication",
-                "name": "end.dedication",
-                "type": "text",
-                "anchor": "tl",
-                "x": 0,
-                "y": 0,
-                "w": 160,
-                "h": 28,
-                "wMode": "fill",
-                "hMode": "auto",
-                "layout": "free",
-                "gap": 8,
-                "padding": 0,
-                "align": "start",
-                "columns": 3,
-                "style": {
-                  "fontSize": 12,
-                  "color": "var(--tw-accent)"
-                },
-                "states": {},
-                "anim": [],
-                "text": "For Elizabeth Grace — who brings every garden to life.",
                 "sprite": "",
                 "value": "",
                 "max": "100",
@@ -15968,8 +12236,8 @@
                     "align": "start",
                     "columns": 3,
                     "style": {
-                      "fontSize": 18,
                       "color": "var(--tw-accent)",
+                      "fontSize": 18,
                       "bold": true
                     },
                     "states": {},
@@ -16172,217 +12440,13 @@
                     "align": "start",
                     "columns": 3,
                     "style": {
-                      "fontSize": 18,
                       "color": "var(--tw-accent)",
+                      "fontSize": 18,
                       "bold": true
                     },
                     "states": {},
                     "anim": [],
                     "text": "{ng_flies} of {ng_fly_total}",
-                    "sprite": "",
-                    "value": "",
-                    "max": "100",
-                    "min": 0,
-                    "step": 1,
-                    "options": "",
-                    "source": "",
-                    "template": "",
-                    "drag": false,
-                    "visible": "",
-                    "enabled": "",
-                    "on": {
-                      "click": [],
-                      "hover": [],
-                      "change": []
-                    },
-                    "focus": {
-                      "up": "",
-                      "down": "",
-                      "left": "",
-                      "right": ""
-                    },
-                    "tooltip": "",
-                    "prefab": "",
-                    "overrides": {},
-                    "marks": "player:#6fe08a, enemy:#e05a5a",
-                    "children": []
-                  }
-                ]
-              },
-              {
-                "id": "end.pars",
-                "name": "Master Gardener Par medals",
-                "type": "panel",
-                "anchor": "tl",
-                "x": 0,
-                "y": 0,
-                "w": 240,
-                "h": 160,
-                "wMode": "fill",
-                "hMode": "auto",
-                "layout": "row",
-                "gap": 12,
-                "padding": 8,
-                "align": "center",
-                "columns": 3,
-                "style": {
-                  "fill": "color-mix(in srgb, var(--tw-border) 18%, var(--tw-panel))",
-                  "border": "color-mix(in srgb, var(--tw-border) 55%, var(--tw-panel))",
-                  "borderWidth": 1,
-                  "radius": 0
-                },
-                "states": {},
-                "anim": [],
-                "text": "",
-                "sprite": "",
-                "value": "",
-                "max": "100",
-                "min": 0,
-                "step": 1,
-                "options": "",
-                "source": "",
-                "template": "",
-                "drag": false,
-                "visible": "",
-                "enabled": "",
-                "on": {
-                  "click": [],
-                  "hover": [],
-                  "change": []
-                },
-                "focus": {
-                  "up": "",
-                  "down": "",
-                  "left": "",
-                  "right": ""
-                },
-                "tooltip": "",
-                "prefab": "",
-                "overrides": {},
-                "marks": "player:#6fe08a, enemy:#e05a5a",
-                "children": [
-                  {
-                    "id": "end.pars.label",
-                    "name": "Label",
-                    "type": "text",
-                    "anchor": "tl",
-                    "x": 0,
-                    "y": 0,
-                    "w": 160,
-                    "h": 28,
-                    "wMode": "auto",
-                    "hMode": "auto",
-                    "layout": "free",
-                    "gap": 8,
-                    "padding": 0,
-                    "align": "start",
-                    "columns": 3,
-                    "style": {
-                      "fontSize": 18
-                    },
-                    "states": {},
-                    "anim": [],
-                    "text": "Master Gardener Par medals",
-                    "sprite": "",
-                    "value": "",
-                    "max": "100",
-                    "min": 0,
-                    "step": 1,
-                    "options": "",
-                    "source": "",
-                    "template": "",
-                    "drag": false,
-                    "visible": "",
-                    "enabled": "",
-                    "on": {
-                      "click": [],
-                      "hover": [],
-                      "change": []
-                    },
-                    "focus": {
-                      "up": "",
-                      "down": "",
-                      "left": "",
-                      "right": ""
-                    },
-                    "tooltip": "",
-                    "prefab": "",
-                    "overrides": {},
-                    "marks": "player:#6fe08a, enemy:#e05a5a",
-                    "children": []
-                  },
-                  {
-                    "id": "end.pars.gap",
-                    "name": "Space",
-                    "type": "spacer",
-                    "anchor": "tl",
-                    "x": 0,
-                    "y": 0,
-                    "w": 8,
-                    "h": 8,
-                    "wMode": "fill",
-                    "hMode": "auto",
-                    "layout": "free",
-                    "gap": 8,
-                    "padding": 8,
-                    "align": "start",
-                    "columns": 3,
-                    "style": {},
-                    "states": {},
-                    "anim": [],
-                    "text": "",
-                    "sprite": "",
-                    "value": "",
-                    "max": "100",
-                    "min": 0,
-                    "step": 1,
-                    "options": "",
-                    "source": "",
-                    "template": "",
-                    "drag": false,
-                    "visible": "",
-                    "enabled": "",
-                    "on": {
-                      "click": [],
-                      "hover": [],
-                      "change": []
-                    },
-                    "focus": {
-                      "up": "",
-                      "down": "",
-                      "left": "",
-                      "right": ""
-                    },
-                    "tooltip": "",
-                    "prefab": "",
-                    "overrides": {},
-                    "marks": "player:#6fe08a, enemy:#e05a5a",
-                    "children": []
-                  },
-                  {
-                    "id": "end.pars.n",
-                    "name": "end.pars.n",
-                    "type": "text",
-                    "anchor": "tl",
-                    "x": 0,
-                    "y": 0,
-                    "w": 160,
-                    "h": 28,
-                    "wMode": "auto",
-                    "hMode": "auto",
-                    "layout": "free",
-                    "gap": 8,
-                    "padding": 0,
-                    "align": "start",
-                    "columns": 3,
-                    "style": {
-                      "fontSize": 18,
-                      "color": "var(--tw-accent)",
-                      "bold": true
-                    },
-                    "states": {},
-                    "anim": [],
-                    "text": "{ng_pars} of {ng_total}",
                     "sprite": "",
                     "value": "",
                     "max": "100",
@@ -16462,8 +12526,8 @@
                 "children": []
               },
               {
-                "id": "end.hub",
-                "name": "Visit the Conservatory",
+                "id": "end.rooms.go",
+                "name": "Rooms",
                 "type": "panel",
                 "anchor": "tl",
                 "x": 0,
@@ -16489,11 +12553,6 @@
                     "border": "var(--tw-highlight)",
                     "borderWidth": 1
                   },
-                  "focus": {
-                    "fill": "color-mix(in srgb, var(--tw-highlight) 22%, var(--tw-panel))",
-                    "border": "var(--tw-highlight)",
-                    "borderWidth": 1
-                  },
                   "pressed": {
                     "fill": "color-mix(in srgb, var(--tw-highlight) 32%, var(--tw-panel))",
                     "border": "var(--tw-highlight)",
@@ -16501,222 +12560,11 @@
                   },
                   "disabled": {
                     "opacity": 0.4
-                  }
-                },
-                "anim": [],
-                "text": "",
-                "sprite": "",
-                "value": "",
-                "max": "100",
-                "min": 0,
-                "step": 1,
-                "options": "",
-                "source": "",
-                "template": "",
-                "drag": false,
-                "visible": "",
-                "enabled": "",
-                "on": {
-                  "click": [
-                    {
-                      "type": "setVariable",
-                      "params": {
-                        "name": "ng_goto",
-                        "op": "set",
-                        "value": "scenes/hub.scene.json"
-                      }
-                    },
-                    {
-                      "type": "uiScreen",
-                      "params": {
-                        "op": "close",
-                        "screen": "Rooms"
-                      }
-                    },
-                    {
-                      "type": "uiScreen",
-                      "params": {
-                        "op": "close",
-                        "screen": "Herbarium"
-                      }
-                    },
-                    {
-                      "type": "uiScreen",
-                      "params": {
-                        "op": "close",
-                        "screen": "The end"
-                      }
-                    },
-                    {
-                      "type": "uiScreen",
-                      "params": {
-                        "op": "close",
-                        "screen": "role:pause"
-                      }
-                    },
-                    {
-                      "type": "uiScreen",
-                      "params": {
-                        "op": "close",
-                        "screen": "role:title"
-                      }
-                    }
-                  ],
-                  "hover": [],
-                  "change": []
-                },
-                "focus": {
-                  "up": "",
-                  "down": "",
-                  "left": "",
-                  "right": ""
-                },
-                "tooltip": "",
-                "prefab": "",
-                "overrides": {},
-                "marks": "player:#6fe08a, enemy:#e05a5a",
-                "children": [
-                  {
-                    "id": "end.hub.label",
-                    "name": "Label",
-                    "type": "text",
-                    "anchor": "tl",
-                    "x": 0,
-                    "y": 0,
-                    "w": 160,
-                    "h": 28,
-                    "wMode": "auto",
-                    "hMode": "auto",
-                    "layout": "free",
-                    "gap": 8,
-                    "padding": 0,
-                    "align": "start",
-                    "columns": 3,
-                    "style": {
-                      "fontSize": 18,
-                      "color": "var(--tw-accent)"
-                    },
-                    "states": {},
-                    "anim": [],
-                    "text": "Visit the Conservatory",
-                    "sprite": "",
-                    "value": "",
-                    "max": "100",
-                    "min": 0,
-                    "step": 1,
-                    "options": "",
-                    "source": "",
-                    "template": "",
-                    "drag": false,
-                    "visible": "",
-                    "enabled": "",
-                    "on": {
-                      "click": [],
-                      "hover": [],
-                      "change": []
-                    },
-                    "focus": {
-                      "up": "",
-                      "down": "",
-                      "left": "",
-                      "right": ""
-                    },
-                    "tooltip": "",
-                    "prefab": "",
-                    "overrides": {},
-                    "marks": "player:#6fe08a, enemy:#e05a5a",
-                    "children": []
-                  },
-                  {
-                    "id": "end.hub.gap",
-                    "name": "Space",
-                    "type": "spacer",
-                    "anchor": "tl",
-                    "x": 0,
-                    "y": 0,
-                    "w": 8,
-                    "h": 8,
-                    "wMode": "fill",
-                    "hMode": "auto",
-                    "layout": "free",
-                    "gap": 8,
-                    "padding": 8,
-                    "align": "start",
-                    "columns": 3,
-                    "style": {},
-                    "states": {},
-                    "anim": [],
-                    "text": "",
-                    "sprite": "",
-                    "value": "",
-                    "max": "100",
-                    "min": 0,
-                    "step": 1,
-                    "options": "",
-                    "source": "",
-                    "template": "",
-                    "drag": false,
-                    "visible": "",
-                    "enabled": "",
-                    "on": {
-                      "click": [],
-                      "hover": [],
-                      "change": []
-                    },
-                    "focus": {
-                      "up": "",
-                      "down": "",
-                      "left": "",
-                      "right": ""
-                    },
-                    "tooltip": "",
-                    "prefab": "",
-                    "overrides": {},
-                    "marks": "player:#6fe08a, enemy:#e05a5a",
-                    "children": []
-                  }
-                ]
-              },
-              {
-                "id": "end.rooms.go",
-                "name": "Rooms",
-                "type": "panel",
-                "anchor": "tl",
-                "x": 0,
-                "y": 0,
-                "w": 240,
-                "h": 160,
-                "wMode": "fill",
-                "hMode": "auto",
-                "layout": "row",
-                "gap": 12,
-                "padding": 8,
-                "align": "center",
-                "columns": 3,
-                "style": {
-                  "fill": "color-mix(in srgb, var(--tw-border) 18%, var(--tw-panel))",
-                  "border": "color-mix(in srgb, var(--tw-border) 55%, var(--tw-panel))",
-                  "borderWidth": 1,
-                  "radius": 0
-                },
-                "states": {
-                  "hover": {
-                    "fill": "color-mix(in srgb, var(--tw-highlight) 22%, var(--tw-panel))",
-                    "border": "var(--tw-highlight)",
-                    "borderWidth": 1
                   },
                   "focus": {
                     "fill": "color-mix(in srgb, var(--tw-highlight) 22%, var(--tw-panel))",
                     "border": "var(--tw-highlight)",
                     "borderWidth": 1
-                  },
-                  "pressed": {
-                    "fill": "color-mix(in srgb, var(--tw-highlight) 32%, var(--tw-panel))",
-                    "border": "var(--tw-highlight)",
-                    "borderWidth": 1
-                  },
-                  "disabled": {
-                    "opacity": 0.4
                   }
                 },
                 "anim": [],
@@ -16773,6 +12621,7 @@
                     "align": "start",
                     "columns": 3,
                     "style": {
+                      "color": "var(--tw-accent)",
                       "fontSize": 18
                     },
                     "states": {},
@@ -16884,11 +12733,6 @@
                     "border": "var(--tw-highlight)",
                     "borderWidth": 1
                   },
-                  "focus": {
-                    "fill": "color-mix(in srgb, var(--tw-highlight) 22%, var(--tw-panel))",
-                    "border": "var(--tw-highlight)",
-                    "borderWidth": 1
-                  },
                   "pressed": {
                     "fill": "color-mix(in srgb, var(--tw-highlight) 32%, var(--tw-panel))",
                     "border": "var(--tw-highlight)",
@@ -16896,6 +12740,11 @@
                   },
                   "disabled": {
                     "opacity": 0.4
+                  },
+                  "focus": {
+                    "fill": "color-mix(in srgb, var(--tw-highlight) 22%, var(--tw-panel))",
+                    "border": "var(--tw-highlight)",
+                    "borderWidth": 1
                   }
                 },
                 "anim": [],
@@ -17198,8 +13047,8 @@
                 "align": "start",
                 "columns": 3,
                 "style": {
-                  "fontSize": 12,
-                  "color": "#8f96b3"
+                  "color": "#8f96b3",
+                  "fontSize": 12
                 },
                 "states": {},
                 "anim": [],
@@ -17242,7 +13091,7 @@
       "priority": 0,
       "dim": 0.9,
       "transition": "fade",
-      "mapX": 260,
+      "mapX": 40,
       "mapY": 300,
       "opensOnStart": false
     }
