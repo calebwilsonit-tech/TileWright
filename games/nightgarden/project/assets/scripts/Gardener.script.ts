@@ -66,10 +66,7 @@ export default defineScript({
         b.vx = 0;
         b.vy = 0;
         st.tx = undefined;
-        if (!st.back) {
-          game.vars.ng_steps = Number(game.vars.ng_steps ?? 0) + 1;
-          game.emit('step', {});
-        }
+        if (!st.back) game.emit('step', {});
       } else {
         const v = Math.min(speed, dist / game.dt);
         b.vx = (dx / dist) * v;
