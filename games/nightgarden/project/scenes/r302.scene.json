@@ -1,99 +1,69 @@
 {
   "schemaVersion": 1,
-  "name": "Doorstop",
+  "name": "Weight",
   "map": {
-    "width": 6,
-    "height": 3,
+    "width": 8,
+    "height": 5,
     "tiles": [
-      [0,0,0,0,1,0],
-      [1,1,1,1,1,1],
-      [0,1,1,0,1,1]
+      [2,2,2,2,2,2,2,2],
+      [2,1,1,1,1,2,2,2],
+      [2,1,1,1,1,1,1,2],
+      [2,2,1,1,2,2,2,2],
+      [2,2,2,2,2,2,2,2]
     ],
     "heights": [
-      [0,0,0,0,3,0],
-      [3,3,3,3,3,3],
-      [0,3,3,0,3,3]
+      [4,4,4,4,4,4,4,4],
+      [4,3,3,3,3,4,4,4],
+      [4,3,3,3,3,3,3,4],
+      [4,4,3,3,4,4,4,4],
+      [4,4,4,4,4,4,4,4]
     ],
     "slopes": [
-      [0,0,0,0,0,0],
-      [0,0,0,0,0,0],
-      [0,0,0,0,0,0]
+      [0,0,0,0,0,0,0,0],
+      [0,0,0,0,0,0,0,0],
+      [0,0,0,0,0,0,0,0],
+      [0,0,0,0,0,0,0,0],
+      [0,0,0,0,0,0,0,0]
     ],
     "flags": [
-      [0,0,0,0,0,0],
-      [0,0,0,0,0,0],
-      [0,0,0,0,0,0]
+      [2,2,2,2,2,2,2,2],
+      [2,0,0,0,0,2,2,2],
+      [2,0,0,0,0,0,0,2],
+      [2,2,0,0,2,2,2,2],
+      [2,2,2,2,2,2,2,2]
     ],
     "decks": [
-      [0,0,0,0,0,0],
-      [0,0,0,0,0,0],
-      [0,0,0,0,0,0]
+      [0,0,0,0,0,0,0,0],
+      [0,0,0,0,0,0,0,0],
+      [0,0,0,0,0,0,0,0],
+      [0,0,0,0,0,0,0,0],
+      [0,0,0,0,0,0,0,0]
     ],
     "deckTiles": [
-      [0,0,0,0,0,0],
-      [0,0,0,0,0,0],
-      [0,0,0,0,0,0]
+      [0,0,0,0,0,0,0,0],
+      [0,0,0,0,0,0,0,0],
+      [0,0,0,0,0,0,0,0],
+      [0,0,0,0,0,0,0,0],
+      [0,0,0,0,0,0,0,0]
     ],
     "oneWay": [
-      [0,0,0,0,0,0],
-      [0,0,0,0,0,0],
-      [0,0,0,0,0,0]
+      [0,0,0,0,0,0,0,0],
+      [0,0,0,0,0,0,0,0],
+      [0,0,0,0,0,0,0,0],
+      [0,0,0,0,0,0,0,0],
+      [0,0,0,0,0,0,0,0]
     ]
   },
   "entities": [
     {
       "id": "e1",
-      "name": "Firefly",
-      "tags": [
-        "firefly"
-      ],
-      "components": {
-        "transform": {
-          "x": 4.5,
-          "y": 0.5,
-          "h": 3.9,
-          "facing": 2
-        },
-        "sprite": {
-          "shape": "box",
-          "color": 16777215,
-          "w": 0.3,
-          "d": 0.3,
-          "height": 0.3,
-          "sortOffset": 0,
-          "visible": true,
-          "asset": "firefly",
-          "noShadow": true
-        },
-        "animator": {
-          "asset": "firefly",
-          "clip": "fly",
-          "time": 0,
-          "speed": 1,
-          "playing": true,
-          "frame": 0,
-          "flip": false,
-          "pos": 0,
-          "done": false,
-          "controller": null,
-          "state": "",
-          "params": {}
-        },
-        "script_Firefly": {
-          "room": "r302",
-          "hover": 0.9
-        }
-      }
-    },
-    {
-      "id": "e2",
       "name": "Gardener",
       "tags": [
         "player"
       ],
       "components": {
         "transform": {
-          "x": 0.5,
+          "x": 1.5,
           "y": 1.5,
           "h": 3,
           "facing": 2
@@ -182,39 +152,7 @@
       }
     },
     {
-      "id": "e3",
-      "name": "Plate 1",
-      "tags": [
-        "plate"
-      ],
-      "components": {
-        "transform": {
-          "x": 1.5,
-          "y": 1.5,
-          "h": 3,
-          "facing": 2
-        },
-        "sprite": {
-          "shape": "box",
-          "color": 16777215,
-          "w": 0.8,
-          "d": 0.8,
-          "height": 0.05,
-          "sortOffset": -0.5,
-          "visible": true,
-          "asset": "plate_up",
-          "noShadow": true
-        },
-        "script_Plate": {},
-        "script_Shows": {
-          "signal": "active",
-          "on": "plate_down",
-          "off": "plate_up"
-        }
-      }
-    },
-    {
-      "id": "e4",
+      "id": "e2",
       "name": "Crate 1",
       "tags": [
         "crate"
@@ -253,15 +191,47 @@
       }
     },
     {
-      "id": "e5",
+      "id": "e3",
+      "name": "Plate 1",
+      "tags": [
+        "plate"
+      ],
+      "components": {
+        "transform": {
+          "x": 4.5,
+          "y": 1.5,
+          "h": 3,
+          "facing": 2
+        },
+        "sprite": {
+          "shape": "box",
+          "color": 16777215,
+          "w": 0.8,
+          "d": 0.8,
+          "height": 0.05,
+          "sortOffset": -0.5,
+          "visible": true,
+          "asset": "plate_up",
+          "noShadow": true
+        },
+        "script_Plate": {},
+        "script_Shows": {
+          "signal": "active",
+          "on": "plate_down",
+          "off": "plate_up"
+        }
+      }
+    },
+    {
+      "id": "e4",
       "name": "Gate 1",
       "tags": [
         "gate"
       ],
       "components": {
         "transform": {
-          "x": 3.5,
-          "y": 1.5,
+          "x": 5.5,
+          "y": 2.5,
           "h": 3,
           "facing": 2
         },
@@ -294,14 +264,14 @@
       }
     },
     {
-      "id": "e6",
+      "id": "e5",
       "name": "Way out",
       "tags": [
         "wayout"
       ],
       "components": {
         "transform": {
-          "x": 5.5,
+          "x": 6.5,
           "y": 2.5,
           "h": 3,
           "facing": 2
@@ -338,49 +308,51 @@
       }
     },
     {
-      "id": "e7",
+      "id": "e6",
       "name": "Room",
       "tags": [
         "room"
       ],
       "components": {
         "transform": {
-          "x": 3,
-          "y": 1.5,
+          "x": 4,
+          "y": 2.5,
           "h": 3,
           "facing": 2
         },
         "roomCamera": {
-          "zoom": 2,
+          "zoom": 1.75,
           "on": true
         },
         "script_Room": {
           "room": "r302",
-          "name": "Doorstop",
-          "no": 19,
-          "hint": "A gate never shuts on what stands in its doorway.",
+          "name": "Weight",
+          "no": 14,
+          "hint": "A gate stays open while something rests on its plate.",
           "chapter": "The Tool Yard",
           "chapterNo": 3,
           "chapterLine": "Crates, trellis screens, iron gates on stone plates. Everything here can be leaned on, and some of it throws a useful shadow.",
           "chapters": 5,
-          "total": 41,
-          "flyTotal": 21,
-          "width": 6,
-          "ground": "____._......_.._.."
+          "total": 30,
+          "flyTotal": 18,
+          "par": 6,
+          "difficulty": 23,
+          "width": 8,
+          "ground": "#########....####......###..############"
         }
       }
     },
     {
-      "id": "e8",
+      "id": "e7",
       "name": "Lamp mark",
       "tags": [
         "cursor"
       ],
       "components": {
         "transform": {
-          "x": 0.5,
-          "y": 0.5,
-          "h": 0,
+          "x": 1.5,
+          "y": 1.5,
+          "h": 3,
           "facing": 2
         },
         "sprite": {
@@ -400,11 +372,11 @@
   "regions": [
     {
       "id": "r1",
-      "name": "Doorstop",
+      "name": "Weight",
       "x": 0,
       "y": 0,
-      "w": 6,
-      "h": 3,
+      "w": 8,
+      "h": 5,
       "cameraBounds": false,
       "music": "nightgarden",
       "darkness": 0.55,
@@ -419,7 +391,7 @@
         "output": "active"
       },
       "to": {
-        "entity": "e5",
+        "entity": "e4",
         "input": "open"
       }
     }

@@ -1,36 +1,57 @@
 {
   "schemaVersion": 1,
-  "name": "Warm hands",
+  "name": "Cellar lamp",
   "map": {
-    "width": 6,
-    "height": 2,
+    "width": 8,
+    "height": 5,
     "tiles": [
-      [1,1,1,1,0,0],
-      [0,0,1,1,1,1]
+      [2,2,2,2,2,2,2,2],
+      [2,1,1,3,3,2,2,2],
+      [2,2,2,3,3,1,1,2],
+      [2,2,2,3,3,2,2,2],
+      [2,2,2,2,2,2,2,2]
     ],
     "heights": [
-      [3,3,3,3,0,0],
-      [0,0,3,3,3,3]
+      [4,4,4,4,4,4,4,4],
+      [4,3,3,1,1,4,4,4],
+      [4,4,4,1,1,3,3,4],
+      [4,4,4,1,1,4,4,4],
+      [4,4,4,4,4,4,4,4]
     ],
     "slopes": [
-      [0,0,0,0,0,0],
-      [0,0,0,0,0,0]
+      [0,0,0,0,0,0,0,0],
+      [0,0,0,0,0,0,0,0],
+      [0,0,0,0,0,0,0,0],
+      [0,0,0,0,0,0,0,0],
+      [0,0,0,0,0,0,0,0]
     ],
     "flags": [
-      [0,0,0,0,0,0],
-      [0,0,0,0,0,0]
+      [2,2,2,2,2,2,2,2],
+      [2,0,0,0,0,2,2,2],
+      [2,2,2,0,0,0,0,2],
+      [2,2,2,0,0,2,2,2],
+      [2,2,2,2,2,2,2,2]
     ],
     "decks": [
-      [0,0,0,0,0,0],
-      [0,0,0,0,0,0]
+      [0,0,0,0,0,0,0,0],
+      [0,0,0,0,0,0,0,0],
+      [0,0,0,0,0,0,0,0],
+      [0,0,0,0,0,0,0,0],
+      [0,0,0,0,0,0,0,0]
     ],
     "deckTiles": [
-      [0,0,0,0,0,0],
-      [0,0,0,0,0,0]
+      [0,0,0,0,0,0,0,0],
+      [0,0,0,0,0,0,0,0],
+      [0,0,0,0,0,0,0,0],
+      [0,0,0,0,0,0,0,0],
+      [0,0,0,0,0,0,0,0]
     ],
     "oneWay": [
-      [0,0,0,0,0,0],
-      [0,0,0,0,0,0]
+      [0,0,0,0,0,0,0,0],
+      [0,0,0,0,0,0,0,0],
+      [0,0,0,0,0,0,0,0],
+      [0,0,0,0,0,0,0,0],
+      [0,0,0,0,0,0,0,0]
     ]
   },
   "entities": [
@@ -42,8 +63,8 @@
       ],
       "components": {
         "transform": {
-          "x": 0.5,
-          "y": 0.5,
+          "x": 1.5,
+          "y": 1.5,
           "h": 3,
           "facing": 2
         },
@@ -132,31 +153,31 @@
     },
     {
       "id": "e2",
-      "name": "Brazier 1",
+      "name": "Lamp 1",
       "tags": [
-        "crate",
-        "brazier"
+        "lamp",
+        "handlamp"
       ],
       "components": {
         "transform": {
-          "x": 1.5,
-          "y": 0.5,
-          "h": 3,
+          "x": 4.5,
+          "y": 1.5,
+          "h": 1,
           "facing": 2
         },
         "sprite": {
           "shape": "box",
           "color": 16777215,
-          "w": 0.9,
-          "d": 0.9,
+          "w": 0.4,
+          "d": 0.4,
           "height": 1.1,
           "sortOffset": 0,
           "visible": true,
-          "asset": "brazier"
+          "asset": "lamp_off"
         },
         "collider": {
-          "w": 0.9,
-          "d": 0.9,
+          "w": 0.5,
+          "d": 0.5,
           "height": 1,
           "solid": true,
           "trigger": false,
@@ -165,31 +186,33 @@
           "enabled": true,
           "inside": []
         },
-        "pushable": {
-          "slideSpeed": 6
-        },
         "light": {
-          "radius": 2.4,
+          "radius": 3.1999999999999997,
           "intensity": 1,
           "color": "warm",
           "shadows": true,
           "flicker": 0.1,
-          "mode": "always"
+          "mode": "whenOn"
+        },
+        "script_Lamp": {
+          "startLit": false,
+          "byHand": true,
+          "look": "lamp"
         }
       }
     },
     {
       "id": "e3",
-      "name": "Duskcap 1",
+      "name": "Moonbloom 1",
       "tags": [
         "bloom",
-        "duskcap"
+        "moonbloom"
       ],
       "components": {
         "transform": {
-          "x": 3.5,
-          "y": 1.5,
-          "h": 3,
+          "x": 4.5,
+          "y": 2.5,
+          "h": 1,
           "facing": 2
         },
         "sprite": {
@@ -200,7 +223,7 @@
           "height": 0.2,
           "sortOffset": 0,
           "visible": true,
-          "asset": "duskcap_0"
+          "asset": "moonbloom_0"
         },
         "collider": {
           "w": 0.9,
@@ -214,7 +237,7 @@
           "inside": []
         },
         "script_Bloom": {
-          "kind": "duskcap",
+          "kind": "moonbloom",
           "height": 2,
           "seconds": 0.5
         }
@@ -228,8 +251,8 @@
       ],
       "components": {
         "transform": {
-          "x": 5.5,
-          "y": 1.5,
+          "x": 6.5,
+          "y": 2.5,
           "h": 3,
           "facing": 2
         },
@@ -266,48 +289,94 @@
     },
     {
       "id": "e5",
+      "name": "Firefly",
+      "tags": [
+        "firefly"
+      ],
+      "components": {
+        "transform": {
+          "x": 3.5,
+          "y": 3.5,
+          "h": 1.9,
+          "facing": 2
+        },
+        "sprite": {
+          "shape": "box",
+          "color": 16777215,
+          "w": 0.3,
+          "d": 0.3,
+          "height": 0.3,
+          "sortOffset": 0,
+          "visible": true,
+          "asset": "firefly",
+          "noShadow": true
+        },
+        "animator": {
+          "asset": "firefly",
+          "clip": "fly",
+          "time": 0,
+          "speed": 1,
+          "playing": true,
+          "frame": 0,
+          "flip": false,
+          "pos": 0,
+          "done": false,
+          "controller": null,
+          "state": "",
+          "params": {}
+        },
+        "script_Firefly": {
+          "room": "r401",
+          "hover": 0.9
+        }
+      }
+    },
+    {
+      "id": "e6",
       "name": "Room",
       "tags": [
         "room"
       ],
       "components": {
         "transform": {
-          "x": 3,
-          "y": 1,
+          "x": 4,
+          "y": 2.5,
           "h": 3,
           "facing": 2
         },
         "roomCamera": {
-          "zoom": 2,
+          "zoom": 1.75,
           "on": true
         },
         "script_Room": {
           "room": "r401",
-          "name": "Warm hands",
-          "no": 26,
-          "hint": "A brazier lights the eight beds round it.",
+          "name": "Cellar lamp",
+          "no": 19,
+          "hint": "Down in a sunken bed you can only reach what is down there with you.",
           "chapter": "The Brazier Court",
           "chapterNo": 4,
           "chapterLine": "Here the light has wheels. A brazier warms the eight beds round it, wherever you leave it. Mind the sunken beds and the pond.",
           "chapters": 5,
-          "total": 41,
-          "flyTotal": 21,
-          "width": 6,
-          "ground": "....____...."
+          "total": 30,
+          "flyTotal": 18,
+          "par": 7,
+          "difficulty": 9,
+          "width": 8,
+          "ground": "#########..~~######~~..####~~###########"
         }
       }
     },
     {
-      "id": "e6",
+      "id": "e7",
       "name": "Lamp mark",
       "tags": [
         "cursor"
       ],
       "components": {
         "transform": {
-          "x": 0.5,
-          "y": 0.5,
-          "h": 0,
+          "x": 1.5,
+          "y": 1.5,
+          "h": 3,
           "facing": 2
         },
         "sprite": {
@@ -327,11 +396,11 @@
   "regions": [
     {
       "id": "r1",
-      "name": "Warm hands",
+      "name": "Cellar lamp",
       "x": 0,
       "y": 0,
-      "w": 6,
-      "h": 2,
+      "w": 8,
+      "h": 5,
       "cameraBounds": false,
       "music": "nightgarden",
       "darkness": 0.55,

@@ -1,36 +1,57 @@
 {
   "schemaVersion": 1,
-  "name": "Up",
+  "name": "Garden step",
   "map": {
-    "width": 6,
-    "height": 2,
+    "width": 7,
+    "height": 5,
     "tiles": [
-      [0,0,0,1,4,4],
-      [1,1,1,1,4,4]
+      [2,2,2,2,2,2,2],
+      [2,1,1,1,4,4,2],
+      [2,1,1,1,4,4,2],
+      [2,1,1,1,4,4,2],
+      [2,2,2,2,2,2,2]
     ],
     "heights": [
-      [0,0,0,3,5,5],
-      [3,3,3,3,5,5]
+      [4,4,4,4,4,4,4],
+      [4,3,3,3,5,5,4],
+      [4,3,3,3,5,5,4],
+      [4,3,3,3,5,5,4],
+      [4,4,4,4,4,4,4]
     ],
     "slopes": [
-      [0,0,0,0,0,0],
-      [0,0,0,0,0,0]
+      [0,0,0,0,0,0,0],
+      [0,0,0,0,0,0,0],
+      [0,0,0,0,0,0,0],
+      [0,0,0,0,0,0,0],
+      [0,0,0,0,0,0,0]
     ],
     "flags": [
-      [0,0,0,0,0,0],
-      [0,0,0,0,0,0]
+      [2,2,2,2,2,2,2],
+      [2,0,0,0,0,0,2],
+      [2,0,0,0,0,0,2],
+      [2,0,0,0,0,0,2],
+      [2,2,2,2,2,2,2]
     ],
     "decks": [
-      [0,0,0,0,0,0],
-      [0,0,0,0,0,0]
+      [0,0,0,0,0,0,0],
+      [0,0,0,0,0,0,0],
+      [0,0,0,0,0,0,0],
+      [0,0,0,0,0,0,0],
+      [0,0,0,0,0,0,0]
     ],
     "deckTiles": [
-      [0,0,0,0,0,0],
-      [0,0,0,0,0,0]
+      [0,0,0,0,0,0,0],
+      [0,0,0,0,0,0,0],
+      [0,0,0,0,0,0,0],
+      [0,0,0,0,0,0,0],
+      [0,0,0,0,0,0,0]
     ],
     "oneWay": [
-      [0,0,0,0,0,0],
-      [0,0,0,0,0,0]
+      [0,0,0,0,0,0,0],
+      [0,0,0,0,0,0,0],
+      [0,0,0,0,0,0,0],
+      [0,0,0,0,0,0,0],
+      [0,0,0,0,0,0,0]
     ]
   },
   "entities": [
@@ -44,7 +65,7 @@
       "components": {
         "transform": {
           "x": 3.5,
-          "y": 0.5,
+          "y": 1.5,
           "h": 3,
           "facing": 2
         },
@@ -86,58 +107,14 @@
     },
     {
       "id": "e2",
-      "name": "Way out",
-      "tags": [
-        "wayout"
-      ],
-      "components": {
-        "transform": {
-          "x": 5.5,
-          "y": 0.5,
-          "h": 5,
-          "facing": 2
-        },
-        "sprite": {
-          "shape": "box",
-          "color": 16777215,
-          "w": 0.9,
-          "d": 0.9,
-          "height": 0.05,
-          "sortOffset": -0.5,
-          "visible": true,
-          "asset": "exit",
-          "noShadow": true
-        },
-        "animator": {
-          "asset": "exit",
-          "clip": "glow",
-          "time": 0,
-          "speed": 1,
-          "playing": true,
-          "frame": 0,
-          "flip": false,
-          "pos": 0,
-          "done": false,
-          "controller": null,
-          "state": "",
-          "params": {}
-        },
-        "script_Exit": {
-          "room": "r102",
-          "next": "scenes/r103.scene.json"
-        }
-      }
-    },
-    {
-      "id": "e3",
       "name": "Gardener",
       "tags": [
         "player"
       ],
       "components": {
         "transform": {
-          "x": 0.5,
-          "y": 1.5,
+          "x": 1.5,
+          "y": 2.5,
           "h": 3,
           "facing": 2
         },
@@ -225,7 +202,7 @@
       }
     },
     {
-      "id": "e4",
+      "id": "e3",
       "name": "Moonbloom 1",
       "tags": [
         "bloom",
@@ -234,7 +211,7 @@
       "components": {
         "transform": {
           "x": 3.5,
-          "y": 1.5,
+          "y": 2.5,
           "h": 3,
           "facing": 2
         },
@@ -267,6 +244,50 @@
       }
     },
     {
+      "id": "e4",
+      "name": "Way out",
+      "tags": [
+        "wayout"
+      ],
+      "components": {
+        "transform": {
+          "x": 5.5,
+          "y": 2.5,
+          "h": 5,
+          "facing": 2
+        },
+        "sprite": {
+          "shape": "box",
+          "color": 16777215,
+          "w": 0.9,
+          "d": 0.9,
+          "height": 0.05,
+          "sortOffset": -0.5,
+          "visible": true,
+          "asset": "exit",
+          "noShadow": true
+        },
+        "animator": {
+          "asset": "exit",
+          "clip": "glow",
+          "time": 0,
+          "speed": 1,
+          "playing": true,
+          "frame": 0,
+          "flip": false,
+          "pos": 0,
+          "done": false,
+          "controller": null,
+          "state": "",
+          "params": {}
+        },
+        "script_Exit": {
+          "room": "r102",
+          "next": "scenes/r103.scene.json"
+        }
+      }
+    },
+    {
       "id": "e5",
       "name": "Room",
       "tags": [
@@ -274,8 +295,8 @@
       ],
       "components": {
         "transform": {
-          "x": 3,
-          "y": 1,
+          "x": 3.5,
+          "y": 2.5,
           "h": 3,
           "facing": 2
         },
@@ -285,17 +306,19 @@
         },
         "script_Room": {
           "room": "r102",
-          "name": "Up",
+          "name": "Garden step",
           "no": 2,
           "hint": "Whoever stands on a bed rides it.",
           "chapter": "The Potting Shed",
           "chapterNo": 1,
           "chapterLine": "The lamps are out and the moonblooms have gone to ground. Light makes them rise. Start with one.",
           "chapters": 5,
-          "total": 41,
-          "flyTotal": 21,
-          "width": 6,
-          "ground": "___.^^....^^"
+          "total": 30,
+          "flyTotal": 18,
+          "par": 5,
+          "difficulty": 1,
+          "width": 7,
+          "ground": "########...^^##...^^##...^^########"
         }
       }
     },
@@ -307,9 +330,9 @@
       ],
       "components": {
         "transform": {
-          "x": 0.5,
-          "y": 0.5,
-          "h": 0,
+          "x": 1.5,
+          "y": 2.5,
+          "h": 3,
           "facing": 2
         },
         "sprite": {
@@ -329,11 +352,11 @@
   "regions": [
     {
       "id": "r1",
-      "name": "Up",
+      "name": "Garden step",
       "x": 0,
       "y": 0,
-      "w": 6,
-      "h": 2,
+      "w": 7,
+      "h": 5,
       "cameraBounds": false,
       "music": "nightgarden",
       "darkness": 0.55,

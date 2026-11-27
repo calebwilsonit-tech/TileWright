@@ -5,8 +5,11 @@ import { currentFlags, stringifyScene, stringifyUiDoc, type ProjectData } from '
 import { baseProject } from '@tilewright/behaviors';
 import { projectText } from '../../../packages/editor/src/renderer/project/io';
 import { nightgardenAudio } from './audio';
+import { analyzeProgression } from './difficulty';
+import { hubScene } from './hub';
 import { parseRoom, type Room, type RoomDef } from './model';
 import { roomScene, scenePath } from './scene';
+import { Rules, solve } from './solver';
 import { roomsTable, screensDoc, uiLayout } from './ui/screens';
 
 export const HERE = path.dirname(fileURLToPath(import.meta.url));
@@ -69,7 +72,7 @@ export function buildProject(chapters: Chapter[], dir = PROJECT_DIR): { rooms: R
     ...baseProject('Nightgarden', PLUGINS),
     engine: ENGINE_VERSION,
     tileset: art.tiles,
-    scenes: rooms.map(({ room }) => scenePath(room.id)),
+    scenes: [...rooms.map(({ room }) => scenePath(room.id)), 'scenes/hub.scene.json'],
     startScene: scenePath(rooms[0]!.room.id),
     title: { enabled: true, subtitle: 'A puzzle garden by lamplight' },
     compat: currentFlags(),
@@ -77,16 +80,49 @@ export function buildProject(chapters: Chapter[], dir = PROJECT_DIR): { rooms: R
   write('project.json', projectText(project));
   write('.gitignore', '.tilewright/\nsaves/\nlogs/\n');
   const flyTotal = rooms.filter(({ room }) => room.things.some((t) => t.kind === 'firefly')).length;
+  // Compute exact Par steps and 0..100 difficulty scores for every room from the solver.
+  const solvedEntries = rooms.map(({ room }) => {
+    const r = new Rules(room);
+    const main = solve(r);
+    return {
+      room,
+      report: {
+        id: room.id,
+        name: room.name,
+        ok: Boolean(main),
+        steps: main?.actions.length ?? 0,
+        toggles: main?.actions.filter((a) => a.kind === 'toggle').length ?? 0,
+        pushes: main?.actions.filter((a) => a.kind === 'push').length ?? 0,
+        states: main?.states ?? 0,
+        fireflySteps: 0,
+        seconds: 0,
+        problems: [],
+      },
+    };
+  });
+  const { byId: diffById } = analyzeProgression(solvedEntries);
   rooms.forEach(({ room, chapter }, i) => {
     const next = rooms[i + 1]?.room;
-    const opts = { next: next ? scenePath(next.id) : '', index: i + 1, chapter: chapter.name, chapterNo: chapters.indexOf(chapter) + 1, chapterLine: chapter.line, chapters: chapters.length, total: rooms.length, flyTotal };
+    const d = diffById.get(room.id)!;
+    const opts = { next: next ? scenePath(next.id) : '', index: i + 1, chapter: chapter.name, chapterNo: chapters.indexOf(chapter) + 1, chapterLine: chapter.line, chapters: chapters.length, total: rooms.length, flyTotal, par: d.par, difficulty: d.score };
     write(scenePath(room.id), stringifyScene(roomScene(room, opts)));
   });
+  write('scenes/hub.scene.json', stringifyScene(hubScene({ total: rooms.length, flyTotal, chapters: chapters.length })));
   // the interface: its theme, its screens, the table the Rooms screen shows, and the game's own button (R)
   const json = (v: unknown): string => JSON.stringify(v, null, 2) + '\n';
   write('assets/ui.json', json(uiLayout()));
   write('assets/screens.json', stringifyUiDoc(screensDoc()));
-  write('assets/tables/Rooms.table.json', json(roomsTable(rooms.map(({ room, chapter }, i) => ({ id: room.id, no: i + 1, name: room.name, chapter: chapter.name, scene: scenePath(room.id) })))));
+  write(
+    'assets/tables/Rooms.table.json',
+    json(
+      roomsTable(
+        rooms.map(({ room, chapter }, i) => {
+          const d = diffById.get(room.id)!;
+          return { id: room.id, no: i + 1, name: room.name, chapter: chapter.name, scene: scenePath(room.id), par: d.par, difficulty: d.score };
+        }),
+      ),
+    ),
+  );
   write('assets/input.json', json({ schemaVersion: 1, overrides: {}, actions: [{ id: 'restart', label: 'Start the room again', bindings: ['key:KeyR', 'pad:button2'] }] }));
   // the pictures, exactly as the sprite studio and the tile studio saved them
   for (const [f, text] of art.sprites) write(`assets/sprites/${f}`, text);

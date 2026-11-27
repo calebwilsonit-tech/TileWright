@@ -1,24 +1,45 @@
-import { it } from 'vitest';
-import { parseRoom } from '../src/model';
+import { test } from 'vitest';
 import { CHAPTERS } from '../src/rooms';
-import { Rules, describe, solve } from '../src/solver';
+import { parseRoom } from '../src/model';
+import { describe, Rules, solve } from '../src/solver';
+import { analyzeProgression } from '../src/difficulty';
+import type { RoomReport } from '../src/verify';
 
-/** A quick look at every room by the rules alone (no game): is it solvable, and how long is the way? */
-it('rooms by the rules', () => {
-  const only = process.env.NG_ROOM;
+/** Quick check while designing rooms: solves every room in a fraction of a second and scores difficulty 0..100. */
+test('every room of every chapter solves and scales cleanly', () => {
+  const entries: { room: ReturnType<typeof parseRoom>; report: RoomReport; main: ReturnType<typeof solve>; fly: ReturnType<typeof solve> }[] = [];
   for (const c of CHAPTERS) {
     for (const def of c.rooms) {
-      if (only && !def.id.startsWith(only)) continue;
-      let line: string;
-      try {
-        const rules = new Rules(parseRoom(def));
-        const out = solve(rules);
-        const fly = rules.firefly ? solve(rules, { firefly: true }) : null;
-        line = out ? `${out.actions.length} steps, ${out.actions.filter((a) => a.kind === 'toggle').length} lamps, ${out.actions.filter((a) => a.kind === 'push').length} pushes, ${out.states} states${rules.firefly ? `, firefly ${fly ? fly.actions.length : 'IMPOSSIBLE'}` : ''}\n      ${describe(out.actions)}${fly ? `\n      fly: ${describe(fly.actions)}` : ''}` : 'NO WAY OUT';
-      } catch (e) {
-        line = `ERROR ${(e as Error).message}`;
-      }
-      process.stdout.write(`${def.id} ${def.name}: ${line}\n`);
+      const room = parseRoom(def);
+      const r = new Rules(room);
+      const main = solve(r);
+      const fly = r.firefly ? solve(r, { firefly: true }) : null;
+      const report: RoomReport = {
+        id: room.id,
+        name: room.name,
+        ok: Boolean(main),
+        steps: main?.actions.length ?? 0,
+        toggles: main?.actions.filter((a) => a.kind === 'toggle').length ?? 0,
+        pushes: main?.actions.filter((a) => a.kind === 'push').length ?? 0,
+        states: main?.states ?? 0,
+        fireflySteps: fly?.actions.length ?? 0,
+        seconds: 0,
+        problems: main ? [] : ['NO WAY OUT'],
+      };
+      entries.push({ room, report, main, fly });
     }
   }
+  const { byId, curveIssues } = analyzeProgression(entries);
+  for (const { room, report, main, fly } of entries) {
+    const d = byId.get(room.id)!;
+    if (!main) {
+      console.log(`${room.id} ${room.name}: NO WAY OUT`);
+      continue;
+    }
+    console.log(
+      `${room.id} [${String(d.score).padStart(3)}/100 ${d.band.padEnd(10)}] ${room.name}: ${report.steps} steps, ${report.toggles} lamps, ${report.pushes} pushes, ${report.states} states${fly ? `, firefly ${fly.actions.length}` : ''}${d.issues.length ? `  ISSUES: ${d.issues.join('; ')}` : ''}`,
+    );
+    console.log(`      ${describe(main.actions)}`);
+  }
+  if (curveIssues.length) console.log('CURVE ISSUES:\n  ' + curveIssues.join('\n  '));
 });

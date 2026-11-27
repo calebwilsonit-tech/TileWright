@@ -57,6 +57,8 @@ export default defineScript({
     chapters: { value: 1, label: 'Chapters in the game', min: 1 },
     total: { value: 1, label: 'Rooms in the game', min: 1 },
     flyTotal: { value: 0, label: 'Fireflies in the game', min: 0 },
+    par: { value: 0, label: 'Par steps for Gold Leaf', min: 0 },
+    difficulty: { value: 0, label: 'Difficulty (0-100)', min: 0, max: 100 },
     width: { value: 1, label: 'Cells across', min: 1 },
     ground: { value: '', label: 'The ground, one character a cell (# hedge, . path, ~ sunken bed, ^ terrace, w pond, _ nothing)' },
   },
@@ -73,12 +75,16 @@ export default defineScript({
     v.ng_chapters = Number(s.chapters);
     v.ng_total = Number(s.total);
     v.ng_fly_total = Number(s.flyTotal);
+    v.ng_par = Number(s.par);
+    v.ng_difficulty = Number(s.difficulty);
+    v.ng_steps = 0;
     if (v.ng_done === undefined) v.ng_done = 0;
     if (v.ng_flies === undefined) v.ng_flies = 0;
+    if (v.ng_pars === undefined) v.ng_pars = 0;
     // every room up to the one being played can be gone back to
-    v.ng_reach = Math.max(Number(v.ng_reach ?? 1), Number(s.no));
+    if (Number(s.no) > 0) v.ng_reach = Math.max(Number(v.ng_reach ?? 1), Number(s.no));
     const seen = `seen_chapter_${s.chapterNo}`;
-    if (!v[seen]) {
+    if (Number(s.chapterNo) > 0 && !v[seen]) {
       v[seen] = 1;
       game.do('uiScreen', { op: 'open', screen: 'Chapter' });
     }

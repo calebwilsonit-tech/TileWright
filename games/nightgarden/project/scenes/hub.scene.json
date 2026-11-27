@@ -1,65 +1,86 @@
 {
   "schemaVersion": 1,
-  "name": "The far corner",
+  "name": "The Conservatory",
   "map": {
-    "width": 6,
-    "height": 4,
+    "width": 11,
+    "height": 7,
     "tiles": [
-      [1,1,1,1,1,1],
-      [1,1,1,1,1,1],
-      [1,1,1,1,1,1],
-      [1,1,1,1,1,1]
+      [2,2,2,2,2,2,2,2,2,2,2],
+      [2,4,4,1,1,1,1,1,4,4,2],
+      [2,4,1,1,1,5,1,1,1,4,2],
+      [2,1,1,1,5,5,5,1,1,1,2],
+      [2,1,1,1,1,5,1,1,1,1,2],
+      [2,2,1,1,1,1,1,1,1,2,2],
+      [2,2,2,2,2,2,2,2,2,2,2]
     ],
     "heights": [
-      [3,3,3,3,3,3],
-      [3,3,3,3,3,3],
-      [3,3,3,3,3,3],
-      [3,3,3,3,3,3]
+      [4,4,4,4,4,4,4,4,4,4,4],
+      [4,5,5,3,3,3,3,3,5,5,4],
+      [4,5,3,3,3,3,3,3,3,5,4],
+      [4,3,3,3,3,3,3,3,3,3,4],
+      [4,3,3,3,3,3,3,3,3,3,4],
+      [4,4,3,3,3,3,3,3,3,4,4],
+      [4,4,4,4,4,4,4,4,4,4,4]
     ],
     "slopes": [
-      [0,0,0,0,0,0],
-      [0,0,0,0,0,0],
-      [0,0,0,0,0,0],
-      [0,0,0,0,0,0]
+      [0,0,0,0,0,0,0,0,0,0,0],
+      [0,0,0,0,0,0,0,0,0,0,0],
+      [0,0,0,0,0,0,0,0,0,0,0],
+      [0,0,0,0,0,0,0,0,0,0,0],
+      [0,0,0,0,0,0,0,0,0,0,0],
+      [0,0,0,0,0,0,0,0,0,0,0],
+      [0,0,0,0,0,0,0,0,0,0,0]
     ],
     "flags": [
-      [0,0,0,0,0,0],
-      [0,0,0,0,0,0],
-      [0,0,0,0,0,0],
-      [0,0,0,0,0,0]
+      [2,2,2,2,2,2,2,2,2,2,2],
+      [2,0,0,0,0,0,0,0,0,0,2],
+      [2,0,0,0,0,8,0,0,0,0,2],
+      [2,0,0,0,8,8,8,0,0,0,2],
+      [2,0,0,0,0,8,0,0,0,0,2],
+      [2,2,0,0,0,0,0,0,0,2,2],
+      [2,2,2,2,2,2,2,2,2,2,2]
     ],
     "decks": [
-      [0,0,0,0,0,0],
-      [0,0,0,0,0,0],
-      [0,0,0,0,0,0],
-      [0,0,0,0,0,0]
+      [0,0,0,0,0,0,0,0,0,0,0],
+      [0,0,0,0,0,0,0,0,0,0,0],
+      [0,0,0,0,0,0,0,0,0,0,0],
+      [0,0,0,0,0,0,0,0,0,0,0],
+      [0,0,0,0,0,0,0,0,0,0,0],
+      [0,0,0,0,0,0,0,0,0,0,0],
+      [0,0,0,0,0,0,0,0,0,0,0]
     ],
     "deckTiles": [
-      [0,0,0,0,0,0],
-      [0,0,0,0,0,0],
-      [0,0,0,0,0,0],
-      [0,0,0,0,0,0]
+      [0,0,0,0,0,0,0,0,0,0,0],
+      [0,0,0,0,0,0,0,0,0,0,0],
+      [0,0,0,0,0,0,0,0,0,0,0],
+      [0,0,0,0,0,0,0,0,0,0,0],
+      [0,0,0,0,0,0,0,0,0,0,0],
+      [0,0,0,0,0,0,0,0,0,0,0],
+      [0,0,0,0,0,0,0,0,0,0,0]
     ],
     "oneWay": [
-      [0,0,0,0,0,0],
-      [0,0,0,0,0,0],
-      [0,0,0,0,0,0],
-      [0,0,0,0,0,0]
+      [0,0,0,0,0,0,0,0,0,0,0],
+      [0,0,0,0,0,0,0,0,0,0,0],
+      [0,0,0,0,0,0,0,0,0,0,0],
+      [0,0,0,0,0,0,0,0,0,0,0],
+      [0,0,0,0,0,0,0,0,0,0,0],
+      [0,0,0,0,0,0,0,0,0,0,0],
+      [0,0,0,0,0,0,0,0,0,0,0]
     ]
   },
   "entities": [
     {
-      "id": "e1",
+      "id": "h1",
       "name": "Gardener",
       "tags": [
         "player"
       ],
       "components": {
         "transform": {
-          "x": 0.5,
-          "y": 0.5,
+          "x": 5.5,
+          "y": 5.5,
           "h": 3,
-          "facing": 2
+          "facing": 7
         },
         "sprite": {
           "shape": "box",
@@ -145,143 +166,15 @@
       }
     },
     {
-      "id": "e2",
-      "name": "Moonbloom 1",
-      "tags": [
-        "bloom",
-        "moonbloom"
-      ],
-      "components": {
-        "transform": {
-          "x": 2.5,
-          "y": 0.5,
-          "h": 3,
-          "facing": 2
-        },
-        "sprite": {
-          "shape": "box",
-          "color": 16777215,
-          "w": 0.9,
-          "d": 0.9,
-          "height": 0.2,
-          "sortOffset": 0,
-          "visible": true,
-          "asset": "moonbloom_0"
-        },
-        "collider": {
-          "w": 0.9,
-          "d": 0.9,
-          "height": 0.2,
-          "solid": true,
-          "trigger": false,
-          "layer": 16,
-          "mask": 65535,
-          "enabled": true,
-          "inside": []
-        },
-        "script_Bloom": {
-          "kind": "moonbloom",
-          "height": 2,
-          "seconds": 0.5
-        }
-      }
-    },
-    {
-      "id": "e3",
-      "name": "Firefly",
-      "tags": [
-        "firefly"
-      ],
-      "components": {
-        "transform": {
-          "x": 5.5,
-          "y": 0.5,
-          "h": 3.9,
-          "facing": 2
-        },
-        "sprite": {
-          "shape": "box",
-          "color": 16777215,
-          "w": 0.3,
-          "d": 0.3,
-          "height": 0.3,
-          "sortOffset": 0,
-          "visible": true,
-          "asset": "firefly",
-          "noShadow": true
-        },
-        "animator": {
-          "asset": "firefly",
-          "clip": "fly",
-          "time": 0,
-          "speed": 1,
-          "playing": true,
-          "frame": 0,
-          "flip": false,
-          "pos": 0,
-          "done": false,
-          "controller": null,
-          "state": "",
-          "params": {}
-        },
-        "script_Firefly": {
-          "room": "r108",
-          "hover": 0.9
-        }
-      }
-    },
-    {
-      "id": "e4",
-      "name": "Moonbloom 2",
-      "tags": [
-        "bloom",
-        "moonbloom"
-      ],
-      "components": {
-        "transform": {
-          "x": 2.5,
-          "y": 1.5,
-          "h": 3,
-          "facing": 2
-        },
-        "sprite": {
-          "shape": "box",
-          "color": 16777215,
-          "w": 0.9,
-          "d": 0.9,
-          "height": 0.2,
-          "sortOffset": 0,
-          "visible": true,
-          "asset": "moonbloom_0"
-        },
-        "collider": {
-          "w": 0.9,
-          "d": 0.9,
-          "height": 0.2,
-          "solid": true,
-          "trigger": false,
-          "layer": 16,
-          "mask": 65535,
-          "enabled": true,
-          "inside": []
-        },
-        "script_Bloom": {
-          "kind": "moonbloom",
-          "height": 2,
-          "seconds": 0.5
-        }
-      }
-    },
-    {
-      "id": "e5",
-      "name": "Glow lamp 1",
+      "id": "h2",
+      "name": "Conservatory Lamp West",
       "tags": [
         "lamp",
-        "glow"
+        "handlamp"
       ],
       "components": {
         "transform": {
-          "x": 4.5,
+          "x": 3.5,
           "y": 1.5,
           "h": 3,
           "facing": 2
@@ -294,7 +187,7 @@
           "height": 1.1,
           "sortOffset": 0,
           "visible": true,
-          "asset": "glowlamp"
+          "asset": "lamp_on"
         },
         "collider": {
           "w": 0.5,
@@ -308,25 +201,159 @@
           "inside": []
         },
         "light": {
-          "radius": 3.1999999999999997,
+          "radius": 3.6999999999999997,
           "intensity": 1,
           "color": "warm",
           "shadows": true,
-          "flicker": 0.1,
+          "flicker": 0.08,
           "mode": "always"
+        },
+        "script_Lamp": {
+          "startLit": true,
+          "byHand": true,
+          "look": "lamp"
         }
       }
     },
     {
-      "id": "e6",
-      "name": "Moonbloom 3",
+      "id": "h3",
+      "name": "Conservatory Lamp East",
       "tags": [
-        "bloom",
-        "moonbloom"
+        "lamp",
+        "handlamp"
       ],
       "components": {
         "transform": {
-          "x": 5.5,
+          "x": 7.5,
+          "y": 1.5,
+          "h": 3,
+          "facing": 2
+        },
+        "sprite": {
+          "shape": "box",
+          "color": 16777215,
+          "w": 0.4,
+          "d": 0.4,
+          "height": 1.1,
+          "sortOffset": 0,
+          "visible": true,
+          "asset": "lamp_on"
+        },
+        "collider": {
+          "w": 0.5,
+          "d": 0.5,
+          "height": 1,
+          "solid": true,
+          "trigger": false,
+          "layer": 16,
+          "mask": 65535,
+          "enabled": true,
+          "inside": []
+        },
+        "light": {
+          "radius": 3.6999999999999997,
+          "intensity": 1,
+          "color": "warm",
+          "shadows": true,
+          "flicker": 0.08,
+          "mode": "always"
+        },
+        "script_Lamp": {
+          "startLit": true,
+          "byHand": true,
+          "look": "lamp"
+        }
+      }
+    },
+    {
+      "id": "h4",
+      "name": "Planter 1",
+      "tags": [
+        "planter"
+      ],
+      "components": {
+        "transform": {
+          "x": 2.5,
+          "y": 3.5,
+          "h": 3,
+          "facing": 2
+        },
+        "sprite": {
+          "shape": "box",
+          "color": 16777215,
+          "w": 0.9,
+          "d": 0.9,
+          "height": 1.2,
+          "sortOffset": 0,
+          "visible": true,
+          "asset": "moonbloom_3"
+        },
+        "collider": {
+          "w": 0.8,
+          "d": 0.8,
+          "height": 1,
+          "solid": true,
+          "trigger": false,
+          "layer": 16,
+          "mask": 65535,
+          "enabled": true,
+          "inside": []
+        },
+        "script_Planter": {
+          "slot": 1,
+          "initial": "moonbloom"
+        }
+      }
+    },
+    {
+      "id": "h5",
+      "name": "Planter 2",
+      "tags": [
+        "planter"
+      ],
+      "components": {
+        "transform": {
+          "x": 2.5,
+          "y": 4.5,
+          "h": 3,
+          "facing": 2
+        },
+        "sprite": {
+          "shape": "box",
+          "color": 16777215,
+          "w": 0.9,
+          "d": 0.9,
+          "height": 1.2,
+          "sortOffset": 0,
+          "visible": true,
+          "asset": "moonbloom_3"
+        },
+        "collider": {
+          "w": 0.8,
+          "d": 0.8,
+          "height": 1,
+          "solid": true,
+          "trigger": false,
+          "layer": 16,
+          "mask": 65535,
+          "enabled": true,
+          "inside": []
+        },
+        "script_Planter": {
+          "slot": 2,
+          "initial": "moonbloom"
+        }
+      }
+    },
+    {
+      "id": "h6",
+      "name": "Planter 3",
+      "tags": [
+        "planter"
+      ],
+      "components": {
+        "transform": {
+          "x": 4.5,
           "y": 1.5,
           "h": 3,
           "facing": 2
@@ -336,15 +363,15 @@
           "color": 16777215,
           "w": 0.9,
           "d": 0.9,
-          "height": 0.2,
+          "height": 1.2,
           "sortOffset": 0,
           "visible": true,
-          "asset": "moonbloom_0"
+          "asset": "moonbloom_3"
         },
         "collider": {
-          "w": 0.9,
-          "d": 0.9,
-          "height": 0.2,
+          "w": 0.8,
+          "d": 0.8,
+          "height": 1,
           "solid": true,
           "trigger": false,
           "layer": 16,
@@ -352,24 +379,22 @@
           "enabled": true,
           "inside": []
         },
-        "script_Bloom": {
-          "kind": "moonbloom",
-          "height": 2,
-          "seconds": 0.5
+        "script_Planter": {
+          "slot": 3,
+          "initial": "moonbloom"
         }
       }
     },
     {
-      "id": "e7",
-      "name": "Moonbloom 4",
+      "id": "h7",
+      "name": "Planter 4",
       "tags": [
-        "bloom",
-        "moonbloom"
+        "planter"
       ],
       "components": {
         "transform": {
-          "x": 2.5,
-          "y": 2.5,
+          "x": 6.5,
+          "y": 1.5,
           "h": 3,
           "facing": 2
         },
@@ -378,15 +403,15 @@
           "color": 16777215,
           "w": 0.9,
           "d": 0.9,
-          "height": 0.2,
+          "height": 1.2,
           "sortOffset": 0,
           "visible": true,
-          "asset": "moonbloom_0"
+          "asset": "moonbloom_3"
         },
         "collider": {
-          "w": 0.9,
-          "d": 0.9,
-          "height": 0.2,
+          "w": 0.8,
+          "d": 0.8,
+          "height": 1,
           "solid": true,
           "trigger": false,
           "layer": 16,
@@ -394,23 +419,21 @@
           "enabled": true,
           "inside": []
         },
-        "script_Bloom": {
-          "kind": "moonbloom",
-          "height": 2,
-          "seconds": 0.5
+        "script_Planter": {
+          "slot": 4,
+          "initial": "moonbloom"
         }
       }
     },
     {
-      "id": "e8",
-      "name": "Moonbloom 5",
+      "id": "h8",
+      "name": "Planter 5",
       "tags": [
-        "bloom",
-        "moonbloom"
+        "planter"
       ],
       "components": {
         "transform": {
-          "x": 2.5,
+          "x": 8.5,
           "y": 3.5,
           "h": 3,
           "facing": 2
@@ -420,15 +443,15 @@
           "color": 16777215,
           "w": 0.9,
           "d": 0.9,
-          "height": 0.2,
+          "height": 1.2,
           "sortOffset": 0,
           "visible": true,
-          "asset": "moonbloom_0"
+          "asset": "moonbloom_3"
         },
         "collider": {
-          "w": 0.9,
-          "d": 0.9,
-          "height": 0.2,
+          "w": 0.8,
+          "d": 0.8,
+          "height": 1,
           "solid": true,
           "trigger": false,
           "layer": 16,
@@ -436,18 +459,57 @@
           "enabled": true,
           "inside": []
         },
-        "script_Bloom": {
-          "kind": "moonbloom",
-          "height": 2,
-          "seconds": 0.5
+        "script_Planter": {
+          "slot": 5,
+          "initial": "moonbloom"
         }
       }
     },
     {
-      "id": "e9",
-      "name": "Way out",
+      "id": "h9",
+      "name": "Planter 6",
       "tags": [
-        "wayout"
+        "planter"
+      ],
+      "components": {
+        "transform": {
+          "x": 8.5,
+          "y": 4.5,
+          "h": 3,
+          "facing": 2
+        },
+        "sprite": {
+          "shape": "box",
+          "color": 16777215,
+          "w": 0.9,
+          "d": 0.9,
+          "height": 1.2,
+          "sortOffset": 0,
+          "visible": true,
+          "asset": "moonbloom_3"
+        },
+        "collider": {
+          "w": 0.8,
+          "d": 0.8,
+          "height": 1,
+          "solid": true,
+          "trigger": false,
+          "layer": 16,
+          "mask": 65535,
+          "enabled": true,
+          "inside": []
+        },
+        "script_Planter": {
+          "slot": 6,
+          "initial": "moonbloom"
+        }
+      }
+    },
+    {
+      "id": "h10",
+      "name": "Room",
+      "tags": [
+        "room"
       ],
       "components": {
         "transform": {
@@ -456,81 +518,39 @@
           "h": 3,
           "facing": 2
         },
-        "sprite": {
-          "shape": "box",
-          "color": 16777215,
-          "w": 0.9,
-          "d": 0.9,
-          "height": 0.05,
-          "sortOffset": -0.5,
-          "visible": true,
-          "asset": "exit",
-          "noShadow": true
-        },
-        "animator": {
-          "asset": "exit",
-          "clip": "glow",
-          "time": 0,
-          "speed": 1,
-          "playing": true,
-          "frame": 0,
-          "flip": false,
-          "pos": 0,
-          "done": false,
-          "controller": null,
-          "state": "",
-          "params": {}
-        },
-        "script_Exit": {
-          "room": "r108",
-          "next": "scenes/r109.scene.json"
-        }
-      }
-    },
-    {
-      "id": "e10",
-      "name": "Room",
-      "tags": [
-        "room"
-      ],
-      "components": {
-        "transform": {
-          "x": 3,
-          "y": 2,
-          "h": 3,
-          "facing": 2
-        },
         "roomCamera": {
-          "zoom": 2,
+          "zoom": 1.5,
           "on": true
         },
         "script_Room": {
-          "room": "r108",
-          "name": "The far corner",
-          "no": 8,
-          "hint": "A pale lamp never goes out. Its far corners stay dark.",
-          "chapter": "The Potting Shed",
-          "chapterNo": 1,
-          "chapterLine": "The lamps are out and the moonblooms have gone to ground. Light makes them rise. Start with one.",
+          "room": "hub",
+          "name": "The Conservatory",
+          "no": 0,
+          "hint": "Press E beside any planter to arrange your unlocked flora. Esc opens Rooms and the Herbarium.",
+          "chapter": "The Travers Conservatory",
+          "chapterNo": 0,
+          "chapterLine": "",
           "chapters": 5,
-          "total": 41,
-          "flyTotal": 21,
-          "width": 6,
-          "ground": "........................"
+          "total": 30,
+          "flyTotal": 18,
+          "par": 0,
+          "difficulty": 0,
+          "width": 11,
+          "ground": "############^^.....^^##^...w...^##...www...##....w....###.......#############"
         }
       }
     },
     {
-      "id": "e11",
+      "id": "h11",
       "name": "Lamp mark",
       "tags": [
         "cursor"
       ],
       "components": {
         "transform": {
-          "x": 0.5,
-          "y": 0.5,
-          "h": 0,
+          "x": 5.5,
+          "y": 5.5,
+          "h": 3,
           "facing": 2
         },
         "sprite": {
@@ -550,14 +570,14 @@
   "regions": [
     {
       "id": "r1",
-      "name": "The far corner",
+      "name": "The Conservatory",
       "x": 0,
       "y": 0,
-      "w": 6,
-      "h": 4,
+      "w": 11,
+      "h": 7,
       "cameraBounds": false,
       "music": "nightgarden",
-      "darkness": 0.55,
+      "darkness": 0.41250000000000003,
       "bossActive": false
     }
   ],

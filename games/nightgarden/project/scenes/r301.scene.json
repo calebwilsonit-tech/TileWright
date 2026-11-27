@@ -1,36 +1,64 @@
 {
   "schemaVersion": 1,
-  "name": "Weight",
+  "name": "Trellis",
   "map": {
-    "width": 6,
-    "height": 2,
+    "width": 8,
+    "height": 6,
     "tiles": [
-      [1,1,1,1,0,0],
-      [1,1,1,1,1,1]
+      [2,2,2,2,2,2,2,2],
+      [2,2,2,1,1,2,2,2],
+      [2,1,1,1,1,1,2,2],
+      [2,2,1,1,1,1,1,2],
+      [2,2,2,2,1,2,2,2],
+      [2,2,2,2,2,2,2,2]
     ],
     "heights": [
-      [3,3,3,3,0,0],
-      [3,3,3,3,3,3]
+      [4,4,4,4,4,4,4,4],
+      [4,4,4,3,3,4,4,4],
+      [4,3,3,3,3,3,4,4],
+      [4,4,3,3,3,3,3,4],
+      [4,4,4,4,3,4,4,4],
+      [4,4,4,4,4,4,4,4]
     ],
     "slopes": [
-      [0,0,0,0,0,0],
-      [0,0,0,0,0,0]
+      [0,0,0,0,0,0,0,0],
+      [0,0,0,0,0,0,0,0],
+      [0,0,0,0,0,0,0,0],
+      [0,0,0,0,0,0,0,0],
+      [0,0,0,0,0,0,0,0],
+      [0,0,0,0,0,0,0,0]
     ],
     "flags": [
-      [0,0,0,0,0,0],
-      [0,0,0,0,0,0]
+      [2,2,2,2,2,2,2,2],
+      [2,2,2,0,0,2,2,2],
+      [2,0,0,0,0,0,2,2],
+      [2,2,0,0,0,0,0,2],
+      [2,2,2,2,0,2,2,2],
+      [2,2,2,2,2,2,2,2]
     ],
     "decks": [
-      [0,0,0,0,0,0],
-      [0,0,0,0,0,0]
+      [0,0,0,0,0,0,0,0],
+      [0,0,0,0,0,0,0,0],
+      [0,0,0,0,0,0,0,0],
+      [0,0,0,0,0,0,0,0],
+      [0,0,0,0,0,0,0,0],
+      [0,0,0,0,0,0,0,0]
     ],
     "deckTiles": [
-      [0,0,0,0,0,0],
-      [0,0,0,0,0,0]
+      [0,0,0,0,0,0,0,0],
+      [0,0,0,0,0,0,0,0],
+      [0,0,0,0,0,0,0,0],
+      [0,0,0,0,0,0,0,0],
+      [0,0,0,0,0,0,0,0],
+      [0,0,0,0,0,0,0,0]
     ],
     "oneWay": [
-      [0,0,0,0,0,0],
-      [0,0,0,0,0,0]
+      [0,0,0,0,0,0,0,0],
+      [0,0,0,0,0,0,0,0],
+      [0,0,0,0,0,0,0,0],
+      [0,0,0,0,0,0,0,0],
+      [0,0,0,0,0,0,0,0],
+      [0,0,0,0,0,0,0,0]
     ]
   },
   "entities": [
@@ -42,8 +70,8 @@
       ],
       "components": {
         "transform": {
-          "x": 0.5,
-          "y": 0.5,
+          "x": 1.5,
+          "y": 2.5,
           "h": 3,
           "facing": 2
         },
@@ -132,14 +160,15 @@
     },
     {
       "id": "e2",
-      "name": "Crate 1",
+      "name": "Screen 1",
       "tags": [
-        "crate"
+        "crate",
+        "screen"
       ],
       "components": {
         "transform": {
-          "x": 1.5,
-          "y": 0.5,
+          "x": 4.5,
+          "y": 2.5,
           "h": 3,
           "facing": 2
         },
@@ -148,15 +177,15 @@
           "color": 16777215,
           "w": 0.9,
           "d": 0.9,
-          "height": 1,
+          "height": 2,
           "sortOffset": 0,
           "visible": true,
-          "asset": "crate"
+          "asset": "screen"
         },
         "collider": {
           "w": 0.9,
           "d": 0.9,
-          "height": 1,
+          "height": 2,
           "solid": true,
           "trigger": false,
           "layer": 16,
@@ -171,74 +200,88 @@
     },
     {
       "id": "e3",
-      "name": "Plate 1",
+      "name": "Glow lamp 1",
       "tags": [
-        "plate"
+        "lamp",
+        "glow"
       ],
       "components": {
         "transform": {
           "x": 3.5,
-          "y": 0.5,
+          "y": 3.5,
           "h": 3,
           "facing": 2
         },
         "sprite": {
           "shape": "box",
           "color": 16777215,
-          "w": 0.8,
-          "d": 0.8,
-          "height": 0.05,
-          "sortOffset": -0.5,
+          "w": 0.4,
+          "d": 0.4,
+          "height": 1.1,
+          "sortOffset": 0,
           "visible": true,
-          "asset": "plate_up",
-          "noShadow": true
+          "asset": "glowlamp"
         },
-        "script_Plate": {},
-        "script_Shows": {
-          "signal": "active",
-          "on": "plate_down",
-          "off": "plate_up"
+        "collider": {
+          "w": 0.5,
+          "d": 0.5,
+          "height": 1,
+          "solid": true,
+          "trigger": false,
+          "layer": 16,
+          "mask": 65535,
+          "enabled": true,
+          "inside": []
+        },
+        "light": {
+          "radius": 3.1999999999999997,
+          "intensity": 1,
+          "color": "warm",
+          "shadows": true,
+          "flicker": 0.1,
+          "mode": "always"
         }
       }
     },
     {
       "id": "e4",
-      "name": "Gate 1",
+      "name": "Moonbloom 1",
       "tags": [
-        "gate"
+        "bloom",
+        "moonbloom"
       ],
       "components": {
         "transform": {
-          "x": 4.5,
-          "y": 1.5,
+          "x": 5.5,
+          "y": 3.5,
           "h": 3,
           "facing": 2
         },
         "sprite": {
           "shape": "box",
           "color": 16777215,
-          "w": 1,
-          "d": 1,
-          "height": 2,
+          "w": 0.9,
+          "d": 0.9,
+          "height": 0.2,
           "sortOffset": 0,
           "visible": true,
-          "asset": "gate_shut"
+          "asset": "moonbloom_0"
         },
         "collider": {
-          "w": 1,
-          "d": 1,
-          "height": 2,
+          "w": 0.9,
+          "d": 0.9,
+          "height": 0.2,
           "solid": true,
           "trigger": false,
-          "layer": 1,
+          "layer": 16,
           "mask": 65535,
           "enabled": true,
           "inside": []
         },
-        "script_Gate": {
-          "openWhenOff": false,
+        "script_Bloom": {
+          "kind": "moonbloom",
           "height": 2,
-          "seconds": 0.25
+          "seconds": 0.5
         }
       }
     },
@@ -250,8 +293,8 @@
       ],
       "components": {
         "transform": {
-          "x": 5.5,
-          "y": 1.5,
+          "x": 6.5,
+          "y": 3.5,
           "h": 3,
           "facing": 2
         },
@@ -294,28 +337,30 @@
       ],
       "components": {
         "transform": {
-          "x": 3,
-          "y": 1,
+          "x": 4,
+          "y": 3,
           "h": 3,
           "facing": 2
         },
         "roomCamera": {
-          "zoom": 2,
+          "zoom": 1.75,
           "on": true
         },
         "script_Room": {
           "room": "r301",
-          "name": "Weight",
-          "no": 18,
-          "hint": "A gate stays open while something rests on its plate.",
+          "name": "Trellis",
+          "no": 13,
+          "hint": "A screen is tall enough to throw a shadow.",
           "chapter": "The Tool Yard",
           "chapterNo": 3,
           "chapterLine": "Crates, trellis screens, iron gates on stone plates. Everything here can be leaned on, and some of it throws a useful shadow.",
           "chapters": 5,
-          "total": 41,
-          "flyTotal": 21,
-          "width": 6,
-          "ground": "....__......"
+          "total": 30,
+          "flyTotal": 18,
+          "par": 8,
+          "difficulty": 15,
+          "width": 8,
+          "ground": "###########..####.....####.....#####.###########"
         }
       }
     },
@@ -327,9 +372,9 @@
       ],
       "components": {
         "transform": {
-          "x": 0.5,
-          "y": 0.5,
-          "h": 0,
+          "x": 1.5,
+          "y": 2.5,
+          "h": 3,
           "facing": 2
         },
         "sprite": {
@@ -349,30 +394,18 @@
   "regions": [
     {
       "id": "r1",
-      "name": "Weight",
+      "name": "Trellis",
       "x": 0,
       "y": 0,
-      "w": 6,
-      "h": 2,
+      "w": 8,
+      "h": 6,
       "cameraBounds": false,
       "music": "nightgarden",
       "darkness": 0.55,
       "bossActive": false
     }
   ],
-  "wires": [
-    {
-      "id": "w1c1",
-      "from": {
-        "entity": "e3",
-        "output": "active"
-      },
-      "to": {
-        "entity": "e4",
-        "input": "open"
-      }
-    }
-  ],
+  "wires": [],
   "variables": [],
   "events": [
     {

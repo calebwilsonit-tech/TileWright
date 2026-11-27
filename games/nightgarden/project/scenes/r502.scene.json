@@ -1,43 +1,57 @@
 {
   "schemaVersion": 1,
-  "name": "Shadestone",
+  "name": "Passing it on",
   "map": {
-    "width": 6,
-    "height": 3,
+    "width": 8,
+    "height": 5,
     "tiles": [
-      [0,1,1,1,0,0],
-      [1,1,1,1,1,1],
-      [0,0,0,1,0,0]
+      [2,2,2,2,2,2,2,2],
+      [2,2,1,2,5,1,2,2],
+      [2,1,1,1,3,1,1,2],
+      [2,2,2,2,5,2,2,2],
+      [2,2,2,2,2,2,2,2]
     ],
     "heights": [
-      [0,3,3,3,0,0],
-      [3,3,3,3,3,3],
-      [0,0,0,3,0,0]
+      [4,4,4,4,4,4,4,4],
+      [4,4,3,4,3,3,4,4],
+      [4,3,3,3,1,3,3,4],
+      [4,4,4,4,3,4,4,4],
+      [4,4,4,4,4,4,4,4]
     ],
     "slopes": [
-      [0,0,0,0,0,0],
-      [0,0,0,0,0,0],
-      [0,0,0,0,0,0]
+      [0,0,0,0,0,0,0,0],
+      [0,0,0,0,0,0,0,0],
+      [0,0,0,0,0,0,0,0],
+      [0,0,0,0,0,0,0,0],
+      [0,0,0,0,0,0,0,0]
     ],
     "flags": [
-      [0,0,0,0,0,0],
-      [0,0,0,0,0,0],
-      [0,0,0,0,0,0]
+      [2,2,2,2,2,2,2,2],
+      [2,2,0,2,8,0,2,2],
+      [2,0,0,0,0,0,0,2],
+      [2,2,2,2,8,2,2,2],
+      [2,2,2,2,2,2,2,2]
     ],
     "decks": [
-      [0,0,0,0,0,0],
-      [0,0,0,0,0,0],
-      [0,0,0,0,0,0]
+      [0,0,0,0,0,0,0,0],
+      [0,0,0,0,0,0,0,0],
+      [0,0,0,0,0,0,0,0],
+      [0,0,0,0,0,0,0,0],
+      [0,0,0,0,0,0,0,0]
     ],
     "deckTiles": [
-      [0,0,0,0,0,0],
-      [0,0,0,0,0,0],
-      [0,0,0,0,0,0]
+      [0,0,0,0,0,0,0,0],
+      [0,0,0,0,0,0,0,0],
+      [0,0,0,0,0,0,0,0],
+      [0,0,0,0,0,0,0,0],
+      [0,0,0,0,0,0,0,0]
     ],
     "oneWay": [
-      [0,0,0,0,0,0],
-      [0,0,0,0,0,0],
-      [0,0,0,0,0,0]
+      [0,0,0,0,0,0,0,0],
+      [0,0,0,0,0,0,0,0],
+      [0,0,0,0,0,0,0,0],
+      [0,0,0,0,0,0,0,0],
+      [0,0,0,0,0,0,0,0]
     ]
   },
   "entities": [
@@ -50,8 +64,8 @@
       ],
       "components": {
         "transform": {
-          "x": 1.5,
-          "y": 0.5,
+          "x": 2.5,
+          "y": 1.5,
           "h": 3,
           "facing": 2
         },
@@ -63,7 +77,7 @@
           "height": 1.1,
           "sortOffset": 0,
           "visible": true,
-          "asset": "lamp_on"
+          "asset": "lamp_off"
         },
         "collider": {
           "w": 0.5,
@@ -85,7 +99,7 @@
           "mode": "whenOn"
         },
         "script_Lamp": {
-          "startLit": true,
+          "startLit": false,
           "byHand": true,
           "look": "lamp"
         }
@@ -93,15 +107,14 @@
     },
     {
       "id": "e2",
-      "name": "Lamp 2",
+      "name": "Wired lamp 1",
       "tags": [
-        "lamp",
-        "handlamp"
+        "lamp"
       ],
       "components": {
         "transform": {
-          "x": 3.5,
-          "y": 0.5,
+          "x": 5.5,
+          "y": 1.5,
           "h": 3,
           "facing": 2
         },
@@ -113,7 +126,7 @@
           "height": 1.1,
           "sortOffset": 0,
           "visible": true,
-          "asset": "lamp_on"
+          "asset": "wirelamp_off"
         },
         "collider": {
           "w": 0.5,
@@ -129,15 +142,15 @@
         "light": {
           "radius": 3.1999999999999997,
           "intensity": 1,
-          "color": "warm",
+          "color": "cool",
           "shadows": true,
           "flicker": 0.1,
           "mode": "whenOn"
         },
         "script_Lamp": {
-          "startLit": true,
-          "byHand": true,
-          "look": "lamp"
+          "startLit": false,
+          "byHand": false,
+          "look": "wirelamp"
         }
       }
     },
@@ -149,8 +162,8 @@
       ],
       "components": {
         "transform": {
-          "x": 0.5,
-          "y": 1.5,
+          "x": 1.5,
+          "y": 2.5,
           "h": 3,
           "facing": 2
         },
@@ -239,14 +252,14 @@
     },
     {
       "id": "e4",
-      "name": "Shadestone 1",
+      "name": "Moonstone 1",
       "tags": [
         "stone"
       ],
       "components": {
         "transform": {
           "x": 3.5,
-          "y": 1.5,
+          "y": 2.5,
           "h": 3,
           "facing": 2
         },
@@ -258,57 +271,58 @@
           "height": 0.05,
           "sortOffset": -0.5,
           "visible": true,
-          "asset": "shadestone_off",
+          "asset": "moonstone_off",
           "noShadow": true
         },
         "script_Moonstone": {
-          "whenDark": true
+          "whenDark": false
         },
         "script_Shows": {
           "signal": "active",
-          "on": "shadestone_on",
-          "off": "shadestone_off"
+          "on": "moonstone_on",
+          "off": "moonstone_off"
         }
       }
     },
     {
       "id": "e5",
-      "name": "Gate 1",
+      "name": "Moonbloom 1",
       "tags": [
-        "gate"
+        "bloom",
+        "moonbloom"
       ],
       "components": {
         "transform": {
           "x": 4.5,
-          "y": 1.5,
-          "h": 3,
+          "y": 2.5,
+          "h": 1,
           "facing": 2
         },
         "sprite": {
           "shape": "box",
           "color": 16777215,
-          "w": 1,
-          "d": 1,
-          "height": 2,
+          "w": 0.9,
+          "d": 0.9,
+          "height": 0.2,
           "sortOffset": 0,
           "visible": true,
-          "asset": "gate_shut"
+          "asset": "moonbloom_0"
         },
         "collider": {
-          "w": 1,
-          "d": 1,
-          "height": 2,
+          "w": 0.9,
+          "d": 0.9,
+          "height": 0.2,
           "solid": true,
           "trigger": false,
-          "layer": 1,
+          "layer": 16,
           "mask": 65535,
           "enabled": true,
           "inside": []
         },
-        "script_Gate": {
-          "openWhenOff": false,
+        "script_Bloom": {
+          "kind": "moonbloom",
           "height": 2,
-          "seconds": 0.25
+          "seconds": 0.5
         }
       }
     },
@@ -320,8 +334,8 @@
       ],
       "components": {
         "transform": {
-          "x": 5.5,
-          "y": 1.5,
+          "x": 6.5,
+          "y": 2.5,
           "h": 3,
           "facing": 2
         },
@@ -358,92 +372,50 @@
     },
     {
       "id": "e7",
-      "name": "Firefly",
-      "tags": [
-        "firefly"
-      ],
-      "components": {
-        "transform": {
-          "x": 3.5,
-          "y": 2.5,
-          "h": 3.9,
-          "facing": 2
-        },
-        "sprite": {
-          "shape": "box",
-          "color": 16777215,
-          "w": 0.3,
-          "d": 0.3,
-          "height": 0.3,
-          "sortOffset": 0,
-          "visible": true,
-          "asset": "firefly",
-          "noShadow": true
-        },
-        "animator": {
-          "asset": "firefly",
-          "clip": "fly",
-          "time": 0,
-          "speed": 1,
-          "playing": true,
-          "frame": 0,
-          "flip": false,
-          "pos": 0,
-          "done": false,
-          "controller": null,
-          "state": "",
-          "params": {}
-        },
-        "script_Firefly": {
-          "room": "r502",
-          "hover": 0.9
-        }
-      }
-    },
-    {
-      "id": "e8",
       "name": "Room",
       "tags": [
         "room"
       ],
       "components": {
         "transform": {
-          "x": 3,
-          "y": 1.5,
+          "x": 4,
+          "y": 2.5,
           "h": 3,
           "facing": 2
         },
         "roomCamera": {
-          "zoom": 2,
+          "zoom": 1.75,
           "on": true
         },
         "script_Room": {
           "room": "r502",
-          "name": "Shadestone",
-          "no": 35,
-          "hint": "A shadestone opens its gate while it is dark.",
-          "chapter": "The Moonstone Terrace",
+          "name": "Passing it on",
+          "no": 26,
+          "hint": "A stone can light a lamp you cannot reach.",
+          "chapter": "The Travers Conservatory",
           "chapterNo": 5,
-          "chapterLine": "Stones set in the path that feel the light. A moonstone wakes when lit, a shadestone when dark, and each is wired to something.",
+          "chapterLine": "Stones set in the path that feel the light. A moonstone wakes when lit, a shadestone when dark, and each is wired to the conservatory.",
           "chapters": 5,
-          "total": 41,
-          "flyTotal": 21,
-          "width": 6,
-          "ground": "_...__......___.__"
+          "total": 30,
+          "flyTotal": 18,
+          "par": 6,
+          "difficulty": 38,
+          "width": 8,
+          "ground": "##########.#w.###...~..#####w###########"
         }
       }
     },
     {
-      "id": "e9",
+      "id": "e8",
       "name": "Lamp mark",
       "tags": [
         "cursor"
       ],
       "components": {
         "transform": {
-          "x": 0.5,
-          "y": 0.5,
-          "h": 0,
+          "x": 1.5,
+          "y": 2.5,
+          "h": 3,
           "facing": 2
         },
         "sprite": {
@@ -463,11 +435,11 @@
   "regions": [
     {
       "id": "r1",
-      "name": "Shadestone",
+      "name": "Passing it on",
       "x": 0,
       "y": 0,
-      "w": 6,
-      "h": 3,
+      "w": 8,
+      "h": 5,
       "cameraBounds": false,
       "music": "nightgarden",
       "darkness": 0.55,
@@ -482,8 +454,8 @@
         "output": "active"
       },
       "to": {
-        "entity": "e5",
-        "input": "open"
+        "entity": "e2",
+        "input": "power"
       }
     }
   ],

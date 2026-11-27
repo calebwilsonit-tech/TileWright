@@ -9,10 +9,13 @@ export interface RoomRow {
   name: string;
   chapter: string;
   scene: string;
+  par: number;
+  difficulty: number;
 }
 
 const KEYS = 'W / S choose · E select · Esc back';
-const leaveMenus = [close('Rooms'), close('role:pause'), close('role:title')];
+const leaveMenus = [close('Rooms'), close('Herbarium'), close('The end'), close('role:pause'), close('role:title')];
+const goHub = [act('setVariable', { name: 'ng_goto', op: 'set', value: 'scenes/hub.scene.json' }), ...leaveMenus];
 
 function title(): UiScreen {
   const mark = widget('panel', 'title.mark', {
@@ -39,6 +42,8 @@ function title(): UiScreen {
     box: box('title', 'Nightgarden', [
       row('title.continue', 'Continue', [act('loadGame', { slot: 'latest' }), close('role:title')], { detail: '{host.latestSave}', visible: '{host.hasSave}', primary: true }),
       row('title.new', 'New game', [close('role:title')], { primary: true }),
+      row('title.hub', 'The Conservatory', goHub, { detail: 'Garden hub' }),
+      row('title.herbarium', 'Herbarium', [open('Herbarium')]),
       row('title.rooms', 'Rooms', [open('Rooms')], { visible: '{host.hasSave}' }),
       row('title.how', 'How to play', [open('How to play')]),
       row('title.settings', 'Settings', [open('role:settings')]),
@@ -56,6 +61,8 @@ function pause(): UiScreen {
       row('pause.resume', 'Resume', [close('role:pause')], { primary: true }),
       row('pause.restart', 'Restart room', [close('role:pause'), act('restartArea')], { detail: 'R' }),
       row('pause.rooms', 'Rooms', [open('Rooms')], { detail: '{ng_done} of {ng_total} tended' }),
+      row('pause.hub', 'The Conservatory', goHub, { detail: 'Customize flora' }),
+      row('pause.herbarium', 'Herbarium', [open('Herbarium')], { detail: '{ng_pars} par medals' }),
       row('pause.how', 'How to play', [open('How to play')]),
       row('pause.settings', 'Settings', [open('role:settings')]),
       row('pause.quit', 'Quit', [act('quitGame')], { visible: '{host.quit}' }),
@@ -128,6 +135,55 @@ function howToPlay(): UiScreen {
   });
 }
 
+/** Botanical journal & collection progress: nocturnal flora unlocked for the Conservatory hub. */
+function herbarium(): UiScreen {
+  const entry = (id: string, sprite: string, w: number, h: number, title: string, desc: string): UiNode =>
+    widget('panel', `herb.${id}`, {
+      name: title,
+      layout: 'row',
+      wMode: 'fill',
+      hMode: 'auto',
+      align: 'center',
+      gap: SPACE.group,
+      padding: SPACE.rowPad,
+      style: { fill: 'color-mix(in srgb, var(--tw-border) 16%, var(--tw-panel))', radius: RADIUS.row },
+      children: [
+        widget('panel', `herb.${id}.frame`, { name: 'Picture frame', w: 56, h: 48, wMode: 'fixed', hMode: 'fixed', layout: 'free', padding: 0, style: {}, children: [widget('image', `herb.${id}.picture`, { name: 'Picture', sprite, anchor: 'c', w, h, wMode: 'fixed', hMode: 'fixed', style: {} })] }),
+        widget('panel', `herb.${id}.copy`, {
+          name: 'Copy',
+          layout: 'column',
+          wMode: 'fill',
+          hMode: 'auto',
+          gap: SPACE.rowGap,
+          padding: 0,
+          style: {},
+          children: [
+            words(`herb.${id}.title`, title, TYPE.body, { style: { color: COLOR.accent, bold: true } }),
+            words(`herb.${id}.desc`, desc, TYPE.hint, { wMode: 'fill', style: { color: COLOR.dim } }),
+          ],
+        }),
+      ],
+    });
+  return menu({
+    id: 'ng-herbarium',
+    name: 'Herbarium',
+    box: box(
+      'herb',
+      'The Travers Herbarium',
+      [
+        entry('moonbloom', 'moonbloom_3', 48, 48, 'Moonbloom — Lunaria alba', 'Opens under warm lamplight and lifts whoever stands on its bed. Always available in the Conservatory.'),
+        entry('duskcap', 'duskcap_3', 48, 48, 'Duskcap — Umbracapa violacea', 'Rises tall in shadow and shrinks from fire. Unlocks for the Conservatory at 6 rooms tended.'),
+        entry('firefly', 'firefly', 24, 24, 'Conservatory Firefly — Ignis horti', 'Drawn to quiet side paths. Unlocks teal lamps at 5 fireflies and moonstones at 10.'),
+        entry('gracelily', 'glowlamp', 24, 48, "Grace's Moon-Lily — Lilium gratiae", 'A rare pale bloom named for Elizabeth Grace. Unlocks at 10 Master Gardener Par medals.'),
+        entry('traversrose', 'shadestone_on', 48, 24, 'Travers Night-Rose — Rosa traversii', 'An heirloom specimen of the Travers Conservatory. Unlocks when every room is tended.'),
+        row('herb.hub', 'Visit the Conservatory', goHub, { primary: true }),
+        row('herb.back', 'Back', [back()]),
+      ],
+      { subtitle: '{ng_done} of {ng_total} tended · {ng_flies} fireflies · {ng_pars} par medals', hint: 'Esc back', wide: true },
+    ),
+  });
+}
+
 /** The rooms of the game as cards: tended ones ticked, the firefly shown when caught, later ones shut until reached. */
 function rooms(): UiScreen {
   const card = widget('panel', 'rooms.card', {
@@ -164,15 +220,17 @@ function rooms(): UiScreen {
         children: [
           words('rooms.card.no', '{row.no}', TYPE.row, { name: 'Number', style: { color: COLOR.accent } }),
           widget('spacer', 'rooms.card.gap', { name: 'Space', wMode: 'fill', hMode: 'auto', w: 4, h: 4 }),
+          words('rooms.card.par', '★', TYPE.body, { name: 'Par medal', style: { color: COLOR.accent }, visible: '{par_{row.id}} = 1' }),
           words('rooms.card.fly', '✦', TYPE.body, { name: 'Firefly caught', style: { color: COLOR.firefly }, visible: '{fly_{row.id}} = 1' }),
           words('rooms.card.done', '✓', TYPE.body, { name: 'Tended', style: { color: COLOR.done }, visible: '{done_{row.id}} = 1' }),
         ],
       }),
       words('rooms.card.name', '{row.name}', TYPE.hint, { name: 'Room name', wMode: 'fill', style: { color: COLOR.dim } }),
+      words('rooms.card.diff', 'Diff {row.difficulty} · Par {row.par}', TYPE.hint, { name: 'Difficulty', wMode: 'fill', style: { color: COLOR.locked } }),
     ],
   });
-  const grid = widget('grid', 'rooms.grid', { name: 'Rooms', source: 'table:Rooms', columns: 8, wMode: 'fill', hMode: 'auto', gap: SPACE.rowPad, padding: 0, style: {}, children: [card] });
-  return menu({ id: 'ng-rooms', name: 'Rooms', box: box('rooms', 'Rooms', [grid, row('rooms.back', 'Back', [back()])], { subtitle: '{ng_done} of {ng_total} tended · {ng_flies} fireflies', hint: 'Arrows choose · E go to the room · Esc back', wide: true }) });
+  const grid = widget('grid', 'rooms.grid', { name: 'Rooms', source: 'table:Rooms', columns: 6, wMode: 'fill', hMode: 'auto', gap: SPACE.rowPad, padding: 0, style: {}, children: [card] });
+  return menu({ id: 'ng-rooms', name: 'Rooms', box: box('rooms', 'Rooms', [grid, row('rooms.back', 'Back', [back()])], { subtitle: '{ng_done} of {ng_total} tended · {ng_flies} fireflies · {ng_pars} par medals', hint: 'Arrows choose · E go to the room · Esc back', wide: true }) });
 }
 
 /** Shown when a chapter is entered for the first time. */
@@ -238,11 +296,14 @@ function theEnd(): UiScreen {
     dim: 0.9,
     box: box('end', 'The garden is awake', [
       words('end.line', 'Every bed is tended and every lamp has had its turn. Thank you for walking the garden.', TYPE.body, { wMode: 'fill' }),
+      words('end.dedication', 'For Elizabeth Grace — who brings every garden to life.', TYPE.hint, { wMode: 'fill', style: { color: COLOR.accent } }),
       space('end.space'),
       setting('end.rooms', 'Rooms tended', words('end.rooms.n', '{ng_done} of {ng_total}', TYPE.row, { style: { color: COLOR.accent, bold: true } })),
       setting('end.flies', 'Fireflies caught', words('end.flies.n', '{ng_flies} of {ng_fly_total}', TYPE.row, { style: { color: COLOR.accent, bold: true } })),
+      setting('end.pars', 'Master Gardener Par medals', words('end.pars.n', '{ng_pars} of {ng_total}', TYPE.row, { style: { color: COLOR.accent, bold: true } })),
       space('end.space2'),
-      row('end.rooms.go', 'Rooms', [open('Rooms')], { primary: true }),
+      row('end.hub', 'Visit the Conservatory', goHub, { primary: true }),
+      row('end.rooms.go', 'Rooms', [open('Rooms')]),
       row('end.stay', 'Stay in the garden', [close('The end')]),
     ], { hint: KEYS, titleNode: header }),
   });
@@ -269,8 +330,10 @@ function hud(): UiScreen {
       words('hud.sep', '·', TYPE.body, { style: { color: COLOR.dim } }),
       words('hud.done', '{ng_done} / {ng_total}', TYPE.body, { style: { bold: true } }),
       words('hud.done.label', 'tended', TYPE.body, { style: { color: COLOR.dim } }),
+      words('hud.sep2', '·', TYPE.body, { style: { color: COLOR.dim }, visible: '{ng_par} > 0' }),
+      words('hud.steps', 'Steps {ng_steps}/{ng_par}', TYPE.body, { style: { color: COLOR.dim }, visible: '{ng_par} > 0' }),
     ],
-    { anchor: 'tr', x: -SPACE.edge, y: SPACE.edge, visible: '{ng_room_no}' },
+    { anchor: 'tr', x: -SPACE.edge, y: SPACE.edge, visible: '{ng_room_name}' },
   );
   const foot = widget('panel', 'hud.foot', {
     name: 'Hint and keys',
@@ -295,7 +358,7 @@ function hud(): UiScreen {
 }
 
 export function screensDoc(): UiDoc {
-  const list = [title(), hud(), pause(), rooms(), howToPlay(), settings(), controls(), chapterCard(), theEnd()];
+  const list = [title(), hud(), pause(), rooms(), herbarium(), howToPlay(), settings(), controls(), chapterCard(), theEnd()];
   // where each box sits on the designer's screen-flow map
   list.forEach((s, i) => {
     s.mapX = 40 + (i % 4) * 220;
@@ -315,8 +378,8 @@ export function roomsTable(rows: RoomRow[]): TableData {
     schemaVersion: 1,
     name: 'Rooms',
     description: 'Every room of the game in play order (written by the build; the Rooms screen shows it).',
-    columns: [col('no', 'number'), col('name', 'text'), col('chapter', 'text'), col('scene', 'text')],
-    rows: rows.map((r) => ({ id: r.id, no: r.no, name: r.name, chapter: r.chapter, scene: r.scene })),
+    columns: [col('no', 'number'), col('name', 'text'), col('chapter', 'text'), col('scene', 'text'), col('par', 'number'), col('difficulty', 'number')],
+    rows: rows.map((r) => ({ id: r.id, no: r.no, name: r.name, chapter: r.chapter, scene: r.scene, par: r.par, difficulty: r.difficulty })),
   } as TableData;
 }
 

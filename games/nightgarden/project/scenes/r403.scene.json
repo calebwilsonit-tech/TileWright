@@ -1,43 +1,57 @@
 {
   "schemaVersion": 1,
-  "name": "Cellar lamp",
+  "name": "Lily pond",
   "map": {
-    "width": 6,
-    "height": 3,
+    "width": 8,
+    "height": 5,
     "tiles": [
-      [1,1,3,3,0,0],
-      [0,0,3,3,1,1],
-      [0,0,3,3,0,0]
+      [2,2,2,2,2,2,2,2],
+      [2,1,1,1,5,1,2,2],
+      [2,2,1,1,3,1,1,2],
+      [2,2,2,1,5,1,2,2],
+      [2,2,2,2,2,2,2,2]
     ],
     "heights": [
-      [3,3,1,1,0,0],
-      [0,0,1,1,3,3],
-      [0,0,1,1,0,0]
+      [4,4,4,4,4,4,4,4],
+      [4,3,3,3,3,3,4,4],
+      [4,4,3,3,1,3,3,4],
+      [4,4,4,3,3,3,4,4],
+      [4,4,4,4,4,4,4,4]
     ],
     "slopes": [
-      [0,0,0,0,0,0],
-      [0,0,0,0,0,0],
-      [0,0,0,0,0,0]
+      [0,0,0,0,0,0,0,0],
+      [0,0,0,0,0,0,0,0],
+      [0,0,0,0,0,0,0,0],
+      [0,0,0,0,0,0,0,0],
+      [0,0,0,0,0,0,0,0]
     ],
     "flags": [
-      [0,0,0,0,0,0],
-      [0,0,0,0,0,0],
-      [0,0,0,0,0,0]
+      [2,2,2,2,2,2,2,2],
+      [2,0,0,0,8,0,2,2],
+      [2,2,0,0,0,0,0,2],
+      [2,2,2,0,8,0,2,2],
+      [2,2,2,2,2,2,2,2]
     ],
     "decks": [
-      [0,0,0,0,0,0],
-      [0,0,0,0,0,0],
-      [0,0,0,0,0,0]
+      [0,0,0,0,0,0,0,0],
+      [0,0,0,0,0,0,0,0],
+      [0,0,0,0,0,0,0,0],
+      [0,0,0,0,0,0,0,0],
+      [0,0,0,0,0,0,0,0]
     ],
     "deckTiles": [
-      [0,0,0,0,0,0],
-      [0,0,0,0,0,0],
-      [0,0,0,0,0,0]
+      [0,0,0,0,0,0,0,0],
+      [0,0,0,0,0,0,0,0],
+      [0,0,0,0,0,0,0,0],
+      [0,0,0,0,0,0,0,0],
+      [0,0,0,0,0,0,0,0]
     ],
     "oneWay": [
-      [0,0,0,0,0,0],
-      [0,0,0,0,0,0],
-      [0,0,0,0,0,0]
+      [0,0,0,0,0,0,0,0],
+      [0,0,0,0,0,0,0,0],
+      [0,0,0,0,0,0,0,0],
+      [0,0,0,0,0,0,0,0],
+      [0,0,0,0,0,0,0,0]
     ]
   },
   "entities": [
@@ -49,8 +63,8 @@
       ],
       "components": {
         "transform": {
-          "x": 0.5,
-          "y": 0.5,
+          "x": 1.5,
+          "y": 1.5,
           "h": 3,
           "facing": 2
         },
@@ -139,31 +153,31 @@
     },
     {
       "id": "e2",
-      "name": "Lamp 1",
+      "name": "Brazier 1",
       "tags": [
-        "lamp",
-        "handlamp"
+        "crate",
+        "brazier"
       ],
       "components": {
         "transform": {
-          "x": 3.5,
-          "y": 0.5,
-          "h": 1,
+          "x": 2.5,
+          "y": 1.5,
+          "h": 3,
           "facing": 2
         },
         "sprite": {
           "shape": "box",
           "color": 16777215,
-          "w": 0.4,
-          "d": 0.4,
+          "w": 0.9,
+          "d": 0.9,
           "height": 1.1,
           "sortOffset": 0,
           "visible": true,
-          "asset": "lamp_off"
+          "asset": "brazier"
         },
         "collider": {
-          "w": 0.5,
-          "d": 0.5,
+          "w": 0.9,
+          "d": 0.9,
           "height": 1,
           "solid": true,
           "trigger": false,
@@ -172,18 +186,16 @@
           "enabled": true,
           "inside": []
         },
+        "pushable": {
+          "slideSpeed": 6
+        },
         "light": {
-          "radius": 3.1999999999999997,
+          "radius": 2.4,
           "intensity": 1,
           "color": "warm",
           "shadows": true,
           "flicker": 0.1,
-          "mode": "whenOn"
-        },
-        "script_Lamp": {
-          "startLit": false,
-          "byHand": true,
-          "look": "lamp"
+          "mode": "always"
         }
       }
     },
@@ -196,8 +208,8 @@
       ],
       "components": {
         "transform": {
-          "x": 3.5,
-          "y": 1.5,
+          "x": 4.5,
+          "y": 2.5,
           "h": 1,
           "facing": 2
         },
@@ -237,8 +249,8 @@
       ],
       "components": {
         "transform": {
-          "x": 5.5,
-          "y": 1.5,
+          "x": 6.5,
+          "y": 2.5,
           "h": 3,
           "facing": 2
         },
@@ -281,9 +293,9 @@
       ],
       "components": {
         "transform": {
-          "x": 2.5,
-          "y": 2.5,
-          "h": 1.9,
+          "x": 5.5,
+          "y": 3.5,
+          "h": 3.9,
           "facing": 2
         },
         "sprite": {
@@ -325,28 +337,30 @@
       ],
       "components": {
         "transform": {
-          "x": 3,
-          "y": 1.5,
+          "x": 4,
+          "y": 2.5,
           "h": 3,
           "facing": 2
         },
         "roomCamera": {
-          "zoom": 2,
+          "zoom": 1.75,
           "on": true
         },
         "script_Room": {
           "room": "r403",
-          "name": "Cellar lamp",
-          "no": 28,
-          "hint": "Down in a sunken bed you can only reach what is down there with you.",
+          "name": "Lily pond",
+          "no": 21,
+          "hint": "Light crosses water. Feet do not.",
           "chapter": "The Brazier Court",
           "chapterNo": 4,
           "chapterLine": "Here the light has wheels. A brazier warms the eight beds round it, wherever you leave it. Mind the sunken beds and the pond.",
           "chapters": 5,
-          "total": 41,
-          "flyTotal": 21,
-          "width": 6,
-          "ground": "..~~____~~..__~~__"
+          "total": 30,
+          "flyTotal": 18,
+          "par": 6,
+          "difficulty": 23,
+          "width": 8,
+          "ground": "#########...w.####..~..####.w.##########"
         }
       }
     },
@@ -358,9 +372,9 @@
       ],
       "components": {
         "transform": {
-          "x": 0.5,
-          "y": 0.5,
-          "h": 0,
+          "x": 1.5,
+          "y": 1.5,
+          "h": 3,
           "facing": 2
         },
         "sprite": {
@@ -380,11 +394,11 @@
   "regions": [
     {
       "id": "r1",
-      "name": "Cellar lamp",
+      "name": "Lily pond",
       "x": 0,
       "y": 0,
-      "w": 6,
-      "h": 3,
+      "w": 8,
+      "h": 5,
       "cameraBounds": false,
       "music": "nightgarden",
       "darkness": 0.55,

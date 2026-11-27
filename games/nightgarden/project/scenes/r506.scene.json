@@ -1,50 +1,71 @@
 {
   "schemaVersion": 1,
-  "name": "Shadow switch",
+  "name": "Elizabeth's garden",
   "map": {
-    "width": 8,
-    "height": 4,
+    "width": 13,
+    "height": 7,
     "tiles": [
-      [0,1,1,1,1,0,0,0],
-      [1,1,1,1,1,0,0,0],
-      [0,1,1,1,1,1,1,1],
-      [0,0,1,1,1,1,0,0]
+      [2,2,2,2,2,2,2,2,2,2,2,2,2],
+      [2,2,2,2,2,2,5,2,1,2,2,2,2],
+      [2,1,1,1,1,1,5,1,1,1,2,2,2],
+      [2,2,2,2,1,1,5,1,1,1,1,2,2],
+      [2,2,2,2,2,1,3,1,1,2,1,1,2],
+      [2,2,2,2,2,2,3,1,1,4,4,2,2],
+      [2,2,2,2,2,2,2,2,2,2,2,2,2]
     ],
     "heights": [
-      [0,3,3,3,3,0,0,0],
-      [3,3,3,3,3,0,0,0],
-      [0,3,3,3,3,3,3,3],
-      [0,0,3,3,3,3,0,0]
+      [4,4,4,4,4,4,4,4,4,4,4,4,4],
+      [4,4,4,4,4,4,3,4,3,4,4,4,4],
+      [4,3,3,3,3,3,3,3,3,3,4,4,4],
+      [4,4,4,4,3,3,3,3,3,3,3,4,4],
+      [4,4,4,4,4,3,1,3,3,4,3,3,4],
+      [4,4,4,4,4,4,1,3,3,5,5,4,4],
+      [4,4,4,4,4,4,4,4,4,4,4,4,4]
     ],
     "slopes": [
-      [0,0,0,0,0,0,0,0],
-      [0,0,0,0,0,0,0,0],
-      [0,0,0,0,0,0,0,0],
-      [0,0,0,0,0,0,0,0]
+      [0,0,0,0,0,0,0,0,0,0,0,0,0],
+      [0,0,0,0,0,0,0,0,0,0,0,0,0],
+      [0,0,0,0,0,0,0,0,0,0,0,0,0],
+      [0,0,0,0,0,0,0,0,0,0,0,0,0],
+      [0,0,0,0,0,0,0,0,0,0,0,0,0],
+      [0,0,0,0,0,0,0,0,0,0,0,0,0],
+      [0,0,0,0,0,0,0,0,0,0,0,0,0]
     ],
     "flags": [
-      [0,0,0,0,0,0,0,0],
-      [0,0,0,0,0,0,0,0],
-      [0,0,0,0,0,0,0,0],
-      [0,0,0,0,0,0,0,0]
+      [2,2,2,2,2,2,2,2,2,2,2,2,2],
+      [2,2,2,2,2,2,8,2,0,2,2,2,2],
+      [2,0,0,0,0,0,8,0,0,0,2,2,2],
+      [2,2,2,2,0,0,8,0,0,0,0,2,2],
+      [2,2,2,2,2,0,0,0,0,2,0,0,2],
+      [2,2,2,2,2,2,0,0,0,0,0,2,2],
+      [2,2,2,2,2,2,2,2,2,2,2,2,2]
     ],
     "decks": [
-      [0,0,0,0,0,0,0,0],
-      [0,0,0,0,0,0,0,0],
-      [0,0,0,0,0,0,0,0],
-      [0,0,0,0,0,0,0,0]
+      [0,0,0,0,0,0,0,0,0,0,0,0,0],
+      [0,0,0,0,0,0,0,0,0,0,0,0,0],
+      [0,0,0,0,0,0,0,0,0,0,0,0,0],
+      [0,0,0,0,0,0,0,0,0,0,0,0,0],
+      [0,0,0,0,0,0,0,0,0,0,0,0,0],
+      [0,0,0,0,0,0,0,0,0,0,0,0,0],
+      [0,0,0,0,0,0,0,0,0,0,0,0,0]
     ],
     "deckTiles": [
-      [0,0,0,0,0,0,0,0],
-      [0,0,0,0,0,0,0,0],
-      [0,0,0,0,0,0,0,0],
-      [0,0,0,0,0,0,0,0]
+      [0,0,0,0,0,0,0,0,0,0,0,0,0],
+      [0,0,0,0,0,0,0,0,0,0,0,0,0],
+      [0,0,0,0,0,0,0,0,0,0,0,0,0],
+      [0,0,0,0,0,0,0,0,0,0,0,0,0],
+      [0,0,0,0,0,0,0,0,0,0,0,0,0],
+      [0,0,0,0,0,0,0,0,0,0,0,0,0],
+      [0,0,0,0,0,0,0,0,0,0,0,0,0]
     ],
     "oneWay": [
-      [0,0,0,0,0,0,0,0],
-      [0,0,0,0,0,0,0,0],
-      [0,0,0,0,0,0,0,0],
-      [0,0,0,0,0,0,0,0]
+      [0,0,0,0,0,0,0,0,0,0,0,0,0],
+      [0,0,0,0,0,0,0,0,0,0,0,0,0],
+      [0,0,0,0,0,0,0,0,0,0,0,0,0],
+      [0,0,0,0,0,0,0,0,0,0,0,0,0],
+      [0,0,0,0,0,0,0,0,0,0,0,0,0],
+      [0,0,0,0,0,0,0,0,0,0,0,0,0],
+      [0,0,0,0,0,0,0,0,0,0,0,0,0]
     ]
   },
   "entities": [
@@ -56,8 +77,8 @@
       ],
       "components": {
         "transform": {
-          "x": 0.5,
-          "y": 1.5,
+          "x": 1.5,
+          "y": 2.5,
           "h": 3,
           "facing": 2
         },
@@ -146,6 +167,169 @@
     },
     {
       "id": "e2",
+      "name": "Brazier 1",
+      "tags": [
+        "crate",
+        "brazier"
+      ],
+      "components": {
+        "transform": {
+          "x": 2.5,
+          "y": 2.5,
+          "h": 3,
+          "facing": 2
+        },
+        "sprite": {
+          "shape": "box",
+          "color": 16777215,
+          "w": 0.9,
+          "d": 0.9,
+          "height": 1.1,
+          "sortOffset": 0,
+          "visible": true,
+          "asset": "brazier"
+        },
+        "collider": {
+          "w": 0.9,
+          "d": 0.9,
+          "height": 1,
+          "solid": true,
+          "trigger": false,
+          "layer": 16,
+          "mask": 65535,
+          "enabled": true,
+          "inside": []
+        },
+        "pushable": {
+          "slideSpeed": 6
+        },
+        "light": {
+          "radius": 2.4,
+          "intensity": 1,
+          "color": "warm",
+          "shadows": true,
+          "flicker": 0.1,
+          "mode": "always"
+        }
+      }
+    },
+    {
+      "id": "e3",
+      "name": "Plate 1",
+      "tags": [
+        "plate"
+      ],
+      "components": {
+        "transform": {
+          "x": 5.5,
+          "y": 2.5,
+          "h": 3,
+          "facing": 2
+        },
+        "sprite": {
+          "shape": "box",
+          "color": 16777215,
+          "w": 0.8,
+          "d": 0.8,
+          "height": 0.05,
+          "sortOffset": -0.5,
+          "visible": true,
+          "asset": "plate_up",
+          "noShadow": true
+        },
+        "script_Plate": {},
+        "script_Shows": {
+          "signal": "active",
+          "on": "plate_down",
+          "off": "plate_up"
+        }
+      }
+    },
+    {
+      "id": "e4",
+      "name": "Wired lamp 1",
+      "tags": [
+        "lamp"
+      ],
+      "components": {
+        "transform": {
+          "x": 7.5,
+          "y": 2.5,
+          "h": 3,
+          "facing": 2
+        },
+        "sprite": {
+          "shape": "box",
+          "color": 16777215,
+          "w": 0.4,
+          "d": 0.4,
+          "height": 1.1,
+          "sortOffset": 0,
+          "visible": true,
+          "asset": "wirelamp_off"
+        },
+        "collider": {
+          "w": 0.5,
+          "d": 0.5,
+          "height": 1,
+          "solid": true,
+          "trigger": false,
+          "layer": 16,
+          "mask": 65535,
+          "enabled": true,
+          "inside": []
+        },
+        "light": {
+          "radius": 3.1999999999999997,
+          "intensity": 1,
+          "color": "cool",
+          "shadows": true,
+          "flicker": 0.1,
+          "mode": "whenOn"
+        },
+        "script_Lamp": {
+          "startLit": false,
+          "byHand": false,
+          "look": "wirelamp"
+        }
+      }
+    },
+    {
+      "id": "e5",
+      "name": "Shadestone 1",
+      "tags": [
+        "stone"
+      ],
+      "components": {
+        "transform": {
+          "x": 9.5,
+          "y": 2.5,
+          "h": 3,
+          "facing": 2
+        },
+        "sprite": {
+          "shape": "box",
+          "color": 16777215,
+          "w": 0.7,
+          "d": 0.7,
+          "height": 0.05,
+          "sortOffset": -0.5,
+          "visible": true,
+          "asset": "shadestone_off",
+          "noShadow": true
+        },
+        "script_Moonstone": {
+          "whenDark": true
+        },
+        "script_Shows": {
+          "signal": "active",
+          "on": "shadestone_on",
+          "off": "shadestone_off"
+        }
+      }
+    },
+    {
+      "id": "e6",
       "name": "Screen 1",
       "tags": [
         "crate",
@@ -153,8 +337,8 @@
       ],
       "components": {
         "transform": {
-          "x": 3.5,
-          "y": 1.5,
+          "x": 8.5,
+          "y": 3.5,
           "h": 3,
           "facing": 2
         },
@@ -185,94 +369,15 @@
       }
     },
     {
-      "id": "e3",
-      "name": "Glow lamp 1",
-      "tags": [
-        "lamp",
-        "glow"
-      ],
-      "components": {
-        "transform": {
-          "x": 2.5,
-          "y": 2.5,
-          "h": 3,
-          "facing": 2
-        },
-        "sprite": {
-          "shape": "box",
-          "color": 16777215,
-          "w": 0.4,
-          "d": 0.4,
-          "height": 1.1,
-          "sortOffset": 0,
-          "visible": true,
-          "asset": "glowlamp"
-        },
-        "collider": {
-          "w": 0.5,
-          "d": 0.5,
-          "height": 1,
-          "solid": true,
-          "trigger": false,
-          "layer": 16,
-          "mask": 65535,
-          "enabled": true,
-          "inside": []
-        },
-        "light": {
-          "radius": 3.1999999999999997,
-          "intensity": 1,
-          "color": "warm",
-          "shadows": true,
-          "flicker": 0.1,
-          "mode": "always"
-        }
-      }
-    },
-    {
-      "id": "e4",
-      "name": "Shadestone 1",
-      "tags": [
-        "stone"
-      ],
-      "components": {
-        "transform": {
-          "x": 4.5,
-          "y": 2.5,
-          "h": 3,
-          "facing": 2
-        },
-        "sprite": {
-          "shape": "box",
-          "color": 16777215,
-          "w": 0.7,
-          "d": 0.7,
-          "height": 0.05,
-          "sortOffset": -0.5,
-          "visible": true,
-          "asset": "shadestone_off",
-          "noShadow": true
-        },
-        "script_Moonstone": {
-          "whenDark": true
-        },
-        "script_Shows": {
-          "signal": "active",
-          "on": "shadestone_on",
-          "off": "shadestone_off"
-        }
-      }
-    },
-    {
-      "id": "e5",
+      "id": "e7",
       "name": "Gate 1",
       "tags": [
         "gate"
       ],
       "components": {
         "transform": {
-          "x": 5.5,
-          "y": 2.5,
+          "x": 9.5,
+          "y": 3.5,
           "h": 3,
           "facing": 2
         },
@@ -305,15 +410,58 @@
       }
     },
     {
-      "id": "e6",
-      "name": "Way out",
+      "id": "e8",
+      "name": "Moonbloom 1",
       "tags": [
-        "wayout"
+        "bloom",
+        "moonbloom"
       ],
       "components": {
         "transform": {
-          "x": 7.5,
-          "y": 2.5,
+          "x": 6.5,
+          "y": 4.5,
+          "h": 1,
+          "facing": 2
+        },
+        "sprite": {
+          "shape": "box",
+          "color": 16777215,
+          "w": 0.9,
+          "d": 0.9,
+          "height": 0.2,
+          "sortOffset": 0,
+          "visible": true,
+          "asset": "moonbloom_0"
+        },
+        "collider": {
+          "w": 0.9,
+          "d": 0.9,
+          "height": 0.2,
+          "solid": true,
+          "trigger": false,
+          "layer": 16,
+          "mask": 65535,
+          "enabled": true,
+          "inside": []
+        },
+        "script_Bloom": {
+          "kind": "moonbloom",
+          "height": 2,
+          "seconds": 0.5
+        }
+      }
+    },
+    {
+      "id": "e9",
+      "name": "Moonbloom 2",
+      "tags": [
+        "bloom",
+        "moonbloom"
+      ],
+      "components": {
+        "transform": {
+          "x": 10.5,
+          "y": 4.5,
           "h": 3,
           "facing": 2
         },
@@ -322,42 +470,89 @@
           "color": 16777215,
           "w": 0.9,
           "d": 0.9,
-          "height": 0.05,
-          "sortOffset": -0.5,
+          "height": 0.2,
+          "sortOffset": 0,
           "visible": true,
-          "asset": "exit",
-          "noShadow": true
+          "asset": "moonbloom_0"
         },
-        "animator": {
-          "asset": "exit",
-          "clip": "glow",
-          "time": 0,
-          "speed": 1,
-          "playing": true,
-          "frame": 0,
-          "flip": false,
-          "pos": 0,
-          "done": false,
-          "controller": null,
-          "state": "",
-          "params": {}
+        "collider": {
+          "w": 0.9,
+          "d": 0.9,
+          "height": 0.2,
+          "solid": true,
+          "trigger": false,
+          "layer": 16,
+          "mask": 65535,
+          "enabled": true,
+          "inside": []
         },
-        "script_Exit": {
-          "room": "r506",
-          "next": "scenes/r507.scene.json"
+        "script_Bloom": {
+          "kind": "moonbloom",
+          "height": 2,
+          "seconds": 0.5
         }
       }
     },
     {
-      "id": "e7",
+      "id": "e10",
+      "name": "Lamp 1",
+      "tags": [
+        "lamp",
+        "handlamp"
+      ],
+      "components": {
+        "transform": {
+          "x": 11.5,
+          "y": 4.5,
+          "h": 3,
+          "facing": 2
+        },
+        "sprite": {
+          "shape": "box",
+          "color": 16777215,
+          "w": 0.4,
+          "d": 0.4,
+          "height": 1.1,
+          "sortOffset": 0,
+          "visible": true,
+          "asset": "lamp_off"
+        },
+        "collider": {
+          "w": 0.5,
+          "d": 0.5,
+          "height": 1,
+          "solid": true,
+          "trigger": false,
+          "layer": 16,
+          "mask": 65535,
+          "enabled": true,
+          "inside": []
+        },
+        "light": {
+          "radius": 3.1999999999999997,
+          "intensity": 1,
+          "color": "warm",
+          "shadows": true,
+          "flicker": 0.1,
+          "mode": "whenOn"
+        },
+        "script_Lamp": {
+          "startLit": false,
+          "byHand": true,
+          "look": "lamp"
+        }
+      }
+    },
+    {
+      "id": "e11",
       "name": "Firefly",
       "tags": [
         "firefly"
       ],
       "components": {
         "transform": {
-          "x": 5.5,
-          "y": 3.5,
+          "x": 7.5,
+          "y": 5.5,
           "h": 3.9,
           "facing": 2
         },
@@ -393,49 +588,95 @@
       }
     },
     {
-      "id": "e8",
+      "id": "e12",
+      "name": "Way out",
+      "tags": [
+        "wayout"
+      ],
+      "components": {
+        "transform": {
+          "x": 9.5,
+          "y": 5.5,
+          "h": 5,
+          "facing": 2
+        },
+        "sprite": {
+          "shape": "box",
+          "color": 16777215,
+          "w": 0.9,
+          "d": 0.9,
+          "height": 0.05,
+          "sortOffset": -0.5,
+          "visible": true,
+          "asset": "exit",
+          "noShadow": true
+        },
+        "animator": {
+          "asset": "exit",
+          "clip": "glow",
+          "time": 0,
+          "speed": 1,
+          "playing": true,
+          "frame": 0,
+          "flip": false,
+          "pos": 0,
+          "done": false,
+          "controller": null,
+          "state": "",
+          "params": {}
+        },
+        "script_Exit": {
+          "room": "r506",
+          "next": ""
+        }
+      }
+    },
+    {
+      "id": "e13",
       "name": "Room",
       "tags": [
         "room"
       ],
       "components": {
         "transform": {
-          "x": 4,
-          "y": 2,
+          "x": 6.5,
+          "y": 3.5,
           "h": 3,
           "facing": 2
         },
         "roomCamera": {
-          "zoom": 2,
+          "zoom": 1.5,
           "on": true
         },
         "script_Room": {
           "room": "r506",
-          "name": "Shadow switch",
-          "no": 39,
-          "hint": "A screen can give a shadestone the dark it wants.",
-          "chapter": "The Moonstone Terrace",
+          "name": "Elizabeth's garden",
+          "no": 30,
+          "hint": "Every stone, every lamp and every shadow has its part.",
+          "chapter": "The Travers Conservatory",
           "chapterNo": 5,
-          "chapterLine": "Stones set in the path that feel the light. A moonstone wakes when lit, a shadestone when dark, and each is wired to something.",
+          "chapterLine": "Stones set in the path that feel the light. A moonstone wakes when lit, a shadestone when dark, and each is wired to the conservatory.",
           "chapters": 5,
-          "total": 41,
-          "flyTotal": 21,
-          "width": 8,
-          "ground": "_....___.....____.......__....__"
+          "total": 30,
+          "flyTotal": 18,
+          "par": 16,
+          "difficulty": 100,
+          "width": 13,
+          "ground": "###################w#.#####.....w...#######..w....#######.~..#..#######~..^^###############"
         }
       }
     },
     {
-      "id": "e9",
+      "id": "e14",
       "name": "Lamp mark",
       "tags": [
         "cursor"
       ],
       "components": {
         "transform": {
-          "x": 0.5,
-          "y": 0.5,
-          "h": 0,
+          "x": 1.5,
+          "y": 2.5,
+          "h": 3,
           "facing": 2
         },
         "sprite": {
@@ -455,11 +696,11 @@
   "regions": [
     {
       "id": "r1",
-      "name": "Shadow switch",
+      "name": "Elizabeth's garden",
       "x": 0,
       "y": 0,
-      "w": 8,
-      "h": 4,
+      "w": 13,
+      "h": 7,
       "cameraBounds": false,
       "music": "nightgarden",
       "darkness": 0.55,
@@ -470,11 +711,22 @@
     {
       "id": "w1c1",
       "from": {
-        "entity": "e4",
+        "entity": "e3",
         "output": "active"
       },
       "to": {
+        "entity": "e4",
+        "input": "power"
+      }
+    },
+    {
+      "id": "w2c2",
+      "from": {
         "entity": "e5",
+        "output": "active"
+      },
+      "to": {
+        "entity": "e7",
         "input": "open"
       }
     }

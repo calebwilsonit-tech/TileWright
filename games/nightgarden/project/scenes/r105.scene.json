@@ -1,43 +1,57 @@
 {
   "schemaVersion": 1,
-  "name": "Stepping stones",
+  "name": "Two beds",
   "map": {
-    "width": 7,
-    "height": 3,
+    "width": 8,
+    "height": 5,
     "tiles": [
-      [0,0,0,1,0,0,0],
-      [1,1,1,1,1,4,4],
-      [0,0,1,1,4,0,4]
+      [2,2,2,2,2,2,2,2],
+      [2,1,1,2,1,4,4,2],
+      [2,1,1,1,1,4,4,2],
+      [2,1,4,1,1,2,2,2],
+      [2,2,2,2,2,2,2,2]
     ],
     "heights": [
-      [0,0,0,3,0,0,0],
-      [3,3,3,3,3,5,5],
-      [0,0,3,3,5,0,5]
+      [4,4,4,4,4,4,4,4],
+      [4,3,3,4,3,5,5,4],
+      [4,3,3,3,3,5,5,4],
+      [4,3,5,3,3,4,4,4],
+      [4,4,4,4,4,4,4,4]
     ],
     "slopes": [
-      [0,0,0,0,0,0,0],
-      [0,0,0,0,0,0,0],
-      [0,0,0,0,0,0,0]
+      [0,0,0,0,0,0,0,0],
+      [0,0,0,0,0,0,0,0],
+      [0,0,0,0,0,0,0,0],
+      [0,0,0,0,0,0,0,0],
+      [0,0,0,0,0,0,0,0]
     ],
     "flags": [
-      [0,0,0,0,0,0,0],
-      [0,0,0,0,0,0,0],
-      [0,0,0,0,0,0,0]
+      [2,2,2,2,2,2,2,2],
+      [2,0,0,2,0,0,0,2],
+      [2,0,0,0,0,0,0,2],
+      [2,0,0,0,0,2,2,2],
+      [2,2,2,2,2,2,2,2]
     ],
     "decks": [
-      [0,0,0,0,0,0,0],
-      [0,0,0,0,0,0,0],
-      [0,0,0,0,0,0,0]
+      [0,0,0,0,0,0,0,0],
+      [0,0,0,0,0,0,0,0],
+      [0,0,0,0,0,0,0,0],
+      [0,0,0,0,0,0,0,0],
+      [0,0,0,0,0,0,0,0]
     ],
     "deckTiles": [
-      [0,0,0,0,0,0,0],
-      [0,0,0,0,0,0,0],
-      [0,0,0,0,0,0,0]
+      [0,0,0,0,0,0,0,0],
+      [0,0,0,0,0,0,0,0],
+      [0,0,0,0,0,0,0,0],
+      [0,0,0,0,0,0,0,0],
+      [0,0,0,0,0,0,0,0]
     ],
     "oneWay": [
-      [0,0,0,0,0,0,0],
-      [0,0,0,0,0,0,0],
-      [0,0,0,0,0,0,0]
+      [0,0,0,0,0,0,0,0],
+      [0,0,0,0,0,0,0,0],
+      [0,0,0,0,0,0,0,0],
+      [0,0,0,0,0,0,0,0],
+      [0,0,0,0,0,0,0,0]
     ]
   },
   "entities": [
@@ -50,8 +64,58 @@
       ],
       "components": {
         "transform": {
-          "x": 3.5,
-          "y": 0.5,
+          "x": 2.5,
+          "y": 1.5,
+          "h": 3,
+          "facing": 2
+        },
+        "sprite": {
+          "shape": "box",
+          "color": 16777215,
+          "w": 0.4,
+          "d": 0.4,
+          "height": 1.1,
+          "sortOffset": 0,
+          "visible": true,
+          "asset": "lamp_on"
+        },
+        "collider": {
+          "w": 0.5,
+          "d": 0.5,
+          "height": 1,
+          "solid": true,
+          "trigger": false,
+          "layer": 16,
+          "mask": 65535,
+          "enabled": true,
+          "inside": []
+        },
+        "light": {
+          "radius": 3.1999999999999997,
+          "intensity": 1,
+          "color": "warm",
+          "shadows": true,
+          "flicker": 0.1,
+          "mode": "whenOn"
+        },
+        "script_Lamp": {
+          "startLit": true,
+          "byHand": true,
+          "look": "lamp"
+        }
+      }
+    },
+    {
+      "id": "e2",
+      "name": "Lamp 2",
+      "tags": [
+        "lamp",
+        "handlamp"
+      ],
+      "components": {
+        "transform": {
+          "x": 4.5,
+          "y": 1.5,
           "h": 3,
           "facing": 2
         },
@@ -92,15 +156,15 @@
       }
     },
     {
-      "id": "e2",
+      "id": "e3",
       "name": "Gardener",
       "tags": [
         "player"
       ],
       "components": {
         "transform": {
-          "x": 0.5,
-          "y": 1.5,
+          "x": 1.5,
+          "y": 2.5,
           "h": 3,
           "facing": 2
         },
@@ -188,7 +252,7 @@
       }
     },
     {
-      "id": "e3",
+      "id": "e4",
       "name": "Moonbloom 1",
       "tags": [
         "bloom",
@@ -197,49 +261,7 @@
       "components": {
         "transform": {
           "x": 2.5,
-          "y": 1.5,
-          "h": 3,
-          "facing": 2
-        },
-        "sprite": {
-          "shape": "box",
-          "color": 16777215,
-          "w": 0.9,
-          "d": 0.9,
-          "height": 0.2,
-          "sortOffset": 0,
-          "visible": true,
-          "asset": "moonbloom_0"
-        },
-        "collider": {
-          "w": 0.9,
-          "d": 0.9,
-          "height": 0.2,
-          "solid": true,
-          "trigger": false,
-          "layer": 16,
-          "mask": 65535,
-          "enabled": true,
-          "inside": []
-        },
-        "script_Bloom": {
-          "kind": "moonbloom",
-          "height": 2,
-          "seconds": 0.5
-        }
-      }
-    },
-    {
-      "id": "e4",
-      "name": "Moonbloom 2",
-      "tags": [
-        "bloom",
-        "moonbloom"
-      ],
-      "components": {
-        "transform": {
-          "x": 3.5,
-          "y": 1.5,
+          "y": 2.5,
           "h": 3,
           "facing": 2
         },
@@ -273,7 +295,7 @@
     },
     {
       "id": "e5",
-      "name": "Moonbloom 3",
+      "name": "Moonbloom 2",
       "tags": [
         "bloom",
         "moonbloom"
@@ -281,7 +303,7 @@
       "components": {
         "transform": {
           "x": 4.5,
-          "y": 1.5,
+          "y": 2.5,
           "h": 3,
           "facing": 2
         },
@@ -315,50 +337,6 @@
     },
     {
       "id": "e6",
-      "name": "Firefly",
-      "tags": [
-        "firefly"
-      ],
-      "components": {
-        "transform": {
-          "x": 4.5,
-          "y": 2.5,
-          "h": 5.9,
-          "facing": 2
-        },
-        "sprite": {
-          "shape": "box",
-          "color": 16777215,
-          "w": 0.3,
-          "d": 0.3,
-          "height": 0.3,
-          "sortOffset": 0,
-          "visible": true,
-          "asset": "firefly",
-          "noShadow": true
-        },
-        "animator": {
-          "asset": "firefly",
-          "clip": "fly",
-          "time": 0,
-          "speed": 1,
-          "playing": true,
-          "frame": 0,
-          "flip": false,
-          "pos": 0,
-          "done": false,
-          "controller": null,
-          "state": "",
-          "params": {}
-        },
-        "script_Firefly": {
-          "room": "r105",
-          "hover": 0.9
-        }
-      }
-    },
-    {
-      "id": "e7",
       "name": "Way out",
       "tags": [
         "wayout"
@@ -402,6 +380,50 @@
       }
     },
     {
+      "id": "e7",
+      "name": "Firefly",
+      "tags": [
+        "firefly"
+      ],
+      "components": {
+        "transform": {
+          "x": 2.5,
+          "y": 3.5,
+          "h": 5.9,
+          "facing": 2
+        },
+        "sprite": {
+          "shape": "box",
+          "color": 16777215,
+          "w": 0.3,
+          "d": 0.3,
+          "height": 0.3,
+          "sortOffset": 0,
+          "visible": true,
+          "asset": "firefly",
+          "noShadow": true
+        },
+        "animator": {
+          "asset": "firefly",
+          "clip": "fly",
+          "time": 0,
+          "speed": 1,
+          "playing": true,
+          "frame": 0,
+          "flip": false,
+          "pos": 0,
+          "done": false,
+          "controller": null,
+          "state": "",
+          "params": {}
+        },
+        "script_Firefly": {
+          "room": "r105",
+          "hover": 0.9
+        }
+      }
+    },
+    {
       "id": "e8",
       "name": "Room",
       "tags": [
@@ -409,28 +431,30 @@
       ],
       "components": {
         "transform": {
-          "x": 3.5,
-          "y": 1.5,
+          "x": 4,
+          "y": 2.5,
           "h": 3,
           "facing": 2
         },
         "roomCamera": {
-          "zoom": 2,
+          "zoom": 1.75,
           "on": true
         },
         "script_Room": {
           "room": "r105",
-          "name": "Stepping stones",
+          "name": "Two beds",
           "no": 5,
-          "hint": "A lamp lights two beds every way, less the far corners.",
+          "hint": "A risen bloom is a wall from the ground and a floor from above.",
           "chapter": "The Potting Shed",
           "chapterNo": 1,
           "chapterLine": "The lamps are out and the moonblooms have gone to ground. Light makes them rise. Start with one.",
           "chapters": 5,
-          "total": 41,
-          "flyTotal": 21,
-          "width": 7,
-          "ground": "___.___.....^^__..^_^"
+          "total": 30,
+          "flyTotal": 18,
+          "par": 9,
+          "difficulty": 9,
+          "width": 8,
+          "ground": "#########..#.^^##....^^##.^..###########"
         }
       }
     },
@@ -442,9 +466,9 @@
       ],
       "components": {
         "transform": {
-          "x": 0.5,
-          "y": 0.5,
-          "h": 0,
+          "x": 1.5,
+          "y": 2.5,
+          "h": 3,
           "facing": 2
         },
         "sprite": {
@@ -464,11 +488,11 @@
   "regions": [
     {
       "id": "r1",
-      "name": "Stepping stones",
+      "name": "Two beds",
       "x": 0,
       "y": 0,
-      "w": 7,
-      "h": 3,
+      "w": 8,
+      "h": 5,
       "cameraBounds": false,
       "music": "nightgarden",
       "darkness": 0.55,

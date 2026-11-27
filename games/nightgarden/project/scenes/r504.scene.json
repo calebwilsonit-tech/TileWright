@@ -1,36 +1,64 @@
 {
   "schemaVersion": 1,
-  "name": "Keeps its own light",
+  "name": "Shadow switch",
   "map": {
-    "width": 7,
-    "height": 2,
+    "width": 10,
+    "height": 6,
     "tiles": [
-      [1,1,1,1,1,0,0],
-      [0,0,1,1,1,1,1]
+      [2,2,2,2,2,2,2,2,2,2],
+      [2,2,1,1,1,1,2,2,2,2],
+      [2,1,1,1,1,1,2,2,2,2],
+      [2,2,2,1,1,1,1,1,1,2],
+      [2,2,2,1,1,1,1,2,2,2],
+      [2,2,2,2,2,2,2,2,2,2]
     ],
     "heights": [
-      [3,3,3,3,3,0,0],
-      [0,0,3,3,3,3,3]
+      [4,4,4,4,4,4,4,4,4,4],
+      [4,4,3,3,3,3,4,4,4,4],
+      [4,3,3,3,3,3,4,4,4,4],
+      [4,4,4,3,3,3,3,3,3,4],
+      [4,4,4,3,3,3,3,4,4,4],
+      [4,4,4,4,4,4,4,4,4,4]
     ],
     "slopes": [
-      [0,0,0,0,0,0,0],
-      [0,0,0,0,0,0,0]
+      [0,0,0,0,0,0,0,0,0,0],
+      [0,0,0,0,0,0,0,0,0,0],
+      [0,0,0,0,0,0,0,0,0,0],
+      [0,0,0,0,0,0,0,0,0,0],
+      [0,0,0,0,0,0,0,0,0,0],
+      [0,0,0,0,0,0,0,0,0,0]
     ],
     "flags": [
-      [0,0,0,0,0,0,0],
-      [0,0,0,0,0,0,0]
+      [2,2,2,2,2,2,2,2,2,2],
+      [2,2,0,0,0,0,2,2,2,2],
+      [2,0,0,0,0,0,2,2,2,2],
+      [2,2,2,0,0,0,0,0,0,2],
+      [2,2,2,0,0,0,0,2,2,2],
+      [2,2,2,2,2,2,2,2,2,2]
     ],
     "decks": [
-      [0,0,0,0,0,0,0],
-      [0,0,0,0,0,0,0]
+      [0,0,0,0,0,0,0,0,0,0],
+      [0,0,0,0,0,0,0,0,0,0],
+      [0,0,0,0,0,0,0,0,0,0],
+      [0,0,0,0,0,0,0,0,0,0],
+      [0,0,0,0,0,0,0,0,0,0],
+      [0,0,0,0,0,0,0,0,0,0]
     ],
     "deckTiles": [
-      [0,0,0,0,0,0,0],
-      [0,0,0,0,0,0,0]
+      [0,0,0,0,0,0,0,0,0,0],
+      [0,0,0,0,0,0,0,0,0,0],
+      [0,0,0,0,0,0,0,0,0,0],
+      [0,0,0,0,0,0,0,0,0,0],
+      [0,0,0,0,0,0,0,0,0,0],
+      [0,0,0,0,0,0,0,0,0,0]
     ],
     "oneWay": [
-      [0,0,0,0,0,0,0],
-      [0,0,0,0,0,0,0]
+      [0,0,0,0,0,0,0,0,0,0],
+      [0,0,0,0,0,0,0,0,0,0],
+      [0,0,0,0,0,0,0,0,0,0],
+      [0,0,0,0,0,0,0,0,0,0],
+      [0,0,0,0,0,0,0,0,0,0],
+      [0,0,0,0,0,0,0,0,0,0]
     ]
   },
   "entities": [
@@ -42,8 +70,8 @@
       ],
       "components": {
         "transform": {
-          "x": 0.5,
-          "y": 0.5,
+          "x": 1.5,
+          "y": 2.5,
           "h": 3,
           "facing": 2
         },
@@ -132,15 +160,15 @@
     },
     {
       "id": "e2",
-      "name": "Brazier 1",
+      "name": "Screen 1",
       "tags": [
         "crate",
-        "brazier"
+        "screen"
       ],
       "components": {
         "transform": {
-          "x": 1.5,
-          "y": 0.5,
+          "x": 4.5,
+          "y": 2.5,
           "h": 3,
           "facing": 2
         },
@@ -149,15 +177,15 @@
           "color": 16777215,
           "w": 0.9,
           "d": 0.9,
-          "height": 1.1,
+          "height": 2,
           "sortOffset": 0,
           "visible": true,
-          "asset": "brazier"
+          "asset": "screen"
         },
         "collider": {
           "w": 0.9,
           "d": 0.9,
-          "height": 1,
+          "height": 2,
           "solid": true,
           "trigger": false,
           "layer": 16,
@@ -167,27 +195,20 @@
         },
         "pushable": {
           "slideSpeed": 6
-        },
-        "light": {
-          "radius": 2.4,
-          "intensity": 1,
-          "color": "warm",
-          "shadows": true,
-          "flicker": 0.1,
-          "mode": "always"
         }
       }
     },
     {
       "id": "e3",
-      "name": "Wired lamp 1",
+      "name": "Glow lamp 1",
       "tags": [
-        "lamp"
+        "lamp",
+        "glow"
       ],
       "components": {
         "transform": {
-          "x": 4.5,
-          "y": 0.5,
+          "x": 3.5,
+          "y": 3.5,
           "h": 3,
           "facing": 2
         },
@@ -199,7 +220,7 @@
           "height": 1.1,
           "sortOffset": 0,
           "visible": true,
-          "asset": "wirelamp_off"
+          "asset": "glowlamp"
         },
         "collider": {
           "w": 0.5,
@@ -215,28 +236,23 @@
         "light": {
           "radius": 3.1999999999999997,
           "intensity": 1,
-          "color": "cool",
+          "color": "warm",
           "shadows": true,
           "flicker": 0.1,
-          "mode": "whenOn"
-        },
-        "script_Lamp": {
-          "startLit": false,
-          "byHand": false,
-          "look": "wirelamp"
+          "mode": "always"
         }
       }
     },
     {
       "id": "e4",
-      "name": "Moonstone 1",
+      "name": "Shadestone 1",
       "tags": [
         "stone"
       ],
       "components": {
         "transform": {
-          "x": 3.5,
-          "y": 1.5,
+          "x": 5.5,
+          "y": 3.5,
           "h": 3,
           "facing": 2
         },
@@ -248,58 +264,57 @@
           "height": 0.05,
           "sortOffset": -0.5,
           "visible": true,
-          "asset": "moonstone_off",
+          "asset": "shadestone_off",
           "noShadow": true
         },
         "script_Moonstone": {
-          "whenDark": false
+          "whenDark": true
         },
         "script_Shows": {
           "signal": "active",
-          "on": "moonstone_on",
-          "off": "moonstone_off"
+          "on": "shadestone_on",
+          "off": "shadestone_off"
         }
       }
     },
     {
       "id": "e5",
-      "name": "Duskcap 1",
+      "name": "Gate 1",
       "tags": [
-        "bloom",
-        "duskcap"
+        "gate"
       ],
       "components": {
         "transform": {
-          "x": 5.5,
-          "y": 1.5,
+          "x": 6.5,
+          "y": 3.5,
           "h": 3,
           "facing": 2
         },
         "sprite": {
           "shape": "box",
           "color": 16777215,
-          "w": 0.9,
-          "d": 0.9,
-          "height": 0.2,
+          "w": 1,
+          "d": 1,
+          "height": 2,
           "sortOffset": 0,
           "visible": true,
-          "asset": "duskcap_0"
+          "asset": "gate_shut"
         },
         "collider": {
-          "w": 0.9,
-          "d": 0.9,
-          "height": 0.2,
+          "w": 1,
+          "d": 1,
+          "height": 2,
           "solid": true,
           "trigger": false,
-          "layer": 16,
+          "layer": 1,
           "mask": 65535,
           "enabled": true,
           "inside": []
         },
-        "script_Bloom": {
-          "kind": "duskcap",
+        "script_Gate": {
+          "openWhenOff": false,
           "height": 2,
-          "seconds": 0.5
+          "seconds": 0.25
         }
       }
     },
@@ -311,8 +326,8 @@
       ],
       "components": {
         "transform": {
-          "x": 6.5,
-          "y": 1.5,
+          "x": 8.5,
+          "y": 3.5,
           "h": 3,
           "facing": 2
         },
@@ -349,48 +364,94 @@
     },
     {
       "id": "e7",
+      "name": "Firefly",
+      "tags": [
+        "firefly"
+      ],
+      "components": {
+        "transform": {
+          "x": 6.5,
+          "y": 4.5,
+          "h": 3.9,
+          "facing": 2
+        },
+        "sprite": {
+          "shape": "box",
+          "color": 16777215,
+          "w": 0.3,
+          "d": 0.3,
+          "height": 0.3,
+          "sortOffset": 0,
+          "visible": true,
+          "asset": "firefly",
+          "noShadow": true
+        },
+        "animator": {
+          "asset": "firefly",
+          "clip": "fly",
+          "time": 0,
+          "speed": 1,
+          "playing": true,
+          "frame": 0,
+          "flip": false,
+          "pos": 0,
+          "done": false,
+          "controller": null,
+          "state": "",
+          "params": {}
+        },
+        "script_Firefly": {
+          "room": "r504",
+          "hover": 0.9
+        }
+      }
+    },
+    {
+      "id": "e8",
       "name": "Room",
       "tags": [
         "room"
       ],
       "components": {
         "transform": {
-          "x": 3.5,
-          "y": 1,
+          "x": 5,
+          "y": 3,
           "h": 3,
           "facing": 2
         },
         "roomCamera": {
-          "zoom": 2,
+          "zoom": 1.75,
           "on": true
         },
         "script_Room": {
           "room": "r504",
-          "name": "Keeps its own light",
-          "no": 37,
-          "hint": "Once the teal lamp is lit, what lights its stone?",
-          "chapter": "The Moonstone Terrace",
+          "name": "Shadow switch",
+          "no": 28,
+          "hint": "A screen can give a shadestone the dark it wants.",
+          "chapter": "The Travers Conservatory",
           "chapterNo": 5,
-          "chapterLine": "Stones set in the path that feel the light. A moonstone wakes when lit, a shadestone when dark, and each is wired to something.",
+          "chapterLine": "Stones set in the path that feel the light. A moonstone wakes when lit, a shadestone when dark, and each is wired to the conservatory.",
           "chapters": 5,
-          "total": 41,
-          "flyTotal": 21,
-          "width": 7,
-          "ground": ".....____....."
+          "total": 30,
+          "flyTotal": 18,
+          "par": 10,
+          "difficulty": 44,
+          "width": 10,
+          "ground": "############....#####.....#######......####....#############"
         }
       }
     },
     {
-      "id": "e8",
+      "id": "e9",
       "name": "Lamp mark",
       "tags": [
         "cursor"
       ],
       "components": {
         "transform": {
-          "x": 0.5,
-          "y": 0.5,
-          "h": 0,
+          "x": 1.5,
+          "y": 2.5,
+          "h": 3,
           "facing": 2
         },
         "sprite": {
@@ -410,11 +471,11 @@
   "regions": [
     {
       "id": "r1",
-      "name": "Keeps its own light",
+      "name": "Shadow switch",
       "x": 0,
       "y": 0,
-      "w": 7,
-      "h": 2,
+      "w": 10,
+      "h": 6,
       "cameraBounds": false,
       "music": "nightgarden",
       "darkness": 0.55,
@@ -429,8 +490,8 @@
         "output": "active"
       },
       "to": {
-        "entity": "e3",
-        "input": "power"
+        "entity": "e5",
+        "input": "open"
       }
     }
   ],
