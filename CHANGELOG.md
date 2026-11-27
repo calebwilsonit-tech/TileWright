@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.4.1 (2026-11-27)
+
+- Updater: use rate-limit-free github.com /releases/latest redirect and RELEASE.json instead of api.github.com (fixes 403)
+
 ## 0.4.0 (2026-11-27)
 
 - Botanical UI plugin and Nightgarden custom conservatory UI (fireflies, brass plaques, SVG filigree, embossed keycaps)
