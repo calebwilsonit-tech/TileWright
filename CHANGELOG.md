@@ -1,5 +1,19 @@
 # Changelog
 
+## 0.2.0 (2026-11-27)
+
+- Update package-lock.json for @tilewright/plugin-room-camera
+- Nightgarden: finish Chapters 4 and 5 (41 rooms), add sound effects and music, require Tilewright 0.2.0
+- Nightgarden: five chapters (36 rooms), its own plate script, levels raised by one
+- Nightgarden: a light-and-shadow puzzle game, its checks, and the Room camera plugin
+- Web export: games for web browsers (itch.io, a website)
+- UI animations keep a widget placed by its middle where it is
+- Export splash: a studio picture and a Made with Tilewright card; a wipe animation for widgets
+- Tile outline: a dark line along the edges of a tile's blocks where they meet air or another tile, none between its own blocks
+- README shows Gravity Courier: the editor playing it mid-flip, and four of its rooms
+- MIT license and a README for the repository
+- UI: screens fade out when they close, and {host.dice.<screen>} gives a new 1-99 each time a screen opens
+
 ## 0.1.0 (2026-11-05)
 
 - Docs index lists releasing.md, behaviours.md regenerated for the lantern post hint, the window-size text is in the list of fixed texts
