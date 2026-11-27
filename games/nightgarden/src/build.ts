@@ -135,14 +135,18 @@ export function buildProject(chapters: Chapter[], dir = PROJECT_DIR): { rooms: R
     'assets/input.json',
     json({
       schemaVersion: 1,
-      overrides: {},
+      overrides: {
+        jump: ['key:Space'],
+        ui_page_up: ['key:PageUp'],
+        ui_recentre: ['key:KeyC'],
+      },
       actions: [
-        { id: 'undo', label: 'Undo the last step', bindings: ['key:KeyZ', 'key:Backspace'] },
+        { id: 'undo', label: 'Undo the last step', bindings: ['key:KeyZ', 'key:Backspace', 'pad:button1'] },
         { id: 'restart', label: 'Start the room again', bindings: ['key:KeyR', 'pad:button2'] },
-        { id: 'hub', label: 'Visit the Conservatory hub', bindings: ['key:KeyH'] },
-        { id: 'shop', label: 'Open the Garden shop (in the Conservatory)', bindings: ['key:KeyB'] },
-        { id: 'hub_next', label: 'Hold the next garden piece (in the Conservatory)', bindings: ['key:KeyQ'] },
-        { id: 'photo', label: 'Photo mode (hide or show the HUD)', bindings: ['key:KeyV'] },
+        { id: 'hub', label: 'Visit the Conservatory hub', bindings: ['key:KeyH', 'pad:button8'] },
+        { id: 'shop', label: 'Open the Garden shop (in the Conservatory)', bindings: ['key:KeyB', 'pad:button4'] },
+        { id: 'hub_next', label: 'Hold the next garden piece (in the Conservatory)', bindings: ['key:KeyQ', 'pad:button3'] },
+        { id: 'photo', label: 'Photo mode (hide or show the HUD)', bindings: ['key:KeyV', 'pad:button11'] },
       ],
     }),
   );

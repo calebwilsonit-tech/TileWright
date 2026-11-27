@@ -1,13 +1,24 @@
 {
   "schemaVersion": 1,
-  "overrides": {},
+  "overrides": {
+    "jump": [
+      "key:Space"
+    ],
+    "ui_page_up": [
+      "key:PageUp"
+    ],
+    "ui_recentre": [
+      "key:KeyC"
+    ]
+  },
   "actions": [
     {
       "id": "undo",
       "label": "Undo the last step",
       "bindings": [
         "key:KeyZ",
-        "key:Backspace"
+        "key:Backspace",
+        "pad:button1"
       ]
     },
     {
@@ -22,28 +33,32 @@
       "id": "hub",
       "label": "Visit the Conservatory hub",
       "bindings": [
-        "key:KeyH"
+        "key:KeyH",
+        "pad:button8"
       ]
     },
     {
       "id": "shop",
       "label": "Open the Garden shop (in the Conservatory)",
       "bindings": [
-        "key:KeyB"
+        "key:KeyB",
+        "pad:button4"
       ]
     },
     {
       "id": "hub_next",
       "label": "Hold the next garden piece (in the Conservatory)",
       "bindings": [
-        "key:KeyQ"
+        "key:KeyQ",
+        "pad:button3"
       ]
     },
     {
       "id": "photo",
       "label": "Photo mode (hide or show the HUD)",
       "bindings": [
-        "key:KeyV"
+        "key:KeyV",
+        "pad:button11"
       ]
     }
   ]

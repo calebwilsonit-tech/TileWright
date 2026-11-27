@@ -733,33 +733,106 @@ export const botanicalCornersWidget: WidgetDef = {
   },
 };
 
+type InputMode = 'kb' | 'xbox' | 'ps';
+let activeInputMode: InputMode = 'kb';
+const keyBarListeners = new Set<() => void>();
+let inputWatchStarted = false;
+
+const PS_MAP: Record<string, string> = {
+  A: '✕',
+  B: '○',
+  X: '□',
+  Y: '△',
+  LB: 'L1',
+  RB: 'R1',
+  LT: 'L2',
+  RT: 'R2',
+  View: 'Share',
+  Start: 'Options',
+};
+
+function setInputMode(mode: InputMode): void {
+  if (activeInputMode === mode) return;
+  activeInputMode = mode;
+  for (const fn of keyBarListeners) fn();
+}
+
+function startInputWatch(): void {
+  if (inputWatchStarted || typeof window === 'undefined') return;
+  inputWatchStarted = true;
+  window.addEventListener('keydown', () => setInputMode('kb'), { passive: true });
+  window.addEventListener('gamepadconnected', (e) => {
+    const id = (e as GamepadEvent).gamepad?.id ?? '';
+    setInputMode(/dualshock|dualsense|playstation|054c/i.test(id) ? 'ps' : 'xbox');
+  });
+  if (typeof navigator !== 'undefined' && typeof navigator.getGamepads === 'function') {
+    const poll = (): void => {
+      if (keyBarListeners.size > 0) {
+        const pads = navigator.getGamepads();
+        for (const p of pads) {
+          if (!p) continue;
+          const active = p.buttons.some((b) => b.pressed || b.value > 0.35) || p.axes.some((a) => Math.abs(a) > 0.4);
+          if (active) {
+            setInputMode(/dualshock|dualsense|playstation|054c/i.test(p.id) ? 'ps' : 'xbox');
+            break;
+          }
+        }
+      }
+      window.requestAnimationFrame(poll);
+    };
+    window.requestAnimationFrame(poll);
+  }
+}
+
 export const botanicalKeysWidget: WidgetDef = {
   id: 'botanical-keys',
-  label: 'Botanical keycap bar (minimal sharp-cornered key labels)',
+  label: 'Botanical keycap bar (auto-switches between keyboard, Xbox, and PlayStation legends)',
   defaults: { w: 460, h: 30, wMode: 'auto', hMode: 'auto' },
   css: BOTANICAL_CSS,
   render(el, node) {
+    startInputWatch();
     const raw = node.text || 'Arrows:walk|E:lamp|Shift:turn|R:restart|Esc:pause';
-    if (el.dataset.sig === raw) return;
-    el.dataset.sig = raw;
-    const wrap = document.createElement('div');
-    wrap.className = 'tw-botanical-keys tw-botanical-scope';
-    for (const item of raw.split('|')) {
-      const [key, label] = item.split(':');
-      if (!key) continue;
-      const pair = document.createElement('span');
-      pair.className = 'kpair';
-      const kbd = document.createElement('kbd');
-      kbd.textContent = key.trim();
-      pair.append(kbd);
-      if (label) {
-        const txt = document.createElement('span');
-        txt.textContent = label.trim();
-        pair.append(txt);
+    const parts = raw.split(';;');
+    const kbText = parts[0] ?? raw;
+    const padText = parts[1] ?? kbText;
+    const draw = (): void => {
+      const mode = activeInputMode;
+      const sig = `${mode}|${raw}`;
+      if (el.dataset.sig === sig) return;
+      el.dataset.sig = sig;
+      const chosen = mode === 'kb' ? kbText : padText;
+      const wrap = document.createElement('div');
+      wrap.className = 'tw-botanical-keys tw-botanical-scope';
+      for (const item of chosen.split('|')) {
+        const [key, label] = item.split(':');
+        if (!key) continue;
+        const pair = document.createElement('span');
+        pair.className = 'kpair';
+        const kbd = document.createElement('kbd');
+        const trimmed = key.trim();
+        kbd.textContent = mode === 'ps' ? (PS_MAP[trimmed] ?? trimmed) : trimmed;
+        pair.append(kbd);
+        if (label) {
+          const txt = document.createElement('span');
+          txt.textContent = label.trim();
+          pair.append(txt);
+        }
+        wrap.append(pair);
       }
-      wrap.append(pair);
+      el.replaceChildren(wrap);
+    };
+    if (!el.dataset.bound) {
+      el.dataset.bound = '1';
+      const onChange = (): void => {
+        if (!el.isConnected) {
+          keyBarListeners.delete(onChange);
+          return;
+        }
+        draw();
+      };
+      keyBarListeners.add(onChange);
     }
-    el.replaceChildren(wrap);
+    draw();
   },
 };
 

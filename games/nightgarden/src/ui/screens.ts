@@ -138,12 +138,12 @@ function howToPlay(): UiScreen {
     id: 'ng-how',
     name: 'How to play',
     box: box('how', 'How to play', [
-      line('walk', 'gardener', 26, 36, 'The arrow keys or W A S D walk one bed at a time, along the paths. Hold Shift to turn on the spot.'),
-      line('lamp', 'lamp_on', 24, 48, 'E lights or douses the lamp beside you. A gold mark shows which one.'),
+      line('walk', 'gardener', 26, 36, 'Arrows, W A S D, or Left Stick / D-Pad walk one bed at a time. Hold Shift (or RB) to turn on the spot.'),
+      line('lamp', 'lamp_on', 24, 48, 'E (or A on a controller) lights or douses the lamp beside you. A gold mark shows which one.'),
       line('moonbloom', 'moonbloom_3', 48, 48, 'A moonbloom rises while its bed is lit and sinks in the dark. Stand on one to ride it.'),
       line('duskcap', 'duskcap_3', 48, 48, 'A duskcap rises in the dark and sinks in light.'),
-      line('crate', 'crate', 48, 42, 'Walk into a crate to push it. A risen bloom or a tall screen casts a shadow.'),
-      line('exit', 'exit', 56, 28, 'The green ring is the way out. R starts the room again. Fireflies are for the curious.'),
+      line('crate', 'crate', 48, 42, 'Walk into a crate to push it. Z (or B) undoes a step. A risen bloom or tall screen casts a shadow.'),
+      line('exit', 'exit', 56, 28, 'The green ring is the way out. R (or X) restarts the room. H (or View) visits your Conservatory.'),
       row('how.back', 'Back', [back()]),
     ], { hint: 'Esc back', wide: true }),
   });
@@ -489,8 +489,8 @@ function hud(): UiScreen {
         [words('hud.holding.label', 'In hand', TYPE.body, { style: { color: COLOR.dim } }), words('hud.holding.what', '{hub_sel_label}', TYPE.body, { style: { color: COLOR.accent, bold: true } })],
         { visible: '{ng_in_hub}' },
       ),
-      widget('plugin', 'hud.keys', { name: 'Keys', source: 'botanical-keys', text: 'Arrows:walk|E:lamp|Z:undo|R:restart|H:hub|V:photo|Esc:pause', wMode: 'auto', hMode: 'auto', padding: 0, style: {}, visible: '{ng_in_hub} = 0' }),
-      widget('plugin', 'hud.keys.hub', { name: 'Garden keys', source: 'botanical-keys', text: 'Arrows:walk|E:plant / lift|Q:next|B:shop|V:photo|H:leave|Esc:pause', wMode: 'auto', hMode: 'auto', padding: 0, style: {}, visible: '{ng_in_hub}' }),
+      widget('plugin', 'hud.keys', { name: 'Keys', source: 'botanical-keys', text: 'Arrows:walk|E:lamp|Z:undo|R:restart|H:hub|V:photo|Esc:pause;;D-Pad:walk|A:lamp|B:undo|X:restart|View:hub|R3:photo|Start:pause', wMode: 'auto', hMode: 'auto', padding: 0, style: {}, visible: '{ng_in_hub} = 0' }),
+      widget('plugin', 'hud.keys.hub', { name: 'Garden keys', source: 'botanical-keys', text: 'Arrows:walk|E:plant / lift|Q:next|B:shop|V:photo|H:leave|Esc:pause;;D-Pad:walk|A:plant / lift|Y:next|LB:shop|R3:photo|View:leave|Start:pause', wMode: 'auto', hMode: 'auto', padding: 0, style: {}, visible: '{ng_in_hub}' }),
     ],
   });
   const root = widget('panel', 'hud.root', { name: 'HUD root', anchor: 'fill', layout: 'free', padding: 0, style: {}, children: [where, toast, tally, jar, foot] });
