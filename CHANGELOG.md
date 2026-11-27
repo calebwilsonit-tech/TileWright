@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.3.0 (2026-11-27)
+
+- UI revamp: add optional Studio UI theme for Tilewright editor and polish Nightgarden screens and HUD
+- Release script: avoid shell splitting paths with spaces when invoking gh
+
 ## 0.2.1 (2026-11-27)
 
 - Editor: add built-in in-app updater checking GitHub Releases, with download progress, SHA-256 verification, and one-click install
