@@ -264,10 +264,104 @@ const BOTANICAL_CSS = `
   display: none !important;
 }
 
-/* ---------- ALL OTHER OVERLAY PANELS (Chapter, Settings, Controls, How to play, Herbarium, The end) ---------- */
+/* ---------- FULL-SCREEN SETTINGS & CONTROLS (clean editorial layout, zero wonky boxes) ---------- */
+.tw-screens:has(.tw-botanical-scope) [data-testid="tw-screen-Settings"] [data-id$="settings.box"],
+.tw-screens:has(.tw-botanical-scope) [data-testid="tw-screen-Controls"] [data-id$="controls.box"] {
+  position: absolute !important;
+  inset: 0 !important;
+  left: 0 !important;
+  top: 0 !important;
+  transform: none !important;
+  width: 100% !important;
+  height: 100% !important;
+  max-height: none !important;
+  padding: 36px 72px 28px !important;
+  background: none !important;
+  border: none !important;
+  box-shadow: none !important;
+  zoom: 1 !important;
+}
+
+.tw-screens:has(.tw-botanical-scope) [data-testid="tw-screen-Settings"] [data-id$="settings.box"] > .tw-scroll-content {
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+  align-items: flex-start !important;
+  min-height: 100% !important;
+  width: 100% !important;
+  max-width: 540px !important;
+}
+
+.tw-screens:has(.tw-botanical-scope) [data-testid="tw-screen-Controls"] [data-id$="controls.box"] > .tw-scroll-content {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: stretch !important;
+  width: 100% !important;
+  max-width: 780px !important;
+}
+
+.tw-screens:has(.tw-botanical-scope) [data-testid="tw-screen-Settings"] [data-id$="settings.rule.bottom"],
+.tw-screens:has(.tw-botanical-scope) [data-testid="tw-screen-Controls"] [data-id$="controls.rule.bottom"] {
+  display: none !important;
+}
+
+.tw-screens:has(.tw-botanical-scope) [data-testid="tw-screen-Settings"] .tw-scroll-content > .tw-w.panel:not(.clickable) {
+  width: 100% !important;
+  background: rgba(15, 20, 35, 0.74) !important;
+  backdrop-filter: blur(6px);
+  border: none !important;
+  border-left: 2px solid rgba(255, 215, 106, 0.24) !important;
+  border-radius: 0 !important;
+  padding: 11px 16px !important;
+  overflow: hidden;
+  transition: background 140ms ease, border-color 140ms ease;
+}
+
+.tw-screens:has(.tw-botanical-scope) [data-testid="tw-screen-Settings"] .tw-scroll-content > .tw-w.panel:not(.clickable):has(.focused),
+.tw-screens:has(.tw-botanical-scope) [data-testid="tw-screen-Settings"] .tw-scroll-content > .tw-w.panel:not(.clickable):hover {
+  background: linear-gradient(90deg, rgba(255, 215, 106, 0.16) 0%, rgba(15, 20, 35, 0.78) 100%) !important;
+  border-left-color: #ffd76a !important;
+}
+
+.tw-screens:has(.tw-botanical-scope) [data-testid="tw-screen-Settings"] .tw-w.panel.clickable {
+  width: 100% !important;
+}
+
+/* Clean frameless sliders & toggles (strip ugly brown focus box) */
+.tw-screens:has(.tw-botanical-scope) .tw-w.engine-slider,
+.tw-screens:has(.tw-botanical-scope) .tw-w.engine-slider.focused,
+.tw-screens:has(.tw-botanical-scope) .tw-w.engine-toggle,
+.tw-screens:has(.tw-botanical-scope) .tw-w.engine-toggle.focused {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.tw-screens:has(.tw-botanical-scope) .tw-w.engine-slider {
+  max-width: 220px !important;
+  width: 220px !important;
+  flex: 0 0 220px !important;
+}
+
+.tw-screens:has(.tw-botanical-scope) [data-testid="tw-screen-Controls"] .tw-w.keybind {
+  background: rgba(15, 20, 35, 0.72) !important;
+  border: none !important;
+  border-left: 2px solid transparent !important;
+  border-radius: 0 !important;
+  padding: 8px 14px !important;
+  font-size: 14px !important;
+}
+
+.tw-screens:has(.tw-botanical-scope) [data-testid="tw-screen-Controls"] .tw-w.keybind:hover,
+.tw-screens:has(.tw-botanical-scope) [data-testid="tw-screen-Controls"] .tw-w.keybind.focused {
+  background: linear-gradient(90deg, rgba(255, 215, 106, 0.18) 0%, rgba(15, 20, 35, 0.78) 100%) !important;
+  border-left: 2px solid #ffd76a !important;
+}
+
+/* ---------- ALL OTHER OVERLAY PANELS (Chapter, How to play, Herbarium, The end) ---------- */
 /* Hard corners, zero 4-sided outline, clean dark tonal surface + single top 2px gold hairline.
    Use > .tw-w > so nested widgets whose id happens to end in ".box" (like settings.full.box) are never matched! */
-.tw-screens:has(.tw-botanical-scope) .tw-screen > .tw-w > [data-id$=".box"]:not([data-id$="title.box"]):not([data-id$="pause.box"]):not([data-id$="rooms.box"]) {
+.tw-screens:has(.tw-botanical-scope) .tw-screen > .tw-w > [data-id$=".box"]:not([data-id$="title.box"]):not([data-id$="pause.box"]):not([data-id$="rooms.box"]):not([data-id$="settings.box"]):not([data-id$="controls.box"]) {
   background: linear-gradient(180deg, rgba(18, 23, 40, 0.96) 0%, rgba(11, 14, 25, 0.98) 100%) !important;
   border: none !important;
   border-top: 2px solid #ffd76a !important;
@@ -334,20 +428,12 @@ const BOTANICAL_CSS = `
   border-left: 2px solid rgba(255, 215, 106, 0.6) !important;
 }
 
-/* Settings & How-to-play rows: subtle tonal zebra strips, NO borders (never touch inner control parts!) */
-.tw-screens:has(.tw-botanical-scope) [data-testid="tw-screen-Settings"] .tw-scroll-content > .tw-w.panel:not(.clickable),
+/* How-to-play rows: subtle tonal zebra strips, NO borders */
 .tw-screens:has(.tw-botanical-scope) [data-testid="tw-screen-How to play"] .tw-scroll-content > .tw-w.panel:not(.clickable) {
   background: rgba(255, 255, 255, 0.03) !important;
   border: none !important;
   border-radius: 0 !important;
   overflow: hidden;
-}
-
-/* Keep sliders cleanly inside their row without overflowing */
-.tw-screens:has(.tw-botanical-scope) .tw-w.engine-slider {
-  max-width: 180px !important;
-  width: 180px !important;
-  flex: 0 0 180px !important;
 }
 
 /* ---------- SHARP-CORNERED BORDERLESS ROOM TILES ---------- */

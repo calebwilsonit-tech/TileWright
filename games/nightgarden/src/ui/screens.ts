@@ -83,7 +83,9 @@ function settings(): UiScreen {
       volume('sfx', 'Sounds', 'sfx'),
       setting('settings.zoom', 'Zoom', slider('settings.zoom.slider', 'Zoom slider', 'settings.cameraZoom', 0.75, 1.5, 0.25)),
       setting('settings.full', 'Full screen', tick('settings.full.box', 'Full screen tick box', 'settings.fullscreen'), '{host.fullscreen}'),
+      space('settings.gap', SPACE.rowPad),
       row('settings.controls', 'Controls', [open('role:controls')]),
+      row('settings.back', 'Back', [back()]),
     ], { hint: 'W / S choose · A / D change · Esc back' }),
   });
 }
@@ -101,7 +103,15 @@ function controls(): UiScreen {
     states: { hover: { fill: 'color-mix(in srgb, var(--tw-highlight) 22%, var(--tw-panel))' }, focus: { border: COLOR.highlight, borderWidth: 1 } },
   });
   const list = widget('list', 'controls.list', { name: 'Controls', source: 'controls', layout: 'column', wMode: 'fill', hMode: 'auto', gap: SPACE.rowGap, padding: 0, style: {}, children: [bind] });
-  return menu({ id: 'ng-controls', name: 'Controls', role: 'controls', box: box('controls', 'Controls', [list, row('controls.reset', 'Put all controls back', [act('resetControls')])], { hint: 'E change the chosen control, then press the new key · Esc back' }) });
+  return menu({
+    id: 'ng-controls',
+    name: 'Controls',
+    role: 'controls',
+    box: box('controls', 'Controls', [list, space('controls.gap', SPACE.rowPad), row('controls.reset', 'Put all controls back', [act('resetControls')]), row('controls.back', 'Back', [back()])], {
+      hint: 'E change the chosen control, then press the new key · Esc back',
+      wide: true,
+    }),
+  });
 }
 
 /** One page of plain words and pictures: what the things in the garden do. */

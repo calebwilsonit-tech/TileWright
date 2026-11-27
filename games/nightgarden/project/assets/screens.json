@@ -13017,6 +13017,54 @@
                 ]
               },
               {
+                "id": "settings.gap",
+                "name": "Space",
+                "type": "spacer",
+                "anchor": "tl",
+                "x": 0,
+                "y": 0,
+                "w": 8,
+                "h": 8,
+                "wMode": "fill",
+                "hMode": "fixed",
+                "layout": "free",
+                "gap": 8,
+                "padding": 8,
+                "align": "start",
+                "columns": 3,
+                "style": {},
+                "states": {},
+                "anim": [],
+                "text": "",
+                "sprite": "",
+                "value": "",
+                "max": "100",
+                "min": 0,
+                "step": 1,
+                "options": "",
+                "source": "",
+                "template": "",
+                "drag": false,
+                "visible": "",
+                "enabled": "",
+                "on": {
+                  "click": [],
+                  "hover": [],
+                  "change": []
+                },
+                "focus": {
+                  "up": "",
+                  "down": "",
+                  "left": "",
+                  "right": ""
+                },
+                "tooltip": "",
+                "prefab": "",
+                "overrides": {},
+                "marks": "player:#6fe08a, enemy:#e05a5a",
+                "children": []
+              },
+              {
                 "id": "settings.controls",
                 "name": "Controls",
                 "type": "panel",
@@ -13147,6 +13195,185 @@
                   },
                   {
                     "id": "settings.controls.gap",
+                    "name": "Space",
+                    "type": "spacer",
+                    "anchor": "tl",
+                    "x": 0,
+                    "y": 0,
+                    "w": 8,
+                    "h": 8,
+                    "wMode": "fill",
+                    "hMode": "auto",
+                    "layout": "free",
+                    "gap": 8,
+                    "padding": 8,
+                    "align": "start",
+                    "columns": 3,
+                    "style": {},
+                    "states": {},
+                    "anim": [],
+                    "text": "",
+                    "sprite": "",
+                    "value": "",
+                    "max": "100",
+                    "min": 0,
+                    "step": 1,
+                    "options": "",
+                    "source": "",
+                    "template": "",
+                    "drag": false,
+                    "visible": "",
+                    "enabled": "",
+                    "on": {
+                      "click": [],
+                      "hover": [],
+                      "change": []
+                    },
+                    "focus": {
+                      "up": "",
+                      "down": "",
+                      "left": "",
+                      "right": ""
+                    },
+                    "tooltip": "",
+                    "prefab": "",
+                    "overrides": {},
+                    "marks": "player:#6fe08a, enemy:#e05a5a",
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "id": "settings.back",
+                "name": "Back",
+                "type": "panel",
+                "anchor": "tl",
+                "x": 0,
+                "y": 0,
+                "w": 240,
+                "h": 160,
+                "wMode": "fill",
+                "hMode": "auto",
+                "layout": "row",
+                "gap": 12,
+                "padding": 8,
+                "align": "center",
+                "columns": 3,
+                "style": {
+                  "fill": "color-mix(in srgb, var(--tw-border) 18%, var(--tw-panel))",
+                  "border": "color-mix(in srgb, var(--tw-border) 55%, var(--tw-panel))",
+                  "borderWidth": 1,
+                  "radius": 0
+                },
+                "states": {
+                  "hover": {
+                    "fill": "color-mix(in srgb, var(--tw-highlight) 22%, var(--tw-panel))",
+                    "border": "var(--tw-highlight)",
+                    "borderWidth": 1
+                  },
+                  "focus": {
+                    "fill": "color-mix(in srgb, var(--tw-highlight) 22%, var(--tw-panel))",
+                    "border": "var(--tw-highlight)",
+                    "borderWidth": 1
+                  },
+                  "pressed": {
+                    "fill": "color-mix(in srgb, var(--tw-highlight) 32%, var(--tw-panel))",
+                    "border": "var(--tw-highlight)",
+                    "borderWidth": 1
+                  },
+                  "disabled": {
+                    "opacity": 0.4
+                  }
+                },
+                "anim": [],
+                "text": "",
+                "sprite": "",
+                "value": "",
+                "max": "100",
+                "min": 0,
+                "step": 1,
+                "options": "",
+                "source": "",
+                "template": "",
+                "drag": false,
+                "visible": "",
+                "enabled": "",
+                "on": {
+                  "click": [
+                    {
+                      "type": "uiScreen",
+                      "params": {
+                        "op": "back",
+                        "screen": ""
+                      }
+                    }
+                  ],
+                  "hover": [],
+                  "change": []
+                },
+                "focus": {
+                  "up": "",
+                  "down": "",
+                  "left": "",
+                  "right": ""
+                },
+                "tooltip": "",
+                "prefab": "",
+                "overrides": {},
+                "marks": "player:#6fe08a, enemy:#e05a5a",
+                "children": [
+                  {
+                    "id": "settings.back.label",
+                    "name": "Label",
+                    "type": "text",
+                    "anchor": "tl",
+                    "x": 0,
+                    "y": 0,
+                    "w": 160,
+                    "h": 28,
+                    "wMode": "auto",
+                    "hMode": "auto",
+                    "layout": "free",
+                    "gap": 8,
+                    "padding": 0,
+                    "align": "start",
+                    "columns": 3,
+                    "style": {
+                      "fontSize": 18
+                    },
+                    "states": {},
+                    "anim": [],
+                    "text": "Back",
+                    "sprite": "",
+                    "value": "",
+                    "max": "100",
+                    "min": 0,
+                    "step": 1,
+                    "options": "",
+                    "source": "",
+                    "template": "",
+                    "drag": false,
+                    "visible": "",
+                    "enabled": "",
+                    "on": {
+                      "click": [],
+                      "hover": [],
+                      "change": []
+                    },
+                    "focus": {
+                      "up": "",
+                      "down": "",
+                      "left": "",
+                      "right": ""
+                    },
+                    "tooltip": "",
+                    "prefab": "",
+                    "overrides": {},
+                    "marks": "player:#6fe08a, enemy:#e05a5a",
+                    "children": []
+                  },
+                  {
+                    "id": "settings.back.gap",
                     "name": "Space",
                     "type": "spacer",
                     "anchor": "tl",
@@ -13512,7 +13739,7 @@
             "anchor": "c",
             "x": 0,
             "y": 0,
-            "w": 480,
+            "w": 880,
             "h": 160,
             "wMode": "fixed",
             "hMode": "auto",
@@ -13874,6 +14101,54 @@
                 ]
               },
               {
+                "id": "controls.gap",
+                "name": "Space",
+                "type": "spacer",
+                "anchor": "tl",
+                "x": 0,
+                "y": 0,
+                "w": 8,
+                "h": 8,
+                "wMode": "fill",
+                "hMode": "fixed",
+                "layout": "free",
+                "gap": 8,
+                "padding": 8,
+                "align": "start",
+                "columns": 3,
+                "style": {},
+                "states": {},
+                "anim": [],
+                "text": "",
+                "sprite": "",
+                "value": "",
+                "max": "100",
+                "min": 0,
+                "step": 1,
+                "options": "",
+                "source": "",
+                "template": "",
+                "drag": false,
+                "visible": "",
+                "enabled": "",
+                "on": {
+                  "click": [],
+                  "hover": [],
+                  "change": []
+                },
+                "focus": {
+                  "up": "",
+                  "down": "",
+                  "left": "",
+                  "right": ""
+                },
+                "tooltip": "",
+                "prefab": "",
+                "overrides": {},
+                "marks": "player:#6fe08a, enemy:#e05a5a",
+                "children": []
+              },
+              {
                 "id": "controls.reset",
                 "name": "Put all controls back",
                 "type": "panel",
@@ -14001,6 +14276,185 @@
                   },
                   {
                     "id": "controls.reset.gap",
+                    "name": "Space",
+                    "type": "spacer",
+                    "anchor": "tl",
+                    "x": 0,
+                    "y": 0,
+                    "w": 8,
+                    "h": 8,
+                    "wMode": "fill",
+                    "hMode": "auto",
+                    "layout": "free",
+                    "gap": 8,
+                    "padding": 8,
+                    "align": "start",
+                    "columns": 3,
+                    "style": {},
+                    "states": {},
+                    "anim": [],
+                    "text": "",
+                    "sprite": "",
+                    "value": "",
+                    "max": "100",
+                    "min": 0,
+                    "step": 1,
+                    "options": "",
+                    "source": "",
+                    "template": "",
+                    "drag": false,
+                    "visible": "",
+                    "enabled": "",
+                    "on": {
+                      "click": [],
+                      "hover": [],
+                      "change": []
+                    },
+                    "focus": {
+                      "up": "",
+                      "down": "",
+                      "left": "",
+                      "right": ""
+                    },
+                    "tooltip": "",
+                    "prefab": "",
+                    "overrides": {},
+                    "marks": "player:#6fe08a, enemy:#e05a5a",
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "id": "controls.back",
+                "name": "Back",
+                "type": "panel",
+                "anchor": "tl",
+                "x": 0,
+                "y": 0,
+                "w": 240,
+                "h": 160,
+                "wMode": "fill",
+                "hMode": "auto",
+                "layout": "row",
+                "gap": 12,
+                "padding": 8,
+                "align": "center",
+                "columns": 3,
+                "style": {
+                  "fill": "color-mix(in srgb, var(--tw-border) 18%, var(--tw-panel))",
+                  "border": "color-mix(in srgb, var(--tw-border) 55%, var(--tw-panel))",
+                  "borderWidth": 1,
+                  "radius": 0
+                },
+                "states": {
+                  "hover": {
+                    "fill": "color-mix(in srgb, var(--tw-highlight) 22%, var(--tw-panel))",
+                    "border": "var(--tw-highlight)",
+                    "borderWidth": 1
+                  },
+                  "focus": {
+                    "fill": "color-mix(in srgb, var(--tw-highlight) 22%, var(--tw-panel))",
+                    "border": "var(--tw-highlight)",
+                    "borderWidth": 1
+                  },
+                  "pressed": {
+                    "fill": "color-mix(in srgb, var(--tw-highlight) 32%, var(--tw-panel))",
+                    "border": "var(--tw-highlight)",
+                    "borderWidth": 1
+                  },
+                  "disabled": {
+                    "opacity": 0.4
+                  }
+                },
+                "anim": [],
+                "text": "",
+                "sprite": "",
+                "value": "",
+                "max": "100",
+                "min": 0,
+                "step": 1,
+                "options": "",
+                "source": "",
+                "template": "",
+                "drag": false,
+                "visible": "",
+                "enabled": "",
+                "on": {
+                  "click": [
+                    {
+                      "type": "uiScreen",
+                      "params": {
+                        "op": "back",
+                        "screen": ""
+                      }
+                    }
+                  ],
+                  "hover": [],
+                  "change": []
+                },
+                "focus": {
+                  "up": "",
+                  "down": "",
+                  "left": "",
+                  "right": ""
+                },
+                "tooltip": "",
+                "prefab": "",
+                "overrides": {},
+                "marks": "player:#6fe08a, enemy:#e05a5a",
+                "children": [
+                  {
+                    "id": "controls.back.label",
+                    "name": "Label",
+                    "type": "text",
+                    "anchor": "tl",
+                    "x": 0,
+                    "y": 0,
+                    "w": 160,
+                    "h": 28,
+                    "wMode": "auto",
+                    "hMode": "auto",
+                    "layout": "free",
+                    "gap": 8,
+                    "padding": 0,
+                    "align": "start",
+                    "columns": 3,
+                    "style": {
+                      "fontSize": 18
+                    },
+                    "states": {},
+                    "anim": [],
+                    "text": "Back",
+                    "sprite": "",
+                    "value": "",
+                    "max": "100",
+                    "min": 0,
+                    "step": 1,
+                    "options": "",
+                    "source": "",
+                    "template": "",
+                    "drag": false,
+                    "visible": "",
+                    "enabled": "",
+                    "on": {
+                      "click": [],
+                      "hover": [],
+                      "change": []
+                    },
+                    "focus": {
+                      "up": "",
+                      "down": "",
+                      "left": "",
+                      "right": ""
+                    },
+                    "tooltip": "",
+                    "prefab": "",
+                    "overrides": {},
+                    "marks": "player:#6fe08a, enemy:#e05a5a",
+                    "children": []
+                  },
+                  {
+                    "id": "controls.back.gap",
                     "name": "Space",
                     "type": "spacer",
                     "anchor": "tl",
