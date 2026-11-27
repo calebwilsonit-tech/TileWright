@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { compareVersions, extractSha256, isAllowedUpdateUrl, parseRelease, pickInstallerAsset } from './updater';
+import { compareVersions, extractSha256, isAllowedUpdateUrl, parseRelease, parseTagFromRedirect, pickInstallerAsset } from './updater';
 
 describe('updater helpers', () => {
   it('compares semantic versions with or without a leading v', () => {
@@ -35,6 +35,11 @@ describe('updater helpers', () => {
     expect(extractSha256(hex.toUpperCase())).toBe(hex);
     expect(extractSha256('not-a-hash')).toBeUndefined();
     expect(extractSha256(null)).toBeUndefined();
+  });
+
+  it('extracts release tags from GitHub /releases/latest redirects', () => {
+    expect(parseTagFromRedirect('https://github.com/calebwilsonit-tech/TileWright/releases/tag/v0.4.0')).toBe('v0.4.0');
+    expect(parseTagFromRedirect('https://github.com/calebwilsonit-tech/TileWright/releases')).toBeNull();
   });
 
   it('parses an available release and an up-to-date release', () => {

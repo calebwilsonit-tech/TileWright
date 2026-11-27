@@ -5,8 +5,9 @@ import fs from 'node:fs/promises';
 import fsSync from 'node:fs';
 import path from 'node:path';
 
-export const UPDATE_REPO = 'calebwilsonit-tech/TileWrite';
+export const UPDATE_REPO = 'calebwilsonit-tech/TileWright';
 export const DEFAULT_RELEASE_API = `https://api.github.com/repos/${UPDATE_REPO}/releases/latest`;
+export const LATEST_RELEASE_WEB = `https://github.com/${UPDATE_REPO}/releases/latest`;
 export const RELEASES_PAGE = `https://github.com/${UPDATE_REPO}/releases`;
 
 export interface UpdateCheckResult {
@@ -91,6 +92,12 @@ export function extractSha256(digest?: string | null): string | undefined {
   return m ? m[1]!.toLowerCase() : undefined;
 }
 
+/** Extract a release tag from a GitHub /releases/latest redirect URL (e.g. ".../releases/tag/v0.4.0"). */
+export function parseTagFromRedirect(location: string): string | null {
+  const m = /\/releases\/tag\/([^/?#]+)/i.exec(location);
+  return m ? decodeURIComponent(m[1]!) : null;
+}
+
 /** Parse a GitHub release JSON response into our structured update result. */
 export function parseRelease(current: string, rel: GithubRelease, platform: NodeJS.Platform = process.platform): UpdateCheckResult {
   const latest = (rel.tag_name ?? '').replace(/^v/i, '').trim();
@@ -139,40 +146,96 @@ export function registerUpdater(opts: { testMode: boolean }): void {
     if (opts.testMode && !customUrl) {
       return { status: 'up-to-date', current, latest: current, releaseUrl: RELEASES_PAGE };
     }
-    if (!isAllowedUpdateUrl(apiUrl, allowLocal)) {
-      return { status: 'error', current, message: 'The update address is not allowed.' };
-    }
     const ctl = new AbortController();
     const timer = setTimeout(() => ctl.abort(), 15_000);
     try {
-      const res = await fetch(apiUrl, {
-        headers: { Accept: 'application/vnd.github+json', 'User-Agent': `Tilewright/${current}` },
+      // Custom URL (used by tests): fetch JSON directly.
+      if (customUrl) {
+        if (!isAllowedUpdateUrl(apiUrl, allowLocal)) {
+          return { status: 'error', current, message: 'The update address is not allowed.' };
+        }
+        const res = await fetch(apiUrl, { headers: { Accept: 'application/vnd.github+json', 'User-Agent': `Tilewright/${current}` }, signal: ctl.signal });
+        if (res.status === 404) return { status: 'up-to-date', current, latest: current, releaseUrl: RELEASES_PAGE };
+        if (!res.ok) return { status: 'error', current, message: `Update server answered with status ${res.status}.` };
+        const result = parseRelease(current, (await res.json()) as GithubRelease);
+        lastAvailable = result.status === 'available' ? result : null;
+        return result;
+      }
+
+      // Primary path: GitHub's /releases/latest redirect + RELEASE.json asset.
+      // Unlike api.github.com (60 req/hr unauthenticated -> 403), github.com release redirects have no API rate limit.
+      const latestRes = await fetch(LATEST_RELEASE_WEB, {
+        redirect: 'manual',
+        headers: { 'User-Agent': `Tilewright/${current}` },
         signal: ctl.signal,
       });
-      if (res.status === 404) {
-        return { status: 'up-to-date', current, latest: current, releaseUrl: RELEASES_PAGE, notes: 'No published releases found yet.' };
-      }
-      if (!res.ok) {
-        return { status: 'error', current, message: `GitHub answered with status ${res.status}.` };
-      }
-      const rel = (await res.json()) as GithubRelease;
-      const result = parseRelease(current, rel);
-      // If RELEASE.json was uploaded alongside the installer and no digest was on the asset, grab its sha256.
-      if (result.status === 'available' && !result.sha256) {
-        const meta = (rel.assets ?? []).find((a) => a.name === 'RELEASE.json');
-        if (meta && isAllowedUpdateUrl(meta.browser_download_url, allowLocal)) {
-          try {
-            const mr = await fetch(meta.browser_download_url, { headers: { 'User-Agent': `Tilewright/${current}` }, signal: ctl.signal });
-            if (mr.ok) {
-              const j = (await mr.json()) as { sha256?: string };
-              result.sha256 = extractSha256(j.sha256);
-            }
-          } catch {
-            /* checksum metadata is optional */
-          }
+      const loc = latestRes.headers.get('location') ?? latestRes.url ?? '';
+      const tag = parseTagFromRedirect(loc);
+      if (!tag) {
+        if (latestRes.status === 404 || loc.endsWith('/releases')) {
+          return { status: 'up-to-date', current, latest: current, releaseUrl: RELEASES_PAGE, notes: 'No published releases found yet.' };
         }
+        return { status: 'error', current, message: `Could not read the latest release (status ${latestRes.status}).` };
       }
-      lastAvailable = result.status === 'available' ? result : null;
+
+      const latest = tag.replace(/^v/i, '').trim();
+      const releaseUrl = `https://github.com/${UPDATE_REPO}/releases/tag/${encodeURIComponent(tag)}`;
+      if (compareVersions(current, latest) >= 0) {
+        lastAvailable = null;
+        return { status: 'up-to-date', current, latest, releaseUrl };
+      }
+
+      // Fetch RELEASE.json (uploaded alongside the installer) for exact installer filename and SHA-256 checksum.
+      let assetName = process.platform === 'win32' ? `Tilewright-${latest}-win.exe` : undefined;
+      let sha256: string | undefined;
+      let publishedAt = '';
+      try {
+        const metaUrl = `https://github.com/${UPDATE_REPO}/releases/download/${encodeURIComponent(tag)}/RELEASE.json`;
+        const mr = await fetch(metaUrl, { headers: { 'User-Agent': `Tilewright/${current}` }, signal: ctl.signal });
+        if (mr.ok) {
+          const j = (await mr.json()) as { installer?: string; sha256?: string; builtAt?: string };
+          if (process.platform === 'win32' && j.installer) assetName = j.installer;
+          sha256 = extractSha256(j.sha256);
+          publishedAt = j.builtAt ?? '';
+        }
+      } catch {
+        /* RELEASE.json is optional */
+      }
+
+      const assetUrl = assetName ? `https://github.com/${UPDATE_REPO}/releases/download/${encodeURIComponent(tag)}/${encodeURIComponent(assetName)}` : undefined;
+
+      // Best-effort release notes & file size from GitHub API; silently ignored if rate-limited (403).
+      let notes = '';
+      let size: number | undefined;
+      try {
+        const apiRes = await fetch(DEFAULT_RELEASE_API, {
+          headers: { Accept: 'application/vnd.github+json', 'User-Agent': `Tilewright/${current}` },
+          signal: ctl.signal,
+        });
+        if (apiRes.ok) {
+          const rel = (await apiRes.json()) as GithubRelease;
+          notes = (rel.body ?? '').trim();
+          const a = pickInstallerAsset(rel.assets ?? []);
+          if (a?.size) size = a.size;
+          if (!sha256) sha256 = extractSha256(a?.digest);
+        }
+      } catch {
+        /* optional */
+      }
+
+      const result: UpdateCheckResult = {
+        status: 'available',
+        current,
+        latest,
+        releaseUrl,
+        notes,
+        publishedAt,
+        assetName,
+        assetUrl,
+        size,
+        sha256,
+      };
+      lastAvailable = result;
       return result;
     } catch (e) {
       return {
