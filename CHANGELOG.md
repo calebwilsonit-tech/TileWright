@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.4.2 (2026-11-27)
+
+- Nightgarden UI: full-screen editorial main menu, full-height pause drawer, hard corners, and borderless typographic items
+
 ## 0.4.1 (2026-11-27)
 
 - Updater: use rate-limit-free github.com /releases/latest redirect and RELEASE.json instead of api.github.com (fixes 403)
