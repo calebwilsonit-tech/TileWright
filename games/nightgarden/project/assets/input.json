@@ -9,6 +9,13 @@
         "key:KeyR",
         "pad:button2"
       ]
+    },
+    {
+      "id": "hub",
+      "label": "Visit the Conservatory hub",
+      "bindings": [
+        "key:KeyH"
+      ]
     }
   ]
 }

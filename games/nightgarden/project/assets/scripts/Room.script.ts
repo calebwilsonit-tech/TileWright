@@ -83,7 +83,10 @@ export default defineScript({
     if (v.ng_flies === undefined) v.ng_flies = 0;
     if (v.ng_pars === undefined) v.ng_pars = 0;
     // every room up to the one being played can be gone back to
-    if (Number(s.no) > 0) v.ng_reach = Math.max(Number(v.ng_reach ?? 1), Number(s.no));
+    if (Number(s.no) > 0) {
+      v.ng_reach = Math.max(Number(v.ng_reach ?? 1), Number(s.no));
+      v.ng_last_room = `scenes/${s.room}.scene.json`;
+    }
     const seen = `seen_chapter_${s.chapterNo}`;
     if (Number(s.chapterNo) > 0 && !v[seen]) {
       v[seen] = 1;
@@ -119,6 +122,11 @@ export default defineScript({
     me.state.crates = now;
     if (pushed) game.do('sound', { name: 'push', volume: 0.55 });
     if (game.input.pressed('restart')) game.do('restartArea');
+    if (game.input.pressed('hub')) {
+      const target = me.settings.room === 'hub' ? String(game.vars.ng_last_room || 'scenes/r101.scene.json') : 'scenes/hub.scene.json';
+      game.travel(target);
+      return;
+    }
     // a card of the Rooms screen was chosen
     const to = game.vars.ng_goto;
     if (typeof to === 'string' && to !== '') {

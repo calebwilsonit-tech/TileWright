@@ -92,6 +92,17 @@ test('the editor opens Nightgarden, finds nothing wrong, and every screen of the
   // ---- R starts the room again ----
   await page.keyboard.press('r');
   await expect.poll(where).toEqual(start);
+
+  // ---- H enters the Conservatory hub, and Pause -> Main menu returns to Title ----
+  await page.keyboard.press('h');
+  await page.waitForTimeout(500);
+  await expect(screen(page, 'HUD')).toContainText('The Conservatory');
+  await page.screenshot({ path: shot('12-hub.png') });
+  await page.keyboard.press('p');
+  await expect(screen(page, 'Pause')).toBeVisible();
+  await ui(page, 'Main menu').click();
+  await expect(screen(page, 'Title')).toBeVisible();
+
   await page.getByTestId('btn-stop').click();
   expect(errors).toEqual([]);
   await app.close();

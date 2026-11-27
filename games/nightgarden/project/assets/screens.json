@@ -1009,6 +1009,13 @@
                       "type": "uiScreen",
                       "params": {
                         "op": "close",
+                        "screen": "Chapter"
+                      }
+                    },
+                    {
+                      "type": "uiScreen",
+                      "params": {
+                        "op": "close",
                         "screen": "The end"
                       }
                     },
@@ -1194,6 +1201,185 @@
                 ]
               },
               {
+                "id": "title.rooms",
+                "name": "Rooms",
+                "type": "panel",
+                "anchor": "tl",
+                "x": 0,
+                "y": 0,
+                "w": 240,
+                "h": 160,
+                "wMode": "fill",
+                "hMode": "auto",
+                "layout": "row",
+                "gap": 12,
+                "padding": 8,
+                "align": "center",
+                "columns": 3,
+                "style": {
+                  "fill": "color-mix(in srgb, var(--tw-border) 18%, var(--tw-panel))",
+                  "border": "color-mix(in srgb, var(--tw-border) 55%, var(--tw-panel))",
+                  "borderWidth": 1,
+                  "radius": 0
+                },
+                "states": {
+                  "hover": {
+                    "fill": "color-mix(in srgb, var(--tw-highlight) 22%, var(--tw-panel))",
+                    "border": "var(--tw-highlight)",
+                    "borderWidth": 1
+                  },
+                  "focus": {
+                    "fill": "color-mix(in srgb, var(--tw-highlight) 22%, var(--tw-panel))",
+                    "border": "var(--tw-highlight)",
+                    "borderWidth": 1
+                  },
+                  "pressed": {
+                    "fill": "color-mix(in srgb, var(--tw-highlight) 32%, var(--tw-panel))",
+                    "border": "var(--tw-highlight)",
+                    "borderWidth": 1
+                  },
+                  "disabled": {
+                    "opacity": 0.4
+                  }
+                },
+                "anim": [],
+                "text": "",
+                "sprite": "",
+                "value": "",
+                "max": "100",
+                "min": 0,
+                "step": 1,
+                "options": "",
+                "source": "",
+                "template": "",
+                "drag": false,
+                "visible": "",
+                "enabled": "",
+                "on": {
+                  "click": [
+                    {
+                      "type": "uiScreen",
+                      "params": {
+                        "op": "open",
+                        "screen": "Rooms"
+                      }
+                    }
+                  ],
+                  "hover": [],
+                  "change": []
+                },
+                "focus": {
+                  "up": "",
+                  "down": "",
+                  "left": "",
+                  "right": ""
+                },
+                "tooltip": "",
+                "prefab": "",
+                "overrides": {},
+                "marks": "player:#6fe08a, enemy:#e05a5a",
+                "children": [
+                  {
+                    "id": "title.rooms.label",
+                    "name": "Label",
+                    "type": "text",
+                    "anchor": "tl",
+                    "x": 0,
+                    "y": 0,
+                    "w": 160,
+                    "h": 28,
+                    "wMode": "auto",
+                    "hMode": "auto",
+                    "layout": "free",
+                    "gap": 8,
+                    "padding": 0,
+                    "align": "start",
+                    "columns": 3,
+                    "style": {
+                      "fontSize": 18
+                    },
+                    "states": {},
+                    "anim": [],
+                    "text": "Rooms",
+                    "sprite": "",
+                    "value": "",
+                    "max": "100",
+                    "min": 0,
+                    "step": 1,
+                    "options": "",
+                    "source": "",
+                    "template": "",
+                    "drag": false,
+                    "visible": "",
+                    "enabled": "",
+                    "on": {
+                      "click": [],
+                      "hover": [],
+                      "change": []
+                    },
+                    "focus": {
+                      "up": "",
+                      "down": "",
+                      "left": "",
+                      "right": ""
+                    },
+                    "tooltip": "",
+                    "prefab": "",
+                    "overrides": {},
+                    "marks": "player:#6fe08a, enemy:#e05a5a",
+                    "children": []
+                  },
+                  {
+                    "id": "title.rooms.gap",
+                    "name": "Space",
+                    "type": "spacer",
+                    "anchor": "tl",
+                    "x": 0,
+                    "y": 0,
+                    "w": 8,
+                    "h": 8,
+                    "wMode": "fill",
+                    "hMode": "auto",
+                    "layout": "free",
+                    "gap": 8,
+                    "padding": 8,
+                    "align": "start",
+                    "columns": 3,
+                    "style": {},
+                    "states": {},
+                    "anim": [],
+                    "text": "",
+                    "sprite": "",
+                    "value": "",
+                    "max": "100",
+                    "min": 0,
+                    "step": 1,
+                    "options": "",
+                    "source": "",
+                    "template": "",
+                    "drag": false,
+                    "visible": "",
+                    "enabled": "",
+                    "on": {
+                      "click": [],
+                      "hover": [],
+                      "change": []
+                    },
+                    "focus": {
+                      "up": "",
+                      "down": "",
+                      "left": "",
+                      "right": ""
+                    },
+                    "tooltip": "",
+                    "prefab": "",
+                    "overrides": {},
+                    "marks": "player:#6fe08a, enemy:#e05a5a",
+                    "children": []
+                  }
+                ]
+              },
+              {
                 "id": "title.herbarium",
                 "name": "Herbarium",
                 "type": "panel",
@@ -1324,185 +1510,6 @@
                   },
                   {
                     "id": "title.herbarium.gap",
-                    "name": "Space",
-                    "type": "spacer",
-                    "anchor": "tl",
-                    "x": 0,
-                    "y": 0,
-                    "w": 8,
-                    "h": 8,
-                    "wMode": "fill",
-                    "hMode": "auto",
-                    "layout": "free",
-                    "gap": 8,
-                    "padding": 8,
-                    "align": "start",
-                    "columns": 3,
-                    "style": {},
-                    "states": {},
-                    "anim": [],
-                    "text": "",
-                    "sprite": "",
-                    "value": "",
-                    "max": "100",
-                    "min": 0,
-                    "step": 1,
-                    "options": "",
-                    "source": "",
-                    "template": "",
-                    "drag": false,
-                    "visible": "",
-                    "enabled": "",
-                    "on": {
-                      "click": [],
-                      "hover": [],
-                      "change": []
-                    },
-                    "focus": {
-                      "up": "",
-                      "down": "",
-                      "left": "",
-                      "right": ""
-                    },
-                    "tooltip": "",
-                    "prefab": "",
-                    "overrides": {},
-                    "marks": "player:#6fe08a, enemy:#e05a5a",
-                    "children": []
-                  }
-                ]
-              },
-              {
-                "id": "title.rooms",
-                "name": "Rooms",
-                "type": "panel",
-                "anchor": "tl",
-                "x": 0,
-                "y": 0,
-                "w": 240,
-                "h": 160,
-                "wMode": "fill",
-                "hMode": "auto",
-                "layout": "row",
-                "gap": 12,
-                "padding": 8,
-                "align": "center",
-                "columns": 3,
-                "style": {
-                  "fill": "color-mix(in srgb, var(--tw-border) 18%, var(--tw-panel))",
-                  "border": "color-mix(in srgb, var(--tw-border) 55%, var(--tw-panel))",
-                  "borderWidth": 1,
-                  "radius": 0
-                },
-                "states": {
-                  "hover": {
-                    "fill": "color-mix(in srgb, var(--tw-highlight) 22%, var(--tw-panel))",
-                    "border": "var(--tw-highlight)",
-                    "borderWidth": 1
-                  },
-                  "focus": {
-                    "fill": "color-mix(in srgb, var(--tw-highlight) 22%, var(--tw-panel))",
-                    "border": "var(--tw-highlight)",
-                    "borderWidth": 1
-                  },
-                  "pressed": {
-                    "fill": "color-mix(in srgb, var(--tw-highlight) 32%, var(--tw-panel))",
-                    "border": "var(--tw-highlight)",
-                    "borderWidth": 1
-                  },
-                  "disabled": {
-                    "opacity": 0.4
-                  }
-                },
-                "anim": [],
-                "text": "",
-                "sprite": "",
-                "value": "",
-                "max": "100",
-                "min": 0,
-                "step": 1,
-                "options": "",
-                "source": "",
-                "template": "",
-                "drag": false,
-                "visible": "{host.hasSave}",
-                "enabled": "",
-                "on": {
-                  "click": [
-                    {
-                      "type": "uiScreen",
-                      "params": {
-                        "op": "open",
-                        "screen": "Rooms"
-                      }
-                    }
-                  ],
-                  "hover": [],
-                  "change": []
-                },
-                "focus": {
-                  "up": "",
-                  "down": "",
-                  "left": "",
-                  "right": ""
-                },
-                "tooltip": "",
-                "prefab": "",
-                "overrides": {},
-                "marks": "player:#6fe08a, enemy:#e05a5a",
-                "children": [
-                  {
-                    "id": "title.rooms.label",
-                    "name": "Label",
-                    "type": "text",
-                    "anchor": "tl",
-                    "x": 0,
-                    "y": 0,
-                    "w": 160,
-                    "h": 28,
-                    "wMode": "auto",
-                    "hMode": "auto",
-                    "layout": "free",
-                    "gap": 8,
-                    "padding": 0,
-                    "align": "start",
-                    "columns": 3,
-                    "style": {
-                      "fontSize": 18
-                    },
-                    "states": {},
-                    "anim": [],
-                    "text": "Rooms",
-                    "sprite": "",
-                    "value": "",
-                    "max": "100",
-                    "min": 0,
-                    "step": 1,
-                    "options": "",
-                    "source": "",
-                    "template": "",
-                    "drag": false,
-                    "visible": "",
-                    "enabled": "",
-                    "on": {
-                      "click": [],
-                      "hover": [],
-                      "change": []
-                    },
-                    "focus": {
-                      "up": "",
-                      "down": "",
-                      "left": "",
-                      "right": ""
-                    },
-                    "tooltip": "",
-                    "prefab": "",
-                    "overrides": {},
-                    "marks": "player:#6fe08a, enemy:#e05a5a",
-                    "children": []
-                  },
-                  {
-                    "id": "title.rooms.gap",
                     "name": "Space",
                     "type": "spacer",
                     "anchor": "tl",
@@ -2381,7 +2388,7 @@
             "source": "",
             "template": "",
             "drag": false,
-            "visible": "{ng_room_no}",
+            "visible": "{ng_room_name}",
             "enabled": "",
             "on": {
               "click": [],
@@ -2582,7 +2589,7 @@
                 "source": "",
                 "template": "",
                 "drag": false,
-                "visible": "",
+                "visible": "{ng_room_no}",
                 "enabled": "",
                 "on": {
                   "click": [],
@@ -3091,7 +3098,7 @@
             "source": "",
             "template": "",
             "drag": false,
-            "visible": "{ng_room_no}",
+            "visible": "{ng_room_name}",
             "enabled": "",
             "on": {
               "click": [],
@@ -3232,7 +3239,7 @@
                 "style": {},
                 "states": {},
                 "anim": [],
-                "text": "Arrows:walk|E:lamp|Shift:turn|R:restart|Esc:pause",
+                "text": "Arrows:walk|E:lamp|Shift:turn|R:restart|H:hub|Esc:pause",
                 "sprite": "",
                 "value": "",
                 "max": "100",
@@ -4413,6 +4420,13 @@
                       "type": "uiScreen",
                       "params": {
                         "op": "close",
+                        "screen": "Chapter"
+                      }
+                    },
+                    {
+                      "type": "uiScreen",
+                      "params": {
+                        "op": "close",
                         "screen": "The end"
                       }
                     },
@@ -4566,7 +4580,7 @@
                     },
                     "states": {},
                     "anim": [],
-                    "text": "Customize flora",
+                    "text": "Garden hub",
                     "sprite": "",
                     "value": "",
                     "max": "100",
@@ -5138,6 +5152,192 @@
                   },
                   {
                     "id": "pause.settings.gap",
+                    "name": "Space",
+                    "type": "spacer",
+                    "anchor": "tl",
+                    "x": 0,
+                    "y": 0,
+                    "w": 8,
+                    "h": 8,
+                    "wMode": "fill",
+                    "hMode": "auto",
+                    "layout": "free",
+                    "gap": 8,
+                    "padding": 8,
+                    "align": "start",
+                    "columns": 3,
+                    "style": {},
+                    "states": {},
+                    "anim": [],
+                    "text": "",
+                    "sprite": "",
+                    "value": "",
+                    "max": "100",
+                    "min": 0,
+                    "step": 1,
+                    "options": "",
+                    "source": "",
+                    "template": "",
+                    "drag": false,
+                    "visible": "",
+                    "enabled": "",
+                    "on": {
+                      "click": [],
+                      "hover": [],
+                      "change": []
+                    },
+                    "focus": {
+                      "up": "",
+                      "down": "",
+                      "left": "",
+                      "right": ""
+                    },
+                    "tooltip": "",
+                    "prefab": "",
+                    "overrides": {},
+                    "marks": "player:#6fe08a, enemy:#e05a5a",
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "id": "pause.mainmenu",
+                "name": "Main menu",
+                "type": "panel",
+                "anchor": "tl",
+                "x": 0,
+                "y": 0,
+                "w": 240,
+                "h": 160,
+                "wMode": "fill",
+                "hMode": "auto",
+                "layout": "row",
+                "gap": 12,
+                "padding": 8,
+                "align": "center",
+                "columns": 3,
+                "style": {
+                  "fill": "color-mix(in srgb, var(--tw-border) 18%, var(--tw-panel))",
+                  "border": "color-mix(in srgb, var(--tw-border) 55%, var(--tw-panel))",
+                  "borderWidth": 1,
+                  "radius": 0
+                },
+                "states": {
+                  "hover": {
+                    "fill": "color-mix(in srgb, var(--tw-highlight) 22%, var(--tw-panel))",
+                    "border": "var(--tw-highlight)",
+                    "borderWidth": 1
+                  },
+                  "focus": {
+                    "fill": "color-mix(in srgb, var(--tw-highlight) 22%, var(--tw-panel))",
+                    "border": "var(--tw-highlight)",
+                    "borderWidth": 1
+                  },
+                  "pressed": {
+                    "fill": "color-mix(in srgb, var(--tw-highlight) 32%, var(--tw-panel))",
+                    "border": "var(--tw-highlight)",
+                    "borderWidth": 1
+                  },
+                  "disabled": {
+                    "opacity": 0.4
+                  }
+                },
+                "anim": [],
+                "text": "",
+                "sprite": "",
+                "value": "",
+                "max": "100",
+                "min": 0,
+                "step": 1,
+                "options": "",
+                "source": "",
+                "template": "",
+                "drag": false,
+                "visible": "",
+                "enabled": "",
+                "on": {
+                  "click": [
+                    {
+                      "type": "uiScreen",
+                      "params": {
+                        "op": "close",
+                        "screen": "role:pause"
+                      }
+                    },
+                    {
+                      "type": "uiScreen",
+                      "params": {
+                        "op": "open",
+                        "screen": "role:title"
+                      }
+                    }
+                  ],
+                  "hover": [],
+                  "change": []
+                },
+                "focus": {
+                  "up": "",
+                  "down": "",
+                  "left": "",
+                  "right": ""
+                },
+                "tooltip": "",
+                "prefab": "",
+                "overrides": {},
+                "marks": "player:#6fe08a, enemy:#e05a5a",
+                "children": [
+                  {
+                    "id": "pause.mainmenu.label",
+                    "name": "Label",
+                    "type": "text",
+                    "anchor": "tl",
+                    "x": 0,
+                    "y": 0,
+                    "w": 160,
+                    "h": 28,
+                    "wMode": "auto",
+                    "hMode": "auto",
+                    "layout": "free",
+                    "gap": 8,
+                    "padding": 0,
+                    "align": "start",
+                    "columns": 3,
+                    "style": {
+                      "fontSize": 18
+                    },
+                    "states": {},
+                    "anim": [],
+                    "text": "Main menu",
+                    "sprite": "",
+                    "value": "",
+                    "max": "100",
+                    "min": 0,
+                    "step": 1,
+                    "options": "",
+                    "source": "",
+                    "template": "",
+                    "drag": false,
+                    "visible": "",
+                    "enabled": "",
+                    "on": {
+                      "click": [],
+                      "hover": [],
+                      "change": []
+                    },
+                    "focus": {
+                      "up": "",
+                      "down": "",
+                      "left": "",
+                      "right": ""
+                    },
+                    "tooltip": "",
+                    "prefab": "",
+                    "overrides": {},
+                    "marks": "player:#6fe08a, enemy:#e05a5a",
+                    "children": []
+                  },
+                  {
+                    "id": "pause.mainmenu.gap",
                     "name": "Space",
                     "type": "spacer",
                     "anchor": "tl",
@@ -6036,9 +6236,9 @@
                     "anchor": "tl",
                     "x": 0,
                     "y": 0,
-                    "w": 96,
-                    "h": 72,
-                    "wMode": "fixed",
+                    "w": 176,
+                    "h": 68,
+                    "wMode": "fill",
                     "hMode": "fixed",
                     "layout": "column",
                     "gap": 4,
@@ -6113,6 +6313,13 @@
                           "type": "uiScreen",
                           "params": {
                             "op": "close",
+                            "screen": "Chapter"
+                          }
+                        },
+                        {
+                          "type": "uiScreen",
+                          "params": {
+                            "op": "close",
                             "screen": "The end"
                           }
                         },
@@ -6140,7 +6347,7 @@
                       "left": "",
                       "right": ""
                     },
-                    "tooltip": "{row.name}",
+                    "tooltip": "{row.chapter} · {row.name}",
                     "prefab": "",
                     "overrides": {},
                     "marks": "player:#6fe08a, enemy:#e05a5a",
@@ -6210,7 +6417,8 @@
                             "columns": 3,
                             "style": {
                               "fontSize": 18,
-                              "color": "var(--tw-accent)"
+                              "color": "var(--tw-accent)",
+                              "bold": true
                             },
                             "states": {},
                             "anim": [],
@@ -6463,8 +6671,8 @@
                         "align": "start",
                         "columns": 3,
                         "style": {
-                          "fontSize": 12,
-                          "color": "#8f96b3"
+                          "fontSize": 15,
+                          "color": "var(--tw-text)"
                         },
                         "states": {},
                         "anim": [],
@@ -6515,7 +6723,7 @@
                         "columns": 3,
                         "style": {
                           "fontSize": 12,
-                          "color": "#5b6384"
+                          "color": "#8f96b3"
                         },
                         "states": {},
                         "anim": [],
@@ -8932,6 +9140,13 @@
                       "params": {
                         "op": "close",
                         "screen": "Herbarium"
+                      }
+                    },
+                    {
+                      "type": "uiScreen",
+                      "params": {
+                        "op": "close",
+                        "screen": "Chapter"
                       }
                     },
                     {
@@ -16535,6 +16750,13 @@
                       "type": "uiScreen",
                       "params": {
                         "op": "close",
+                        "screen": "Chapter"
+                      }
+                    },
+                    {
+                      "type": "uiScreen",
+                      "params": {
+                        "op": "close",
                         "screen": "The end"
                       }
                     },
@@ -16799,6 +17021,192 @@
                   },
                   {
                     "id": "end.rooms.go.gap",
+                    "name": "Space",
+                    "type": "spacer",
+                    "anchor": "tl",
+                    "x": 0,
+                    "y": 0,
+                    "w": 8,
+                    "h": 8,
+                    "wMode": "fill",
+                    "hMode": "auto",
+                    "layout": "free",
+                    "gap": 8,
+                    "padding": 8,
+                    "align": "start",
+                    "columns": 3,
+                    "style": {},
+                    "states": {},
+                    "anim": [],
+                    "text": "",
+                    "sprite": "",
+                    "value": "",
+                    "max": "100",
+                    "min": 0,
+                    "step": 1,
+                    "options": "",
+                    "source": "",
+                    "template": "",
+                    "drag": false,
+                    "visible": "",
+                    "enabled": "",
+                    "on": {
+                      "click": [],
+                      "hover": [],
+                      "change": []
+                    },
+                    "focus": {
+                      "up": "",
+                      "down": "",
+                      "left": "",
+                      "right": ""
+                    },
+                    "tooltip": "",
+                    "prefab": "",
+                    "overrides": {},
+                    "marks": "player:#6fe08a, enemy:#e05a5a",
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "id": "end.title.go",
+                "name": "Main menu",
+                "type": "panel",
+                "anchor": "tl",
+                "x": 0,
+                "y": 0,
+                "w": 240,
+                "h": 160,
+                "wMode": "fill",
+                "hMode": "auto",
+                "layout": "row",
+                "gap": 12,
+                "padding": 8,
+                "align": "center",
+                "columns": 3,
+                "style": {
+                  "fill": "color-mix(in srgb, var(--tw-border) 18%, var(--tw-panel))",
+                  "border": "color-mix(in srgb, var(--tw-border) 55%, var(--tw-panel))",
+                  "borderWidth": 1,
+                  "radius": 0
+                },
+                "states": {
+                  "hover": {
+                    "fill": "color-mix(in srgb, var(--tw-highlight) 22%, var(--tw-panel))",
+                    "border": "var(--tw-highlight)",
+                    "borderWidth": 1
+                  },
+                  "focus": {
+                    "fill": "color-mix(in srgb, var(--tw-highlight) 22%, var(--tw-panel))",
+                    "border": "var(--tw-highlight)",
+                    "borderWidth": 1
+                  },
+                  "pressed": {
+                    "fill": "color-mix(in srgb, var(--tw-highlight) 32%, var(--tw-panel))",
+                    "border": "var(--tw-highlight)",
+                    "borderWidth": 1
+                  },
+                  "disabled": {
+                    "opacity": 0.4
+                  }
+                },
+                "anim": [],
+                "text": "",
+                "sprite": "",
+                "value": "",
+                "max": "100",
+                "min": 0,
+                "step": 1,
+                "options": "",
+                "source": "",
+                "template": "",
+                "drag": false,
+                "visible": "",
+                "enabled": "",
+                "on": {
+                  "click": [
+                    {
+                      "type": "uiScreen",
+                      "params": {
+                        "op": "close",
+                        "screen": "The end"
+                      }
+                    },
+                    {
+                      "type": "uiScreen",
+                      "params": {
+                        "op": "open",
+                        "screen": "role:title"
+                      }
+                    }
+                  ],
+                  "hover": [],
+                  "change": []
+                },
+                "focus": {
+                  "up": "",
+                  "down": "",
+                  "left": "",
+                  "right": ""
+                },
+                "tooltip": "",
+                "prefab": "",
+                "overrides": {},
+                "marks": "player:#6fe08a, enemy:#e05a5a",
+                "children": [
+                  {
+                    "id": "end.title.go.label",
+                    "name": "Label",
+                    "type": "text",
+                    "anchor": "tl",
+                    "x": 0,
+                    "y": 0,
+                    "w": 160,
+                    "h": 28,
+                    "wMode": "auto",
+                    "hMode": "auto",
+                    "layout": "free",
+                    "gap": 8,
+                    "padding": 0,
+                    "align": "start",
+                    "columns": 3,
+                    "style": {
+                      "fontSize": 18
+                    },
+                    "states": {},
+                    "anim": [],
+                    "text": "Main menu",
+                    "sprite": "",
+                    "value": "",
+                    "max": "100",
+                    "min": 0,
+                    "step": 1,
+                    "options": "",
+                    "source": "",
+                    "template": "",
+                    "drag": false,
+                    "visible": "",
+                    "enabled": "",
+                    "on": {
+                      "click": [],
+                      "hover": [],
+                      "change": []
+                    },
+                    "focus": {
+                      "up": "",
+                      "down": "",
+                      "left": "",
+                      "right": ""
+                    },
+                    "tooltip": "",
+                    "prefab": "",
+                    "overrides": {},
+                    "marks": "player:#6fe08a, enemy:#e05a5a",
+                    "children": []
+                  },
+                  {
+                    "id": "end.title.go.gap",
                     "name": "Space",
                     "type": "spacer",
                     "anchor": "tl",

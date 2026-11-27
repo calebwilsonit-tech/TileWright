@@ -14,7 +14,7 @@ export interface RoomRow {
 }
 
 const KEYS = 'W / S choose · E select · Esc back';
-const leaveMenus = [close('Rooms'), close('Herbarium'), close('The end'), close('role:pause'), close('role:title')];
+const leaveMenus = [close('Rooms'), close('Herbarium'), close('Chapter'), close('The end'), close('role:pause'), close('role:title')];
 const goHub = [act('setVariable', { name: 'ng_goto', op: 'set', value: 'scenes/hub.scene.json' }), ...leaveMenus];
 
 function title(): UiScreen {
@@ -43,8 +43,8 @@ function title(): UiScreen {
       row('title.continue', 'Continue', [act('loadGame', { slot: 'latest' }), close('role:title')], { detail: '{host.latestSave}', visible: '{host.hasSave}', primary: true }),
       row('title.new', 'New game', [close('role:title')], { primary: true }),
       row('title.hub', 'The Conservatory', goHub, { detail: 'Garden hub' }),
+      row('title.rooms', 'Rooms', [open('Rooms')]),
       row('title.herbarium', 'Herbarium', [open('Herbarium')]),
-      row('title.rooms', 'Rooms', [open('Rooms')], { visible: '{host.hasSave}' }),
       row('title.how', 'How to play', [open('How to play')]),
       row('title.settings', 'Settings', [open('role:settings')]),
       row('title.quit', 'Quit', [act('quitGame')], { visible: '{host.quit}' }),
@@ -61,10 +61,11 @@ function pause(): UiScreen {
       row('pause.resume', 'Resume', [close('role:pause')], { primary: true }),
       row('pause.restart', 'Restart room', [close('role:pause'), act('restartArea')], { detail: 'R' }),
       row('pause.rooms', 'Rooms', [open('Rooms')], { detail: '{ng_done} of {ng_total} tended' }),
-      row('pause.hub', 'The Conservatory', goHub, { detail: 'Customize flora' }),
+      row('pause.hub', 'The Conservatory', goHub, { detail: 'Garden hub' }),
       row('pause.herbarium', 'Herbarium', [open('Herbarium')], { detail: '{ng_pars} par medals' }),
       row('pause.how', 'How to play', [open('How to play')]),
       row('pause.settings', 'Settings', [open('role:settings')]),
+      row('pause.mainmenu', 'Main menu', [close('role:pause'), open('role:title')]),
       row('pause.quit', 'Quit', [act('quitGame')], { visible: '{host.quit}' }),
     ], { subtitle: '{ng_chapter} · {ng_room_no} {ng_room_name}', hint: KEYS }),
   });
@@ -188,9 +189,9 @@ function herbarium(): UiScreen {
 function rooms(): UiScreen {
   const card = widget('panel', 'rooms.card', {
     name: 'Room card',
-    w: 96,
-    h: 72,
-    wMode: 'fixed',
+    w: 176,
+    h: 68,
+    wMode: 'fill',
     hMode: 'fixed',
     layout: 'column',
     align: 'start',
@@ -206,7 +207,7 @@ function rooms(): UiScreen {
     enabled: '{row.no} = 1 || {row.no} <= {ng_reach}',
     // the Room script of the room being played sees ng_goto and goes there (the row's scene is only known here, on the card)
     on: { click: [act('setVariable', { name: 'ng_goto', op: 'set', value: '{row.scene}' }), ...leaveMenus], hover: [], change: [] },
-    tooltip: '{row.name}',
+    tooltip: '{row.chapter} · {row.name}',
     children: [
       widget('panel', 'rooms.card.top', {
         name: 'Number and marks',
@@ -218,15 +219,15 @@ function rooms(): UiScreen {
         padding: 0,
         style: {},
         children: [
-          words('rooms.card.no', '{row.no}', TYPE.row, { name: 'Number', style: { color: COLOR.accent } }),
+          words('rooms.card.no', '{row.no}', TYPE.row, { name: 'Number', style: { color: COLOR.accent, bold: true } }),
           widget('spacer', 'rooms.card.gap', { name: 'Space', wMode: 'fill', hMode: 'auto', w: 4, h: 4 }),
           words('rooms.card.par', '★', TYPE.body, { name: 'Par medal', style: { color: COLOR.accent }, visible: '{par_{row.id}} = 1' }),
           words('rooms.card.fly', '✦', TYPE.body, { name: 'Firefly caught', style: { color: COLOR.firefly }, visible: '{fly_{row.id}} = 1' }),
           words('rooms.card.done', '✓', TYPE.body, { name: 'Tended', style: { color: COLOR.done }, visible: '{done_{row.id}} = 1' }),
         ],
       }),
-      words('rooms.card.name', '{row.name}', TYPE.hint, { name: 'Room name', wMode: 'fill', style: { color: COLOR.dim } }),
-      words('rooms.card.diff', 'Diff {row.difficulty} · Par {row.par}', TYPE.hint, { name: 'Difficulty', wMode: 'fill', style: { color: COLOR.locked } }),
+      words('rooms.card.name', '{row.name}', TYPE.body, { name: 'Room name', wMode: 'fill', style: { color: COLOR.text } }),
+      words('rooms.card.diff', 'Diff {row.difficulty} · Par {row.par}', TYPE.hint, { name: 'Difficulty', wMode: 'fill', style: { color: COLOR.dim } }),
     ],
   });
   const grid = widget('grid', 'rooms.grid', { name: 'Rooms', source: 'table:Rooms', columns: 6, wMode: 'fill', hMode: 'auto', gap: SPACE.rowPad, padding: 0, style: {}, children: [card] });
@@ -304,6 +305,7 @@ function theEnd(): UiScreen {
       space('end.space2'),
       row('end.hub', 'Visit the Conservatory', goHub, { primary: true }),
       row('end.rooms.go', 'Rooms', [open('Rooms')]),
+      row('end.title.go', 'Main menu', [close('The end'), open('role:title')]),
       row('end.stay', 'Stay in the garden', [close('The end')]),
     ], { hint: KEYS, titleNode: header }),
   });
@@ -317,10 +319,10 @@ function hud(): UiScreen {
       widget('image', 'hud.lamp.icon', { name: 'Lamp', sprite: 'lamp_on', w: 12, h: 24, wMode: 'fixed', hMode: 'fixed', style: {} }),
       words('hud.chapter', '{ng_chapter}', TYPE.body, { style: { color: COLOR.dim } }),
       words('hud.sep0', '·', TYPE.body, { style: { color: COLOR.dim } }),
-      words('hud.room', '{ng_room_no}', TYPE.body, { style: { color: COLOR.accent, bold: true } }),
+      words('hud.room', '{ng_room_no}', TYPE.body, { style: { color: COLOR.accent, bold: true }, visible: '{ng_room_no}' }),
       words('hud.name', '{ng_room_name}', TYPE.body),
     ],
-    { anchor: 'tl', x: SPACE.edge, y: SPACE.edge, visible: '{ng_room_no}' },
+    { anchor: 'tl', x: SPACE.edge, y: SPACE.edge, visible: '{ng_room_name}' },
   );
   const tally = chip(
     'hud.tally',
@@ -337,7 +339,7 @@ function hud(): UiScreen {
   );
   const foot = widget('panel', 'hud.foot', {
     name: 'Hint and keys',
-    visible: '{ng_room_no}',
+    visible: '{ng_room_name}',
     anchor: 'b',
     x: 0,
     y: -SPACE.edge,
@@ -350,7 +352,7 @@ function hud(): UiScreen {
     style: {},
     children: [
       chip('hud.hint', [words('hud.hint.words', '{ng_hint}', TYPE.body)], { visible: '{ng_hint}' }),
-      widget('plugin', 'hud.keys', { name: 'Keys', source: 'botanical-keys', text: 'Arrows:walk|E:lamp|Shift:turn|R:restart|Esc:pause', wMode: 'auto', hMode: 'auto', padding: 0, style: {} }),
+      widget('plugin', 'hud.keys', { name: 'Keys', source: 'botanical-keys', text: 'Arrows:walk|E:lamp|Shift:turn|R:restart|H:hub|Esc:pause', wMode: 'auto', hMode: 'auto', padding: 0, style: {} }),
     ],
   });
   const root = widget('panel', 'hud.root', { name: 'HUD root', anchor: 'fill', layout: 'free', padding: 0, style: {}, children: [where, tally, foot] });

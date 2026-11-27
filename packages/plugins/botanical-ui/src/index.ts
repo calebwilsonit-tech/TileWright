@@ -136,7 +136,7 @@ const BOTANICAL_CSS = `
   width: 100% !important;
   height: 100% !important;
   max-height: none !important;
-  padding: 56px 72px 44px 80px !important;
+  padding: 28px 64px 24px 72px !important;
   background: none !important;
   border: none !important;
   box-shadow: none !important;
@@ -157,7 +157,7 @@ const BOTANICAL_CSS = `
 .tw-screens:has(.tw-botanical-scope) [data-testid="tw-screen-Title"] [data-id$="title.mark"] {
   width: 440px !important;
   align-items: flex-start !important;
-  margin-bottom: 6px;
+  margin-bottom: 2px;
 }
 
 .tw-screens:has(.tw-botanical-scope) [data-testid="tw-screen-Title"] [data-id$="title.name"],
@@ -166,9 +166,9 @@ const BOTANICAL_CSS = `
 }
 
 .tw-screens:has(.tw-botanical-scope) [data-testid="tw-screen-Title"] [data-id$="title.picture"] {
-  width: 240px !important;
-  height: 96px !important;
-  margin-bottom: 4px;
+  width: 200px !important;
+  height: 76px !important;
+  margin-bottom: 2px;
 }
 
 .tw-screens:has(.tw-botanical-scope) [data-testid="tw-screen-Title"] [data-id$="title.picture"] img {
@@ -176,7 +176,7 @@ const BOTANICAL_CSS = `
 }
 
 .tw-screens:has(.tw-botanical-scope) [data-testid="tw-screen-Title"] .tw-w.panel.clickable {
-  width: 340px !important;
+  width: 360px !important;
 }
 
 .tw-screens:has(.tw-botanical-scope) [data-testid="tw-screen-Title"] [data-id$="title.rule.bottom"] {
@@ -184,7 +184,7 @@ const BOTANICAL_CSS = `
 }
 
 .tw-screens:has(.tw-botanical-scope) [data-testid="tw-screen-Title"] [data-id$="title.hint"] {
-  margin-top: 20px;
+  margin-top: 10px;
   opacity: 0.65;
 }
 
@@ -195,10 +195,10 @@ const BOTANICAL_CSS = `
   bottom: 0 !important;
   left: 0 !important;
   transform: none !important;
-  width: 390px !important;
+  width: 420px !important;
   height: 100% !important;
   max-height: none !important;
-  padding: 52px 36px 36px 48px !important;
+  padding: 28px 36px 24px 48px !important;
   background: linear-gradient(90deg, rgba(10, 14, 26, 0.96) 0%, rgba(13, 18, 33, 0.92) 86%, rgba(13, 18, 33, 0.72) 100%) !important;
   backdrop-filter: blur(12px);
   border: none !important;
@@ -214,10 +214,60 @@ const BOTANICAL_CSS = `
   min-height: 100% !important;
 }
 
-/* ---------- ALL OTHER OVERLAY PANELS (Chapter, Rooms, Settings, Controls, How to play, The end) ---------- */
+.tw-screens:has(.tw-botanical-scope) [data-testid="tw-screen-Pause"] [data-name="Label"],
+.tw-screens:has(.tw-botanical-scope) [data-testid="tw-screen-Pause"] [data-name="Detail"],
+.tw-screens:has(.tw-botanical-scope) [data-testid="tw-screen-Title"] [data-name="Label"],
+.tw-screens:has(.tw-botanical-scope) [data-testid="tw-screen-Title"] [data-name="Detail"] {
+  white-space: nowrap !important;
+}
+
+/* ---------- FULL-SCREEN EDITORIAL ROOM CHOOSER (no cramped modal box!) ---------- */
+.tw-screens:has(.tw-botanical-scope) [data-testid="tw-screen-Rooms"] [data-id$="rooms.box"] {
+  position: absolute !important;
+  inset: 0 !important;
+  left: 0 !important;
+  top: 0 !important;
+  transform: none !important;
+  width: 100% !important;
+  height: 100% !important;
+  max-height: none !important;
+  padding: 20px 44px 16px !important;
+  background: none !important;
+  border: none !important;
+  box-shadow: none !important;
+  zoom: 1 !important;
+}
+
+.tw-screens:has(.tw-botanical-scope) [data-testid="tw-screen-Rooms"] [data-id$="rooms.box"] > .tw-scroll-content {
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+  min-height: 100% !important;
+  width: 100% !important;
+  max-width: 1180px !important;
+  margin: 0 auto !important;
+}
+
+.tw-screens:has(.tw-botanical-scope) [data-testid="tw-screen-Rooms"] [data-id$="rooms.grid"] {
+  display: grid !important;
+  grid-template-columns: repeat(6, minmax(0, 1fr)) !important;
+  gap: 8px 10px !important;
+  width: 100% !important;
+  margin: 4px 0 10px !important;
+}
+
+.tw-screens:has(.tw-botanical-scope) [data-testid="tw-screen-Rooms"] [data-id$="rooms.back"] {
+  width: 220px !important;
+}
+
+.tw-screens:has(.tw-botanical-scope) [data-testid="tw-screen-Rooms"] [data-id$="rooms.rule.bottom"] {
+  display: none !important;
+}
+
+/* ---------- ALL OTHER OVERLAY PANELS (Chapter, Settings, Controls, How to play, Herbarium, The end) ---------- */
 /* Hard corners, zero 4-sided outline, clean dark tonal surface + single top 2px gold hairline.
    Use > .tw-w > so nested widgets whose id happens to end in ".box" (like settings.full.box) are never matched! */
-.tw-screens:has(.tw-botanical-scope) .tw-screen > .tw-w > [data-id$=".box"]:not([data-id$="title.box"]):not([data-id$="pause.box"]) {
+.tw-screens:has(.tw-botanical-scope) .tw-screen > .tw-w > [data-id$=".box"]:not([data-id$="title.box"]):not([data-id$="pause.box"]):not([data-id$="rooms.box"]) {
   background: linear-gradient(180deg, rgba(18, 23, 40, 0.96) 0%, rgba(11, 14, 25, 0.98) 100%) !important;
   border: none !important;
   border-top: 2px solid #ffd76a !important;
@@ -257,7 +307,7 @@ const BOTANICAL_CSS = `
   border: none !important;
   border-left: 2px solid transparent !important;
   border-radius: 0 !important;
-  padding: 11px 16px !important;
+  padding: 8px 14px !important;
   box-shadow: none !important;
   transition: transform 140ms ease, background 150ms ease, border-color 150ms ease, color 150ms ease;
 }
@@ -302,19 +352,55 @@ const BOTANICAL_CSS = `
 
 /* ---------- SHARP-CORNERED BORDERLESS ROOM TILES ---------- */
 .tw-screens:has(.tw-botanical-scope) [data-name="Room card"] {
-  background: rgba(255, 255, 255, 0.045) !important;
+  width: 100% !important;
+  min-width: 0 !important;
+  height: 68px !important;
+  padding: 7px 10px !important;
+  background: rgba(15, 20, 35, 0.78) !important;
+  backdrop-filter: blur(6px);
   border: none !important;
-  border-bottom: 2px solid transparent !important;
+  border-left: 2px solid rgba(255, 215, 106, 0.28) !important;
   border-radius: 0 !important;
   box-shadow: none !important;
-  transition: background 130ms ease, border-color 130ms ease, transform 120ms ease;
+  overflow: hidden !important;
+  justify-content: space-between !important;
+  transition: background 140ms ease, border-color 140ms ease, transform 130ms ease;
+}
+
+.tw-screens:has(.tw-botanical-scope) [data-name="Room card"].disabled {
+  background: rgba(12, 16, 28, 0.56) !important;
+  border-left-color: rgba(143, 155, 184, 0.16) !important;
 }
 
 .tw-screens:has(.tw-botanical-scope) [data-name="Room card"]:hover:not(.disabled),
 .tw-screens:has(.tw-botanical-scope) [data-name="Room card"].focused {
-  background: rgba(255, 215, 106, 0.16) !important;
-  border-bottom: 2px solid #ffd76a !important;
+  background: linear-gradient(90deg, rgba(255, 215, 106, 0.2) 0%, rgba(255, 215, 106, 0.06) 100%) !important;
+  border-left: 2px solid #ffd76a !important;
   transform: translateY(-2px);
+}
+
+.tw-screens:has(.tw-botanical-scope) [data-name="Room card"] [data-name="Number"] {
+  font-family: Georgia, 'Palatino Linotype', serif !important;
+  font-size: 19px !important;
+  line-height: 1 !important;
+}
+
+.tw-screens:has(.tw-botanical-scope) [data-name="Room card"] [data-name="Room name"] {
+  font-size: 13.5px !important;
+  font-weight: 500 !important;
+  line-height: 1.25 !important;
+  white-space: nowrap !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+}
+
+.tw-screens:has(.tw-botanical-scope) [data-name="Room card"] [data-name="Difficulty"] {
+  font-size: 11px !important;
+  letter-spacing: 0.03em !important;
+  opacity: 0.78 !important;
+  white-space: nowrap !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
 }
 
 /* ---------- CLEAN BORDERLESS IN-GAME HUD ---------- */

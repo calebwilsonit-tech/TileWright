@@ -123,7 +123,17 @@ export function buildProject(chapters: Chapter[], dir = PROJECT_DIR): { rooms: R
       ),
     ),
   );
-  write('assets/input.json', json({ schemaVersion: 1, overrides: {}, actions: [{ id: 'restart', label: 'Start the room again', bindings: ['key:KeyR', 'pad:button2'] }] }));
+  write(
+    'assets/input.json',
+    json({
+      schemaVersion: 1,
+      overrides: {},
+      actions: [
+        { id: 'restart', label: 'Start the room again', bindings: ['key:KeyR', 'pad:button2'] },
+        { id: 'hub', label: 'Visit the Conservatory hub', bindings: ['key:KeyH'] },
+      ],
+    }),
+  );
   // the pictures, exactly as the sprite studio and the tile studio saved them
   for (const [f, text] of art.sprites) write(`assets/sprites/${f}`, text);
   // the soft sound effects and calm looping music
